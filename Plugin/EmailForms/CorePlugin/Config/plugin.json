@@ -1,0 +1,12 @@
+{
+	"Plugins": 
+	{
+		"EmailForms": 
+		{
+			"name": "Email Forms",
+			"description": "Email forms that can be inserted as blocks of content into any page.",
+			"since": "1.0",
+			"schemaVersion": 9
+		}
+	}
+}

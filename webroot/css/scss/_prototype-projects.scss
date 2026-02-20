@@ -1,0 +1,32 @@
+@layer blocks {
+  .projects .project {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 2.5rem 0;
+  }
+
+  .projects .project picture,
+  .projects .project .details {
+    flex: 1 1 500px;
+  }
+
+  .projects .project .details {
+    margin-left: 2.5rem;
+  }
+
+  .proj-dtl {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .proj-dtl .col {
+    flex: 1 1 500px;
+  }
+
+  .proj-dtl .scnd-col {
+    margin-left: 2.5rem;
+  }
+}
+

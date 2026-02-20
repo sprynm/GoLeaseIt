@@ -1,0 +1,22 @@
+@layer blocks {
+  .breadcrumbs {
+    font-size: var(--step-0);
+    margin: 0 0 var(--space-xl);
+  }
+
+  .breadcrumbs .brdcrmb-dvdr {
+    display: inline-block;
+    margin: 0 0.125rem;
+    width: 0.6875rem;
+    height: 0.6875rem;
+    mask: url(/img/icons/dbl-arrow.svg);
+    mask-size: cover;
+    background: var(--color-ink-muted);
+  }
+
+  .breadcrumbs .current {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-brand-primary);
+  }
+}
+

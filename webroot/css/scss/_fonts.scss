@@ -1,0 +1,20 @@
+
+/* Varibles to keep the font name space in sync */
+/* Scss Document */
+@layer base {
+@font-face {
+  font-family: "Barlow";
+  src: url("/fonts/barlow-vf.woff2") format("woff2-variations");
+  font-weight: 22 188;
+  font-stretch: 300% 500%;
+  font-style: normal;
+  font-display: swap; }
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("/fonts/open-sans-vf.woff2") format("woff2-variations");
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap; }
+}
+

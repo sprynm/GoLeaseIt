@@ -1,0 +1,33 @@
+* {float: none;}
+
+body {
+   background: white;
+   color: #111;
+   font-size: 12pt;
+   font-family: Georgia, 'Times New Roman', serif;
+   }
+
+header, footer, nav, .paginate-form, aside, #photos { display: none;}
+header {height: auto;}
+
+#content {
+    width: 100%;
+    margin: 0;
+    float: none;
+    background: transparent;    
+}
+
+a:link, a:visited {
+   background: transparent;
+   font-weight: bold;
+   text-decoration: underline;
+   color: #06c;
+   }
+   
+a:link:after {
+    content: " (" attr(href) ") ";
+}
+
+#printMsg {
+    display: block;
+}

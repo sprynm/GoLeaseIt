@@ -1,0 +1,32 @@
+/* New style system entrypoint (legacy files kept as backup). */
+@use "layers" as *;
+@use "queries" as *;
+@use "theme" as *;
+@use "reset" as *;
+@use "fonts" as *;
+@use "base" as *;
+@use "compositions" as *;
+@use "utilities" as *;
+@use "block-nav" as *;
+@use "block-header" as *;
+@use "block-hero" as *;
+@use "block-tiles" as *;
+@use "block-footer" as *;
+@use "block-forms" as *;
+@use "block-contact" as *;
+@use "block-content" as *;
+@use "prototype-feature-boxes" as *;
+@use "prototype-our-services" as *;
+// Optional components (enable as needed)
+// @use "youtube" as *;
+@use "block-notifications" as *;
+// @use "block-breadcrumbs" as *;
+// @use "block-pagination" as *;
+// @use "block-gallery" as *;
+// @use "block-tables" as *;
+// @use "block-subnav" as *;
+@use "exceptions" as *;
+
+
+
+

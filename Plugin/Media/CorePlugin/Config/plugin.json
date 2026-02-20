@@ -1,0 +1,12 @@
+{
+	"Plugins": 
+	{
+		"Media": 
+		{
+			"name": "Media",
+			"description": "Provides core media uploading and attachment functionality.",
+			"since": "1.0",
+			"schemaVersion": 3
+		}
+	}
+}

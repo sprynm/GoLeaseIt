@@ -1,0 +1,53 @@
+.email-form-recipient {
+  border: 1px solid #f4f4f4;
+  border-radius: .25em;
+  padding: .5em .75em 0;
+  position: relative;
+  margin: 0 0 1em;
+  background: #fff;
+}
+
+.email-form-recipient .recipient-actions {
+  position: absolute;
+  left: .25em;
+  right: .25em;
+  top: .25em;
+}
+
+.email-form-recipient div.input {
+  margin: 0 0 1em;
+}
+
+.button.add-new-recipient,
+.button.add-new-recipient:link {
+  background: #2b8fad;
+  border-radius: 5px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 1.125em;
+  font-weight: bold;
+  padding: .5em;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button.add-new-recipient:hover {
+  background: #32a4c7;
+}
+
+.email-form-recipient .custom-templates .toggle {
+  cursor: pointer;
+  user-select: none;
+}
+
+
+.email-form-recipient .custom-templates .toggle::after {
+  content: "+";
+  margin: 0 0 0 .35em;
+}
+
+.email-form-recipient .custom-templates .toggle.open::after {
+  content: "-";
+}

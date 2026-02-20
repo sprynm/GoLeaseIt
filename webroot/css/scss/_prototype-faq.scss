@@ -1,0 +1,64 @@
+@layer blocks {
+  .faq {
+    margin: 0 0 1.875rem 3.75rem;
+  }
+
+  .faq .question {
+    cursor: pointer;
+    position: relative;
+    font-size: 1.625rem;
+    margin: 0;
+    padding: 0.625rem;
+  }
+
+  .faq .question.open:before {
+    mask: url(/img/icons/minus.svg);
+  }
+
+  .faq .question:before {
+    content: "";
+    width: 1.125rem;
+    height: 1.125rem;
+    mask: url(/img/icons/plus.svg);
+    mask-size: cover;
+    background: var(--color-brand-primary);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(calc(-100% - 0.5rem), -50%);
+    transition: all 250ms ease-out;
+    z-index: 1;
+  }
+
+  .faq .question:after {
+    content: "";
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: var(--radius-max);
+    box-sizing: border-box;
+    border: 0.1875rem solid var(--color-brand-primary);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transition: all 250ms ease-out;
+    transform: translate(-100%, -50%);
+  }
+
+  .faq .question:hover:before {
+    background: var(--color-surface-base);
+  }
+
+  .faq .question:hover:after {
+    background: var(--color-brand-primary);
+  }
+
+  .faq .answer {
+    position: relative;
+    padding: 0.625rem;
+  }
+
+  .faq .answer *:last-child {
+    margin-bottom: 0;
+  }
+}
+

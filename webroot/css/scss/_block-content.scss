@@ -1,0 +1,82 @@
+@layer blocks {
+  blockquote {
+    position: relative;
+    margin-block: var(--space-xl);
+    padding: clamp(1rem, 1.2vw, 1.4rem) clamp(1.25rem, 5.4vw, 4rem);
+    border: 1px solid color-mix(in srgb, var(--color-brand-primary) 20%, transparent);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-footer);
+    color: rgb(var(--white-rgb));
+    font-size: var(--step-4);
+    font-weight: var(--font-weight-strong);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+
+  blockquote::before,
+  blockquote::after {
+    position: absolute;
+    color: var(--color-brand-accent);
+    font-size: clamp(2rem, 5vw, 8rem);
+    line-height: 1;
+    font-weight: var(--font-weight-strong);
+    pointer-events: none;
+    opacity: 0.95;
+  }
+
+  blockquote::before {
+    content: "\201C";
+    left: 0.42rem;
+    top: -13px;
+  }
+
+  blockquote::after {
+    content: "\201D";
+    right: 0.5rem;
+    bottom: 0.08rem;
+  }
+
+  blockquote p {
+    margin: 0;
+    padding-inline: 1.25rem;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+  }
+
+  hr {
+    border: 0;
+    block-size: 1px;
+    background: rgb(var(--color-brand-primary-rgb) / 0.35);
+    margin-block: var(--space-xl);
+  }
+
+  details {
+    border: 1px solid var(--color-border-muted);
+    border-radius: var(--radius-sm);
+    margin-block-end: var(--space-xs);
+    background: var(--color-surface-base);
+  }
+
+  details > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: var(--space-sm);
+    font-weight: var(--font-weight-semibold);
+    background: var(--color-surface-soft);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details > :not(summary) {
+    padding: var(--space-sm);
+  }
+
+}
+
+
+

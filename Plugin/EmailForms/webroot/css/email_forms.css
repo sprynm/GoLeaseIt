@@ -1,0 +1,52 @@
+.email-form {
+	margin: 1em 0;
+}
+
+.email-form .input,.email-form .submit {
+	width: 500px;
+}
+
+.email-form .input {
+	position: relative;
+	clear: both;
+	margin-bottom: 0.5em;
+}
+
+.email-form .input input,.email-form .input textarea {
+	margin-left: 10px;
+}
+
+.email-form .input.text input,.email-form .input.password input,.email-form .input textarea
+	{
+	border: 1px solid #CCCCCC;
+	width: 65%;
+}
+
+.email-form .input label {
+	display: block;
+	float: left;
+	width: 25%;
+	padding-right: 3%;
+	text-align: right;
+}
+
+.email-form .required { /* float: left; */
+	color: #9F091A;
+	font-weight: 700;
+}
+
+#field-settings h4 {
+	clear: both;
+}
+
+#form-group-settings table.tbl_list {
+	width: auto;
+}
+
+.new_field {
+	width: 30%;
+	float: left;
+	margin: 5px;
+	padding: 5px 15px;
+	border: 1px solid #000;
+}

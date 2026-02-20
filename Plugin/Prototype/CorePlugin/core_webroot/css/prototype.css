@@ -1,0 +1,200 @@
+/* //
+Default styles for preconfigured protytpe instances
+Only use those that are required
+Move the required styles into stylesheet.css 
+// */
+
+/* FAQ Default Styles */
+.faq .question {
+  cursor: pointer;
+}
+
+.faq .question:hover {
+  color: #7dbfb5;
+}
+
+.faq .question:before {
+  content: "\25b2"; 
+  color: #c6dfc5;
+  font-size: .75em;
+  margin: 0 .25em;
+  display: inline-block;
+  -webkit-transition: all 500ms ease-out;
+  -moz-transition: all 500ms ease-out;
+  -ms-transition: all 500ms ease-out;
+  -o-transition: all 500ms ease-out;
+  transition: all 500ms ease-out;
+}
+
+.faq .question.open:before {
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.faq .question:hover:before {
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.faq .question.open:hover:before {
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.faq {
+	border-bottom: 1px solid #eee;	
+	padding: 0 0 1.25em;
+  margin: 0 0 1.25em;
+}
+
+.faq:last-child {
+  border-bottom: none; 
+  margin: 0;
+}
+/* FAQ Default Styles */
+
+
+
+/* Testimonials Default Styles */
+.testimonial {
+	font-size: 1.25em; /* 20/16 */
+  font-style: italic;
+  padding: 1em; /* 20/20 */
+  margin: 0 0 1em;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+.testimonial:before {
+  content: "\201c";
+  color: #eee;
+  font-size: 10em;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  position: absolute;
+  z-index: -1;
+  top: -.125em;
+  left: -.125em; 
+}
+
+.testimonial:last-child {
+  border-bottom: none; 
+}
+
+.testimonial-citation {
+  text-align: right; 
+  font-style: normal;
+  line-height: 1.25em;
+  font-size: .8em; /* 16/20 */ 
+}
+
+.testimonial-citation span {
+  display: block; 
+}
+
+.testimonial-name {
+  font-weight: bold;
+}
+/* Testimonials Default Styles */
+
+
+
+/* Links Default Styles */
+.link {
+  padding: 1.25em 0; /* 20/16 */
+  margin: 0 0 1.25em;
+  border-bottom: 1px solid #eee;
+}
+
+.link-name {
+  margin: 0; 
+}
+
+.link p {
+  margin: 0; 
+}
+
+.link:last-child {
+  border-bottom: none; 
+}
+/* Links Default Styles */
+
+
+
+#item-settings h4 {
+	clear: both;
+}
+
+.new_field {
+	width: 30%;
+	float: left;
+	margin: 5px;
+}
+
+.gallery-img {
+	float: left;
+	border: 5px solid #fff;
+	margin: 0px 30px 10px 0px;	
+	-moz-box-shadow: 0 0 20px #ccc;
+	-webkit-box-shadow: 0 0 20px #ccc;
+	box-shadow: 0 0 20px #ccc;
+}
+
+.gallery-summary {
+	border-bottom: 1px solid #E7DDC0;	
+	padding-bottom: 10px;
+	clear: both;
+}
+
+.news h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+	font-size: 1.3em;
+	font-weight: bold;
+	margin: 0;
+}
+
+.news h2 a{
+	color: #1A5F6A;	
+}
+
+.news h3 {
+	font-family: Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+	font-size: 1.1em;
+}
+
+.news {
+	border-bottom: 1px solid #E7DDC0;	
+	padding-bottom: 10px;
+}
+
+.news-img {
+	float: right;
+	border: 5px solid #fff;
+	margin: 0px 0px 10px 30px;	
+	-moz-box-shadow: 0 0 20px #ccc;
+	-webkit-box-shadow: 0 0 20px #ccc;
+	box-shadow: 0 0 20px #ccc;
+}
+
+.people {
+	float: left;
+	margin: 15px 0; 
+	border: 1px dashed #fff; 
+	padding: 8px;
+}
+
+.people img {
+	float: left; 
+	margin: 20px 10px 5px 0;
+}

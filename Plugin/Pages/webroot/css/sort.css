@@ -1,0 +1,15 @@
+.item-controls {
+    line-height: 25px;
+}
+
+.nested-sortable-0 li div  {
+	height: 25px;
+}
+
+#tab-user .super-page {
+	display: none;
+}
+
+#tab-super .user-page {
+	display: none;
+}

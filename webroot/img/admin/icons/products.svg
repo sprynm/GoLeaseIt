@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #261814;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-2" y="1.26" width="20" height="17.48"/>
+    </clipPath>
+  </defs>
+  <rect class="cls-2" width="20" height="20"/>
+  <g id="cart_2" data-name="cart 2">
+    <g class="cls-3">
+      <g id="Group_28" data-name="Group 28">
+        <path id="Path_73" data-name="Path 73" class="cls-1" d="m9.33,17.31c0,.79-.64,1.43-1.43,1.43s-1.43-.64-1.43-1.43c0-.79.64-1.43,1.43-1.43s1.43.64,1.43,1.43h0"/>
+        <path id="Path_74" data-name="Path 74" class="cls-1" d="m16.93,17.31c0,.79-.64,1.43-1.43,1.43s-1.43-.64-1.43-1.43.64-1.43,1.43-1.43,1.43.64,1.43,1.43h0"/>
+        <path id="Path_75" data-name="Path 75" class="cls-1" d="m19.79,3.9c-.18-.22-.45-.35-.74-.35H4.64l-.31-1.44c-.11-.49-.54-.84-1.05-.85H.72C.32,1.25,0,1.56-.02,1.96c-.01.4.3.73.7.74.01,0,.03,0,.04,0h2.27s.36,1.72.36,1.73l2.06,9.75c.11.49.54.84,1.05.85h10.76c.4.01.73-.3.74-.7s-.3-.73-.7-.74c-.01,0-.03,0-.04,0H6.75l-.2-.95,11.22-1.2c.47-.06.86-.41.97-.87l1.24-5.87c.06-.28,0-.57-.19-.8m-2.4,6.14l-11.13,1.19-1.32-6.24h13.51l-1.07,5.05Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+{
+	"Plugins": 
+	{
+		"Settings": 
+		{
+			"name": "Settings",
+			"description": "Provides core site and plugin settings functionality.",
+			"since": "1.0",
+			"schemaVersion": 3
+		}
+	}
+}

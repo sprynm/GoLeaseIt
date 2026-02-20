@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build/cache artifacts
+webroot/cache_css/
+webroot/cache_js/
+webroot/media/
+webroot/uploads/
+
+# Temp/runtime artifacts
+tmp.txt
+webroot/index.php
+
+# OS/editor artifacts
+Thumbs.db
+.DS_Store
+
+# Word lock/temp files
+~$*.docx
+docs/~$*.docx

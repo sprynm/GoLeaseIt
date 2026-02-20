@@ -1,0 +1,12 @@
+{
+	"Plugins": 
+	{
+		"Prototype": 
+		{
+			"name": "Prototype",
+			"description": "Create dynamic plugins containing items and categories.",
+			"since": "1.0",
+			"schemaVersion": 5
+		}
+	}
+}

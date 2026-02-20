@@ -1,0 +1,3 @@
+/* Style guide entrypoint: include site styles, then guide-specific blocks. */
+@use "stylesheet";
+@use "block-style-guide" as *;

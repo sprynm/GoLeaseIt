@@ -1,0 +1,12 @@
+{
+	"Plugins": 
+	{
+		"Pages": 
+		{
+			"name": "Pages",
+			"description": "Provides core page content functionality.",
+			"since": "1.0",
+			"schemaVersion": 8
+		}
+	}
+}

@@ -1,0 +1,52 @@
+{
+  "generatedAt": "2026-02-19T22:46:24.005Z",
+  "url": "http://127.0.0.1:61367/style-guide/",
+  "viewports": [
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "tablet",
+      "width": 834,
+      "height": 1194
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 2200
+    }
+  ],
+  "sections": [
+    "sg-reset-base",
+    "sg-typography",
+    "sg-layout-page",
+    "sg-css-components",
+    "sg-active-prototypes",
+    "sg-cms-components"
+  ],
+  "files": [
+    "desktop-full.png",
+    "desktop-sg-active-prototypes.png",
+    "desktop-sg-cms-components.png",
+    "desktop-sg-css-components.png",
+    "desktop-sg-layout-page.png",
+    "desktop-sg-reset-base.png",
+    "desktop-sg-typography.png",
+    "mobile-full.png",
+    "mobile-sg-active-prototypes.png",
+    "mobile-sg-cms-components.png",
+    "mobile-sg-css-components.png",
+    "mobile-sg-layout-page.png",
+    "mobile-sg-reset-base.png",
+    "mobile-sg-typography.png",
+    "tablet-full.png",
+    "tablet-sg-active-prototypes.png",
+    "tablet-sg-cms-components.png",
+    "tablet-sg-css-components.png",
+    "tablet-sg-layout-page.png",
+    "tablet-sg-reset-base.png",
+    "tablet-sg-typography.png"
+  ]
+}

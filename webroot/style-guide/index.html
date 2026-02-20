@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go Lease It Living Style Guide</title>
+  <link rel="stylesheet" href="../css/style-guide.css">
+</head>
+<body class="sg-guide">
+  <header class="sg-guide__masthead">
+    <div class="c-frame c-container--full c-region">
+      <div class="c-stack" data-space="lg">
+        <div class="c-stack" data-space="sm">
+          <p class="sg-guide__kicker">Go Lease It</p>
+          <h1 class="sg-guide__title">Living Style Guide</h1>
+          <p class="sg-guide__lede">
+            Stable visual reference for baseline checks, snapshots, and pixel-level comparisons across each style iteration.
+          </p>
+        </div>
+        <nav aria-label="Style guide sections">
+          <ul class="sg-guide__index">
+            <li><a href="#sg-reset-base">Reset / Base</a></li>
+            <li><a href="#sg-typography">Typography</a></li>
+            <li><a href="#sg-layout-page">Layout and Page</a></li>
+            <li><a href="#sg-css-components">CSS Components</a></li>
+            <li><a href="#sg-active-prototypes">Active Prototypes</a></li>
+            <li><a href="#sg-cms-components">CMS Components</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <section id="sg-reset-base" class="sg-guide__section">
+      <div class="c-frame c-container--full c-region">
+        <div class="c-stack" data-space="lg">
+          <div class="c-stack" data-space="sm">
+            <h2 class="sg-guide__section-head">Reset / Base</h2>
+            <p class="sg-guide__section-note">
+              Core element defaults from reset and base layers. Includes list behavior, default media handling, focusable links, and content primitives.
+            </p>
+          </div>
+
+          <div class="c-grid" data-cols-c2="2">
+            <article class="sg-card c-stack" data-space="sm">
+              <h3>Document Defaults</h3>
+              <p>
+                Base paragraph sizing and spacing on body text. Inline <strong>strong text</strong>, <em>emphasis</em>, and
+                <a href="#sg-reset-base">links</a> use system tokens.
+              </p>
+              <p><span class="sg-code">inline-code-sample</span> demonstrates baseline inline styling context.</p>
+            </article>
+
+            <article class="sg-card c-stack" data-space="sm">
+              <h3>Lists and Roles</h3>
+              <p>Default unordered list keeps bullets. Role list removes bullets and spacing per reset policy.</p>
+              <ul>
+                <li>Default list item one</li>
+                <li>Default list item two</li>
+              </ul>
+              <ul role="list" class="sg-chip-row">
+                <li class="sg-chip">role="list"</li>
+                <li class="sg-chip">no bullets</li>
+                <li class="sg-chip">token spacing</li>
+              </ul>
+            </article>
+
+            <article class="sg-card c-stack" data-space="sm">
+              <h3>Media and Figure</h3>
+              <figure class="c-stack" data-space="sm">
+                <img src="../img/fb-og-image.jpg" alt="Equipment financing demo image">
+                <figcaption>Images are display-block and scale to container width.</figcaption>
+              </figure>
+            </article>
+
+            <article class="sg-card c-stack" data-space="sm">
+              <h3>Content Elements</h3>
+              <details open>
+                <summary>Open details component</summary>
+                <p>Details and summary use block-level content styling.</p>
+              </details>
+              <hr>
+              <blockquote>
+                <p>Built for predictable visual regression checks.</p>
+              </blockquote>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sg-typography" class="sg-guide__section">
+      <div class="c-frame c-container--full c-region">
+        <div class="c-stack" data-space="lg">
+          <div class="c-stack" data-space="sm">
+            <h2 class="sg-guide__section-head">Typography</h2>
+            <p class="sg-guide__section-note">
+              Heading scale, body text behavior, utility font classes, and color tokens used for readable hierarchy.
+            </p>
+          </div>
+
+          <div class="c-grid" data-cols-c2="2">
+            <article class="sg-card c-stack" data-space="sm">
+              <h1>Heading Level 1</h1>
+              <h2>Heading Level 2</h2>
+              <h3>Heading Level 3</h3>
+              <h4>Heading Level 4</h4>
+              <h5>Heading Level 5</h5>
+              <h6>Heading Level 6</h6>
+            </article>
+
+            <article class="sg-card c-stack" data-space="sm">
+              <h3>Body Scale and Utilities</h3>
+              <p class="u-step-0">`.u-step-0` body-size text with normal rhythm and comfortable line length.</p>
+              <p class="u-step-1">`.u-step-1` slightly larger text for intros and key callouts.</p>
+              <p class="u-step-2">`.u-step-2` larger utility type for emphasis.</p>
+              <p class="u-font-serif">Serif utility sample (`.u-font-serif`).</p>
+              <p class="u-font-sans">Sans utility sample (`.u-font-sans`).</p>
+            </article>
+          </div>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Figma Type Spec (Node 2901:33)</h3>
+            <div class="sg-type-grid">
+              <div class="sg-figma-stack">
+                <div class="u-type-h1">Heading 1</div>
+                <div class="u-type-h2">Heading 2</div>
+                <div class="u-type-h3">Heading 3</div>
+                <div class="u-type-h4">Heading 4</div>
+                <div class="u-type-feature-h2">Feature h2</div>
+                <div class="u-type-feature-h3">Feature h3</div>
+                <div class="u-type-nav">Main Navigation</div>
+              </div>
+              <div class="sg-figma-stack">
+                <div class="sg-figma-label u-type-label">Paragraph</div>
+                <p class="u-type-paragraph">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                  laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                  architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+                  sit aspernatur aut odit aut fugit.
+                </p>
+                <div class="sg-figma-label u-type-label">Feature Text</div>
+                <p class="u-type-feature-text">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                  laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                  architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+                  sit aspernatur aut odit aut fugit, sed quia consequuntur.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <div class="sg-card c-stack" data-space="sm">
+            <h3>Core Color Tokens</h3>
+            <div class="sg-swatch-grid">
+              <div class="sg-swatch">
+                <div class="sg-swatch__paint" style="background: var(--color-brand-primary);"></div>
+                <div class="sg-swatch__meta">--color-brand-primary</div>
+              </div>
+              <div class="sg-swatch">
+                <div class="sg-swatch__paint" style="background: var(--color-brand-secondary);"></div>
+                <div class="sg-swatch__meta">--color-brand-secondary</div>
+              </div>
+              <div class="sg-swatch">
+                <div class="sg-swatch__paint" style="background: var(--color-brand-punch);"></div>
+                <div class="sg-swatch__meta">--color-brand-punch</div>
+              </div>
+              <div class="sg-swatch">
+                <div class="sg-swatch__paint" style="background: var(--color-surface-base);"></div>
+                <div class="sg-swatch__meta">--color-surface-base</div>
+              </div>
+              <div class="sg-swatch">
+                <div class="sg-swatch__paint" style="background: var(--color-surface-soft);"></div>
+                <div class="sg-swatch__meta">--color-surface-soft</div>
+              </div>
+              <div class="sg-swatch">
+                <div class="sg-swatch__paint" style="background: var(--color-ink-primary);"></div>
+                <div class="sg-swatch__meta">--color-ink-primary</div>
+              </div>
+              <div class="sg-swatch">
+                <div class="sg-swatch__paint" style="background: var(--color-focus-ring);"></div>
+                <div class="sg-swatch__meta">--color-focus-ring</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sg-layout-page" class="sg-guide__section">
+      <div class="c-frame c-container--full c-region">
+        <div class="c-stack" data-space="lg">
+          <div class="c-stack" data-space="sm">
+            <h2 class="sg-guide__section-head">Layout and Page</h2>
+            <p class="sg-guide__section-note">
+              Composition primitives for wrappers, containers, grids, and sidebars. These samples are tuned for consistent viewport snapshot checks.
+            </p>
+          </div>
+
+          <div class="c-grid" data-cols-c2="3">
+            <article class="sg-card c-stack" data-space="sm">
+              <h3>Site Wrapper Default</h3>
+              <div class="site-wrapper site-wrapper--default">
+                <div class="c-frame c-container--normal c-region">
+                  <div class="sg-demo-box">site-wrapper--default</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="sg-card c-stack" data-space="sm">
+              <h3>Site Wrapper Platter</h3>
+              <div class="site-wrapper site-wrapper--platter">
+                <div class="c-frame c-container--normal c-region">
+                  <div class="sg-demo-box">site-wrapper--platter</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="sg-card c-stack" data-space="sm">
+              <h3>Site Wrapper Dark</h3>
+              <div class="site-wrapper site-wrapper--dark">
+                <div class="c-frame c-container--normal c-region">
+                  <div class="sg-demo-box">site-wrapper--dark</div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="sg-card c-stack" data-space="sm">
+            <h3>Container Width Modifiers</h3>
+            <div class="c-stack" data-space="sm">
+              <div class="sg-container-demo">
+                <div class="c-frame c-container c-container--narrow">
+                  <div>Narrow (`.c-container--narrow`)</div>
+                </div>
+              </div>
+              <div class="sg-container-demo">
+                <div class="c-frame c-container c-container--normal">
+                  <div>Normal (`.c-container--normal`)</div>
+                </div>
+              </div>
+              <div class="sg-container-demo">
+                <div class="c-frame c-container c-container--full">
+                  <div>Full (`.c-container--full`)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Grid Composition</h3>
+            <div class="c-grid" data-cols-c2="2">
+              <div class="sg-demo-box">Grid Item A</div>
+              <div class="sg-demo-box">Grid Item B</div>
+              <div class="sg-demo-box">Grid Item C</div>
+              <div class="sg-demo-box">Grid Item D</div>
+            </div>
+          </article>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Sidebar Composition</h3>
+            <p>Demonstrates the full `c-sidebar` layout with a primary content rail and a sub-navigation rail.</p>
+            <div class="c-sidebar">
+              <div class="c-stack" data-space="sm">
+                <div class="sg-demo-box">Main Content Rail</div>
+                <div class="sg-demo-box">Secondary Content Block</div>
+              </div>
+              <aside>
+                <nav class="subnav subnav--list" aria-label="Sidebar demo navigation">
+                  <ul>
+                    <li class="current"><a href="#sg-layout-page">Current Section</a></li>
+                    <li><a href="#sg-reset-base">Reset / Base</a></li>
+                    <li><a href="#sg-typography">Typography</a></li>
+                    <li><a href="#sg-css-components">CSS Components</a></li>
+                  </ul>
+                </nav>
+              </aside>
+            </div>
+          </article>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Header + Nav + Masthead (Iframe Demo)</h3>
+            <div class="sg-iframe-toolbar">
+              <label for="sg-iframe-breakpoint">Viewport</label>
+              <select id="sg-iframe-breakpoint" class="sg-iframe-breakpoint">
+                <option value="100%">Full Width</option>
+                <option value="1280px">Desktop (1280px)</option>
+                <option value="1024px">Laptop (1024px)</option>
+                <option value="834px">Tablet (834px)</option>
+                <option value="768px">Tablet Narrow (768px)</option>
+                <option value="390px">Mobile (390px)</option>
+              </select>
+              <p id="sg-iframe-current" class="sg-iframe-current" aria-live="polite"></p>
+            </div>
+            <div class="sg-scroll-scope">
+              <div id="sg-layout-preview-frame" class="sg-iframe-stage">
+                <iframe
+                  title="Header, navigation, and masthead preview"
+                  src="./header-nav-masthead-preview.html"
+                  loading="eager"
+                  referrerpolicy="no-referrer"
+                ></iframe>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sg-css-components" class="sg-guide__section">
+      <div class="c-frame c-container--full c-region">
+        <div class="c-stack" data-space="lg">
+          <div class="c-stack" data-space="sm">
+            <h2 class="sg-guide__section-head">CSS Components</h2>
+            <p class="sg-guide__section-note">
+              Reusable component-level selectors from block styles, including buttons, close controls, form primitives, and tiles.
+            </p>
+          </div>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Buttons</h3>
+            <div class="sg-component-row">
+              <a class="btn" href="#sg-css-components">Anchor Button</a>
+              <button class="btn" type="button">Button Element</button>
+              <a class="btn btn--hero" href="#sg-css-components">Hero Button</a>
+              <a class="btn btn--hero-secondary" href="#sg-css-components">Hero Secondary</a>
+            </div>
+          </article>
+
+          <div class="c-grid" data-cols-c2="2">
+            <article class="sg-card c-stack" data-space="sm">
+              <h3>Close Controls</h3>
+              <div class="sg-component-row">
+                <button class="site-nav-drawer__close" type="button" aria-label="Close menu">Close</button>
+              </div>
+              <div class="notification attention">
+                <div>
+                  Notification with close action.
+                  <a class="close" href="#sg-css-components" aria-label="Dismiss notification">
+                    <img src="../img/icons/cross.png" alt="">
+                    Close
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="sg-card c-stack" data-space="sm">
+              <h3>Tile Component</h3>
+              <a class="tile tile--linked" href="#sg-css-components">
+                <span class="tile__media">
+                  <img src="../img/fb-og-image.jpg" alt="Equipment financing tile">
+                </span>
+                <span class="tile__overlay"></span>
+                <span class="tile__content">
+                  <span class="tile__heading">Fast Approvals</span>
+                  <span class="tile__text">Tokenized card overlay, typography, and hover lift behavior.</span>
+                </span>
+              </a>
+            </article>
+          </div>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Form Primitives</h3>
+            <form action="#" method="get">
+              <div class="sg-form-grid">
+                <div class="input text required">
+                  <label for="sg-name">Name <span class="required">*</span></label>
+                  <input id="sg-name" name="name" type="text" required placeholder="Jane Doe">
+                </div>
+
+                <div class="input email">
+                  <label for="sg-email">Email</label>
+                  <input id="sg-email" name="email" type="email" placeholder="name@example.com">
+                </div>
+              </div>
+
+              <div class="input textarea">
+                <label for="sg-message">Message</label>
+                <textarea id="sg-message" name="message" placeholder="Sample text area"></textarea>
+                <span class="input-desc">Input description text sample.</span>
+              </div>
+
+              <div class="sg-component-row">
+                <input class="btn" type="submit" value="Submit">
+                <input class="btn" type="reset" value="Reset">
+              </div>
+            </form>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sg-active-prototypes" class="sg-guide__section">
+      <div class="c-frame c-container--full c-region">
+        <div class="c-stack" data-space="lg">
+          <div class="c-stack" data-space="sm">
+            <h2 class="sg-guide__section-head">Active Prototypes</h2>
+            <p class="sg-guide__section-note">
+              These are the currently active prototype styling patterns in the build: <span class="sg-code">service-boxes</span> and
+              <span class="sg-code">our-services</span>.
+            </p>
+          </div>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Service Boxes Prototype (`_prototype-feature-boxes.scss`)</h3>
+            <p>Home/services tile collection using the `.feature-boxes` and shared `.tile` pattern.</p>
+            <div class="home-service-boxes">
+              <div class="feature-boxes">
+                <a class="tile tile--linked" href="#sg-active-prototypes">
+                  <span class="tile__media">
+                    <img src="../img/fb-og-image.jpg" alt="Equipment leasing solutions">
+                  </span>
+                  <span class="tile__overlay"></span>
+                  <span class="tile__content">
+                    <span class="tile__heading">Leasing</span>
+                    <span class="tile__title">Equipment Leasing</span>
+                    <span class="tile__subheading">Straightforward terms</span>
+                    <span class="tile__text">Flexible structures for new and used equipment across industries.</span>
+                  </span>
+                </a>
+
+                <a class="tile tile--linked" href="#sg-active-prototypes">
+                  <span class="tile__media">
+                    <img src="../img/fb-og-image.jpg" alt="Sale-leaseback financing">
+                  </span>
+                  <span class="tile__overlay"></span>
+                  <span class="tile__content">
+                    <span class="tile__heading">Equity</span>
+                    <span class="tile__title">Sale-Leaseback</span>
+                    <span class="tile__subheading">Unlock capital</span>
+                    <span class="tile__text">Convert owned equipment into cash while keeping it in service.</span>
+                  </span>
+                </a>
+
+                <a class="tile tile--linked" href="#sg-active-prototypes">
+                  <span class="tile__media">
+                    <img src="../img/fb-og-image.jpg" alt="Auction and private sales financing">
+                  </span>
+                  <span class="tile__overlay"></span>
+                  <span class="tile__content">
+                    <span class="tile__heading">Buying</span>
+                    <span class="tile__title">Auction &amp; Private Sales</span>
+                    <span class="tile__subheading">Fast turnaround</span>
+                    <span class="tile__text">Financing for time-sensitive purchases from any seller.</span>
+                  </span>
+                </a>
+
+                <a class="tile tile--linked" href="#sg-active-prototypes">
+                  <span class="tile__media">
+                    <img src="../img/fb-og-image.jpg" alt="Rental conversion financing">
+                  </span>
+                  <span class="tile__overlay"></span>
+                  <span class="tile__content">
+                    <span class="tile__heading">Conversion</span>
+                    <span class="tile__title">Rental Conversions</span>
+                    <span class="tile__subheading">Keep what works</span>
+                    <span class="tile__text">Turn rentals into long-term assets with clean monthly terms.</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Our Services Prototype (`_prototype-our-services.scss`)</h3>
+            <p>Split platter pattern with alternating media/body orientation using `.c-split-platter--flip`.</p>
+            <section class="service-platters c-stack" aria-label="Prototype service platter demo">
+              <article class="c-split-platter">
+                <div class="c-split-platter__media">
+                  <picture>
+                    <img src="../img/fb-og-image.jpg" alt="Equipment financing planning" loading="lazy" decoding="async">
+                  </picture>
+                </div>
+                <div class="c-split-platter__body">
+                  <h3 class="c-split-platter__title">Simple Lease Process</h3>
+                  <div class="c-split-platter__content">
+                    <p>Clear steps from quote to funding, with responsive guidance throughout.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="c-split-platter c-split-platter--flip">
+                <div class="c-split-platter__media">
+                  <picture>
+                    <img src="../img/fb-og-image.jpg" alt="Equipment financing options" loading="lazy" decoding="async">
+                  </picture>
+                </div>
+                <div class="c-split-platter__body">
+                  <h3 class="c-split-platter__title">Industry-Focused Options</h3>
+                  <div class="c-split-platter__content">
+                    <p>Lease structures tuned for construction, transportation, dental, and municipal needs.</p>
+                  </div>
+                </div>
+              </article>
+            </section>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sg-cms-components" class="sg-guide__section">
+      <div class="c-frame c-container--full c-region">
+        <div class="c-stack" data-space="lg">
+          <div class="c-stack" data-space="sm">
+            <h2 class="sg-guide__section-head">CMS Components</h2>
+            <p class="sg-guide__section-note">
+              CMS-facing notices, flash states, and legal notice styles from notification blocks for front-end content and system messaging.
+            </p>
+          </div>
+
+          <div class="c-grid" data-cols-c2="2">
+            <article class="sg-card c-stack" data-space="sm">
+              <h3>Notification States</h3>
+              <div class="notification attention"><div>Attention notification message.</div></div>
+              <div class="notification information"><div>Information notification message.</div></div>
+              <div class="notification success"><div>Success notification message.</div></div>
+              <div class="notification error"><div>Error notification message.</div></div>
+            </article>
+
+            <article class="sg-card c-stack" data-space="sm">
+              <h3>CMS Flash and Error Styles</h3>
+              <div class="message">Generic `.message` flash state.</div>
+              <div class="message success">`.success` state for positive outcomes.</div>
+              <div class="notice">`.notice` block for neutral content notices.</div>
+              <p class="error"><em>`p.error` style used in CMS outputs.</em></p>
+              <div class="input">
+                <div class="error-message">Inline `.error-message` inside `.input` wrapper.</div>
+              </div>
+            </article>
+          </div>
+
+          <article class="sg-card c-stack sg-legal-preview" data-space="sm">
+            <h3>Legal Notice Preview</h3>
+            <div class="legal-notice">
+              <div class="c-frame c-container--normal">
+                <div class="legal-notice__panel">
+                  <div class="legal-notice__text">
+                    <p>This is the legal notice component preview. <a href="#sg-cms-components">Read the policy</a>.</p>
+                  </div>
+                  <button
+                    class="legal-notice__dismiss btn js-close"
+                    type="button"
+                    data-function="close"
+                    data-close-target=".legal-notice"
+                    data-legal-dismiss
+                  >
+                    Dismiss
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="sg-footer">
+    <div class="c-frame c-container--full c-region">
+      <p>Use this page for consistent visual regression snapshots after every CSS change set.</p>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      const selector = document.getElementById("sg-iframe-breakpoint");
+      const frameStage = document.getElementById("sg-layout-preview-frame");
+      const current = document.getElementById("sg-iframe-current");
+
+      if (!selector || !frameStage) {
+        return;
+      }
+
+      const applyViewport = () => {
+        const value = selector.value || "100%";
+        frameStage.style.setProperty("--sg-preview-width", value);
+        if (current) {
+          current.textContent = value === "100%" ? "Current: Full Width" : `Current: ${value}`;
+        }
+      };
+
+      selector.addEventListener("change", applyViewport);
+      applyViewport();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+@layer base {
+  html {
+    font-size: 100%;
+    line-height: var(--lh-body);
+    overflow-x: hidden;
+    scroll-padding-top: var(--nav-offset);
+  }
+
+  body {
+    background: var(--color-surface-base);
+    color: var(--color-ink-primary);
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--type-body-size);
+    line-height: var(--type-body-line);
+    display: flex;
+    flex-direction: column;
+    --nav-offset: 0px;
+  }
+
+  :where(main) :is(p, ul, ol, dl, pre, code, table) {
+    font-size: var(--type-body-size);
+    line-height: var(--type-body-line);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-brand-primary);
+    line-height: var(--lh-title);
+    font-weight: var(--font-weight-bold);
+    text-wrap: balance;
+  }
+
+  strong, b {
+    font-weight: var(--font-weight-semibold);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: var(--type-h1-size);
+    line-height: var(--type-h1-line);
+    font-weight: var(--font-weight-black);
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--type-h2-size);
+    line-height: var(--type-h2-line);
+    font-weight: var(--font-weight-bold);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-size: var(--type-h3-size);
+    line-height: var(--type-h3-line);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-brand-punch);
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-size: var(--type-h4-size);
+    line-height: var(--type-h4-line);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-ink-primary);
+  }
+
+  h5, h6 {
+    font-size: var(--step--1);
+    line-height: var(--lh-body);
+  }
+
+  p, ol, ul, dl, pre, code { margin: 0 0 var(--space-md); }
+  a { color: var(--color-brand-primary-bright); text-underline-offset: 0.14em; }
+  a:visited { color: var(--color-brand-primary-visited); }
+  a:hover, a:focus-visible { color: var(--color-brand-primary-hover); }
+
+  #skiplink {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    left: -9999px;
+  }
+
+  #skiplink:focus {
+    left: var(--space-sm);
+    top: var(--space-sm);
+    inline-size: auto;
+    block-size: auto;
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--color-surface-base);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    z-index: 10000;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
+}
+

@@ -1,0 +1,26 @@
+@use "queries" as *;
+
+@layer blocks {
+  .layout-contact-grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .layout-contact-grid .contact-text {
+    order: 1;
+  }
+
+  .layout-contact-grid .contact-form {
+    order: 2;
+  }
+
+  @include vp-min($vp-lg) {
+    .layout-contact-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(22rem, 34rem);
+      gap: clamp(2rem, 3vw, 3.25rem);
+    }
+  }
+}
+

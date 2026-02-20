@@ -1,0 +1,26 @@
+$cq-c2: 480px;
+$cq-c3: 720px;
+
+$vp-xs: 30rem;
+$vp-sm: 32rem;
+$vp-c3: 45rem;
+$vp-md: 48rem;
+$vp-lg: 64rem;
+$vp-xl: 93.75rem;
+
+@mixin cq-min($min) {
+  @container (min-width: #{$min}) { @content; }
+}
+
+@mixin cq-name-min($name, $min) {
+  @container #{$name} (min-width: #{$min}) { @content; }
+}
+
+@mixin vp-min($min) {
+  @media (min-width: #{$min}) { @content; }
+}
+
+@mixin vp-max($max) {
+  @media (max-width: #{$max}) { @content; }
+}
+

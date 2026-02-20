@@ -1,0 +1,37 @@
+@layer blocks {
+  .subnav--list {
+    position: relative;
+  }
+
+  .subnav--list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .subnav--list a {
+    display: block;
+    padding: 0.6rem 0.75rem;
+    border-radius: var(--radius-sm);
+    background: var(--color-surface-soft);
+    color: var(--color-ink-primary);
+    text-decoration: none;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .subnav--list a:hover,
+  .subnav--list a:focus-visible,
+  .subnav--list .current > a,
+  .subnav--list a[aria-current="page"] {
+    background: rgb(var(--color-brand-primary-rgb) / 0.12);
+    color: var(--color-brand-primary);
+  }
+
+  .subnav--sticky {
+    position: sticky;
+    top: calc(var(--nav-offset) + 1rem);
+  }
+}
+

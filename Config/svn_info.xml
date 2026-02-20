@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<info>
+<entry
+   path="/home/pyramidcms/2_0/working"
+   revision="3163"
+   kind="dir">
+<url>file:///home/pyramidcms/svn/pyramid2/trunk</url>
+<repository>
+<root>file:///home/pyramidcms/svn/pyramid2</root>
+<uuid>63d0713f-59a5-4afb-a758-710932ba02f8</uuid>
+</repository>
+<wc-info>
+<schedule>normal</schedule>
+<depth>infinity</depth>
+</wc-info>
+<commit
+   revision="3163">
+<author>roger</author>
+<date>2021-07-20T22:51:24.115824Z</date>
+</commit>
+</entry>
+</info>

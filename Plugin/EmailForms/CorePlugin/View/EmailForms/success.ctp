@@ -1,0 +1,1 @@
+<?php echo $emailForm['EmailForm']['success_text']; ?>

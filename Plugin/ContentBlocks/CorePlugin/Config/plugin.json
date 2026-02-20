@@ -1,0 +1,12 @@
+{
+	"Plugins": 
+	{
+		"ContentBlocks": 
+		{
+			"name": "Content Blocks",
+			"description": "Provides core content block functionality.",
+			"since": "1.0",
+			"schemaVersion": 3
+		}
+	}
+}

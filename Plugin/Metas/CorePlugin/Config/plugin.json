@@ -1,0 +1,12 @@
+{
+	"Plugins": 
+	{
+		"Metas": 
+		{
+			"name": "Metas",
+			"description": "Allows meta tags to be set on a per-record and site-wide basis.",
+			"since": "1.0",
+			"schemaVersion": "1"
+		}
+	}
+}

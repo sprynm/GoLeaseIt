@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header, Nav, and Masthead Preview</title>
+  <link rel="stylesheet" href="../css/style-guide.css">
+</head>
+<body class="sg-iframe-preview" id="preview-body">
+  <a id="skiplink" href="#preview-content">Skip to main content</a>
+
+  <div id="hdr-notice" role="region" aria-label="Header notice">
+    <div class="c-frame c-container--normal">
+      <p class="hdr-notice-content">
+        <a class="notice-btn" href="#preview-content">Call Us: (888) 555-0142</a>
+      </p>
+    </div>
+  </div>
+
+  <header class="site-header primary-hdr site-header--with-notice">
+    <div class="c-frame c-container--normal">
+      <div class="hdr-container">
+        <a href="#preview-top" class="logo">
+          <img src="../img/logo.svg" width="275" height="28" alt="Go Lease It">
+        </a>
+
+        <div class="hdr-links">
+          <button
+            id="site-nav-toggle"
+            class="site-nav__toggle"
+            type="button"
+            aria-controls="site-nav-drawer"
+            aria-expanded="false"
+            aria-haspopup="dialog"
+            aria-label="Open site menu"
+          >
+            Menu
+          </button>
+
+          <nav class="site-nav" role="navigation" aria-label="Main navigation" data-site-nav>
+            <ul>
+              <li class="current"><a href="#preview-top">Home</a></li>
+              <li><a href="#preview-financing">Financing Solutions</a></li>
+              <li><a href="#preview-industries">Industries</a></li>
+              <li><a href="#preview-how">How It Works</a></li>
+              <li><a href="#preview-about">About</a></li>
+              <li><a href="#preview-contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <dialog id="site-nav-drawer" class="site-nav-drawer" aria-label="Mobile navigation">
+    <div class="site-nav-drawer__head">
+      <strong>Menu</strong>
+      <button class="site-nav-drawer__close" type="button" aria-label="Close menu">x</button>
+    </div>
+    <div class="site-nav-drawer__body" data-nav-drawer-body></div>
+  </dialog>
+
+  <section class="page-hero page-hero--home page-hero--truck" id="preview-top">
+    <div class="page-hero__bg"></div>
+    <div class="page-hero__image-bg">
+      <picture>
+        <img src="../img/fb-og-image.jpg" width="1920" height="700" alt="Equipment financing visual" loading="eager" decoding="async">
+      </picture>
+    </div>
+    <div class="page-hero__diagonal"></div>
+
+    <div class="page-hero__inner">
+      <div class="page-hero__content">
+        <p class="page-hero__eyebrow">Serving Canadian Businesses</p>
+        <h2 class="page-hero__tagline">
+          When your business needs it,
+          <span class="hl">Go Lease It</span>
+        </h2>
+        <h1 class="page-hero__subtitle">Commercial Equipment Lease Financing</h1>
+
+        <div class="page-hero__actions page-hero__actions-nav" aria-label="Hero calls to action">
+          <ul>
+            <li><a class="btn btn--hero" href="#preview-contact">Apply Now</a></li>
+            <li><a class="btn btn--hero btn--hero-secondary" href="#preview-financing">Get a Free Quote</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="page-hero__visual" aria-hidden="true">
+        <picture class="page-hero__truck page-hero__truck--blend">
+          <img src="../img/fb-og-image.jpg" alt="">
+        </picture>
+        <picture class="page-hero__truck page-hero__truck--emerge">
+          <img src="../img/fb-og-image.jpg" alt="">
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <main id="preview-content" class="site-wrapper site-wrapper--default">
+    <div class="c-frame c-container--normal c-region">
+      <section class="sg-preview-filler c-stack" data-space="sm">
+        <h2 id="preview-financing">Post-Masthead Content</h2>
+        <p>This filler section demonstrates where the masthead hands off into page content.</p>
+        <p id="preview-industries">Industries anchor target for nav demonstration.</p>
+        <p id="preview-how">How It Works anchor target for nav demonstration.</p>
+        <p id="preview-about">About anchor target for nav demonstration.</p>
+        <p id="preview-contact">Contact anchor target for nav demonstration.</p>
+      </section>
+    </div>
+  </main>
+
+  <script src="../js/navigation-modern.js"></script>
+</body>
+</html>

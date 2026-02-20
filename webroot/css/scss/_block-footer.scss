@@ -1,0 +1,221 @@
+@use "queries" as *;
+
+@layer blocks {
+  footer {
+    background: var(--color-surface-footer);
+    color: #e7eef8;
+    position: relative;
+    overflow: hidden;
+  }
+
+  footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--surface-gradient-dark);
+    pointer-events: none;
+  }
+
+  .ftr-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .ftr-container {
+    max-width: 75rem;
+    margin-inline: auto;
+    padding: clamp(2.75rem, 4vw, 4rem) var(--frame-gutter) clamp(1.25rem, 2vw, 1.75rem);
+  }
+
+  .ftr-grid {
+    display: grid;
+    gap: clamp(1.5rem, 2.8vw, 2.8rem);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .ftr-brand {
+    display: grid;
+    gap: var(--space-md);
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .ftr-logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .ftr-logo-img {
+    width: min(13.5rem, 100%);
+    height: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+  }
+
+  .ftr-brand-copy {
+    margin: 0;
+    max-width: 32ch;
+    color: rgb(var(--color-footer-muted-rgb) / var(--alpha-75));
+    font-size: clamp(1rem, 0.88rem + 0.28vw, 1.15rem);
+    line-height: 1.55;
+  }
+
+  .ftr-contact {
+    grid-column: 1 / -1;
+  }
+
+  .ftr-logo {
+    font-weight: var(--font-weight-bold);
+    font-size: 1.15rem;
+  }
+
+  .ftr-heading {
+    margin: 0 0 var(--space-sm);
+    font-size: 0.86rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-brand-accent);
+  }
+
+  .ftr-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .ftr-nav a {
+    color: rgb(var(--color-footer-soft-rgb) / var(--alpha-85));
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    font-size: clamp(1rem, 0.88rem + 0.24vw, 1.15rem);
+    line-height: 1.35;
+  }
+
+  .ftr-nav a:hover,
+  .ftr-nav a:focus-visible {
+    color: rgb(var(--white-rgb));
+    text-decoration: none;
+  }
+
+  .ftr-contact {
+    color: rgb(var(--color-footer-muted-rgb) / var(--alpha-85));
+    font-size: clamp(0.98rem, 0.86rem + 0.24vw, 1.12rem);
+    line-height: 1.45;
+  }
+
+  .ftr-contact-line + .ftr-contact-line {
+    margin-top: 0.22rem;
+  }
+
+  .ftr-contact-social {
+    margin-top: var(--space-sm);
+  }
+
+  .ftr-contact a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+  }
+
+  .social-media {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .social-icon {
+    inline-size: 2.25rem;
+    block-size: 2.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.35rem;
+    border: 0;
+    background: transparent;
+    color: rgb(var(--color-footer-soft-rgb) / var(--alpha-95));
+    text-decoration: none;
+    transition: color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .social-icon:hover,
+  .social-icon:focus-visible {
+    color: rgb(var(--white-rgb));
+    background: transparent;
+    transform: translateY(-1px);
+  }
+
+  .ftr-nav a:focus-visible,
+  .ftr-contact a:focus-visible,
+  .social-icon:focus-visible,
+  .ftr-logo-link:focus-visible {
+    outline: 2px solid var(--color-brand-accent);
+    outline-offset: 2px;
+    border-radius: 0.3rem;
+  }
+
+  .social-icon svg {
+    inline-size: 1.35rem;
+    block-size: 1.35rem;
+    fill: currentColor;
+  }
+
+  .social-icon svg [stroke] {
+    stroke: currentColor;
+  }
+
+  @include vp-max($vp-md - 0.01rem) {
+    .ftr-grid {
+      gap: var(--space-lg);
+    }
+
+    .ftr-brand {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-sm) var(--space-lg);
+    }
+  }
+
+  @include vp-max($vp-sm - 0.01rem) {
+    .ftr-brand {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @include vp-min($vp-c3) {
+    .ftr-brand {
+      grid-column: auto;
+      grid-template-columns: 1fr;
+    }
+
+    .ftr-contact {
+      grid-column: auto;
+    }
+  }
+
+  @include vp-min($vp-lg) {
+    .ftr-grid {
+      grid-template-columns: minmax(0, 1.2fr) repeat(3, minmax(0, 1fr));
+      align-items: start;
+    }
+  }
+
+  .copyright {
+    margin-top: clamp(1.5rem, 2.2vw, 2.2rem);
+    padding-top: var(--space-md);
+    border-top: 1px solid rgb(var(--white-rgb) / var(--alpha-16));
+    color: rgb(var(--color-footer-meta-rgb) / var(--alpha-75));
+    font-size: 0.93rem;
+    line-height: 1.5;
+  }
+
+  .copyright a {
+    color: inherit;
+  }
+}
+
+
+

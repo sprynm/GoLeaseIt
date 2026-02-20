@@ -1,0 +1,24 @@
+{
+  "name": "Radarhill-build-tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "css:build": "node tools/build-css.mjs",
+    "css:build:prod": "node tools/build-css.mjs --mode=prod",
+    "css:watch": "node tools/watch-css.mjs",
+    "sftp:check": "node tools/check-sftp.mjs",
+    "visual:capture": "node tools/capture-style-guide.mjs",
+    "visual:compare": "node tools/compare-style-guide.mjs"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "chokidar": "^3.6.0",
+    "csso": "^5.0.5",
+    "dotenv": "^17.2.3",
+    "node-notifier": "^10.0.1",
+    "postcss": "^8.4.38",
+    "sass": "^1.77.5",
+    "ssh2-sftp-client": "^12.0.1",
+    "puppeteer": "^22.12.1"
+  }
+}

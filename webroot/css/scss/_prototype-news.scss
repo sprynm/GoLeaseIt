@@ -1,0 +1,32 @@
+@layer blocks {
+  .news h2 {
+    font-family: var(--font-sans);
+    text-transform: capitalize;
+    font-size: 1.3em;
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+  }
+
+  .news h2 a {
+    color: var(--color-brand-primary);
+  }
+
+  .news h3 {
+    font-family: var(--font-sans);
+    text-transform: capitalize;
+    font-size: 1.1em;
+  }
+
+  .news {
+    border-bottom: 1px solid var(--color-border-muted);
+    padding-bottom: 10px;
+  }
+
+  .news-img {
+    float: right;
+    border: 5px solid var(--color-surface-base);
+    margin: 0 0 10px 30px;
+    box-shadow: 0 0 20px var(--color-border-muted);
+  }
+}
+

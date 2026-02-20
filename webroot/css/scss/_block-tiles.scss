@@ -1,0 +1,106 @@
+@layer blocks {
+  .tile {
+    display: block;
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    color: var(--color-ink-on-dark);
+    text-decoration: none;
+    min-height: clamp(14rem, 12vw, 17rem);
+    box-shadow: var(--shadow-sm);
+    background: var(--color-surface-inverse);
+    isolation: isolate;
+  }
+
+  .tile__bg,
+  .tile__media {
+    position: absolute;
+    inset: 0;
+  }
+
+  .tile__bg {
+    background-size: cover;
+    background-position: center;
+    filter: saturate(1.05);
+  }
+
+  .tile__media picture,
+  .tile__media picture > img,
+  .tile__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .tile__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgb(var(--color-ink-absolute-rgb) / var(--alpha-10)) 0%,
+      rgb(var(--color-ink-absolute-rgb) / var(--alpha-60)) 100%
+    );
+  }
+
+  .tile__content {
+    position: relative;
+    z-index: 1;
+    padding: var(--space-md);
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .tile__heading,
+  .tile__title,
+  .tile__subheading,
+  .tile__text {
+    line-height: 1.25;
+  }
+
+  .tile__heading {
+    margin: 0;
+    color: var(--color-ink-on-dark);
+    font-weight: var(--font-weight-semibold);
+    font-size: clamp(1.25rem, 2vw + 0.7rem, 2.2rem);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .tile__title {
+    margin: 0;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--step--1);
+    color: rgb(var(--white-rgb) / var(--alpha-85));
+  }
+
+  .tile__subheading {
+    margin: 0 0 var(--space-sm);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--step--1);
+    color: rgb(var(--white-rgb) / var(--alpha-85));
+  }
+
+  .tile__text {
+    font-size: var(--step-0);
+    color: rgb(var(--white-rgb) / var(--alpha-85));
+  }
+
+  .tile__cta {
+    margin-top: var(--space-sm);
+    align-self: start;
+  }
+
+  .tile__caption {
+    font-size: var(--step--1);
+    color: var(--color-ink-muted);
+  }
+
+  .tile--linked:hover,
+  .tile--linked:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+}
+

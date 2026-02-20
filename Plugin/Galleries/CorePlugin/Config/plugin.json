@@ -1,0 +1,13 @@
+{
+	"Plugins": 
+	{
+		"Galleries": 
+		{
+			"name": "Galleries",
+			"_alias": "Gallery Blocks",
+			"description": "Photo galleries that can be inserted as blocks of content into any page.",
+			"since": "1.0",
+			"schemaVersion": 3
+		}
+	}
+}

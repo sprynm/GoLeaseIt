@@ -1,0 +1,1 @@
+<div class="clear"><?php echo $this->Html->image('blank.gif', array('alt' => '')); ?></div>

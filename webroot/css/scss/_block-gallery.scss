@@ -1,0 +1,30 @@
+@layer blocks {
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(8.75rem, 1fr));
+    gap: var(--space-md);
+    margin-block: var(--space-lg);
+  }
+
+  .gallery a {
+    border-radius: var(--radius-xs);
+    outline: 1px solid transparent;
+    outline-offset: -4px;
+    box-shadow: var(--shadow-sm);
+    transition: outline 200ms ease, outline-offset 200ms ease, box-shadow 200ms ease;
+  }
+
+  .gallery a:hover,
+  .gallery a:focus-visible {
+    outline: 1px solid var(--color-brand-primary);
+    outline-offset: 2px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .gallery img {
+    display: block;
+    border-radius: var(--radius-sm);
+    width: 100%;
+  }
+}
+

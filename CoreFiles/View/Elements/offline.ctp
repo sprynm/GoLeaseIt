@@ -1,0 +1,1 @@
+<?php echo $this->Settings->show('Pages.Offline.page_content'); ?>

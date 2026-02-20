@@ -1,0 +1,178 @@
+@use "sass:color";
+
+/* SCSS theme primitives (single source of truth). */
+$fontSans: "Open Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$fontDisplay: "Roboto", "Barlow", "Segoe UI", Helvetica, Arial, sans-serif;
+$fontSerif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+
+$colorSurfaceBase: #ffffff;
+$colorSurfaceMuted: #f6f8fb;
+$colorSurfaceSoft: #eef3f8;
+$colorSurfaceInverse: #111a2d;
+$colorSurfaceInverseRgb: 17 26 45;
+$colorSurfaceDark: #0b2446;
+
+$colorInkAbsolute: #000000;
+$colorInkAbsoluteRgb: 0 0 0;
+$colorInkPrimary: #0e0f19;
+$colorInkStrong: #0e0f19;
+$colorInkMuted: #5b6675;
+$colorInkMeta: #707a89;
+$colorInkOnDark: #f8fbff;
+$colorInkInverse: #e8eef8;
+$colorInkOnAccent: #1b1b1b;
+
+$colorBorderMuted: #cfd8e3;
+$colorBrandPrimary: #3d6cae;
+$colorBrandPrimaryRgb: 61 108 174;
+$colorBrandPrimaryBright: #4a7bbd;
+$colorBrandPrimaryHover: #2f5f97;
+$colorBrandPrimaryVisited: #5d658f;
+$colorBrandSecondary: #172b61;
+$colorBrandPunch: #00ab4e;
+$colorBrandAccentRgb: 255 209 0;
+$colorBrandAccentHover: #e6bc00;
+$colorBrandNoticeRgb: 255 209 0;
+$colorFocusRing: #f59f00;
+
+$radiusXs: 2px;
+$radiusSm: 6px;
+$radiusMd: 12px;
+$radiusLg: 18px;
+$radiusMax: 999px;
+
+$frameMax: 75rem;
+$navOffset: 6rem;
+$heroMax: 75rem;
+
+@layer tokens {
+  :root {
+    --font-sans: #{$fontSans};
+    --font-display: #{$fontDisplay};
+    --font-serif: #{$fontSerif};
+
+    --color-surface-base: #{$colorSurfaceBase};
+    --color-surface-muted: #{$colorSurfaceMuted};
+    --color-surface-soft: #{$colorSurfaceSoft};
+    --color-surface-inverse: #{$colorSurfaceInverse};
+    --color-surface-inverse-rgb: #{$colorSurfaceInverseRgb};
+    --color-surface-dark: #{$colorSurfaceDark};
+    --color-surface-hero: var(--color-surface-dark);
+    --color-surface-footer: var(--color-surface-dark);
+
+    --color-ink-absolute: #{$colorInkAbsolute};
+    --color-ink-absolute-rgb: #{$colorInkAbsoluteRgb};
+    --color-ink-primary: #{$colorInkPrimary};
+    --color-ink-strong: #{$colorInkStrong};
+    --color-ink-muted: #{$colorInkMuted};
+    --color-ink-meta: #{$colorInkMeta};
+    --color-ink-on-dark: #{$colorInkOnDark};
+    --color-ink-inverse: #{$colorInkInverse};
+    --color-ink-on-accent: #{$colorInkOnAccent};
+
+    --white-rgb: 255 255 255;
+    --alpha-95: 0.95;
+    --alpha-85: 0.85;
+    --alpha-75: 0.75;
+    --alpha-60: 0.6;
+    --alpha-42: 0.42;
+    --alpha-35: 0.35;
+    --alpha-25: 0.25;
+    --alpha-16: 0.16;
+    --alpha-10: 0.1;
+    --alpha-04: 0.04;
+    --alpha-02: 0.02;
+
+    --color-border-muted: #{$colorBorderMuted};
+    --color-brand-primary: #{$colorBrandPrimary};
+    --color-brand-primary-rgb: #{$colorBrandPrimaryRgb};
+    --color-brand-primary-bright: #{$colorBrandPrimaryBright};
+    --color-brand-primary-hover: #{$colorBrandPrimaryHover};
+    --color-brand-primary-visited: #{$colorBrandPrimaryVisited};
+    --color-brand-secondary: #{$colorBrandSecondary};
+    --color-brand-punch: #{$colorBrandPunch};
+    --color-brand-accent-rgb: #{$colorBrandAccentRgb};
+    --color-brand-accent: rgb(var(--color-brand-accent-rgb));
+    --color-brand-accent-hover: #{$colorBrandAccentHover};
+    --color-brand-notice-rgb: #{$colorBrandNoticeRgb};
+    --color-brand-notice: rgb(var(--color-brand-notice-rgb));
+    --color-focus-ring: #{$colorFocusRing};
+
+    --color-nav-backdrop-rgb: 7 12 24;
+    --color-hero-overlay-start-rgb: 13 36 64;
+    --color-hero-overlay-end-rgb: 37 80 131;
+    --color-footer-muted-rgb: 223 232 244;
+    --color-footer-soft-rgb: 230 239 248;
+    --color-footer-meta-rgb: 200 211 226;
+
+    --fluid-body: clamp(1rem, 1rem + 0.45vw, 1.5rem);
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-strong: 700;
+    --font-weight-bold: 700;
+    --font-weight-black: 800;
+    --step--1: clamp(0.9rem, 0.86rem + 0.2vw, 1.05rem);
+    --step-0: var(--fluid-body);
+    --step-1: clamp(1rem, 0.9rem + 0.5vw, 1.3rem);
+    --step-2: clamp(1.25rem, 1rem + 0.95vw, 1.8rem);
+    --step-3: clamp(1.5rem, 1.1rem + 1.55vw, 2.4rem);
+    --step-4: clamp(1.95rem, 1.2rem + 2.8vw, 3.4rem);
+    --step-5: clamp(2.5rem, 1.25rem + 4.8vw, 5rem);
+    --lh-body: 1.38;
+    --lh-title: 1.15;
+    --type-body-size: 1.625rem;
+    --type-body-line: 2.25rem;
+    --type-h1-size: 5rem;
+    --type-h1-line: 5.625rem;
+    --type-h2-size: 3.5rem;
+    --type-h2-line: 1;
+    --type-h3-size: 2.5rem;
+    --type-h3-line: 3.125rem;
+    --type-h4-size: 2rem;
+    --type-h4-line: 3.125rem;
+    --type-feature-h2-size: 3rem;
+    --type-feature-h2-line: 1;
+    --type-feature-h3-size: 2.1875rem;
+    --type-feature-h3-line: 1;
+    --type-nav-size: 1.5rem;
+    --type-nav-line: 1;
+    --type-label-size: 1.25rem;
+    --type-label-line: 3.125rem;
+
+    --space-2xs: clamp(0.35rem, 0.31rem + 0.2vw, 0.5rem);
+    --space-xs: clamp(0.5rem, 0.45rem + 0.25vw, 0.7rem);
+    --space-sm: clamp(0.75rem, 0.66rem + 0.5vw, 1rem);
+    --space-md: clamp(1rem, 0.88rem + 0.75vw, 1.5rem);
+    --space-lg: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+    --space-xl: clamp(2rem, 1.55rem + 2vw, 3.25rem);
+    --space-2xl: clamp(3rem, 2.3rem + 3vw, 4.75rem);
+
+    --radius-xs: #{$radiusXs};
+    --radius-sm: #{$radiusSm};
+    --radius-md: #{$radiusMd};
+    --radius-lg: #{$radiusLg};
+    --radius-max: #{$radiusMax};
+
+    --shadow-sm: 0 4px 16px rgb(var(--color-surface-inverse-rgb) / 0.1);
+    --shadow-md: 0 14px 36px rgb(var(--color-surface-inverse-rgb) / 0.18);
+
+    --surface-gradient-dark: linear-gradient(
+      180deg,
+      rgb(var(--color-ink-absolute-rgb) / 0.08) 0%,
+      rgb(var(--color-ink-absolute-rgb) / 0.28) 100%
+    );
+
+    --frame-max: #{$frameMax};
+    --frame-gutter: clamp(1rem, 1.3vw + 0.7rem, 2rem);
+    --region-space: var(--space-xl);
+    --nav-offset: #{$navOffset};
+    --sidebar-col: clamp(14rem, 25vw, 20rem);
+    --hero-max: #{$heroMax};
+    --hero-inline: clamp(1rem, 3vw, 3rem);
+    --hero-vspace: 0;
+    --form-space-tight: var(--space-2xs);
+  }
+}
+

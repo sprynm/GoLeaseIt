@@ -1,0 +1,280 @@
+@use "queries" as *;
+
+$notice-icon-offset-inline: 0.75rem;
+$notice-icon-offset-block: 0.75rem;
+$notice-icon-size: 1.3125rem;
+$notice-content-padding-block: 0.75rem;
+$notice-content-padding-inline-end: 4.0625rem; // Reserve space for absolute "Close" control + icon.
+$notice-content-padding-inline-start: 2.5rem; // Icon slot + readable text gap.
+$notice-close-offset-inline: 0.3125rem;
+$notice-close-offset-block: 0.3125rem;
+$notice-input-padding-block: 0.3125rem;
+$notice-input-padding-inline-end: 0.3125rem;
+$notice-input-padding-inline-start: 2.1875rem; // Inline form notifications use a tighter icon slot.
+$notice-input-icon-offset-inline: 0.75rem;
+$notice-input-icon-offset-block: 0.375rem;
+
+@layer tokens {
+  :root {
+    /* Optional component: define its supporting tokens only when imported. */
+    --color-state-warning: #ffcc00;
+    --color-state-success: #22c55e;
+    --color-state-critical: #dc2626;
+    --color-state-notice-error-bg: #ffeded;
+    --color-state-notice-attention-bg: #feefb3;
+    --color-state-notice-info-bg: #bde5f8;
+    --color-state-notice-success-bg: #dff2bf;
+    --color-ink-notice: #404040;
+  }
+}
+
+@layer blocks {
+  .notification {
+    border-radius: var(--radius-sm);
+    font-size: var(--step-0);
+
+    ul,
+    ol {
+      margin-top: var(--space-xs);
+      margin-bottom: 0;
+      font-size: var(--step-0);
+      line-height: 1.5;
+    }
+  }
+
+  .notification,
+  .error-message {
+    position: relative;
+    margin: 0 0 var(--space-lg) 0;
+    border: 2px solid;
+    background-position: $notice-icon-offset-inline $notice-icon-offset-block !important;
+    background-repeat: no-repeat !important;
+  }
+
+  .notification.attention {
+    background-color: var(--color-state-notice-attention-bg);
+    background-image: url("../img/icons/exclamation.svg");
+    background-size: $notice-icon-size;
+    border-color: color-mix(
+      in srgb,
+      var(--color-state-notice-attention-bg) 60%,
+      var(--color-ink-absolute) 40%
+    );
+    color: color-mix(in srgb, var(--color-state-notice-attention-bg) 25%, var(--color-ink-absolute) 75%);
+  }
+
+  .notification.information {
+    background-color: var(--color-state-notice-info-bg);
+    background-image: url("../img/icons/information.svg");
+    background-size: $notice-icon-size;
+    border-color: color-mix(
+      in srgb,
+      var(--color-state-notice-info-bg) 60%,
+      var(--color-ink-absolute) 40%
+    );
+    color: color-mix(in srgb, var(--color-state-notice-info-bg) 25%, var(--color-ink-absolute) 75%);
+  }
+
+  .notification.success {
+    background-color: var(--color-state-notice-success-bg);
+    background-image: url("../img/icons/circle-check.svg");
+    background-size: $notice-icon-size;
+    border-color: color-mix(
+      in srgb,
+      var(--color-state-notice-success-bg) 60%,
+      var(--color-ink-absolute) 40%
+    );
+    color: color-mix(in srgb, var(--color-state-notice-success-bg) 25%, var(--color-ink-absolute) 75%);
+  }
+
+  .notification.error,
+  .error-message {
+    background-color: var(--color-state-notice-error-bg);
+    background-image: url("../img/icons/exclamation_circle.svg");
+    background-size: $notice-icon-size;
+    border-color: var(--color-state-critical);
+    color: color-mix(in srgb, var(--color-state-notice-error-bg) 25%, var(--color-ink-absolute) 75%);
+  }
+
+  .notification div {
+    padding:
+      $notice-content-padding-block
+      $notice-content-padding-inline-end
+      $notice-content-padding-block
+      $notice-content-padding-inline-start;
+
+    ol,
+    ul {
+      line-height: 1.5;
+    }
+  }
+
+  .notification .close {
+    color: color-mix(in srgb, var(--color-state-critical) 80%, var(--color-ink-absolute) 20%);
+    font-size: var(--step-0);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    position: absolute;
+    text-decoration: none;
+    right: $notice-close-offset-inline;
+    top: $notice-close-offset-block;
+
+    img {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .notification .close:hover {
+    background: transparent;
+    color: color-mix(in srgb, var(--color-state-critical) 90%, var(--color-ink-absolute) 10%);
+  }
+
+  .input .notification,
+  .input .error-message {
+    padding:
+      $notice-input-padding-block
+      $notice-input-padding-inline-end
+      $notice-input-padding-block
+      $notice-input-padding-inline-start;
+    border: 0;
+    font-size: var(--step-0);
+  }
+
+  .input-error {
+    display: block;
+  }
+
+  .input .error-message {
+    color: color-mix(in srgb, var(--color-state-notice-error-bg) 25%, var(--color-ink-absolute) 75%);
+    background: var(--color-state-notice-error-bg) url("../img/icons/exclamation_circle.svg") left center no-repeat;
+    background-size: 1rem;
+    background-position: $notice-input-icon-offset-inline $notice-input-icon-offset-block !important;
+    margin: 0;
+    margin-top: 0.25rem;
+    font-style: italic;
+  }
+
+  /* CMS notices and errors */
+  .message {
+    clear: both;
+    color: var(--color-ink-on-dark);
+    font-weight: var(--font-weight-bold);
+    margin: 0 0 0.9375rem 0;
+    padding: 0.3125rem;
+  }
+
+  .message,
+  .cake-error,
+  .cake-debug,
+  .notice,
+  p.error,
+  .error-message {
+    background: var(--color-state-warning);
+    border: 1px solid rgb(var(--color-ink-absolute-rgb) / var(--alpha-25));
+    margin-bottom: var(--space-lg);
+    padding: 0.625rem 0.9375rem;
+    color: var(--color-ink-notice);
+    border-radius: var(--radius-sm);
+  }
+
+  .success {
+    clear: both;
+    color: var(--color-ink-on-dark);
+    border: 1px solid rgb(var(--color-ink-absolute-rgb) / var(--alpha-42));
+    background: var(--color-state-success);
+  }
+
+  p.error {
+    padding: 0.9375rem;
+    margin: 0.9375rem 0;
+  }
+
+  p.error em {
+    font-weight: var(--font-weight-regular);
+    line-height: 1.4;
+  }
+
+  .notice {
+    color: var(--color-ink-absolute);
+    display: block;
+    padding: 0.9375rem;
+    margin: 0.9375rem 0;
+  }
+
+  .legal-notice {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 95;
+    padding-block: var(--space-sm);
+    background: transparent;
+    pointer-events: none;
+  }
+
+  html.legal-notice-dismissed .legal-notice {
+    display: none !important;
+  }
+
+  .legal-notice__panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding: clamp(0.85rem, 2vw, 1.2rem);
+    border-radius: var(--radius-md);
+    border: 1px solid rgb(var(--color-ink-absolute-rgb) / var(--alpha-08));
+    background: rgb(var(--white-rgb) / var(--alpha-95));
+    box-shadow: var(--shadow-md);
+    pointer-events: auto;
+  }
+
+  .legal-notice__text {
+    color: var(--color-ink-primary);
+    font-size: var(--step-0);
+    line-height: 1.5;
+  }
+
+  .legal-notice__text p {
+    margin: 0;
+  }
+
+  .legal-notice__text a {
+    font-weight: var(--font-weight-bold);
+    text-underline-offset: 0.12em;
+  }
+
+  .legal-notice__dismiss.btn {
+    flex: 0 0 auto;
+    margin: 0;
+    border: 0;
+    background: var(--color-brand-secondary);
+    color: var(--color-ink-on-dark);
+    border-radius: var(--radius-sm);
+    min-inline-size: 6.5rem;
+    justify-content: center;
+  }
+
+  .legal-notice__dismiss.btn:hover,
+  .legal-notice__dismiss.btn:focus-visible {
+    background: color-mix(in srgb, var(--color-brand-secondary) 85%, var(--color-ink-absolute) 15%);
+    color: var(--color-ink-on-dark);
+  }
+
+  @include vp-max($vp-md - 0.01rem) {
+    .legal-notice {
+      padding-block-end: max(var(--space-sm), env(safe-area-inset-bottom));
+    }
+
+    .legal-notice__panel {
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-sm);
+    }
+
+    .legal-notice__dismiss.btn {
+      inline-size: 100%;
+      min-inline-size: 0;
+    }
+  }
+}

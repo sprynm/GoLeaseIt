@@ -1,0 +1,12 @@
+{
+	"Plugins": 
+	{
+		"CustomFields": 
+		{
+			"name": "Custom Fields",
+			"description": "Core custom field functionality that allows models to have dynamic fields.",
+			"since": "1.0",
+			"schemaVersion": 3
+		}
+	}
+}

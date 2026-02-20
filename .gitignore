@@ -1,20 +1,107 @@
-# Dependencies
-node_modules/
+# Ignore everything by default
+/*
+# Keep git metadata references
+!.gitignore
+!.gitattributes
 
-# Build/cache artifacts
+# reenable root folders
+!/docs/
+docs/temp/
+docs/temp/*
+docs/customer images/*
+docs/visual-regression/diff/*
+docs/visual-regression/current/*
+!/tools/
+
+# reenable plugins folders
+!/Plugin/
+/Plugin/*
+!/Plugin/Prototype
+/Plugin/Prototype/*
+!/Plugin/Prototype/View
+!/Plugin/Prototype/CorePlugin/
+/Plugin/Prototype/CorePlugin/*
+!/Plugin/Prototype/CorePlugin/View/
+/Plugin/Prototype/CorePlugin/View/*
+!/Plugin/Prototype/CorePlugin/View/PrototypeItems/
+/Plugin/Prototype/CorePlugin/View/PrototypeItems/*
+!/Plugin/Prototype/CorePlugin/View/PrototypeItems/admin_edit.ctp
+
+# expose select ReCaptcha callback files
+!/Plugin/ReCaptcha
+/Plugin/ReCaptcha/*
+!/Plugin/ReCaptcha/webroot/
+/Plugin/ReCaptcha/webroot/*
+!/Plugin/ReCaptcha/webroot/js/
+!/Plugin/ReCaptcha/webroot/js/recaptcha_callback.js
+!/Plugin/ReCaptcha/CorePlugin/
+/Plugin/ReCaptcha/CorePlugin/*
+!/Plugin/ReCaptcha/CorePlugin/webroot/
+/Plugin/ReCaptcha/CorePlugin/webroot/*
+!/Plugin/ReCaptcha/CorePlugin/webroot/js/
+!/Plugin/ReCaptcha/CorePlugin/webroot/js/recaptcha_callback.js
+
+# expose EmailForms component updated for recaptcha hardening
+!/Plugin/EmailForms/
+/Plugin/EmailForms/*
+!/Plugin/EmailForms/CorePlugin/
+/Plugin/EmailForms/CorePlugin/*
+!/Plugin/EmailForms/CorePlugin/Controller/
+/Plugin/EmailForms/CorePlugin/Controller/*
+!/Plugin/EmailForms/CorePlugin/Controller/Component/
+/Plugin/EmailForms/CorePlugin/Controller/Component/*
+!/Plugin/EmailForms/CorePlugin/Controller/Component/CmsEmailFormsComponent.php
+
+# expose specific CoreFiles paths updated for recaptcha hardening
+!/CoreFiles/
+/CoreFiles/*
+!/CoreFiles/View/
+/CoreFiles/View/*
+!/CoreFiles/View/Helper/
+/CoreFiles/View/Helper/*
+!/CoreFiles/View/Helper/CmsReCaptchaHelper.php
+!/CoreFiles/Model/
+/CoreFiles/Model/*
+!/CoreFiles/Model/Behavior/
+/CoreFiles/Model/Behavior/*
+!/CoreFiles/Model/Behavior/CmsReCaptchaBehavior.php
+
+# expose select folder in View
+!/View/
+/View/*
+!/View/Elements
+!/View/Emails
+!/View/Layouts
+
+# expose select folder in webroot
+!/webroot/
+/webroot/*
+!/webroot/css
+/webroot/css/*
+!/webroot/css/scss/
+!/webroot/fonts/*
+!/webroot/img/
+!/webroot/img/*
+!/webroot/img/cranetruck.webp
+!/webroot/img/poland-logo.png
+!/webroot/js
+!/webroot/js/*
+
+# Frontend build manifests
+!/package.json
+!/package-lock.json
+!/README.md
+
+# Re-ignore dependencies and build artefacts
+node_modules/
 webroot/cache_css/
 webroot/cache_js/
 webroot/media/
 webroot/uploads/
-
-# Temp/runtime artifacts
 tmp.txt
 webroot/index.php
 
-# OS/editor artifacts
-Thumbs.db
-.DS_Store
-
 # Word lock/temp files
 ~$*.docx
-docs/~$*.docx
+/docs/~$*.docx
+

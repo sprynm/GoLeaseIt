@@ -1,0 +1,42 @@
+@use "queries" as *;
+
+@layer blocks {
+  .article-body {
+    max-width: 100%;
+  }
+
+  .article-callout {
+    float: right;
+    clear: right;
+    width: min(580px, 100%);
+    max-width: 580px;
+    margin: 0 0 var(--space-lg) var(--space-lg);
+    margin-right: 0;
+  }
+
+  .article-callout > * {
+    max-width: 100%;
+  }
+
+  @include vp-min(80rem) {
+    .article-callout {
+      margin-right: -145px;
+    }
+  }
+
+  @include vp-min(100rem) {
+    .article-callout {
+      margin-right: -290px;
+    }
+  }
+
+  @include vp-max($vp-lg - 0.01rem) {
+    .article-callout {
+      float: none;
+      clear: both;
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@layer blocks {
+  /* CTA Band — "Ready to Move Forward?" section.
+     Appears at the bottom of every interior page and the homepage.
+     Gray/muted background, centered content, heading in brand-secondary navy. */
+  .cta-band {
+    background: var(--color-surface-muted);
+    padding-block: var(--space-2xl);
+    text-align: center;
+  }
+
+  .cta-band__inner {
+    max-width: 62ch;
+    margin-inline: auto;
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .cta-band__heading {
+    margin: 0;
+    color: var(--color-brand-secondary);
+    font-family: var(--font-display);
+    font-size: var(--type-h2-size);
+    line-height: var(--type-h2-line);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .cta-band__body {
+    margin: 0 auto;
+    color: var(--color-ink-muted);
+    max-width: 58ch;
+  }
+
+  .cta-band__actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  /* Dark navy variant */
+  .cta-band--navy {
+    background: var(--color-brand-secondary);
+  }
+
+  .cta-band--navy .cta-band__heading { color: var(--color-ink-on-dark); }
+  .cta-band--navy .cta-band__body    { color: rgb(var(--white-rgb) / var(--alpha-75)); }
+}

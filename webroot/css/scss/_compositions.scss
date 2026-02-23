@@ -25,7 +25,6 @@
     padding-top: 0;
   }
 
-  .c-frame,
   .c-container {
     display: grid;
     grid-template-columns:
@@ -37,15 +36,19 @@
     container-name: main;
   }
 
-  .c-frame > *,
   .c-container > * {
     grid-column: content;
     min-width: 0;
   }
 
   .c-container--narrow { --frame-max: 70ch; }
-  .c-container--normal { --frame-max: 75rem; }
+  .c-container--article { --frame-max: 59.375rem; }
   .c-container--full { --frame-max: 90rem; }
+  .c-container--bleed {
+    --frame-max: 100%;
+    --frame-gutter: 0;
+  }
+  .c-container--wide { --frame-max: var(--breakpoint-wide); }
 
   .c-region { padding-block: var(--region-space); }
 

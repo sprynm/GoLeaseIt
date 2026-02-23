@@ -1,4 +1,7 @@
+@use "queries" as *;
+
 @layer blocks {
+  /* Legacy inline testimonial (CMS output) */
   .testimonial {
     font-size: 1.25em;
     font-style: italic;
@@ -38,5 +41,56 @@
   .testimonial-name {
     font-weight: var(--font-weight-bold);
   }
-}
 
+  /* Star rating — 5 gold stars, used above testimonial cards */
+  .star-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+    line-height: 1;
+  }
+
+  .star-rating__star {
+    color: var(--color-brand-accent);
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  /* Modern testimonial card — stars + quote + attribution */
+  .testimonial-card {
+    display: grid;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--color-surface-base);
+    border: 1px solid var(--color-border-muted);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .testimonial-card__quote {
+    margin: 0;
+    font-style: italic;
+    color: var(--color-ink-primary);
+    line-height: 1.55;
+  }
+
+  .testimonial-card__attr {
+    margin: 0;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--step--1);
+    color: var(--color-ink-muted);
+  }
+
+  /* Grid layout for 2-up testimonial cards */
+  .testimonials-grid {
+    display: grid;
+    gap: var(--space-md);
+    grid-template-columns: 1fr;
+  }
+
+  @include vp-min($vp-md) {
+    .testimonials-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}

@@ -6,7 +6,7 @@ $vp-sm: 32rem;
 $vp-c3: 45rem;
 $vp-md: 48rem;
 $vp-lg: 64rem;
-$vp-xl: 93.75rem;
+$vp-xl: 100rem;
 
 @mixin cq-min($min) {
   @container (min-width: #{$min}) { @content; }

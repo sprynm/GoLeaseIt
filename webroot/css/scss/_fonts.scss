@@ -3,18 +3,26 @@
 /* Scss Document */
 @layer base {
 @font-face {
-  font-family: "Barlow";
-  src: url("/fonts/barlow-vf.woff2") format("woff2-variations");
-  font-weight: 22 188;
-  font-stretch: 300% 500%;
+  font-family: "Roboto";
+  src: url("../fonts/roboto-vf.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-stretch: 75% 100%;
   font-style: normal;
   font-display: swap; }
 
 @font-face {
   font-family: "Open Sans";
-  src: url("/fonts/open-sans-vf.woff2") format("woff2-variations");
-  font-weight: 300 800;
+  src: url("../fonts/roboto-vf.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-stretch: 75% 100%;
+  font-style: normal;
+  font-display: swap; }
+
+@font-face {
+  font-family: "Barlow";
+  src: url("../fonts/roboto-vf.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-stretch: 75% 100%;
   font-style: normal;
   font-display: swap; }
 }
-

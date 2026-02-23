@@ -1,0 +1,227 @@
+@use "queries" as *;
+
+@layer blocks {
+
+  /* ─── Home region: generous vertical breathing room ─── */
+  .home-region { padding-block: var(--space-2xl); }
+
+  /* ─── Section utilities ─── */
+  .section-kicker {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    font-size: var(--step--1);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-brand-punch);
+    margin: 0;
+  }
+
+  .section-white { background: var(--color-surface-base); }
+  .section-soft  { background: var(--color-surface-muted); }
+  .section-industries { padding-block: var(--space-2xl); }
+
+  /* ─── Hero: home variant ─── */
+  .page-hero--home {
+    min-height: clamp(460px, 72vh, 820px);
+  }
+
+  .page-hero--home .page-hero__title {
+    font-size: clamp(2.2rem, 2.8vw + 1rem, 4.8rem);
+    max-width: 18ch;
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-black);
+    line-height: 1.08;
+  }
+
+  .page-hero--home .page-hero__title em { font-style: italic; }
+
+  .page-hero--home .page-hero__summary { max-width: 52ch; }
+
+  .page-hero--home .page-hero__overlay {
+    background: linear-gradient(
+      110deg,
+      rgb(var(--color-hero-overlay-start-rgb) / 0.88) 0%,
+      rgb(var(--color-hero-overlay-end-rgb) / var(--alpha-42)) 100%
+    );
+  }
+
+  /* ─── Industries grid: 3×2, cell 1 = text, cells 2–6 = image tiles ─── */
+  /* Scoped under .section-industries for specificity over generic tile/grid rules */
+  .section-industries .industry-grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, clamp(14rem, 20vw, 24rem));
+  }
+
+  /* Text tile */
+  .section-industries .industry-grid__intro {
+    display: grid;
+    align-content: start;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .section-industries .industry-grid__intro > * { margin: 0; }
+
+  .section-industries .industry-grid__intro h2 {
+    font-family: var(--font-display);
+    font-size: var(--type-h2-size);
+    color: var(--color-brand-primary);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--type-h2-line);
+  }
+
+  .section-industries .industry-grid__intro p {
+    font-size: var(--step--1);
+    line-height: 1.5;
+  }
+
+  /* Override .tile defaults within the industry grid */
+  .section-industries .industry-grid .tile {
+    box-shadow: none;
+    min-height: 0;
+    border-radius: var(--radius-lg);
+  }
+
+  .section-industries .industry-grid .tile__overlay {
+    background: linear-gradient(
+      to top,
+      rgb(var(--color-ink-absolute-rgb) / var(--alpha-75)) 0%,
+      rgb(var(--color-ink-absolute-rgb) / 0) 4rem
+    );
+  }
+
+  .section-industries .industry-grid .tile__content {
+    position: absolute;
+    inset: auto 0 0;
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  .section-industries .industry-grid .tile__heading {
+    font-family: var(--font-display);
+    font-size: var(--type-h3-size);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.01em;
+    line-height: var(--type-h3-line);
+    text-transform: none;
+  }
+
+  /* ─── Featured story: full-bleed 2-col (photo | dark card) ─── */
+  .home-featured {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 34rem;
+  }
+
+  @include vp-min($vp-md) {
+    .home-featured { grid-template-columns: 1fr 1fr; }
+  }
+
+  .home-featured__media {
+    position: relative;
+    overflow: clip;
+    min-height: 24rem;
+  }
+
+  .home-featured__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .home-featured__card {
+    background: var(--color-brand-secondary);
+    color: var(--color-ink-on-dark);
+    padding: clamp(2.5rem, 7vw, 5rem);
+    display: grid;
+    align-content: center;
+    gap: var(--space-md);
+  }
+
+  .home-featured__kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    font-size: var(--step--1);
+    color: var(--color-brand-punch);
+    margin: 0;
+    font-weight: var(--font-weight-bold);
+  }
+
+  .home-featured__title {
+    margin: 0;
+    color: var(--color-ink-on-dark);
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2vw + 0.6rem, 2.5rem);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--lh-title);
+  }
+
+  .home-featured__body {
+    margin: 0;
+    color: rgb(var(--white-rgb) / var(--alpha-85));
+    font-size: var(--step--1);
+    line-height: 1.6;
+    max-width: 48ch;
+  }
+
+  /* ─── Success stories: full-bleed 2-col (text | photo) ─── */
+  .home-success { background: var(--color-surface-muted); }
+
+  .home-success__split {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 32rem;
+  }
+
+  @include vp-min($vp-md) {
+    .home-success__split { grid-template-columns: 1fr 1fr; }
+  }
+
+  .home-success__content {
+    display: flex;
+    align-items: center;
+    padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+  }
+
+  .home-success__content-inner {
+    max-width: 46rem;
+    display: grid;
+    gap: var(--space-sm);
+    align-content: start;
+  }
+
+  .home-success__content-inner > * { margin: 0; }
+
+  .home-success__media {
+    position: relative;
+    overflow: clip;
+    min-height: 22rem;
+  }
+
+  .home-success__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ─── Why Go Lease It: intro + testimonials ─── */
+  .home-why {
+    display: grid;
+    gap: var(--space-2xl);
+    align-items: center;
+    grid-template-columns: 1fr;
+  }
+
+  @include vp-min($vp-md) {
+    .home-why { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); }
+  }
+
+  .home-why__intro { display: grid; gap: var(--space-md); align-content: start; }
+  .home-why__intro > * { margin: 0; }
+
+}

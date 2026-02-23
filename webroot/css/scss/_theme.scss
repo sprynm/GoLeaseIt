@@ -1,8 +1,9 @@
 @use "sass:color";
+@use "queries" as *;
 
 /* SCSS theme primitives (single source of truth). */
-$fontSans: "Open Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-$fontDisplay: "Roboto", "Barlow", "Segoe UI", Helvetica, Arial, sans-serif;
+$fontSans: "Roboto", "Segoe UI", Helvetica, Arial, sans-serif;
+$fontDisplay: "Roboto", "Segoe UI", Helvetica, Arial, sans-serif;
 $fontSerif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
 
 $colorSurfaceBase: #ffffff;
@@ -105,41 +106,45 @@ $heroMax: 75rem;
     --color-footer-soft-rgb: 230 239 248;
     --color-footer-meta-rgb: 200 211 226;
 
-    --fluid-body: clamp(1rem, 1rem + 0.45vw, 1.5rem);
+    --fluid-base: clamp(18px, calc(16.287px + 0.476vw), 24px);
+    --fluid-body: var(--fluid-base);
+    --font-weight-thin: 100;
+    --font-weight-extralight: 200;
     --font-weight-light: 300;
     --font-weight-regular: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-strong: 700;
     --font-weight-bold: 700;
-    --font-weight-black: 800;
-    --step--1: clamp(0.9rem, 0.86rem + 0.2vw, 1.05rem);
-    --step-0: var(--fluid-body);
-    --step-1: clamp(1rem, 0.9rem + 0.5vw, 1.3rem);
-    --step-2: clamp(1.25rem, 1rem + 0.95vw, 1.8rem);
-    --step-3: clamp(1.5rem, 1.1rem + 1.55vw, 2.4rem);
-    --step-4: clamp(1.95rem, 1.2rem + 2.8vw, 3.4rem);
-    --step-5: clamp(2.5rem, 1.25rem + 4.8vw, 5rem);
+    --font-weight-extrabold: 800;
+    --font-weight-black: 900;
+    --step--1: calc(var(--fluid-base) * 0.83);
+    --step-0: var(--fluid-base);
+    --step-1: calc(var(--fluid-base) * 1.2);
+    --step-2: calc(var(--fluid-base) * 1.44);
+    --step-3: calc(var(--fluid-base) * 1.73);
+    --step-4: calc(var(--fluid-base) * 2.07);
+    --step-5: calc(var(--fluid-base) * 2.49);
     --lh-body: 1.38;
     --lh-title: 1.15;
-    --type-body-size: 1.625rem;
-    --type-body-line: 2.25rem;
-    --type-h1-size: 5rem;
-    --type-h1-line: 5.625rem;
-    --type-h2-size: 3.5rem;
-    --type-h2-line: 1;
-    --type-h3-size: 2.5rem;
-    --type-h3-line: 3.125rem;
-    --type-h4-size: 2rem;
-    --type-h4-line: 3.125rem;
-    --type-feature-h2-size: 3rem;
-    --type-feature-h2-line: 1;
-    --type-feature-h3-size: 2.1875rem;
-    --type-feature-h3-line: 1;
-    --type-nav-size: 1.5rem;
+    --type-body-size: var(--fluid-base);
+    --type-body-line: calc(var(--fluid-base) * 1.38);
+    --type-h1-size: calc(var(--fluid-base) * 3.333);
+    --type-h1-line: 1.1;
+    --type-h2-size: calc(var(--fluid-base) * 2.333);
+    --type-h2-line: 1.1;
+    --type-h3-size: calc(var(--fluid-base) * 1.667);
+    --type-h3-line: 1.2;
+    --type-h4-size: calc(var(--fluid-base) * 1.333);
+    --type-h4-line: 1.25;
+    --type-feature-h2-size: calc(var(--fluid-base) * 2);
+    --type-feature-h2-line: 1.1;
+    --type-feature-h3-size: calc(var(--fluid-base) * 1.458);
+    --type-feature-h3-line: 1.2;
+    --type-nav-size: calc(var(--fluid-base) * 1);
     --type-nav-line: 1;
-    --type-label-size: 1.25rem;
-    --type-label-line: 3.125rem;
+    --type-label-size: calc(var(--fluid-base) * 0.833);
+    --type-label-line: 1.2;
 
     --space-2xs: clamp(0.35rem, 0.31rem + 0.2vw, 0.5rem);
     --space-xs: clamp(0.5rem, 0.45rem + 0.25vw, 0.7rem);
@@ -167,12 +172,20 @@ $heroMax: 75rem;
     --frame-max: #{$frameMax};
     --frame-gutter: clamp(1rem, 1.3vw + 0.7rem, 2rem);
     --region-space: var(--space-xl);
+    --breakpoint-wide: 1622px;
     --nav-offset: #{$navOffset};
     --sidebar-col: clamp(14rem, 25vw, 20rem);
     --hero-max: #{$heroMax};
     --hero-inline: clamp(1rem, 3vw, 3rem);
     --hero-vspace: 0;
     --form-space-tight: var(--space-2xs);
+  }
+
+  @include vp-min($vp-xl) {
+    :root {
+      --frame-max: 100rem;
+      --hero-max: 100rem;
+    }
   }
 }
 

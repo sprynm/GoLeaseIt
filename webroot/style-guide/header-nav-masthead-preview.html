@@ -9,20 +9,28 @@
 <body class="sg-iframe-preview" id="preview-body">
   <a id="skiplink" href="#preview-content">Skip to main content</a>
 
-  <div id="hdr-notice" role="region" aria-label="Header notice">
-    <div class="c-frame c-container--normal">
-      <p class="hdr-notice-content">
-        <a class="notice-btn" href="#preview-content">Call Us: (888) 555-0142</a>
-      </p>
-    </div>
-  </div>
-
-  <header class="site-header primary-hdr site-header--with-notice">
-    <div class="c-frame c-container--normal">
-      <div class="hdr-container">
+  <header class="site-header primary-hdr">
+    <div class="c-container">
+      <div class="c-header">
         <a href="#preview-top" class="logo">
-          <img src="../img/logo.svg" width="275" height="28" alt="Go Lease It">
+          <img src="../img/logo.svg" width="412" height="42" alt="Go Lease It">
         </a>
+
+        <nav class="site-nav" role="navigation" aria-label="Main navigation" data-site-nav>
+          <ul>
+            <li class="current"><a href="#preview-top">Home</a></li>
+            <li><a href="#preview-financing">Financing Solutions</a></li>
+            <li><a href="#preview-industries">Industries</a></li>
+            <li><a href="#preview-how">How It Works</a></li>
+            <li><a href="#preview-about">About</a></li>
+            <li><a href="#preview-contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-cta">
+          <a class="util-phone" href="tel:18885550142">1-(888)-555-0142</a>
+          <a class="btn btn--hero" href="#preview-contact">Apply Now</a>
+        </div>
 
         <div class="hdr-links">
           <button
@@ -36,17 +44,6 @@
           >
             Menu
           </button>
-
-          <nav class="site-nav" role="navigation" aria-label="Main navigation" data-site-nav>
-            <ul>
-              <li class="current"><a href="#preview-top">Home</a></li>
-              <li><a href="#preview-financing">Financing Solutions</a></li>
-              <li><a href="#preview-industries">Industries</a></li>
-              <li><a href="#preview-how">How It Works</a></li>
-              <li><a href="#preview-about">About</a></li>
-              <li><a href="#preview-contact">Contact</a></li>
-            </ul>
-          </nav>
         </div>
       </div>
     </div>
@@ -60,45 +57,29 @@
     <div class="site-nav-drawer__body" data-nav-drawer-body></div>
   </dialog>
 
-  <section class="page-hero page-hero--home page-hero--truck" id="preview-top">
-    <div class="page-hero__bg"></div>
+  <section class="page-hero" id="preview-top">
     <div class="page-hero__image-bg">
       <picture>
-        <img src="../img/fb-og-image.jpg" width="1920" height="700" alt="Equipment financing visual" loading="eager" decoding="async">
+        <img src="./assets/customer/building.jpg" width="1920" height="700" alt="Commercial building visual" loading="eager" decoding="async">
       </picture>
     </div>
-    <div class="page-hero__diagonal"></div>
+    <div class="page-hero__overlay"></div>
 
     <div class="page-hero__inner">
       <div class="page-hero__content">
         <p class="page-hero__eyebrow">Serving Canadian Businesses</p>
-        <h2 class="page-hero__tagline">
-          When your business needs it,
-          <span class="hl">Go Lease It</span>
-        </h2>
-        <h1 class="page-hero__subtitle">Commercial Equipment Lease Financing</h1>
-
-        <div class="page-hero__actions page-hero__actions-nav" aria-label="Hero calls to action">
-          <ul>
-            <li><a class="btn btn--hero" href="#preview-contact">Apply Now</a></li>
-            <li><a class="btn btn--hero btn--hero-secondary" href="#preview-financing">Get a Free Quote</a></li>
-          </ul>
+        <h1 class="page-hero__title">When Your Business Needs It, Go Lease It.</h1>
+        <p class="page-hero__summary">From construction sites to medical offices, our financing adapts to your business needs.</p>
+        <div class="page-hero__actions" aria-label="Hero calls to action">
+          <a class="btn btn--hero" href="#preview-contact">Apply Now</a>
+          <a class="btn btn--hero btn--hero-secondary" href="#preview-financing">Get a Free Quote</a>
         </div>
-      </div>
-
-      <div class="page-hero__visual" aria-hidden="true">
-        <picture class="page-hero__truck page-hero__truck--blend">
-          <img src="../img/fb-og-image.jpg" alt="">
-        </picture>
-        <picture class="page-hero__truck page-hero__truck--emerge">
-          <img src="../img/fb-og-image.jpg" alt="">
-        </picture>
       </div>
     </div>
   </section>
 
   <main id="preview-content" class="site-wrapper site-wrapper--default">
-    <div class="c-frame c-container--normal c-region">
+    <div class="c-container c-region">
       <section class="sg-preview-filler c-stack" data-space="sm">
         <h2 id="preview-financing">Post-Masthead Content</h2>
         <p>This filler section demonstrates where the masthead hands off into page content.</p>

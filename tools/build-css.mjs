@@ -13,6 +13,10 @@ const cssEntries = [
     output: path.join(projectRoot, 'webroot', 'css', 'stylesheet.css')
   },
   {
+    input: path.join(projectRoot, 'webroot', 'css', 'scss', 'stylesheet-mock.scss'),
+    output: path.join(projectRoot, 'webroot', 'css', 'stylesheet-mock.css')
+  },
+  {
     input: path.join(projectRoot, 'webroot', 'css', 'scss', 'style-guide.scss'),
     output: path.join(projectRoot, 'webroot', 'css', 'style-guide.css')
   }

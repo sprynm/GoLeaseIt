@@ -17,7 +17,7 @@ if ($dismissLabel === '') {
 	data-legal-notice
 	aria-label="Legal notice"
 >
-	<div class="c-frame c-container--normal">
+	<div class="c-container">
 		<div class="legal-notice__panel">
 			<div class="legal-notice__text">
 				<?php echo $legalText; ?>

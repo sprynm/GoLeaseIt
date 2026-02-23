@@ -112,7 +112,6 @@ $hasHeroCtaNav = ($heroCtaNav !== '' && $heroCtaNav !== '<ul></ul>');
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>
-	<div class="page-hero__diagonal"></div>
 
 	<div class="page-hero__inner">
 		<div class="page-hero__content">

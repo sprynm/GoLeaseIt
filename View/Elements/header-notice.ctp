@@ -1,5 +1,5 @@
     <div id="hdr-notice">
-      <div class="c-frame c-container--normal">
+      <div class="c-container">
         <div class="hdr-notice-content">
           <?php
             echo $this->Settings->show('HeaderNotice.text');

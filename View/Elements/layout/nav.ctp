@@ -5,8 +5,8 @@ if ($showHeaderNotice) {
 }
 ?>
 <header class="site-header primary-hdr<?php echo $showHeaderNotice ? ' site-header--with-notice' : ''; ?>">
-	<div class="c-frame c-container--normal">
-		<div class="hdr-container">
+	<div class="c-container">
+		<div class="c-header">
 		<a href="/" class="logo">
 			<img src="/img/logo.svg" width="275" height="28" alt="<?php echo $this->Settings->show('Site.name'); ?>">
 		</a>

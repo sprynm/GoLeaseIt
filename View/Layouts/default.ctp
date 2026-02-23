@@ -21,9 +21,9 @@ if (isset($curTop['NavigationMenuItem']['id'])) {
 $layoutClass = $hasSubNav ? 'c-sidebar' : 'c-stack';
 ?>
 <div id="content" class="site-wrapper site-wrapper--default">
-	<div class="c-frame c-container--normal cq-main c-region">
+	<div class="c-container c-container--article cq-main c-region">
 		<div class="<?php echo $layoutClass; ?>">
-			<main class="default layout-default">
+			<main class="default layout-default article-body">
 				<?php
 				if (!empty($pageIntro)) {
 					echo $this->Html->div('layout-rail', $pageIntro);

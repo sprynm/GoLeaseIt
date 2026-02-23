@@ -36,7 +36,7 @@ if (!empty($servicesInstance['PrototypeInstance']['id'])) {
 }
 ?>
 <div id="content" class="site-wrapper site-wrapper--default">
-	<div class="c-frame c-container--normal cq-main c-region">
+	<div class="c-container cq-main c-region">
 		<div class="<?php echo $layoutClass; ?>">
 			<main class="default layout-default">
 				<?php

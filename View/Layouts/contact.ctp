@@ -8,7 +8,7 @@ echo $this->element('layout/body_masthead', array(
 ));
 ?>
 <div id="content" class="site-wrapper site-wrapper--default">
-	<div class="c-frame c-container--normal cq-main c-region">
+	<div class="c-container cq-main c-region">
 		<div class="c-stack">
 			<main class="contact layout-main">
 				<?php

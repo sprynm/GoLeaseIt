@@ -60,7 +60,7 @@ echo $this->element('layout/home_masthead', array(
 
 
 <div id="content" class="site-wrapper site-wrapper--default home">
-	<div class="c-frame c-container--normal cq-main c-region">
+	<div class="c-container cq-main c-region">
 
 		<section class="c-stack">
 			<main>
@@ -80,7 +80,7 @@ echo $this->element('layout/home_masthead', array(
 	</div>
 	<?php if ($hasServiceBoxes): ?>
 		<section class="home-service-boxes u-bg-muted observe animate">
-			<div class="c-frame c-container--normal c-region">
+			<div class="c-container c-region">
 				<?php if ($serviceBoxesTitle !== ''): ?>
 					<h2 class="home-service-boxes__title u-text-center"><?php echo h($serviceBoxesTitle); ?></h2>
 				<?php endif; ?>

@@ -15,6 +15,10 @@ Use this file as the minimum viable context. It is intentionally short.
 - Partials: `View/Elements/layout/` (`head.ctp`, `nav.ctp`, `body_masthead.ctp`, `footer.ctp`).
 - Main wrapper / skip-link target: `#content.site-wrapper`.
 
+## Design
+- Figma URL: https://www.figma.com/design/lz33juiSBrbQAIR9beOjsH/Go-Lease-It-Slice?node-id=0-1&p=f&t=lU3DWDKtISZVT48K-0 
+- - contains typography, home page, article page, No banner page, Feature Page
+
 ## Design System / SCSS
 - Entry point: `webroot/css/scss/stylesheet.scss`.
 - System partials: `webroot/css/scss/_*.scss` (layered by purpose).

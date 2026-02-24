@@ -118,6 +118,11 @@
     width: 5em;
   }
 
+  input[type="checkbox"],
+  input[type="radio"] {
+    accent-color: var(--color-brand-primary);
+  }
+
   textarea {
     min-height: 8rem;
     resize: vertical;

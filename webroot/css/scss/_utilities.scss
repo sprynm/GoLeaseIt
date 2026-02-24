@@ -172,6 +172,29 @@
   .u-stack-md > * + * { margin-top: var(--space-md); }
   .u-stack-lg > * + * { margin-top: var(--space-lg); }
 
+  .u-line-clamp-2,
+  .u-line-clamp-3,
+  .u-line-clamp-4 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .u-line-clamp-2 {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+
+  .u-line-clamp-3 {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  .u-line-clamp-4 {
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+  }
+
   .js-observers .observe.animate {
     opacity: 0;
     transform: translateY(30px);

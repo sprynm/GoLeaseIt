@@ -17,10 +17,14 @@ $vp-xl: 100rem;
 }
 
 @mixin vp-min($min) {
-  @media (min-width: #{$min}) { @content; }
+  @media (width >= #{$min}) { @content; }
 }
 
 @mixin vp-max($max) {
-  @media (max-width: #{$max}) { @content; }
+  @media (width <= #{$max}) { @content; }
+}
+
+@mixin vp-between($min, $max) {
+  @media (#{$min} <= width <= #{$max}) { @content; }
 }
 

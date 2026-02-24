@@ -4,6 +4,9 @@
 !.gitignore
 !.gitattributes
 
+# IDE / tool local config (never commit)
+.claude/
+
 # reenable root folders
 !/docs/
 /docs/temp/
@@ -11,8 +14,6 @@
 /docs/customer images/*
 /docs/visual-regression/*
 /docs/design/go-lease-it-slice/*
-
-/Config
 
 !/tools/
 
@@ -82,11 +83,12 @@
 !/webroot/css
 /webroot/css/*
 !/webroot/css/scss/
+webroot/style-guide/
 !/webroot/fonts
 /webroot/fonts/*
 !/webroot/fonts/Roboto-vf.woff2
 !/webroot/img/
-!/webroot/img/*
+/webroot/img/*
 !/webroot/img/cranetruck.webp
 !/webroot/img/poland-logo.png
 !/webroot/js
@@ -109,5 +111,7 @@ webroot/index.php
 # Word lock/temp files
 ~$*.docx
 /docs/~$*.docx
+
+# Environment-specific config (never commit live credentials)
 Config/pyramid.php
 Config/database.php

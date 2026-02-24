@@ -183,6 +183,7 @@
   .home-success__content {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
   }
 
@@ -212,16 +213,39 @@
   /* ─── Why Go Lease It: intro + testimonials ─── */
   .home-why {
     display: grid;
-    gap: var(--space-2xl);
-    align-items: center;
+    gap: var(--space-xl);
+    align-items: start;
     grid-template-columns: 1fr;
   }
 
   @include vp-min($vp-md) {
-    .home-why { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); }
+    .home-why {
+      grid-template-columns: minmax(16rem, 0.9fr) minmax(0, 2fr);
+      gap: clamp(2rem, 4vw, 4rem);
+    }
   }
 
-  .home-why__intro { display: grid; gap: var(--space-md); align-content: start; }
+  .home-why__intro {
+    display: grid;
+    gap: var(--space-sm);
+    align-content: start;
+    max-width: 22rem;
+  }
   .home-why__intro > * { margin: 0; }
+
+  .home-why__intro .section-kicker { display: none; }
+
+  .home-why__intro h2 {
+    color: var(--color-brand-primary);
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 1.2vw + 1.4rem, 2.7rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.08;
+  }
+
+  .home-why__intro p {
+    font-size: var(--step-1);
+    line-height: 1.5;
+  }
 
 }

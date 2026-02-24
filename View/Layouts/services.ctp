@@ -19,21 +19,6 @@ if (isset($curTop['NavigationMenuItem']['id'])) {
 }
 
 $layoutClass = $hasSubNav ? 'c-sidebar' : 'c-stack';
-
-$servicesInstanceId = 0;
-$PrototypeInstance = ClassRegistry::init('Prototype.PrototypeInstance');
-$servicesInstance = $PrototypeInstance->find('first', array(
-	'conditions' => array(
-		'PrototypeInstance.slug' => 'our-services',
-		'PrototypeInstance.deleted' => 0,
-	),
-	'fields' => array('PrototypeInstance.id'),
-	'recursive' => -1,
-	'cache' => true,
-));
-if (!empty($servicesInstance['PrototypeInstance']['id'])) {
-	$servicesInstanceId = (int)$servicesInstance['PrototypeInstance']['id'];
-}
 ?>
 <div id="content" class="site-wrapper site-wrapper--default">
 	<div class="c-container cq-main c-region">
@@ -46,12 +31,6 @@ if (!empty($servicesInstance['PrototypeInstance']['id'])) {
 
 				echo $this->Session->flash();
 				echo $this->fetch('content');
-
-				if ($servicesInstanceId > 0) {
-					echo $this->element('service_platters', array(
-						'instanceId' => $servicesInstanceId,
-					));
-				}
 				?>
 			</main>
 

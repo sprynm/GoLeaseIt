@@ -414,6 +414,7 @@
             <h2 class="sg-guide__section-head">Active Prototypes</h2>
             <p class="sg-guide__section-note">
               Prototype patterns included in this build:
+              <span class="sg-code">industries_served</span>,
               <span class="sg-code">feature-boxes</span>,
               <span class="sg-code">our-services</span>,
               <span class="sg-code">process-steps</span>,
@@ -425,6 +426,32 @@
               <span class="sg-code">staff</span>.
             </p>
           </div>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Industries Served Prototype (`industries_served`)</h3>
+            <p>Homepage industry card collection. Rendered as image tiles in the industry grid with heading and CTA link per item.</p>
+            <div class="feature-boxes">
+              <a class="tile tile--linked" href="#sg-active-prototypes">
+                <span class="tile__media">
+                  <img src="./assets/customer/yellow-equipment.jpg" alt="Transportation and logistics">
+                </span>
+                <span class="tile__overlay"></span>
+                <span class="tile__content">
+                  <span class="tile__heading">Transportation &amp; Logistics</span>
+                </span>
+              </a>
+
+              <a class="tile tile--linked" href="#sg-active-prototypes">
+                <span class="tile__media">
+                  <img src="./assets/customer/building.jpg" alt="Construction and agriculture">
+                </span>
+                <span class="tile__overlay"></span>
+                <span class="tile__content">
+                  <span class="tile__heading">Construction &amp; Agriculture</span>
+                </span>
+              </a>
+            </div>
+          </article>
 
           <article class="sg-card c-stack" data-space="sm">
             <h3>Service Boxes Prototype (`_prototype-feature-boxes.scss`)</h3>
@@ -598,6 +625,12 @@
               CMS-facing notices, flash states, and legal notice styles from notification blocks for front-end content and system messaging.
             </p>
           </div>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Content Block by ID (Homepage CTA platter)</h3>
+            <p>Homepage bottom CTA platter is rendered by Content Block ID in CTP. Example shortcode for RTE contexts:</p>
+            <p><span class="sg-code">{{block type="ContentBlock" id="123"}}</span></p>
+          </article>
 
           <div class="c-grid" data-cols-c2="2">
             <article class="sg-card c-stack" data-space="sm">

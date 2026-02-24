@@ -41,6 +41,12 @@ if ($heroSubtitle === '') {
 	$heroSubtitle = $heroSummary !== '' ? $heroSummary : $heroHeading;
 }
 
+$renderFallbackTitleAsH1 = false;
+if ($heroTaglineHtml === '') {
+	$sameAsHeading = (strcasecmp(trim($heroSubtitle), trim($heroHeading)) === 0);
+	$renderFallbackTitleAsH1 = ($heroHeading !== '' && ($heroSubtitle === '' || $sameAsHeading));
+}
+
 $heroBadge = trim((string) $this->Settings->show('Site.service_area'));
 if ($heroBadge === '' && $heroEyebrow !== '') {
 	$heroBadge = $heroEyebrow;
@@ -123,7 +129,7 @@ $hasHeroCtaNav = ($heroCtaNav !== '' && $heroCtaNav !== '<ul></ul>');
 				<div class="page-hero__tagline">
 					<?php echo $heroTaglineHtml; ?>
 				</div>
-			<?php else: ?>
+			<?php elseif (!$renderFallbackTitleAsH1): ?>
 				<h2 class="page-hero__tagline">
 					<?php echo h($heroTitleMain); ?>
 					<?php if ($heroTitleAccent !== ''): ?>
@@ -132,7 +138,9 @@ $hasHeroCtaNav = ($heroCtaNav !== '' && $heroCtaNav !== '<ul></ul>');
 				</h2>
 			<?php endif; ?>
 
-			<?php if ($heroSubtitle !== ''): ?>
+			<?php if ($renderFallbackTitleAsH1): ?>
+				<h1 class="page-hero__subtitle"><?php echo h($heroHeading); ?></h1>
+			<?php elseif ($heroSubtitle !== ''): ?>
 				<h1 class="page-hero__subtitle"><?php echo h($heroSubtitle); ?></h1>
 			<?php endif; ?>
 

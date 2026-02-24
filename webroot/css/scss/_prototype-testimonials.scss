@@ -46,13 +46,13 @@
   .star-rating {
     display: flex;
     align-items: center;
-    gap: 0.1rem;
+    gap: 0.22rem;
     line-height: 1;
   }
 
   .star-rating__star {
     color: var(--color-brand-accent);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     line-height: 1;
   }
 
@@ -60,31 +60,35 @@
   .testimonial-card {
     display: grid;
     gap: var(--space-sm);
-    padding: var(--space-md);
-    background: var(--color-surface-base);
-    border: 1px solid var(--color-border-muted);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    align-content: start;
+    min-height: 100%;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .testimonial-card__quote {
     margin: 0;
     font-style: italic;
     color: var(--color-ink-primary);
-    line-height: 1.55;
+    line-height: 1.5;
+    font-size: var(--step-0);
   }
 
   .testimonial-card__attr {
     margin: 0;
     font-weight: var(--font-weight-bold);
-    font-size: var(--step--1);
-    color: var(--color-ink-muted);
+    font-size: var(--step-1);
+    color: var(--color-ink-primary);
+    text-align: right;
   }
 
   /* Grid layout for 2-up testimonial cards */
   .testimonials-grid {
     display: grid;
-    gap: var(--space-md);
+    gap: var(--space-xl);
     grid-template-columns: 1fr;
   }
 

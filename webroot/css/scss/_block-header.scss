@@ -67,14 +67,20 @@
 
   .c-header {
     display: grid;
-    grid-template-columns: auto 1fr auto auto;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "logo cta"
+      "logo nav";
     align-items: center;
-    gap: var(--space-lg);
-    min-height: 5.25rem;
+    column-gap: var(--space-lg);
+    row-gap: var(--space-2xs);
+    min-height: 5.5rem;
     width: 100%;
   }
 
   .logo {
+    grid-area: logo;
     display: inline-flex;
     align-items: stretch;
     align-self: stretch;
@@ -89,10 +95,12 @@
   }
 
   .header-cta {
+    grid-area: cta;
     display: inline-flex;
     align-items: center;
     gap: var(--space-sm);
     justify-self: end;
+    align-self: start;
     white-space: nowrap;
   }
 
@@ -104,12 +112,13 @@
     font-size: 0.85rem;
   }
 
-  .hdr-links {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
+  .site-nav {
+    grid-area: nav;
     justify-self: end;
+    align-self: end;
   }
+
+  .hdr-links { display: none; }
 
   @include vp-max($vp-md - 0.01rem) {
     #hdr-notice {
@@ -141,6 +150,11 @@
 
     .header-cta {
       display: none;
+    }
+
+    .hdr-links {
+      display: flex;
+      margin-inline-start: auto;
     }
   }
 

@@ -7,20 +7,8 @@ $banner      = !empty($banner) ? $banner : array();
 $page        = !empty($page) ? $page : array();
 $pageHeading = !empty($pageHeading) ? $pageHeading : '';
 $pageIntro   = !empty($pageIntro) ? $pageIntro : '';
-$serviceInstanceId = 1;
+
 $PrototypeInstance = ClassRegistry::init('Prototype.PrototypeInstance');
-$serviceInstance = $PrototypeInstance->find('first', array(
-	'conditions' => array(
-		'PrototypeInstance.slug' => 'service-boxes',
-		'PrototypeInstance.deleted' => 0,
-	),
-	'fields' => array('PrototypeInstance.id', 'PrototypeInstance.name'),
-	'recursive' => -1,
-	'cache' => true,
-));
-if (!empty($serviceInstance['PrototypeInstance']['id'])) {
-	$serviceInstanceId = (int) $serviceInstance['PrototypeInstance']['id'];
-}
 
 $getPageFieldValue = function ($key) use ($page) {
 	if (!empty($page['Page'][$key])) {
@@ -38,17 +26,64 @@ $getPageFieldValue = function ($key) use ($page) {
 	return '';
 };
 
-$serviceBoxesTitle = $getPageFieldValue('home_services_title');
-$serviceBoxesHtml = '';
-$serviceBoxesPath = APP . 'Plugin' . DS . 'Prototype' . DS . 'View' . DS . 'service-boxes';
-if (is_dir($serviceBoxesPath)) {
-	$serviceBoxesHtml = (string) $this->element('feature_boxes', array(
-		'featureInstanceId' => $serviceInstanceId,
-		'numberOfFeaturesLimit' => 4,
-	));
-}
-$hasServiceBoxes = trim($serviceBoxesHtml) !== '';
+$findPrototypeIdBySlug = function ($slug) use ($PrototypeInstance) {
+	$slug = trim((string) $slug);
+	if ($slug === '') {
+		return 0;
+	}
 
+	$instance = $PrototypeInstance->find('first', array(
+		'conditions' => array(
+			'PrototypeInstance.slug' => $slug,
+			'PrototypeInstance.deleted' => 0,
+		),
+		'fields' => array('PrototypeInstance.id'),
+		'recursive' => -1,
+		'cache' => true,
+	));
+
+	if (!empty($instance['PrototypeInstance']['id'])) {
+		return (int) $instance['PrototypeInstance']['id'];
+	}
+
+	return 0;
+};
+
+$findPrototypeIdBySlugs = function ($slugs) use ($findPrototypeIdBySlug) {
+	foreach ((array) $slugs as $slug) {
+		$id = $findPrototypeIdBySlug($slug);
+		if ($id > 0) {
+			return $id;
+		}
+	}
+	return 0;
+};
+
+$industriesPrototypeId = (int) $getPageFieldValue('home_industries_instance_id');
+if ($industriesPrototypeId <= 0) {
+	$industriesPrototypeId = $findPrototypeIdBySlug($getPageFieldValue('home_industries_instance_slug'));
+}
+if ($industriesPrototypeId <= 0) {
+	$industriesPrototypeId = $findPrototypeIdBySlugs(array('industries-we-serve', 'industries_served'));
+}
+
+$industriesHeading = $getPageFieldValue('home_industries_heading');
+$industriesBody = $getPageFieldValue('home_industries_body');
+$industriesCtaText = $getPageFieldValue('home_industries_cta_text');
+$industriesCtaLink = $getPageFieldValue('home_industries_cta_link');
+
+$midContentBlockId = (int) $getPageFieldValue('home_mid_content_block_id');
+$midContentBlockWrapperClass = $getPageFieldValue('home_mid_content_block_wrapper_class');
+
+$bottomCtaBlockId = (int) $getPageFieldValue('home_bottom_cta_block_id');
+if ($bottomCtaBlockId <= 0) {
+	$bottomCtaBlockId = (int) $getPageFieldValue('home_cta_block_id');
+}
+
+$bottomCtaWrapperClass = $getPageFieldValue('home_bottom_cta_wrapper_class');
+if ($bottomCtaWrapperClass === '') {
+	$bottomCtaWrapperClass = '';
+}
 
 
 echo $this->element('layout/home_masthead', array(
@@ -60,6 +95,25 @@ echo $this->element('layout/home_masthead', array(
 
 
 <div id="content" class="site-wrapper site-wrapper--default home">
+	<?php if ($industriesPrototypeId > 0): ?>
+		<?php echo $this->element('home/industries_served', array(
+			'instanceId' => $industriesPrototypeId,
+			'introHeading' => $industriesHeading,
+			'introBody' => $industriesBody,
+			'introCtaText' => $industriesCtaText,
+			'introCtaLink' => $industriesCtaLink,
+			'sectionClasses' => 'section-white section-industries',
+			'limit' => 5,
+		)); ?>
+	<?php endif; ?>
+
+	<?php if ($midContentBlockId > 0): ?>
+		<?php echo $this->element('home/content_block_by_id', array(
+			'blockId' => $midContentBlockId,
+			'wrapperClass' => $midContentBlockWrapperClass,
+		)); ?>
+	<?php endif; ?>
+
 	<div class="c-container cq-main c-region">
 
 		<section class="c-stack">
@@ -78,15 +132,12 @@ echo $this->element('layout/home_masthead', array(
 			</main>
 		</section>
 	</div>
-	<?php if ($hasServiceBoxes): ?>
-		<section class="home-service-boxes u-bg-muted observe animate">
-			<div class="c-container c-region">
-				<?php if ($serviceBoxesTitle !== ''): ?>
-					<h2 class="home-service-boxes__title u-text-center"><?php echo h($serviceBoxesTitle); ?></h2>
-				<?php endif; ?>
-				<?php echo $serviceBoxesHtml; ?>
-			</div>
-		</section>
+
+	<?php if ($bottomCtaBlockId > 0): ?>
+		<?php echo $this->element('home/content_block_by_id', array(
+			'blockId' => $bottomCtaBlockId,
+			'wrapperClass' => $bottomCtaWrapperClass,
+		)); ?>
 	<?php endif; ?>
 </div><!-- "content" ends -->
 <?php

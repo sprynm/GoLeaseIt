@@ -588,9 +588,22 @@ class CmsPrototypeInstance extends PrototypeAppModel {
  * @return array
  */
 	public function loadPreconfigured() {
-		$file = CMS . 'Plugin' . DS . 'Prototype' . DS . 'Config' . DS . 'preconfigured.php';
-		if (!file_exists($file)) {
-			throw new CakeException("Prototype preconfigured instance file (" . $file . ") not found.");
+		$candidates = array(
+			APP . 'Plugin' . DS . 'Prototype' . DS . 'Config' . DS . 'preconfigured.php',
+			APP . 'Plugin' . DS . 'Prototype' . DS . 'CorePlugin' . DS . 'Config' . DS . 'preconfigured.php',
+			CMS . 'Plugin' . DS . 'Prototype' . DS . 'Config' . DS . 'preconfigured.php'
+		);
+
+		$file = null;
+		foreach ($candidates as $candidate) {
+			if (file_exists($candidate)) {
+				$file = $candidate;
+				break;
+			}
+		}
+
+		if (!$file) {
+			throw new CakeException('Prototype preconfigured instance file not found in APP/CorePlugin/CMS paths.');
 		}
 
 		include $file;

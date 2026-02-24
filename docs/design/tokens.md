@@ -75,6 +75,7 @@ Use pattern: `rgb(var(--white-rgb) / var(--alpha-85))` or `rgb(var(--color-brand
 
 ## Typography Scale
 - `--fluid-body`
+- `--fluid-base`
 - `--font-weight-light`
 - `--font-weight-regular`
 - `--font-weight-medium`
@@ -135,6 +136,7 @@ Use pattern: `rgb(var(--white-rgb) / var(--alpha-85))` or `rgb(var(--color-brand
 - `--frame-max`
 - `--frame-gutter`
 - `--region-space`
+- `--breakpoint-wide`
 - `--nav-offset`
 - `--sidebar-col`
 - `--hero-max`

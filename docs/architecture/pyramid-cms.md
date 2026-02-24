@@ -29,6 +29,9 @@ These are present under `Plugin/` with a CorePlugin + site-level wrapper pattern
 - `Galleries`: media grouping (details not explored here).
 - `Prototype`: CMS prototype instances and view overrides.
 
+Custom plugin guidance:
+- `docs/architecture/plugins.md`
+
 ## Page Rendering (Observed)
 ### Request flow
 - Public page display is handled by `Plugin/Pages/CorePlugin/Controller/CmsPagesController::view()`.
@@ -83,6 +86,7 @@ Key routing fields:
 - `ContentBlocks` use `CmsContentBlock` (`Plugin/ContentBlocks/CorePlugin/Model/CmsContentBlock.php`).
 - They are versioned and publishable (`Versioning.SoftDelete`, `Publishing.Publishable`).
 - WYSIWYG integration references content blocks for insertion (`findForTinyMce`).
+- Detailed runbook: `docs/architecture/content-blocks.md`.
 
 ## Media (Observed)
 - Pages and settings attach media via `Media.Attachment`:

@@ -328,12 +328,6 @@
     }
   }
 
-  form:target,
-  form:focus,
-  form:focus-visible {
-    outline: none;
-  }
-
   :is(input, textarea):is(:invalid, :focus, :valid) {
     background-position: calc(100% - 0.375em) 0.55em;
     background-repeat: no-repeat;
@@ -478,4 +472,3 @@
     }
   }
 }
-

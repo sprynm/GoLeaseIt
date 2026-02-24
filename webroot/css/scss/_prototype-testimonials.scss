@@ -11,7 +11,7 @@
     position: relative;
   }
 
-  .testimonial:before {
+  .testimonial::before {
     content: "\201c";
     color: var(--color-border-muted);
     font-size: 10em;

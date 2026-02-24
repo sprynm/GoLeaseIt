@@ -28,7 +28,7 @@ Open the Home page in admin and set these fields.
 - `home_industries_cta_link`
 - Optional prototype selector overrides (for testing/switching):
   - `home_industries_instance_id` (numeric instance ID; highest priority)
-  - `home_industries_instance_slug` (slug string, e.g. `install-test-cards`)
+  - `home_industries_instance_slug` (slug string, e.g. `industries-we-serve`)
 
 No hardcoded default copy is injected for industries intro values. Populate these fields in admin.
 

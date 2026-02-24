@@ -6,11 +6,14 @@
 
 # reenable root folders
 !/docs/
-docs/temp/
-docs/temp/*
-docs/customer images/*
-docs/visual-regression/diff/*
-docs/visual-regression/current/*
+/docs/temp/
+/docs/temp/*
+/docs/customer images/*
+/docs/visual-regression/*
+/docs/design/go-lease-it-slice/*
+
+/Config
+
 !/tools/
 
 # reenable plugins folders
@@ -79,7 +82,9 @@ docs/visual-regression/current/*
 !/webroot/css
 /webroot/css/*
 !/webroot/css/scss/
-!/webroot/fonts/*
+!/webroot/fonts
+/webroot/fonts/*
+!/webroot/fonts/Roboto-vf.woff2
 !/webroot/img/
 !/webroot/img/*
 !/webroot/img/cranetruck.webp
@@ -104,4 +109,5 @@ webroot/index.php
 # Word lock/temp files
 ~$*.docx
 /docs/~$*.docx
-
+Config/pyramid.php
+Config/database.php

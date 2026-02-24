@@ -1,6 +1,6 @@
 # Prototype System Runbook
 
-Last reviewed: 2026-02-23
+Last reviewed: 2026-02-24
 
 This document is the implementation runbook for creating, administering, and using Prototypes for design-driven sections.
 
@@ -273,3 +273,27 @@ Before wiring templates, define the minimum field contract in docs:
 4. Where each key is edited in admin.
 
 If a value is meant to be editor-managed, expose a field for it instead of adding a template fallback string.
+
+### 14.4 Post-Sync Reconciliation Checklist (FTP Workflow)
+
+FTP sync is an environment reality for this project. After syncing, reconcile explicitly:
+1. Confirm prototype starter files exist in:
+   - `Plugin/Prototype/CorePlugin/View/<slug>/...` (starter definition source),
+   - `Plugin/Prototype/View/<slug>/...` (site override target, if installed).
+2. Confirm installed instance slug in admin matches template slug used in code.
+3. Confirm required instance/item custom fields exist and keep expected keys.
+4. Confirm instance and items are published.
+5. Confirm images/documents are attached where the section contract expects them.
+6. Confirm consuming layout/element bindings still resolve:
+   - instance ID/slug selectors,
+   - content block IDs,
+   - page field keys.
+7. Clear relevant caches if output appears stale.
+8. Run visual QA at 1920px and compare against baseline before sign-off.
+
+## 15. Idiosyncrasies (Observed)
+
+1. Prototype slug controls multiple runtime concerns at once: route identity, template override path, and optional per-instance asset naming.
+2. A starter existing in files is not enough; it must be registered in `preconfigured.php` to appear in admin install UI.
+3. Installed instances can diverge from code expectations if slug, extra fields, or publish state changes in admin after deployment.
+4. FTP-sync workflows can create local/remote drift; always reconcile slug, field keys, and published state before debugging template code.

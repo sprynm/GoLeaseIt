@@ -1,0 +1,43 @@
+{
+  "matrixPath": "docs/architecture/publishing-contract-matrix.md",
+  "groups": [
+    {
+      "name": "homepage",
+      "targetFiles": [
+        "View/Layouts/home.ctp",
+        "View/Elements/home/industries_served.ctp",
+        "View/Elements/home/content_block_by_id.ctp"
+      ],
+      "matrixKeyPatterns": [
+        "`(home_[a-z0-9_]+)`"
+      ],
+      "codeKeyPatterns": [
+        "\\$custom\\[['\\\"](home_[a-z0-9_]+)['\\\"]\\]",
+        "getPageFieldValue\\(\\s*['\\\"](home_[a-z0-9_]+)['\\\"]\\s*\\)"
+      ],
+      "hardcodedChecks": [
+        {
+          "regex": "<h2>\\s*Industries\\s*<\\/h2>",
+          "message": "Found hardcoded Industries heading in homepage template."
+        },
+        {
+          "regex": "\\$industriesHeading[\\s\\S]{0,220}if\\s*\\(\\$industriesHeading === ''\\)\\s*\\{[\\s\\S]{0,220}\\$industriesHeading\\s*=\\s*'[^']+'",
+          "message": "Found hardcoded fallback copy for industries heading."
+        },
+        {
+          "regex": "\\$industriesBody[\\s\\S]{0,220}if\\s*\\(\\$industriesBody === ''\\)\\s*\\{[\\s\\S]{0,220}\\$industriesBody\\s*=\\s*'[^']+'",
+          "message": "Found hardcoded fallback copy for industries body."
+        },
+        {
+          "regex": "\\$industriesCtaText[\\s\\S]{0,220}if\\s*\\(\\$industriesCtaText === ''\\)\\s*\\{[\\s\\S]{0,220}\\$industriesCtaText\\s*=\\s*'[^']+'",
+          "message": "Found hardcoded fallback copy for industries CTA text."
+        },
+        {
+          "regex": "\\$industriesCtaLink[\\s\\S]{0,220}if\\s*\\(\\$industriesCtaLink === ''\\)\\s*\\{[\\s\\S]{0,220}\\$industriesCtaLink\\s*=\\s*'[^']+'",
+          "message": "Found hardcoded fallback link for industries CTA link."
+        }
+      ],
+      "reportUnusedMatrixKeys": true
+    }
+  ]
+}

@@ -21,15 +21,17 @@ Use it for runtime behavior, system organization, and platform-specific rules.
 10. `docs/architecture/publishing-contract-matrix.md`
 11. `docs/architecture/prototype.md`
 12. `docs/architecture/content-blocks.md`
-13. `docs/architecture/plugins.md`
-14. `docs/architecture/prototype-catalog.md`
-15. `docs/architecture/new-site-playbook.md`
+13. `docs/architecture/galleries.md`
+14. `docs/architecture/plugins.md`
+15. `docs/architecture/prototype-catalog.md`
+16. `docs/architecture/new-site-playbook.md`
 
 ## Scope (What belongs here)
 - CakePHP stack overview and CMS behavior.
 - Prototype system lifecycle (admin install/enable/override flow).
 - Section-by-section publishing contract mapping (how/where/why).
 - Content block lifecycle and injection model.
+- Gallery block lifecycle, rendering contract, and override behavior.
 - Plugin lifecycle and custom-module decision criteria.
 - Directory structure and ownership (Core vs site overrides).
 - Non-UI runtime constraints.

@@ -1,6 +1,6 @@
 # Content Blocks Runbook
 
-Last reviewed: 2026-02-23
+Last reviewed: 2026-02-24
 
 This document defines how Content Blocks work in this CMS and how to use them safely in design/system work.
 
@@ -128,3 +128,10 @@ Recommended:
 2. Use Content Blocks for reusable rich text fragments.
 3. Keep content out of hardcoded template strings whenever it is editor-managed.
 4. Document each block's purpose, ID, and insertion points in the relevant page runbook.
+
+## 11. Idiosyncrasies (Observed)
+
+1. TinyMCE can wrap block tokens with extra `<p>/<span>/<div class="block...">` markup; do not treat those wrappers as stable frontend contract.
+2. Token replacement happens after view rendering; wrapper output can differ from what editors see in source mode.
+3. Block output is cached per ID (`content_block_<id>`), which can mask template/content updates during QA.
+4. For sections needing strict wrapper classes/layout structure, prefer direct-fetch element rendering over free-form token placement.

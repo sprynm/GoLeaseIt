@@ -1,6 +1,6 @@
 # Plugins Runbook
 
-Last reviewed: 2026-02-23
+Last reviewed: 2026-02-24
 
 This document explains how plugins fit into Pyramid/Cake publishing, what problem they solve, and when to use them instead of Prototypes or Content Blocks.
 
@@ -57,26 +57,13 @@ Use a custom Plugin when:
 1. You need custom workflow/business logic beyond Prototype/ContentBlock capabilities.
 2. You need new domain entities and behaviors with their own lifecycle.
 
-## 5. Current Lance Plugin Status (Observed)
+## 5. Current Repo State (Observed)
 
-`Plugin/Lance` is currently a scaffold shell, not a complete publishing feature.
-
-Observed state:
-1. Metadata exists: `Plugin/Lance/Config/plugin.json`.
-2. Event listener is registered but empty:
-   - `Plugin/Lance/Config/events.php`
-   - `Plugin/Lance/Event/LanceEventListener.php`
-3. Routes/bootstrap are empty:
-   - `Plugin/Lance/Config/routes.php`
-   - `Plugin/Lance/Config/bootstrap.php`
-4. Schema defines no tables: `Plugin/Lance/Config/Schema/schema.php`.
-5. Activation class is empty: `Plugin/Lance/Lib/LanceActivation.php`.
-6. Controller/model logic is empty.
-7. Admin views are scaffold placeholders expecting data that is not yet wired.
+There is no active standalone custom plugin scaffold in this repo today (for example, no `Plugin/Lance/` application plugin tree).
 
 Practical conclusion:
-1. Lance is a good starting point for a custom module.
-2. Lance is not yet ready to solve production publishing requirements.
+1. Existing publishing needs should continue to prefer Page fields, Content Blocks, and Prototypes.
+2. Introduce a new custom plugin only when requirements exceed those systems (workflow/business logic/data model complexity).
 
 ## 6. Production-Ready Plugin Checklist
 
@@ -98,7 +85,13 @@ Before using a custom plugin for live publishing:
 3. Keep editor-managed content out of hardcoded template strings.
 4. Document the ownership of every homepage section (field/block/prototype/plugin).
 
-## 8. Homepage Guidance (This Project)
+## 8. Idiosyncrasies (Observed)
+
+1. The label "plugin" is overloaded in this CMS: core feature plugins (Pages/Media/Galleries/etc.) are always present, while custom application plugins are optional.
+2. Some behaviors commonly assumed to be "editor output rules" are actually defined in plugin view helpers/elements (for example block replacement helpers).
+3. Event-listener wiring is a critical part of plugin behavior; missing events can make a plugin appear installed but functionally inert.
+
+## 9. Homepage Guidance (This Project)
 
 For current homepage needs:
 1. Keep section cards/lists in Prototypes.

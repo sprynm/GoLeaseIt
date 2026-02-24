@@ -17,3 +17,13 @@ This project mixes PHP templates, SCSS, and client-side assets. To keep syntax i
 ## General workflow
 - After making template changes, reload the affected pages locally to spot runtime notices.
 - Commit only after all checks pass and the site renders without warnings in the debug toolbar.
+
+## Publishing Contract Checks
+- Run `npm run contracts:check` after editing homepage template wiring.
+- The checker is config-driven via `tools/publishing-contract.config.json`:
+  - `groups[].targetFiles` controls template scope,
+  - `groups[].matrixKeyPatterns` controls which keys are expected from the matrix,
+  - `groups[].codeKeyPatterns` controls key extraction in code,
+  - `groups[].hardcodedChecks` controls prohibited hardcoded patterns.
+- Optional focused run: `node tools/check-publishing-contract.mjs --group homepage`.
+- This is still a guardrail, not a full semantic parser.

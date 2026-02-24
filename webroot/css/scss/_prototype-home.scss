@@ -23,6 +23,7 @@
   /* ─── Hero: home variant ─── */
   .page-hero--home {
     min-height: clamp(460px, 72vh, 820px);
+    min-height: clamp(460px, 72dvh, 820px);
   }
 
   .page-hero--home .page-hero__title {

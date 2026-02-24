@@ -26,7 +26,7 @@ These are present under `Plugin/` with a CorePlugin + site-level wrapper pattern
 - `Media`: attachments (images/documents) used by pages and settings.
 - `Metas`: meta tags for pages.
 - `EmailForms`: embedded forms and merge fields.
-- `Galleries`: media grouping (details not explored here).
+- `Galleries`: media grouping and block-driven gallery rendering.
 - `Prototype`: CMS prototype instances and view overrides.
 
 Custom plugin guidance:
@@ -87,6 +87,13 @@ Key routing fields:
 - They are versioned and publishable (`Versioning.SoftDelete`, `Publishing.Publishable`).
 - WYSIWYG integration references content blocks for insertion (`findForTinyMce`).
 - Detailed runbook: `docs/architecture/content-blocks.md`.
+
+## Galleries (Observed)
+- `Galleries` use `CmsGallery` (`Plugin/Galleries/CorePlugin/Model/CmsGallery.php`).
+- WYSIWYG integration references galleries for insertion (`findForTinyMce`).
+- Gallery block token replacement is handled by `CmsGalleryBlockHelper`.
+- Default rendered output comes from `Plugin/Media/CorePlugin/View/Elements/basic_gallery.ctp`.
+- Detailed runbook: `docs/architecture/galleries.md`.
 
 ## Media (Observed)
 - Pages and settings attach media via `Media.Attachment`:

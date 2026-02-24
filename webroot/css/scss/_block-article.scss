@@ -5,6 +5,20 @@
     max-width: 100%;
   }
 
+  /* Full-bleed interruptor pattern for gallery blocks rendered by Media.basic_gallery. */
+  .article-body .c-gallery {
+    width: 100vw;
+    width: 100dvw;
+    margin-inline: calc(50% - 50vw);
+    margin-inline: calc(50% - 50dvw);
+    margin-block: var(--space-xl);
+    padding-inline: var(--frame-gutter);
+  }
+
+  .article-body .c-gallery .gallery {
+    margin-block: 0;
+  }
+
   .article-callout {
     float: right;
     clear: right;

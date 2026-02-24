@@ -6,7 +6,9 @@
     "css:build": "node tools/build-css.mjs",
     "css:build:prod": "node tools/build-css.mjs --mode=prod",
     "css:watch": "node tools/watch-css.mjs",
+    "font:contact-server": "node tools/font-contact-sheet-server.mjs",
     "sftp:check": "node tools/check-sftp.mjs",
+    "contracts:check": "node tools/check-publishing-contract.mjs",
     "visual:capture": "node tools/capture-style-guide.mjs",
     "visual:compare": "node tools/compare-style-guide.mjs"
   },

@@ -30,6 +30,11 @@ Use this repo as a clean, reusable implementation baseline while delivering Go L
 - Prefer small, reversible edits and validate with local build/lint checks.
 - Do not edit compiled or build artifacts directly (for example `webroot/css/stylesheet.css`).
 - Preserve design-system consistency across all changes; avoid ad hoc visual patterns.
+- Use the design delivery workflow in `docs/architecture/design-delivery-workflow.md`:
+  1. iterate in full-page preview,
+  2. migrate to reusable style-guide/system,
+  3. generate runtime code in correct publishing surface,
+  4. document deployment via `docs/architecture/design-deployment-runbook.md`.
 
 ## Key Paths
 - Runtime templates: `View/Layouts/`, `View/Elements/`

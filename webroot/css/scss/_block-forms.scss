@@ -185,7 +185,9 @@
   }
 
   /* Primary button — solid green, uppercase with arrow */
+  /* .btn--primary is the canonical BEM form; .btn-primary retained during migration */
   .btn-primary,
+  .btn--primary,
   .btn--hero {
     background: var(--color-brand-punch);
     color: #fff;
@@ -193,10 +195,13 @@
   }
 
   .btn-primary:visited,
+  .btn--primary:visited,
   .btn--hero:visited { color: #fff; }
 
   .btn-primary:hover,
   .btn-primary:focus-visible,
+  .btn--primary:hover,
+  .btn--primary:focus-visible,
   .btn--hero:hover,
   .btn--hero:focus-visible {
     background: color-mix(in srgb, var(--color-brand-punch) 82%, #000 18%);
@@ -204,7 +209,9 @@
   }
 
   /* Secondary button — outlined green */
+  /* .btn--secondary is the canonical BEM form; .btn-secondary retained during migration */
   .btn-secondary,
+  .btn--secondary,
   .btn--hero-secondary {
     background: transparent;
     color: var(--color-brand-punch);
@@ -212,10 +219,13 @@
   }
 
   .btn-secondary:visited,
+  .btn--secondary:visited,
   .btn--hero-secondary:visited { color: var(--color-brand-punch); }
 
   .btn-secondary:hover,
   .btn-secondary:focus-visible,
+  .btn--secondary:hover,
+  .btn--secondary:focus-visible,
   .btn--hero-secondary:hover,
   .btn--hero-secondary:focus-visible {
     background: color-mix(in srgb, var(--color-brand-punch) 10%, transparent 90%);

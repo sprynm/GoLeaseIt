@@ -15,6 +15,7 @@ Goal: implement UI with consistent tokens, layers, and composition rules.
 6. `docs/design/atomic-reuse.md`
 7. `docs/design/prototypes.md`
 8. `docs/design/accessibility.md`
+9. `docs/architecture/design-delivery-workflow.md`
 
 ## Design System / SCSS Specifics
 1. Entry point: `webroot/css/scss/stylesheet.scss`.

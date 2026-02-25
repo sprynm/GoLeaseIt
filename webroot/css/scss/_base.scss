@@ -24,7 +24,6 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: var(--color-brand-primary);
     line-height: var(--lh-title);
     font-weight: var(--font-weight-bold);
     text-wrap: balance;
@@ -39,6 +38,7 @@
     font-size: var(--type-h1-size);
     line-height: var(--type-h1-line);
     font-weight: var(--font-weight-black);
+    color: var(--h1-color);
   }
 
   h2 {
@@ -46,6 +46,7 @@
     font-size: var(--type-h2-size);
     line-height: var(--type-h2-line);
     font-weight: var(--font-weight-bold);
+    color: var(--h2-color);
   }
 
   h3 {
@@ -53,7 +54,7 @@
     font-size: var(--type-h3-size);
     line-height: var(--type-h3-line);
     font-weight: var(--font-weight-regular);
-    color: var(--color-brand-punch);
+    color: var(--h3-color);
   }
 
   h4 {
@@ -61,7 +62,7 @@
     font-size: var(--type-h4-size);
     line-height: var(--type-h4-line);
     font-weight: var(--font-weight-semibold);
-    color: var(--color-ink-primary);
+    color: var(--h4-color);
   }
 
   h5, h6 {

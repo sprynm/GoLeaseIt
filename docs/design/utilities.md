@@ -14,10 +14,18 @@ This document lists the current utility classes defined in `webroot/css/scss/_ut
 
 ## Typography
 - `.u-font-sans` — force sans stack (`--font-sans`).
+- `.u-font-display` — force display stack (`--font-display`).
 - `.u-font-serif` — force serif stack (`--font-serif`).
 - `.u-step-0` — font-size `--step-0`.
 - `.u-step-1` — font-size `--step-1`.
 - `.u-step-2` — font-size `--step-2`.
+
+### Type Scale Utilities (`.u-type-*`)
+Bundle the related typographic properties for a named role: `font-family`, `font-size`, `line-height`, `font-weight`.
+
+**Rule:** Type scale utilities must NOT set `color`. Color is component context — it belongs in a block or applied directly. Adding color to a utility pushes it into component styling territory and breaks reuse across contexts.
+
+Available: `.u-type-h1`, `.u-type-h2`, `.u-type-h3`, `.u-type-h4`, `.u-type-feature-h2`, `.u-type-feature-h3`, `.u-type-nav`, `.u-type-paragraph`, `.u-type-feature-text`, `.u-type-label`.
 
 ## Spacing Helpers
 - `.u-pad-block-sm` — apply `padding-block: var(--space-sm)`.
@@ -40,6 +48,17 @@ This document lists the current utility classes defined in `webroot/css/scss/_ut
 - `.u-stack-sm > * + *` — vertical stack spacing with `var(--space-sm)`.
 - `.u-stack-md > * + *` — vertical stack spacing with `var(--space-md)`.
 - `.u-stack-lg > * + *` — vertical stack spacing with `var(--space-lg)`.
+
+### `.u-stack-*` vs `.c-stack` — When To Use Which
+
+| | `.u-stack-*` | `.c-stack` (composition) |
+|---|---|---|
+| **Purpose** | Last-mile spacing tweak on an existing element | Primary layout pattern for a region or component |
+| **Scope** | Applied to a single container to add child spacing | Used to define the flow structure of a section |
+| **Context** | HTML already has layout; you need a spacing nudge | HTML needs a stacking layout from scratch |
+| **Example** | `<ul class="u-stack-sm">` inside a `.card` | `<section class="c-stack">` as a page region |
+
+Use `.c-stack` when you are designing the layout. Use `.u-stack-*` when you are adjusting spacing within an already-structured context.
 
 ## Layout Helpers
 - `.u-full-width` — apply `width: 100%`.

@@ -95,6 +95,10 @@
     --type-nav-line: 1;
     --type-label-size: calc(var(--fluid-base) * 0.833);
     --type-label-line: 1.2;
+    --h1-color: var(--color-brand-primary);
+    --h2-color: var(--color-brand-primary);
+    --h3-color: var(--color-brand-punch);
+    --h4-color: var(--color-ink-primary);
     --space-2xs: clamp(0.35rem, 0.31rem + 0.2vw, 0.5rem);
     --space-xs: clamp(0.5rem, 0.45rem + 0.25vw, 0.7rem);
     --space-sm: clamp(0.75rem, 0.66rem + 0.5vw, 1rem);
@@ -123,6 +127,7 @@
     --hero-max: 75rem;
     --hero-inline: clamp(1rem, 3vw, 3rem);
     --hero-vspace: 0;
+    --hdr-notice-height: 20px;
     --form-space-tight: var(--space-2xs);
   }
   @media (width >= 100rem) {
@@ -226,7 +231,6 @@
     line-height: var(--type-body-line);
   }
   h1, h2, h3, h4, h5, h6 {
-    color: var(--color-brand-primary);
     line-height: var(--lh-title);
     font-weight: var(--font-weight-bold);
     text-wrap: balance;
@@ -239,26 +243,28 @@
     font-size: var(--type-h1-size);
     line-height: var(--type-h1-line);
     font-weight: var(--font-weight-black);
+    color: var(--h1-color);
   }
   h2 {
     font-family: var(--font-display);
     font-size: var(--type-h2-size);
     line-height: var(--type-h2-line);
     font-weight: var(--font-weight-bold);
+    color: var(--h2-color);
   }
   h3 {
     font-family: var(--font-display);
     font-size: var(--type-h3-size);
     line-height: var(--type-h3-line);
     font-weight: var(--font-weight-regular);
-    color: var(--color-brand-punch);
+    color: var(--h3-color);
   }
   h4 {
     font-family: var(--font-sans);
     font-size: var(--type-h4-size);
     line-height: var(--type-h4-line);
     font-weight: var(--font-weight-semibold);
-    color: var(--color-ink-primary);
+    color: var(--h4-color);
   }
   h5, h6 {
     font-size: var(--step--1);
@@ -477,42 +483,36 @@
     font-size: var(--type-h1-size);
     line-height: var(--type-h1-line);
     font-weight: var(--font-weight-black);
-    color: var(--color-brand-primary);
   }
   .u-type-h2 {
     font-family: var(--font-display);
     font-size: var(--type-h2-size);
     line-height: var(--type-h2-line);
     font-weight: var(--font-weight-bold);
-    color: var(--color-brand-primary);
   }
   .u-type-h3 {
     font-family: var(--font-display);
     font-size: var(--type-h3-size);
     line-height: var(--type-h3-line);
     font-weight: var(--font-weight-regular);
-    color: var(--color-brand-punch);
   }
   .u-type-h4 {
     font-family: var(--font-sans);
     font-size: var(--type-h4-size);
     line-height: var(--type-h4-line);
     font-weight: var(--font-weight-semibold);
-    color: var(--color-ink-primary);
   }
   .u-type-feature-h2 {
     font-family: var(--font-display);
     font-size: var(--type-feature-h2-size);
     line-height: var(--type-feature-h2-line);
     font-weight: var(--font-weight-bold);
-    color: var(--color-brand-primary);
   }
   .u-type-feature-h3 {
     font-family: var(--font-display);
     font-size: var(--type-feature-h3-size);
     line-height: var(--type-feature-h3-line);
     font-weight: var(--font-weight-semibold);
-    color: var(--color-ink-primary);
     text-transform: capitalize;
   }
   .u-type-nav {
@@ -520,28 +520,24 @@
     font-size: var(--type-nav-size);
     line-height: var(--type-nav-line);
     font-weight: var(--font-weight-semibold);
-    color: var(--color-brand-secondary);
   }
   .u-type-paragraph {
     font-family: var(--font-sans);
     font-size: var(--type-body-size);
     line-height: var(--type-body-line);
     font-weight: var(--font-weight-regular);
-    color: var(--color-ink-primary);
   }
   .u-type-feature-text {
     font-family: var(--font-sans);
     font-size: var(--type-body-size);
     line-height: var(--type-body-line);
     font-weight: var(--font-weight-regular);
-    color: var(--color-ink-primary);
   }
   .u-type-label {
     font-family: var(--font-sans);
     font-size: var(--type-label-size);
     line-height: var(--type-label-line);
     font-weight: var(--font-weight-bold);
-    color: var(--color-brand-secondary);
   }
   .u-pad-block-sm {
     padding-block: var(--space-sm);
@@ -781,7 +777,7 @@
     border-radius: var(--radius-sm);
     color: var(--color-ink-primary);
     text-decoration: none;
-    font-family: var(--font-base);
+    font-family: var(--font-display);
     font-size: clamp(1rem, 0.55vw + 0.6rem, 1.5rem);
     line-height: 1.1;
     font-weight: var(--font-weight-semibold);
@@ -1031,9 +1027,6 @@
   }
 }
 @layer blocks {
-  :root {
-    --hdr-notice-height: 20px;
-  }
   #hdr-notice {
     display: block;
     position: relative;
@@ -1145,16 +1138,6 @@
     align-self: start;
     white-space: nowrap;
     padding-top: 10px;
-  }
-  .header-cta .btn-primary,
-  .header-cta .btn--hero {
-    min-height: 3.125rem;
-    padding-inline: 2rem;
-    border-radius: 0.625rem;
-    letter-spacing: 0.01em;
-    font-size: 1.25rem;
-    font-weight: var(--font-weight-semibold);
-    text-transform: uppercase;
   }
   .site-nav {
     grid-area: nav;
@@ -1502,7 +1485,7 @@
 }
 @layer blocks {
   footer {
-    background: #0b274e;
+    background: var(--color-surface-footer);
     color: var(--color-ink-on-dark);
   }
   .ftr-container {
@@ -1842,36 +1825,46 @@
     gap: 0;
   }
   /* Primary button — solid green, uppercase with arrow */
+  /* .btn--primary is the canonical BEM form; .btn-primary retained during migration */
   .btn-primary,
+  .btn--primary,
   .btn--hero {
     background: var(--color-brand-punch);
     color: #fff;
     border-color: transparent;
   }
   .btn-primary:visited,
+  .btn--primary:visited,
   .btn--hero:visited {
     color: #fff;
   }
   .btn-primary:hover,
   .btn-primary:focus-visible,
+  .btn--primary:hover,
+  .btn--primary:focus-visible,
   .btn--hero:hover,
   .btn--hero:focus-visible {
     background: color-mix(in srgb, var(--color-brand-punch) 82%, #000 18%);
     color: #fff;
   }
   /* Secondary button — outlined green */
+  /* .btn--secondary is the canonical BEM form; .btn-secondary retained during migration */
   .btn-secondary,
+  .btn--secondary,
   .btn--hero-secondary {
     background: transparent;
     color: var(--color-brand-punch);
     border: 2px solid var(--color-brand-punch);
   }
   .btn-secondary:visited,
+  .btn--secondary:visited,
   .btn--hero-secondary:visited {
     color: var(--color-brand-punch);
   }
   .btn-secondary:hover,
   .btn-secondary:focus-visible,
+  .btn--secondary:hover,
+  .btn--secondary:focus-visible,
   .btn--hero-secondary:hover,
   .btn--hero-secondary:focus-visible {
     background: color-mix(in srgb, var(--color-brand-punch) 10%, transparent 90%);
@@ -2855,23 +2848,23 @@
   .section-industries .industry-grid__intro--with-bg p {
     color: var(--color-ink-on-dark);
   }
-  /* Override .tile defaults within the industry grid */
-  .section-industries .industry-grid .tile {
+  /* Industry tile modifier */
+  .tile--industry {
     -webkit-box-shadow: none;
             box-shadow: none;
     min-height: 0;
     border-radius: var(--radius-lg);
   }
-  .section-industries .industry-grid .tile__overlay {
+  .tile--industry .tile__overlay {
     background: -webkit-gradient(linear, left bottom, left top, from(rgb(var(--color-ink-absolute-rgb)/var(--alpha-75))), color-stop(4rem, rgb(var(--color-ink-absolute-rgb)/0)));
     background: linear-gradient(to top, rgb(var(--color-ink-absolute-rgb)/var(--alpha-75)) 0%, rgb(var(--color-ink-absolute-rgb)/0) 4rem);
   }
-  .section-industries .industry-grid .tile__content {
+  .tile--industry .tile__content {
     position: absolute;
     inset: auto 0 0;
     padding: var(--space-xs) var(--space-sm);
   }
-  .section-industries .industry-grid .tile__heading {
+  .tile--industry .tile__heading {
     font-family: var(--font-display);
     font-size: var(--type-h3-size);
     font-weight: var(--font-weight-bold);
@@ -3024,21 +3017,25 @@
     background-position: 0.75rem 0.75rem !important;
     background-repeat: no-repeat !important;
   }
-  .notification.attention {
+  /* BEM canonical forms added; class combos retained pending CMS class output audit */
+  .notification.attention,
+  .notification--attention {
     background-color: var(--color-state-notice-attention-bg);
     background-image: url("../img/icons/exclamation.svg");
     background-size: 1.3125rem;
     border-color: color-mix(in srgb, var(--color-state-notice-attention-bg) 60%, var(--color-ink-absolute) 40%);
     color: color-mix(in srgb, var(--color-state-notice-attention-bg) 25%, var(--color-ink-absolute) 75%);
   }
-  .notification.information {
+  .notification.information,
+  .notification--information {
     background-color: var(--color-state-notice-info-bg);
     background-image: url("../img/icons/information.svg");
     background-size: 1.3125rem;
     border-color: color-mix(in srgb, var(--color-state-notice-info-bg) 60%, var(--color-ink-absolute) 40%);
     color: color-mix(in srgb, var(--color-state-notice-info-bg) 25%, var(--color-ink-absolute) 75%);
   }
-  .notification.success {
+  .notification.success,
+  .notification--success {
     background-color: var(--color-state-notice-success-bg);
     background-image: url("../img/icons/circle-check.svg");
     background-size: 1.3125rem;
@@ -3046,6 +3043,7 @@
     color: color-mix(in srgb, var(--color-state-notice-success-bg) 25%, var(--color-ink-absolute) 75%);
   }
   .notification.error,
+  .notification--error,
   .error-message {
     background-color: var(--color-state-notice-error-bg);
     background-image: url("../img/icons/exclamation_circle.svg");

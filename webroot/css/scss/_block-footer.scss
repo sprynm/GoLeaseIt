@@ -2,7 +2,7 @@
 
 @layer blocks {
   footer {
-    background: #0b274e;
+    background: var(--color-surface-footer);
     color: var(--color-ink-on-dark);
   }
 

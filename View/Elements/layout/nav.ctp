@@ -42,7 +42,7 @@ if ($headerCtaText === '') {
 			<?php endif; ?>
 
 			<?php if ($headerCtaLink !== '' && $headerCtaText !== ''): ?>
-				<?php echo $this->Html->link($headerCtaText, $headerCtaLink, array('class' => 'btn btn-primary', 'escape' => false)); ?>
+				<?php echo $this->Html->link($headerCtaText, $headerCtaLink, array('class' => 'btn btn-primary btn-sm', 'escape' => false)); ?>
 			<?php endif; ?>
 		</div>
 

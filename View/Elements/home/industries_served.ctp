@@ -267,7 +267,7 @@ $hasIntroContent = ($introHeading !== '' || $introBody !== '' || ($introCtaText 
 
 				$image = (!empty($entry['Image']) && !empty($entry['Image'][0])) ? $entry['Image'][0] : null;
 				$imageAlt = ($image && !empty($image['alternative'])) ? $image['alternative'] : $heading;
-				$tileClass = $itemLink !== '' ? 'tile tile--linked' : 'tile';
+				$tileClass = $itemLink !== '' ? 'tile tile--linked tile--industry' : 'tile tile--industry';
 				?>
 				<?php if ($itemLink !== ''): ?>
 					<a class="<?php echo $tileClass; ?>" href="<?php echo h($itemLink); ?>">

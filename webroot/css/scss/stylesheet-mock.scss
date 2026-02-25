@@ -32,6 +32,18 @@
 // @use "block-subnav" as *;
 @use "exceptions" as *;
 
+@layer overrides {
+  /* Mock-only review target for stories spacing rhythm. */
+  .is-mock-preview .home-stories {
+    padding-block: var(--space-2xl);
+    gap: var(--space-xl);
+  }
+
+  .is-mock-preview .story-platter {
+    padding-block: 0;
+    gap: var(--space-xl);
+  }
+}
 
 
 

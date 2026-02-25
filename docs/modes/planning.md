@@ -11,6 +11,7 @@ Goal: scope work, pick the right publishing mechanism, and define implementation
 2. `docs/architecture/system-overview.md`
 3. `docs/architecture/pyramid-cms.md`
 4. `docs/architecture/new-site-playbook.md`
+5. `docs/architecture/design-delivery-workflow.md`
 
 ## Conditional Add-Ons
 1. Prototypes: `docs/architecture/prototype.md`, `docs/architecture/prototype-catalog.md`

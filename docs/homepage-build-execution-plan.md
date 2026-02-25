@@ -48,7 +48,7 @@ Updated `Plugin/Prototype/CorePlugin/Config/preconfigured.php` with:
 3. Create installable prototype starters with minimal required field contracts (done).
 4. Keep one-off highly editorial sections available through content blocks (retained in layout).
 5. Compile and validate CSS/PHP on each iteration.
-6. Perform visual QA against `style-guide/full-page-preview.html` and design-slice images.
+6. Perform visual QA against `style-guide/preview-home-full.html` and design-slice images.
 7. Finalize admin population checklist for content entry.
 
 ## Production Plan
@@ -89,10 +89,12 @@ Tips:
 
 ### Home Stories (`home-stories`)
 
-Target: 2 items, ranked in display order.
+Target: N items, ranked in display order.
 
-Item 1 renders as featured dark panel.
-Item 2 renders as success split panel.
+Rendering model:
+1. Stories render as alternating "tictoc" platters.
+2. Layout alternates image/content sides by item index.
+3. No per-item featured toggle is required.
 
 Required:
 
@@ -155,6 +157,7 @@ Mobile + desktop interactions are driven by `webroot/js/navigation-modern.js`.
 ### Stories section
 
 1. `home_stories_instance_id` or `home_stories_instance_slug`
+2. `home_stories_limit` (optional; defaults to 2)
 
 ### Testimonials section
 

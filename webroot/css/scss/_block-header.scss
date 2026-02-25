@@ -1,10 +1,6 @@
 @use "queries" as *;
 
 @layer blocks {
-  :root {
-    --hdr-notice-height: 20px;
-  }
-
   #hdr-notice {
     display: block;
     position: relative;
@@ -103,17 +99,6 @@
     align-self: start;
     white-space: nowrap;
     padding-top: 10px;
-  }
-
-  .header-cta .btn-primary,
-  .header-cta .btn--hero {
-    min-height: 3.125rem;
-    padding-inline: 2rem;
-    border-radius: 0.625rem;
-    letter-spacing: 0.01em;
-    font-size: 1.25rem;
-    font-weight: var(--font-weight-semibold);
-    text-transform: uppercase;
   }
 
   .site-nav {

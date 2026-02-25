@@ -51,7 +51,9 @@ $notice-input-icon-offset-block: 0.375rem;
     background-repeat: no-repeat !important;
   }
 
-  .notification.attention {
+  /* BEM canonical forms added; class combos retained pending CMS class output audit */
+  .notification.attention,
+  .notification--attention {
     background-color: var(--color-state-notice-attention-bg);
     background-image: url("../img/icons/exclamation.svg");
     background-size: $notice-icon-size;
@@ -63,7 +65,8 @@ $notice-input-icon-offset-block: 0.375rem;
     color: color-mix(in srgb, var(--color-state-notice-attention-bg) 25%, var(--color-ink-absolute) 75%);
   }
 
-  .notification.information {
+  .notification.information,
+  .notification--information {
     background-color: var(--color-state-notice-info-bg);
     background-image: url("../img/icons/information.svg");
     background-size: $notice-icon-size;
@@ -75,7 +78,8 @@ $notice-input-icon-offset-block: 0.375rem;
     color: color-mix(in srgb, var(--color-state-notice-info-bg) 25%, var(--color-ink-absolute) 75%);
   }
 
-  .notification.success {
+  .notification.success,
+  .notification--success {
     background-color: var(--color-state-notice-success-bg);
     background-image: url("../img/icons/circle-check.svg");
     background-size: $notice-icon-size;
@@ -88,6 +92,7 @@ $notice-input-icon-offset-block: 0.375rem;
   }
 
   .notification.error,
+  .notification--error,
   .error-message {
     background-color: var(--color-state-notice-error-bg);
     background-image: url("../img/icons/exclamation_circle.svg");

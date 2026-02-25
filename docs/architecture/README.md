@@ -25,6 +25,8 @@ Use it for runtime behavior, system organization, and platform-specific rules.
 14. `docs/architecture/plugins.md`
 15. `docs/architecture/prototype-catalog.md`
 16. `docs/architecture/new-site-playbook.md`
+17. `docs/architecture/design-delivery-workflow.md`
+18. `docs/architecture/design-deployment-runbook.md`
 
 ## Scope (What belongs here)
 - CakePHP stack overview and CMS behavior.

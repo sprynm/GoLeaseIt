@@ -8,6 +8,8 @@
 .claude/
 
 # reenable root folders
+!/.github/
+!/.github/pull_request_template.md
 !/docs/
 /docs/temp/
 /docs/temp/*

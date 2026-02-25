@@ -19,13 +19,13 @@
 
   .news {
     border-bottom: 1px solid var(--color-border-muted);
-    padding-bottom: 10px;
+    padding-bottom: var(--space-xs);
   }
 
   .news-img {
     float: right;
     border: 5px solid var(--color-surface-base);
-    margin: 0 0 10px 30px;
+    margin: 0 0 var(--space-xs) var(--space-lg);
     box-shadow: 0 0 20px var(--color-border-muted);
   }
 }

@@ -1,14 +1,14 @@
 @layer blocks {
   .people {
     float: left;
-    margin: 15px 0;
+    margin: var(--space-sm) 0;
     border: 1px dashed var(--color-surface-base);
-    padding: 8px;
+    padding: var(--space-2xs);
   }
 
   .people img {
     float: left;
-    margin: 20px 10px 5px 0;
+    margin: var(--space-md) var(--space-xs) var(--space-2xs) 0;
   }
 }
 

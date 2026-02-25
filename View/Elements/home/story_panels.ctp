@@ -27,8 +27,7 @@ $itemValue = function ($item, $keys) {
 };
 ?>
 <section class="section-white">
-	<div class="c-container c-container--full">
-		<div class="home-stories">
+	<div class="home-stories">
 			<?php foreach ($items as $index => $entry): ?>
 				<?php
 				$item = !empty($entry['PrototypeItem']) ? $entry['PrototypeItem'] : array();
@@ -72,6 +71,5 @@ $itemValue = function ($item, $keys) {
 					<?php endif; ?>
 				</article>
 			<?php endforeach; ?>
-		</div>
 	</div>
 </section>

@@ -243,6 +243,7 @@
   /* ─── Stories platters: alternating content/media layout ─── */
   .home-stories {
     display: grid;
+    padding-block: var(--space-2xl);
     gap: var(--space-xl);
   }
 
@@ -250,7 +251,6 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-xl);
-    padding-block: var(--space-2xl);
     align-items: center;
   }
 
@@ -264,6 +264,7 @@
     display: grid;
     gap: var(--space-sm);
     align-content: center;
+    padding-inline: var(--frame-gutter);
   }
 
   .story-platter__title {
@@ -280,7 +281,7 @@
     color: var(--color-ink-primary);
     font-size: var(--step--1);
     line-height: 1.45;
-    max-width: 42ch;
+    max-width: 60ch;
   }
 
   .story-platter__media {
@@ -303,17 +304,21 @@
       border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
     }
 
+    .story-platter--image-first .story-platter__content {
+      padding-inline: 0 var(--frame-gutter);
+    }
+
     .story-platter--content-first .story-platter__media,
     .story-platter--content-first .story-platter__media img {
       border-radius: var(--radius-lg) 0 0 var(--radius-lg);
     }
+
+    .story-platter--content-first .story-platter__content {
+      padding-inline: var(--frame-gutter) 0;
+    }
   }
 
   @include vp-max($vp-md - 0.01rem) {
-    .story-platter {
-      padding-block: var(--space-xl);
-    }
-
     .story-platter__media,
     .story-platter__media img {
       border-radius: var(--radius-lg);

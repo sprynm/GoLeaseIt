@@ -14,17 +14,20 @@
           <p class="sg-guide__kicker">Go Lease It</p>
           <h1 class="sg-guide__title">Living Style Guide</h1>
           <p class="sg-guide__lede">
-            Stable visual reference for baseline checks, snapshots, and pixel-level comparisons across each style iteration.
+            Visual testing ground for direct style updates. Use preview pages for large full-page redesigns, then migrate approved patterns back here for regression checks.
           </p>
         </div>
         <nav aria-label="Style guide sections">
           <ul class="sg-guide__index">
-            <li><a href="#sg-reset-base">Reset / Base</a></li>
-            <li><a href="#sg-typography">Typography</a></li>
-            <li><a href="#sg-layout-page">Layout and Page</a></li>
+            <li><a href="#sg-base-typography">Base (Typography)</a></li>
+            <li><a href="#sg-layout-page">Layout</a></li>
+            <li><a href="#sg-utilities">Utilities</a></li>
             <li><a href="#sg-css-components">CSS Components</a></li>
-            <li><a href="#sg-active-prototypes">Active Prototypes</a></li>
             <li><a href="#sg-cms-components">CMS Components</a></li>
+            <li><a href="#sg-elements">Elements</a></li>
+            <li><a href="./preview-home-full.html">Preview: Home Full</a></li>
+            <li><a href="./preview-header-nav-masthead.html">Preview: Header/Nav/Masthead</a></li>
+            <li><a href="./preview-article-body.html">Preview: Article Body</a></li>
             <li><a href="./screenshots.html">Screenshots &amp; Sources</a></li>
             <li><a href="./font-tools.html">Font Tools</a></li>
           </ul>
@@ -34,71 +37,13 @@
   </header>
 
   <main id="content">
-    <section id="sg-reset-base" class="sg-guide__section">
+    <section id="sg-base-typography" class="sg-guide__section">
       <div class="c-container c-container--full c-region">
         <div class="c-stack" data-space="lg">
           <div class="c-stack" data-space="sm">
-            <h2 class="sg-guide__section-head">Reset / Base</h2>
+            <h2 class="sg-guide__section-head">Base (Typography)</h2>
             <p class="sg-guide__section-note">
-              Core element defaults from reset and base layers. Includes list behavior, default media handling, focusable links, and content primitives.
-            </p>
-          </div>
-
-          <div class="c-grid" data-cols-c2="2">
-            <article class="sg-card c-stack" data-space="sm">
-              <h3>Document Defaults</h3>
-              <p>
-                Base paragraph sizing and spacing on body text. Inline <strong>strong text</strong>, <em>emphasis</em>, and
-                <a href="#sg-reset-base">links</a> use system tokens.
-              </p>
-              <p><span class="sg-code">inline-code-sample</span> demonstrates baseline inline styling context.</p>
-            </article>
-
-            <article class="sg-card c-stack" data-space="sm">
-              <h3>Lists and Roles</h3>
-              <p>Default unordered list keeps bullets. Role list removes bullets and spacing per reset policy.</p>
-              <ul>
-                <li>Default list item one</li>
-                <li>Default list item two</li>
-              </ul>
-              <ul role="list" class="sg-chip-row">
-                <li class="sg-chip">role="list"</li>
-                <li class="sg-chip">no bullets</li>
-                <li class="sg-chip">token spacing</li>
-              </ul>
-            </article>
-
-            <article class="sg-card c-stack" data-space="sm">
-              <h3>Media and Figure</h3>
-              <figure class="c-stack" data-space="sm">
-                <img src="./assets/customer/building.jpg" alt="Commercial office building image">
-                <figcaption>Images are display-block and scale to container width.</figcaption>
-              </figure>
-            </article>
-
-            <article class="sg-card c-stack" data-space="sm">
-              <h3>Content Elements</h3>
-              <details open>
-                <summary>Open details component</summary>
-                <p>Details and summary use block-level content styling.</p>
-              </details>
-              <hr>
-              <blockquote>
-                <p>Built for predictable visual regression checks.</p>
-              </blockquote>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="sg-typography" class="sg-guide__section">
-      <div class="c-container c-container--full c-region">
-        <div class="c-stack" data-space="lg">
-          <div class="c-stack" data-space="sm">
-            <h2 class="sg-guide__section-head">Typography</h2>
-            <p class="sg-guide__section-note">
-              Heading scale, body text behavior, utility font classes, and color tokens used for readable hierarchy.
+              Baseline type scale, paragraph rhythm, and heading hierarchy for global style validation.
             </p>
           </div>
 
@@ -142,51 +87,7 @@
               <h5>Heading Level 5</h5>
               <h6>Heading Level 6</h6>
             </article>
-
-            <article class="sg-card c-stack" data-space="sm">
-              <h3>Body Scale and Utilities</h3>
-              <p class="u-step-0">`.u-step-0` body-size text with normal rhythm and comfortable line length.</p>
-              <p class="u-step-1">`.u-step-1` slightly larger text for intros and key callouts.</p>
-              <p class="u-step-2">`.u-step-2` larger utility type for emphasis.</p>
-              <p class="u-font-serif">Serif utility sample (`.u-font-serif`).</p>
-              <p class="u-font-sans">Sans utility sample (`.u-font-sans`).</p>
-            </article>
           </div>
-
-          <div class="sg-card c-stack" data-space="sm">
-            <h3>Core Color Tokens</h3>
-            <div class="sg-swatch-grid">
-              <div class="sg-swatch">
-                <div class="sg-swatch__paint" style="background: var(--color-brand-primary);"></div>
-                <div class="sg-swatch__meta">--color-brand-primary</div>
-              </div>
-              <div class="sg-swatch">
-                <div class="sg-swatch__paint" style="background: var(--color-brand-secondary);"></div>
-                <div class="sg-swatch__meta">--color-brand-secondary</div>
-              </div>
-              <div class="sg-swatch">
-                <div class="sg-swatch__paint" style="background: var(--color-brand-punch);"></div>
-                <div class="sg-swatch__meta">--color-brand-punch</div>
-              </div>
-              <div class="sg-swatch">
-                <div class="sg-swatch__paint" style="background: var(--color-surface-base);"></div>
-                <div class="sg-swatch__meta">--color-surface-base</div>
-              </div>
-              <div class="sg-swatch">
-                <div class="sg-swatch__paint" style="background: var(--color-surface-soft);"></div>
-                <div class="sg-swatch__meta">--color-surface-soft</div>
-              </div>
-              <div class="sg-swatch">
-                <div class="sg-swatch__paint" style="background: var(--color-ink-primary);"></div>
-                <div class="sg-swatch__meta">--color-ink-primary</div>
-              </div>
-              <div class="sg-swatch">
-                <div class="sg-swatch__paint" style="background: var(--color-focus-ring);"></div>
-                <div class="sg-swatch__meta">--color-focus-ring</div>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
@@ -278,8 +179,8 @@
                 <nav class="subnav subnav--list" aria-label="Sidebar demo navigation">
                   <ul>
                     <li class="current"><a href="#sg-layout-page">Current Section</a></li>
-                    <li><a href="#sg-reset-base">Reset / Base</a></li>
-                    <li><a href="#sg-typography">Typography</a></li>
+                    <li><a href="#sg-base-typography">Base (Typography)</a></li>
+                    <li><a href="#sg-utilities">Utilities</a></li>
                     <li><a href="#sg-css-components">CSS Components</a></li>
                   </ul>
                 </nav>
@@ -287,6 +188,64 @@
             </div>
           </article>
 
+        </div>
+      </div>
+    </section>
+
+    <section id="sg-utilities" class="sg-guide__section">
+      <div class="c-container c-container--full c-region">
+        <div class="c-stack" data-space="lg">
+          <div class="c-stack" data-space="sm">
+            <h2 class="sg-guide__section-head">Utilities</h2>
+            <p class="sg-guide__section-note">
+              Utility classes and direct token checks for quick, small style updates such as color, type, and emphasis tweaks.
+            </p>
+          </div>
+
+          <div class="c-grid" data-cols-c2="2">
+            <article class="sg-card c-stack" data-space="sm">
+              <h3>Body Scale and Font Utilities</h3>
+              <p class="u-step-0">`.u-step-0` body-size text with normal rhythm and comfortable line length.</p>
+              <p class="u-step-1">`.u-step-1` slightly larger text for intros and key callouts.</p>
+              <p class="u-step-2">`.u-step-2` larger utility type for emphasis.</p>
+              <p class="u-font-serif">Serif utility sample (`.u-font-serif`).</p>
+              <p class="u-font-sans">Sans utility sample (`.u-font-sans`).</p>
+            </article>
+
+            <article class="sg-card c-stack" data-space="sm">
+              <h3>Core Color Tokens</h3>
+              <div class="sg-swatch-grid">
+                <div class="sg-swatch">
+                  <div class="sg-swatch__paint" style="background: var(--color-brand-primary);"></div>
+                  <div class="sg-swatch__meta">--color-brand-primary</div>
+                </div>
+                <div class="sg-swatch">
+                  <div class="sg-swatch__paint" style="background: var(--color-brand-secondary);"></div>
+                  <div class="sg-swatch__meta">--color-brand-secondary</div>
+                </div>
+                <div class="sg-swatch">
+                  <div class="sg-swatch__paint" style="background: var(--color-brand-punch);"></div>
+                  <div class="sg-swatch__meta">--color-brand-punch</div>
+                </div>
+                <div class="sg-swatch">
+                  <div class="sg-swatch__paint" style="background: var(--color-surface-base);"></div>
+                  <div class="sg-swatch__meta">--color-surface-base</div>
+                </div>
+                <div class="sg-swatch">
+                  <div class="sg-swatch__paint" style="background: var(--color-surface-soft);"></div>
+                  <div class="sg-swatch__meta">--color-surface-soft</div>
+                </div>
+                <div class="sg-swatch">
+                  <div class="sg-swatch__paint" style="background: var(--color-ink-primary);"></div>
+                  <div class="sg-swatch__meta">--color-ink-primary</div>
+                </div>
+                <div class="sg-swatch">
+                  <div class="sg-swatch__paint" style="background: var(--color-focus-ring);"></div>
+                  <div class="sg-swatch__meta">--color-focus-ring</div>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -303,9 +262,14 @@
 
           <article class="sg-card c-stack" data-space="sm">
             <h3>Buttons</h3>
+            <p style="margin:0; font-size: var(--step--1); color: var(--color-ink-muted);">Default `.btn` is the large button treatment used for primary actions.</p>
             <div class="sg-component-row">
-              <a class="btn" href="#sg-css-components">Anchor Button</a>
-              <button class="btn" type="button">Button Element</button>
+              <a class="btn" href="#sg-css-components">Large Anchor Button</a>
+              <button class="btn" type="button">Large Button Element</button>
+            </div>
+            <p style="margin:0; font-size: var(--step--1); color: var(--color-ink-muted);">Nav CTA uses the compact variant: <span class="sg-code">.btn btn-primary btn-sm</span>.</p>
+            <div class="sg-component-row">
+              <a class="btn btn-primary btn-sm" href="#sg-css-components">Learn More</a>
             </div>
             <p style="margin:0; font-size: var(--step--1); color: var(--color-ink-muted);">Hero CTA variants — green, uppercase, primary conversion actions:</p>
             <div class="sg-component-row">
@@ -415,215 +379,6 @@
       </div>
     </section>
 
-    <section id="sg-active-prototypes" class="sg-guide__section">
-      <div class="c-container c-container--full c-region">
-        <div class="c-stack" data-space="lg">
-          <div class="c-stack" data-space="sm">
-            <h2 class="sg-guide__section-head">Active Prototypes</h2>
-            <p class="sg-guide__section-note">
-              Prototype patterns included in this build:
-              <span class="sg-code">industries_served</span>,
-              <span class="sg-code">feature-boxes</span>,
-              <span class="sg-code">our-services</span>,
-              <span class="sg-code">process-steps</span>,
-              <span class="sg-code">testimonials</span>.
-              Not yet active (uncomment in <span class="sg-code">stylesheet.scss</span> when needed):
-              <span class="sg-code">faq</span>,
-              <span class="sg-code">news</span>,
-              <span class="sg-code">projects</span>,
-              <span class="sg-code">staff</span>.
-            </p>
-          </div>
-
-          <article class="sg-card c-stack" data-space="sm">
-            <h3>Industries Served Prototype (`industries_served`)</h3>
-            <p>Homepage industry card collection. Rendered as image tiles in the industry grid with heading and CTA link per item.</p>
-            <div class="feature-boxes">
-              <a class="tile tile--linked tile--industry" href="#sg-active-prototypes">
-                <span class="tile__media">
-                  <img src="./assets/customer/yellow-equipment.jpg" alt="Transportation and logistics">
-                </span>
-                <span class="tile__overlay"></span>
-                <span class="tile__content">
-                  <span class="tile__heading">Transportation &amp; Logistics</span>
-                </span>
-              </a>
-
-              <a class="tile tile--linked tile--industry" href="#sg-active-prototypes">
-                <span class="tile__media">
-                  <img src="./assets/customer/building.jpg" alt="Construction and agriculture">
-                </span>
-                <span class="tile__overlay"></span>
-                <span class="tile__content">
-                  <span class="tile__heading">Construction &amp; Agriculture</span>
-                </span>
-              </a>
-            </div>
-          </article>
-
-          <article class="sg-card c-stack" data-space="sm">
-            <h3>Service Boxes Prototype (`_prototype-feature-boxes.scss`)</h3>
-            <p>Home/services tile collection using the `.feature-boxes` and shared `.tile` pattern.</p>
-            <div class="home-service-boxes">
-              <div class="feature-boxes">
-                <a class="tile tile--linked" href="#sg-active-prototypes">
-                  <span class="tile__media">
-                    <img src="./assets/customer/building.jpg" alt="Equipment leasing solutions">
-                  </span>
-                  <span class="tile__overlay"></span>
-                  <span class="tile__content">
-                    <span class="tile__heading">Leasing</span>
-                    <span class="tile__title">Equipment Leasing</span>
-                    <span class="tile__subheading">Straightforward terms</span>
-                    <span class="tile__text">Flexible structures for new and used equipment across industries.</span>
-                  </span>
-                </a>
-
-                <a class="tile tile--linked" href="#sg-active-prototypes">
-                  <span class="tile__media">
-                    <img src="./assets/customer/yellow-equipment.jpg" alt="Sale-leaseback financing">
-                  </span>
-                  <span class="tile__overlay"></span>
-                  <span class="tile__content">
-                    <span class="tile__heading">Equity</span>
-                    <span class="tile__title">Sale-Leaseback</span>
-                    <span class="tile__subheading">Unlock capital</span>
-                    <span class="tile__text">Convert owned equipment into cash while keeping it in service.</span>
-                  </span>
-                </a>
-
-                <a class="tile tile--linked" href="#sg-active-prototypes">
-                  <span class="tile__media">
-                    <img src="./assets/customer/building.jpg" alt="Auction and private sales financing">
-                  </span>
-                  <span class="tile__overlay"></span>
-                  <span class="tile__content">
-                    <span class="tile__heading">Buying</span>
-                    <span class="tile__title">Auction &amp; Private Sales</span>
-                    <span class="tile__subheading">Fast turnaround</span>
-                    <span class="tile__text">Financing for time-sensitive purchases from any seller.</span>
-                  </span>
-                </a>
-
-                <a class="tile tile--linked" href="#sg-active-prototypes">
-                  <span class="tile__media">
-                    <img src="./assets/customer/dental.jpg" alt="Rental conversion financing">
-                  </span>
-                  <span class="tile__overlay"></span>
-                  <span class="tile__content">
-                    <span class="tile__heading">Conversion</span>
-                    <span class="tile__title">Rental Conversions</span>
-                    <span class="tile__subheading">Keep what works</span>
-                    <span class="tile__text">Turn rentals into long-term assets with clean monthly terms.</span>
-                  </span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="sg-card c-stack" data-space="sm">
-            <h3>Our Services Prototype (`_prototype-our-services.scss`)</h3>
-            <p>Split platter pattern with alternating media/body orientation using `.c-split-platter--flip`.</p>
-            <section class="service-platters c-stack" aria-label="Prototype service platter demo">
-              <article class="c-split-platter">
-                <div class="c-split-platter__media">
-                  <picture>
-                    <img src="./assets/customer/building.jpg" alt="Equipment financing planning" loading="lazy" decoding="async">
-                  </picture>
-                </div>
-                <div class="c-split-platter__body">
-                  <h3 class="c-split-platter__title">Simple Lease Process</h3>
-                  <div class="c-split-platter__content">
-                    <p>Clear steps from quote to funding, with responsive guidance throughout.</p>
-                  </div>
-                </div>
-              </article>
-
-              <article class="c-split-platter c-split-platter--flip">
-                <div class="c-split-platter__media">
-                  <picture>
-                    <img src="./assets/customer/dental.jpg" alt="Equipment financing options" loading="lazy" decoding="async">
-                  </picture>
-                </div>
-                <div class="c-split-platter__body">
-                  <h3 class="c-split-platter__title">Industry-Focused Options</h3>
-                  <div class="c-split-platter__content">
-                    <p>Lease structures tuned for construction, transportation, dental, and municipal needs.</p>
-                  </div>
-                </div>
-              </article>
-            </section>
-          </article>
-
-          <article class="sg-card c-stack sg-iframe-bleed" data-space="sm">
-            <h3>Process Steps Prototype (<span class="sg-code">_prototype-process-steps.scss</span>)</h3>
-            <p>"Our Easy Process" homepage section. Numbered badge + icon + title + description. 5-column grid on desktop.</p>
-            <ol class="process-steps">
-              <li class="process-step">
-                <span class="process-step__badge">1</span>
-                <span class="process-step__icon" aria-hidden="true">📋</span>
-                <p class="process-step__title">Apply Online</p>
-                <p class="process-step__desc">Submit your application in minutes.</p>
-              </li>
-              <li class="process-step">
-                <span class="process-step__badge">2</span>
-                <span class="process-step__icon" aria-hidden="true">📞</span>
-                <p class="process-step__title">We Reach Out</p>
-                <p class="process-step__desc">We review your info and call to confirm details.</p>
-              </li>
-              <li class="process-step">
-                <span class="process-step__badge">3</span>
-                <span class="process-step__icon" aria-hidden="true">🤝</span>
-                <p class="process-step__title">Build The Deal</p>
-                <p class="process-step__desc">You source the equipment &amp; we structure the lease.</p>
-              </li>
-              <li class="process-step">
-                <span class="process-step__badge">4</span>
-                <span class="process-step__icon" aria-hidden="true">🔒</span>
-                <p class="process-step__title">Lock It In</p>
-                <p class="process-step__desc">You approve the terms and sign the lease.</p>
-              </li>
-              <li class="process-step">
-                <span class="process-step__badge">5</span>
-                <span class="process-step__icon" aria-hidden="true">🚛</span>
-                <p class="process-step__title">Get To Work</p>
-                <p class="process-step__desc">You put the equipment to work.</p>
-              </li>
-            </ol>
-          </article>
-
-          <article class="sg-card c-stack" data-space="sm">
-            <h3>Testimonials Prototype (<span class="sg-code">_prototype-testimonials.scss</span>)</h3>
-            <p>Star rating + quote card pattern. Used in homepage success stories and interior pages.</p>
-            <div class="testimonials-grid">
-              <div class="testimonial-card">
-                <div class="star-rating" aria-label="5 stars">
-                  <span class="star-rating__star" aria-hidden="true">★</span>
-                  <span class="star-rating__star" aria-hidden="true">★</span>
-                  <span class="star-rating__star" aria-hidden="true">★</span>
-                  <span class="star-rating__star" aria-hidden="true">★</span>
-                  <span class="star-rating__star" aria-hidden="true">★</span>
-                </div>
-                <p class="testimonial-card__quote">We had the pleasure of working with Atlas Crane on the financing for the newest truck in our fleet, and the experience was outstanding from start to finish.</p>
-                <p class="testimonial-card__attr">— ARC Towing</p>
-              </div>
-              <div class="testimonial-card">
-                <div class="star-rating" aria-label="5 stars">
-                  <span class="star-rating__star" aria-hidden="true">★</span>
-                  <span class="star-rating__star" aria-hidden="true">★</span>
-                  <span class="star-rating__star" aria-hidden="true">★</span>
-                  <span class="star-rating__star" aria-hidden="true">★</span>
-                  <span class="star-rating__star" aria-hidden="true">★</span>
-                </div>
-                <p class="testimonial-card__quote">Kris was great, helped me get the financing I needed to purchase my company. He made it very easy, effortless and quick. Thank you!</p>
-                <p class="testimonial-card__attr">— Rick Jaswal</p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section id="sg-cms-components" class="sg-guide__section">
       <div class="c-container c-container--full c-region">
         <div class="c-stack" data-space="lg">
@@ -686,6 +441,255 @@
       </div>
     </section>
 
+    <section id="sg-elements" class="sg-guide__section">
+      <div class="c-container c-container--full c-region">
+        <div class="c-stack" data-space="lg">
+          <div class="c-stack" data-space="sm">
+            <h2 class="sg-guide__section-head">Elements</h2>
+            <p class="sg-guide__section-note">
+              Renderable element patterns used in templates:
+              <span class="sg-code">industries_served</span>,
+              <span class="sg-code">feature-boxes</span>,
+              <span class="sg-code">home-stories</span>,
+              <span class="sg-code">process-steps</span>,
+              <span class="sg-code">testimonials</span>.
+              Not yet active (uncomment in <span class="sg-code">stylesheet.scss</span> when needed):
+              <span class="sg-code">faq</span>,
+              <span class="sg-code">news</span>,
+              <span class="sg-code">projects</span>,
+              <span class="sg-code">staff</span>.
+            </p>
+          </div>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Industries Served Prototype (`industries_served`)</h3>
+            <p>Homepage industry card collection. Rendered as image tiles in the industry grid with heading and CTA link per item.</p>
+            <div class="feature-boxes">
+              <a class="tile tile--linked tile--industry" href="#sg-elements">
+                <span class="tile__media">
+                  <img src="./assets/customer/yellow-equipment.jpg" alt="Transportation and logistics">
+                </span>
+                <span class="tile__overlay"></span>
+                <span class="tile__content">
+                  <span class="tile__heading">Transportation &amp; Logistics</span>
+                </span>
+              </a>
+
+              <a class="tile tile--linked tile--industry" href="#sg-elements">
+                <span class="tile__media">
+                  <img src="./assets/customer/building.jpg" alt="Construction and agriculture">
+                </span>
+                <span class="tile__overlay"></span>
+                <span class="tile__content">
+                  <span class="tile__heading">Construction &amp; Agriculture</span>
+                </span>
+              </a>
+            </div>
+          </article>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Service Boxes Prototype (`_prototype-feature-boxes.scss`)</h3>
+            <p>Home/services tile collection using the `.feature-boxes` and shared `.tile` pattern.</p>
+            <div class="home-service-boxes">
+              <div class="feature-boxes">
+                <a class="tile tile--linked" href="#sg-elements">
+                  <span class="tile__media">
+                    <img src="./assets/customer/building.jpg" alt="Equipment leasing solutions">
+                  </span>
+                  <span class="tile__overlay"></span>
+                  <span class="tile__content">
+                    <span class="tile__heading">Leasing</span>
+                    <span class="tile__title">Equipment Leasing</span>
+                    <span class="tile__subheading">Straightforward terms</span>
+                    <span class="tile__text">Flexible structures for new and used equipment across industries.</span>
+                  </span>
+                </a>
+
+                <a class="tile tile--linked" href="#sg-elements">
+                  <span class="tile__media">
+                    <img src="./assets/customer/yellow-equipment.jpg" alt="Sale-leaseback financing">
+                  </span>
+                  <span class="tile__overlay"></span>
+                  <span class="tile__content">
+                    <span class="tile__heading">Equity</span>
+                    <span class="tile__title">Sale-Leaseback</span>
+                    <span class="tile__subheading">Unlock capital</span>
+                    <span class="tile__text">Convert owned equipment into cash while keeping it in service.</span>
+                  </span>
+                </a>
+
+                <a class="tile tile--linked" href="#sg-elements">
+                  <span class="tile__media">
+                    <img src="./assets/customer/building.jpg" alt="Auction and private sales financing">
+                  </span>
+                  <span class="tile__overlay"></span>
+                  <span class="tile__content">
+                    <span class="tile__heading">Buying</span>
+                    <span class="tile__title">Auction &amp; Private Sales</span>
+                    <span class="tile__subheading">Fast turnaround</span>
+                    <span class="tile__text">Financing for time-sensitive purchases from any seller.</span>
+                  </span>
+                </a>
+
+                <a class="tile tile--linked" href="#sg-elements">
+                  <span class="tile__media">
+                    <img src="./assets/customer/dental.jpg" alt="Rental conversion financing">
+                  </span>
+                  <span class="tile__overlay"></span>
+                  <span class="tile__content">
+                    <span class="tile__heading">Conversion</span>
+                    <span class="tile__title">Rental Conversions</span>
+                    <span class="tile__subheading">Keep what works</span>
+                    <span class="tile__text">Turn rentals into long-term assets with clean monthly terms.</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Living Story Panels (`_prototype-home.scss` + `home/story_panels.ctp`)</h3>
+            <p>Exact living HTML structure and class names used on the homepage story panel rows.</p>
+          </article>
+
+          <section class="section-white sg-iframe-bleed" aria-label="Living story panels demo">
+            <div class="home-stories">
+              <article class="story-platter story-platter--image-first">
+                <div class="story-platter__media">
+                  <img src="./assets/customer/building.jpg" alt="Invest in Care, Not Capital Strain" loading="lazy" decoding="async">
+                </div>
+                <div class="story-platter__content">
+                  <p class="section-kicker">Success Story</p>
+                  <h2 class="story-platter__title">Invest in Care, Not Capital Strain</h2>
+                  <p class="story-platter__body">BrightSmile Orthodontics upgraded to clinic-grade digital imaging, treatment chairs, and sterilization equipment. Go Lease It flexible financing preserved cash flow, letting the team focus on patients instead of upfront costs.</p>
+                  <div>
+                    <a class="btn btn-primary" href="#sg-elements">Read Full Story</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="story-platter story-platter--content-first">
+                <div class="story-platter__content">
+                  <p class="section-kicker">Success Story</p>
+                  <h2 class="story-platter__title">Another Big Ticket Rental Conversion</h2>
+                  <p class="story-platter__body">Our client Terry began renting this Barko processor from a dealer in Kamloops before using rental credits toward a bank lease. The machine is now set up on a commercial lease-to-own, giving Terry lower monthly payments and letting him focus on operations instead of upfront costs.</p>
+                  <div>
+                    <a class="btn btn-primary" href="#sg-elements">Read Full Story</a>
+                  </div>
+                </div>
+                <div class="story-platter__media">
+                  <img src="./assets/customer/yellow-equipment.jpg" alt="Another Big Ticket Rental Conversion" loading="lazy" decoding="async">
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Living Process Steps (`_prototype-process-steps.scss` + `home/process_steps.ctp`)</h3>
+            <p>Exact living HTML structure and class names used on the homepage process section.</p>
+          </article>
+
+          <section class="section-white sg-iframe-bleed" aria-label="Living process steps demo">
+            <div class="c-container c-container--full">
+              <div class="home-region">
+                <div class="process-intro">
+                  <div class="process-intro__heading">
+                    <h2>Our Easy Process</h2>
+                    <a href="#sg-elements" class="btn btn-primary">Apply Online</a>
+                  </div>
+                  <div class="process-intro__body rte"><p>We believe equipment financing should be clear, accessible, and built around your business. Our process is designed to move quickly, remove friction, and help you secure the equipment you need when you need it.</p></div>
+                </div>
+
+                <ol class="process-steps">
+                  <li class="process-step">
+                    <span class="process-step__icon" aria-hidden="true">
+                      <img src="/img/home-process-icons/computer.svg" alt="Apply Online" loading="lazy" decoding="async">
+                    </span>
+                    <p class="process-step__title">
+                      <span class="process-step__num">1.</span>
+                      <span class="process-step__label">Apply Online</span>
+                    </p>
+                    <p class="process-step__desc">Submit you application in minutes</p>
+                  </li>
+                  <li class="process-step">
+                    <span class="process-step__icon" aria-hidden="true">
+                      <img src="/img/home-process-icons/people.svg" alt="We Reach Out" loading="lazy" decoding="async">
+                    </span>
+                    <p class="process-step__title">
+                      <span class="process-step__num">2.</span>
+                      <span class="process-step__label">We Reach Out</span>
+                    </p>
+                    <p class="process-step__desc">We review your info &amp; call to discuss the details</p>
+                  </li>
+                  <li class="process-step">
+                    <span class="process-step__icon" aria-hidden="true">
+                      <img src="/img/home-process-icons/notepad.svg" alt="Build The Deal" loading="lazy" decoding="async">
+                    </span>
+                    <p class="process-step__title">
+                      <span class="process-step__num">3.</span>
+                      <span class="process-step__label">Build The Deal</span>
+                    </p>
+                    <p class="process-step__desc">You source the equipment &amp; we structure the lease.</p>
+                  </li>
+                  <li class="process-step">
+                    <span class="process-step__icon" aria-hidden="true">
+                      <img src="/img/home-process-icons/money.svg" alt="Lock It In" loading="lazy" decoding="async">
+                    </span>
+                    <p class="process-step__title">
+                      <span class="process-step__num">4.</span>
+                      <span class="process-step__label">Lock It In</span>
+                    </p>
+                    <p class="process-step__desc">You approve the terms and sign the lease.</p>
+                  </li>
+                  <li class="process-step">
+                    <span class="process-step__icon" aria-hidden="true">
+                      <img src="/img/home-process-icons/handshake.svg" alt="Get To Work" loading="lazy" decoding="async">
+                    </span>
+                    <p class="process-step__title">
+                      <span class="process-step__num">5.</span>
+                      <span class="process-step__label">Get To Work</span>
+                    </p>
+                    <p class="process-step__desc">You put the equipment to work.</p>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </section>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Testimonials Prototype (<span class="sg-code">_prototype-testimonials.scss</span>)</h3>
+            <p>Star rating + quote card pattern. Used in homepage success stories and interior pages.</p>
+            <div class="testimonials-grid">
+              <div class="testimonial-card">
+                <div class="star-rating" aria-label="5 stars">
+                  <span class="star-rating__star" aria-hidden="true">★</span>
+                  <span class="star-rating__star" aria-hidden="true">★</span>
+                  <span class="star-rating__star" aria-hidden="true">★</span>
+                  <span class="star-rating__star" aria-hidden="true">★</span>
+                  <span class="star-rating__star" aria-hidden="true">★</span>
+                </div>
+                <p class="testimonial-card__quote">We had the pleasure of working with Atlas Crane on the financing for the newest truck in our fleet, and the experience was outstanding from start to finish.</p>
+                <p class="testimonial-card__attr">— ARC Towing</p>
+              </div>
+              <div class="testimonial-card">
+                <div class="star-rating" aria-label="5 stars">
+                  <span class="star-rating__star" aria-hidden="true">★</span>
+                  <span class="star-rating__star" aria-hidden="true">★</span>
+                  <span class="star-rating__star" aria-hidden="true">★</span>
+                  <span class="star-rating__star" aria-hidden="true">★</span>
+                  <span class="star-rating__star" aria-hidden="true">★</span>
+                </div>
+                <p class="testimonial-card__quote">Kris was great, helped me get the financing I needed to purchase my company. He made it very easy, effortless and quick. Thank you!</p>
+                <p class="testimonial-card__attr">— Rick Jaswal</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    
+
   </main>
 
   <footer class="sg-footer">
@@ -695,4 +699,6 @@
   </footer>
   </body>
 </html>
+
+
 

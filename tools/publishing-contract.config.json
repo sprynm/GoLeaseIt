@@ -6,7 +6,10 @@
       "targetFiles": [
         "View/Layouts/home.ctp",
         "View/Elements/home/industries_served.ctp",
-        "View/Elements/home/content_block_by_id.ctp"
+        "View/Elements/home/content_block_by_id.ctp",
+        "View/Elements/home/process_steps.ctp",
+        "View/Elements/home/story_panels.ctp",
+        "View/Elements/home/why_testimonials.ctp"
       ],
       "matrixKeyPatterns": [
         "`(home_[a-z0-9_]+)`"

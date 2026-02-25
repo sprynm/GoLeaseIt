@@ -6,7 +6,7 @@
   var drawer = document.getElementById("site-nav-drawer");
   var drawerBody = drawer ? drawer.querySelector("[data-nav-drawer-body]") : null;
   var drawerClose = drawer ? drawer.querySelector(".site-nav-drawer__close") : null;
-  var mqDesktop = window.matchMedia("(min-width: 48rem)");
+  var mqDesktop = window.matchMedia("(min-width: 60rem)");
   var popovers = [];
   var activePopover = null;
 
@@ -274,4 +274,3 @@
   buildDrawer();
   bindGlobalEvents();
 })();
-

@@ -37,6 +37,27 @@ No hardcoded default copy is injected for industries intro values. Populate thes
 - Optional wrapper class:
   - `home_mid_content_block_wrapper_class`
 
+### Process section (new wiring)
+- `home_process_instance_id`
+- `home_process_instance_slug`
+- `home_process_heading`
+- `home_process_body` (RTE/HTML)
+- `home_process_cta_text`
+- `home_process_cta_link`
+
+### Stories section (new wiring)
+- `home_stories_instance_id`
+- `home_stories_instance_slug`
+
+### Testimonials section (new wiring)
+- `home_testimonials_instance_id`
+- `home_testimonials_instance_slug`
+- `home_testimonials_heading`
+- `home_testimonials_body`
+- `home_testimonials_cta_text`
+- `home_testimonials_cta_link`
+- `home_testimonials_limit`
+
 ### Bottom CTA platter (new wiring)
 - `home_bottom_cta_block_id`
   - fallback key supported: `home_cta_block_id`
@@ -86,10 +107,36 @@ Current home layout still renders normal page body content (`$this->fetch('conte
 
 Use this body area for sections not yet moved to dedicated prototype/content-block wiring.
 
-## 7. Recommended Publish Sequence
+## 7. New Prototype Starters To Install
+From Prototype Instances admin dropdown:
+
+1. `Home Process Steps` (`home-process-steps`)
+2. `Home Stories` (`home-stories`)
+3. `Home Testimonials` (`home-testimonials`)
+
+## 8. Recommended Item Counts
+1. Home Process Steps: 5 ranked items.
+2. Home Stories: 2 ranked items (item 1 = featured panel, item 2 = success panel).
+3. Home Testimonials: 2+ ranked items (homepage limit controlled by `home_testimonials_limit`).
+
+## 9. Process Step Icon Picker (File-Based)
+Home process steps now support an `icon_file` custom field that renders from:
+
+- `/webroot/img/home-process-icons/`
+
+Starter default options:
+1. `computer.svg`
+2. `people.svg`
+3. `notepad.svg`
+4. `money.svg`
+5. `handshake.svg`
+
+If your `Home Process Steps` instance was installed before this update, add `icon_file` manually under that instance's Item Extra Fields (type `select`) and reuse the options above.
+
+## 10. Recommended Publish Sequence
 1. Save nav menu changes.
 2. Save global settings (`Site.Contact.*`, `HeaderNotice.*`).
-3. Save prototype instance/items.
+3. Install/populate/save prototype instance/items.
 4. Save content block.
 5. Save Home page fields.
 6. Clear CMS cache if changes do not appear immediately.

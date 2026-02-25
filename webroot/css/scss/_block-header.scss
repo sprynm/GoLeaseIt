@@ -60,22 +60,22 @@
   .primary-hdr {
     position: relative;
     z-index: 80;
-    background: #f3f4f6;
+    background: var(--color-surface-base);
     border-bottom: 1px solid var(--color-border-muted);
     box-shadow: none;
   }
 
   .c-header {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     grid-template-rows: auto auto;
     grid-template-areas:
-      "logo cta"
-      "logo nav";
+      "logo cta cta"
+      "logo nav nav";
     align-items: center;
-    column-gap: var(--space-lg);
-    row-gap: var(--space-2xs);
-    min-height: 5.5rem;
+    column-gap: clamp(1rem, 1.9vw, 2rem);
+    row-gap: 0.35rem;
+    min-height: 7rem;
     width: 100%;
   }
 
@@ -89,38 +89,44 @@
 
   .logo img {
     display: block;
-    height: 100%;
-    width: auto;
-    max-width: 285px;
+    width: 17.8125rem; /* 285px */
+    max-width: 100%;
+    height: auto;
   }
 
   .header-cta {
     grid-area: cta;
     display: inline-flex;
     align-items: center;
-    gap: var(--space-sm);
+    gap: 1.05rem;
     justify-self: end;
     align-self: start;
     white-space: nowrap;
+    padding-top: 10px;
   }
 
+  .header-cta .btn-primary,
   .header-cta .btn--hero {
-    min-height: 2.2rem;
-    padding-inline: 1.2rem;
-    border-radius: var(--radius-sm);
-    letter-spacing: 0.04em;
-    font-size: 0.85rem;
+    min-height: 3.125rem;
+    padding-inline: 2rem;
+    border-radius: 0.625rem;
+    letter-spacing: 0.01em;
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
   }
 
   .site-nav {
     grid-area: nav;
     justify-self: end;
     align-self: end;
+    width: 100%;
+    padding-bottom: 5px;
   }
 
   .hdr-links { display: none; }
 
-  @include vp-max($vp-md - 0.01rem) {
+  @media (width <= 59.99rem) {
     #hdr-notice {
       padding-block: 0;
     }
@@ -182,10 +188,11 @@
     display: inline-flex;
     align-items: center;
     gap: var(--space-2xs);
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-semibold);
     color: var(--color-ink-primary);
     text-decoration: none;
-    font-size: 1.05rem;
+    font-size: 1rem;
+    line-height: 1;
   }
 
   .util-phone svg { width: 1em; height: 1em; fill: currentColor; flex-shrink: 0; }

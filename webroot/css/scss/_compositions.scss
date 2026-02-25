@@ -7,6 +7,9 @@
     min-height: 50vh;
     min-height: 50dvh;
     padding-top: var(--nav-offset);
+    max-inline-size: 2400px;
+    margin-inline: auto;
+    width: 100%;
   }
 
   .site-wrapper--default { --wrapper-bg: var(--color-surface-base); }

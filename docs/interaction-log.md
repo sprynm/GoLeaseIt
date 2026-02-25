@@ -8,3 +8,8 @@ Concise summaries of assistant interactions to preserve context across compactio
 - Footer update requested: SCSS (`webroot/css/scss/_block-footer.scss`) simplified to a single-row layout, removed menu columns, retained contact + social, added thin divider and centered copyright.
 - Direct CSS edits were made earlier to `webroot/css/stylesheet-opt.css` and `webroot/css/stylesheet-new.css` to mirror SCSS, but user later instructed: “do not update any CSS files directly.”
 - AGENTS/docs review: no legacy-site references found in `docs/AGENTS.md`, `docs/client-information.md`. No decision/history/log files present; only mentions of logging practices. Legacy Poland logo assets found under `docs/customer images/logo/`.
+
+## 2026-02-25
+- Figma retrieval learning: use a strict context budget for MCP pulls.
+- Process: first run `get_metadata` once to locate exact target node IDs, then run `get_screenshot` and `get_design_context` once per target node only.
+- Avoid repeated full-page `get_design_context` requests for `0:1`; this causes unnecessary context growth and slower iteration.

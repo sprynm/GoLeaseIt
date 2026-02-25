@@ -21,7 +21,7 @@ if ($headerCtaText === '') {
 }
 ?>
 <header class="site-header primary-hdr<?php echo $showHeaderNotice ? ' site-header--with-notice' : ''; ?>">
-	<div class="c-container">
+	<div class="c-container c-container--full">
 		<div class="c-header">
 		<a href="/" class="logo">
 			<img src="/img/logo.svg" width="285" height="57" alt="<?php echo $this->Settings->show('Site.name'); ?>">
@@ -42,7 +42,7 @@ if ($headerCtaText === '') {
 			<?php endif; ?>
 
 			<?php if ($headerCtaLink !== '' && $headerCtaText !== ''): ?>
-				<?php echo $this->Html->link($headerCtaText, $headerCtaLink, array('class' => 'btn btn--hero', 'escape' => false)); ?>
+				<?php echo $this->Html->link($headerCtaText, $headerCtaLink, array('class' => 'btn btn-primary', 'escape' => false)); ?>
 			<?php endif; ?>
 		</div>
 

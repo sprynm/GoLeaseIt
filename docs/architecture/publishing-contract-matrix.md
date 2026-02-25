@@ -1,6 +1,6 @@
 # Publishing Contract Matrix
 
-Last reviewed: 2026-02-23
+Last reviewed: 2026-02-24
 
 This is the working contract sheet for the build.
 
@@ -34,6 +34,11 @@ Use this as the source of truth before adding fields, templates, prototypes, or 
 | Hero CTA row | Navigation or page fields | Primary: Nav `id=2`; fallback: `banner_cta`, `banner_cta_link`, `banner_cta_secondary`, `banner_cta_secondary_link` | menu ref or field pair(s) | Optional | Nav `id=2` overrides field CTA buttons when present | Navigation admin + Page fields | `View/Elements/layout/home_masthead.ctp` | Active | Nav-driven CTA set when available, field-driven fallback |
 | Industries section intro | Page fields | `home_industries_heading`, `home_industries_body`, `home_industries_cta_text`, `home_industries_cta_link` | text + URL | Recommended | No hardcoded default copy injected by template | Home page fields/custom fields | `View/Layouts/home.ctp` -> `View/Elements/home/industries_served.ctp` | Active | Editor-owned section copy, no hardcoded fallback copy |
 | Industries item grid | Prototype | Instance select: `home_industries_instance_id` or `home_industries_instance_slug`; item fields: `heading`/`name`/`title`, `cta_link`/`url`, image | prototype ref + item fields | Required for section | If item link empty, tile renders non-clickable; image strongly expected | Prototype admin + Home page field for instance binding | `View/Layouts/home.ctp` -> `View/Elements/home/industries_served.ctp` | Active | Structured repeatable card data |
+| Process section intro | Page fields | `home_process_heading`, `home_process_body`, `home_process_cta_text`, `home_process_cta_link` | heading text + RTE HTML + URL | Recommended | `home_process_body` renders as rich text (RTE), no hardcoded defaults | Home page fields/custom fields | `View/Layouts/home.ctp` -> `View/Elements/home/process_steps.ctp` | Active | Editor-owned section framing copy |
+| Process step list | Prototype | Instance select: `home_process_instance_id` or `home_process_instance_slug`; item fields: `name`, `description`, `icon_file` (preferred), image (fallback) | prototype ref + item fields | Required for section | Step number is derived from rank order; `icon_file` resolves from `/img/home-process-icons/` | Prototype admin + Home page field for instance binding | `View/Layouts/home.ctp` -> `View/Elements/home/process_steps.ctp` | Active | Structured repeatable process cards |
+| Featured + success story panels | Prototype | Instance select: `home_stories_instance_id` or `home_stories_instance_slug`; item fields: `name`, `kicker`, `description`, `cta_text`, `cta_link`, image | prototype ref + item fields | Required for section | Rank 1 renders featured panel, rank 2 renders success panel | Prototype admin + Home page field for instance binding | `View/Layouts/home.ctp` -> `View/Elements/home/story_panels.ctp` | Active | Managed editorial story rows without hardcoded content |
+| Testimonials intro | Page fields | `home_testimonials_heading`, `home_testimonials_body`, `home_testimonials_cta_text`, `home_testimonials_cta_link`, `home_testimonials_limit` | text + URL + numeric | Recommended | `home_testimonials_limit` defaults to 2 if empty/invalid | Home page fields/custom fields | `View/Layouts/home.ctp` -> `View/Elements/home/why_testimonials.ctp` | Active | Editor-owned testimonial framing copy and card count |
+| Testimonials cards | Prototype | Instance select: `home_testimonials_instance_id` or `home_testimonials_instance_slug`; item fields: `testimonial`, `byline`/`name`, `rating` | prototype ref + item fields | Required for section | `rating` clamped to 1-5; defaults to 5 | Prototype admin + Home page field for instance binding | `View/Layouts/home.ctp` -> `View/Elements/home/why_testimonials.ctp` | Active | Structured testimonial content with rating display |
 | Mid-page platter | Content Block by ID | `home_mid_content_block_id`, optional `home_mid_content_block_wrapper_class` | block ID + class | Optional | Block must be published; wrapper class optional | Home page fields + Content Blocks admin | `View/Layouts/home.ctp` -> `View/Elements/home/content_block_by_id.ctp` | Active | Reusable rich content injected at controlled location |
 | Main body content | Page content | `Page.content` (`$this->fetch('content')`) | rich text | Optional | Renders standard page body flow | Page editor WYSIWYG | `View/Layouts/home.ctp` | Active | Standard page body stream |
 | Bottom CTA platter | Content Block by ID | `home_bottom_cta_block_id` (fallback `home_cta_block_id`), optional `home_bottom_cta_wrapper_class` | block ID + class | Optional | Block must be published; legacy key still supported | Home page fields + Content Blocks admin | `View/Layouts/home.ctp` -> `View/Elements/home/content_block_by_id.ctp` | Active | Reusable CTA/footer-adjacent platter |
@@ -60,10 +65,8 @@ Use this as the source of truth before adding fields, templates, prototypes, or 
 ## 5. Open Contract Backlog (Rest Of Build)
 
 Define rows in this matrix before implementing each new section:
-1. Easy Process steps section.
-2. Success Stories section(s).
-3. Testimonials strip.
-4. Any additional homepage platters/feature rows.
+1. Any additional homepage platters/feature rows not yet in active templates.
+2. Any interior-page section that introduces new `home_`-style field contracts.
 
 For each new section, add:
 1. Primitive decision.

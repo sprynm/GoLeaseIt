@@ -14,7 +14,8 @@
   }
 
   .page-hero__media,
-  .page-hero__overlay {
+  .page-hero__overlay,
+  .page-hero__bg {
     position: absolute;
     inset: 0;
   }
@@ -30,9 +31,21 @@
     background: linear-gradient(120deg, rgba(10, 28, 52, 0.55) 0%, rgba(14, 45, 86, 0.72) 100%);
   }
 
+  /* Homepage masthead overlay layer (rendered as .page-hero__bg in template). */
+  .page-hero__bg {
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgb(0 0 0 / 0.78) 0%,
+      rgb(0 0 0 / 0.58) 45%,
+      rgb(0 0 0 / 0.80) 100%
+    );
+  }
+
   .page-hero__inner {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     width: min(var(--hero-max), calc(100% - (var(--hero-inline) * 2)));
     margin-inline: auto;
     display: grid;
@@ -60,6 +73,14 @@
   .page-hero__summary {
     max-width: 62ch;
     color: rgb(var(--white-rgb) / var(--alpha-95));
+  }
+
+  .page-hero__summary > :first-child {
+    margin-top: 0;
+  }
+
+  .page-hero__summary > :last-child {
+    margin-bottom: 0;
   }
 
   .page-hero__actions {

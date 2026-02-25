@@ -35,16 +35,20 @@ $heroTaglineHtml = $getCustomFieldValue('masthead_tagline');
 if ($heroTaglineHtml === '') {
 	$heroTaglineHtml = $getCustomFieldValue('page_masthead_tagline');
 }
-
-$heroSubtitle = $getCustomFieldValue('page_subtitle');
-if ($heroSubtitle === '') {
-	$heroSubtitle = $heroSummary !== '' ? $heroSummary : $heroHeading;
+if ($heroTaglineHtml !== '') {
+	$heroTaglineHtml = html_entity_decode($heroTaglineHtml, ENT_QUOTES, 'UTF-8');
+	$heroTaglineHtml = trim($heroTaglineHtml);
+	// Normalize common RTE wrapper so title styles apply to text itself.
+	$heroTaglineHtml = preg_replace('/^\s*<p>(.*?)<\/p>\s*$/is', '$1', $heroTaglineHtml);
 }
 
-$renderFallbackTitleAsH1 = false;
-if ($heroTaglineHtml === '') {
-	$sameAsHeading = (strcasecmp(trim($heroSubtitle), trim($heroHeading)) === 0);
-	$renderFallbackTitleAsH1 = ($heroHeading !== '' && ($heroSubtitle === '' || $sameAsHeading));
+$heroSummaryHtml = $heroSummary;
+if ($heroSummaryHtml === '') {
+	$heroSummaryHtml = $getCustomFieldValue('page_subtitle');
+}
+if ($heroSummaryHtml !== '') {
+	$heroSummaryHtml = html_entity_decode($heroSummaryHtml, ENT_QUOTES, 'UTF-8');
+	$heroSummaryHtml = trim($heroSummaryHtml);
 }
 
 $heroBadge = trim((string) $this->Settings->show('Site.service_area'));
@@ -99,7 +103,19 @@ $renderFallbackPicture = function ($alt) use ($fallbackWebp, $fallbackPng) {
 $primaryCta = !empty($pageData['Page']['banner_cta']) && !empty($pageData['Page']['banner_cta_link']);
 $secondaryCta = !empty($pageData['Page']['banner_cta_secondary']) && !empty($pageData['Page']['banner_cta_secondary_link']);
 $heroCtaNav = trim((string) $this->Navigation->show(2));
-$hasHeroCtaNav = ($heroCtaNav !== '' && $heroCtaNav !== '<ul></ul>');
+$hasHeroCtaNav = false;
+if ($heroCtaNav !== '') {
+	$heroCtaNavText = trim(preg_replace('/\s+/', '', strip_tags($heroCtaNav)));
+	$hasHeroCtaNav = (stripos($heroCtaNav, '<a ') !== false && $heroCtaNavText !== '');
+}
+$heroFallbackCtaText = trim((string) $this->Settings->show('HeaderNotice.link_text'));
+if ($heroFallbackCtaText === '') {
+	$heroFallbackCtaText = 'Apply Online';
+}
+$heroFallbackCtaLink = trim((string) $this->Settings->show('HeaderNotice.link'));
+if ($heroFallbackCtaLink === '') {
+	$heroFallbackCtaLink = '/apply';
+}
 ?>
 <section class="page-hero page-hero--home">
 	<div class="page-hero__bg"></div>
@@ -126,22 +142,20 @@ $hasHeroCtaNav = ($heroCtaNav !== '' && $heroCtaNav !== '<ul></ul>');
 			<?php endif; ?>
 
 			<?php if ($heroTaglineHtml !== ''): ?>
-				<div class="page-hero__tagline">
+				<div class="page-hero__title">
 					<?php echo $heroTaglineHtml; ?>
 				</div>
-			<?php elseif (!$renderFallbackTitleAsH1): ?>
-				<h2 class="page-hero__tagline">
+			<?php else: ?>
+				<h1 class="page-hero__title">
 					<?php echo h($heroTitleMain); ?>
 					<?php if ($heroTitleAccent !== ''): ?>
 						<span class="hl"><?php echo h($heroTitleAccent); ?></span>
 					<?php endif; ?>
-				</h2>
+				</h1>
 			<?php endif; ?>
 
-			<?php if ($renderFallbackTitleAsH1): ?>
-				<h1 class="page-hero__subtitle"><?php echo h($heroHeading); ?></h1>
-			<?php elseif ($heroSubtitle !== ''): ?>
-				<h1 class="page-hero__subtitle"><?php echo h($heroSubtitle); ?></h1>
+			<?php if ($heroSummaryHtml !== ''): ?>
+				<div class="page-hero__summary"><?php echo $heroSummaryHtml; ?></div>
 			<?php endif; ?>
 
 			<?php if ($hasHeroCtaNav): ?>
@@ -153,17 +167,24 @@ $hasHeroCtaNav = ($heroCtaNav !== '' && $heroCtaNav !== '<ul></ul>');
 					<?php
 					if ($primaryCta) {
 						echo $this->Html->link($pageData['Page']['banner_cta'], $pageData['Page']['banner_cta_link'], array(
-							'class' => 'btn btn--hero page-hero__cta',
+							'class' => 'btn btn-primary page-hero__cta',
 							'escape' => false,
 						));
 					}
 					if ($secondaryCta) {
 						echo $this->Html->link($pageData['Page']['banner_cta_secondary'], $pageData['Page']['banner_cta_secondary_link'], array(
-							'class' => 'btn btn--hero btn--hero-secondary page-hero__cta page-hero__cta--secondary',
+							'class' => 'btn btn-primary btn-secondary page-hero__cta page-hero__cta--secondary',
 							'escape' => false,
 						));
 					}
 					?>
+				</div>
+			<?php elseif ($heroFallbackCtaText !== '' && $heroFallbackCtaLink !== ''): ?>
+				<div class="page-hero__actions">
+					<?php echo $this->Html->link($heroFallbackCtaText, $heroFallbackCtaLink, array(
+						'class' => 'btn btn-primary page-hero__cta',
+						'escape' => false,
+					)); ?>
 				</div>
 			<?php endif; ?>
 		</div>

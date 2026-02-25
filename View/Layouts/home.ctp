@@ -72,6 +72,48 @@ $industriesBody = $getPageFieldValue('home_industries_body');
 $industriesCtaText = $getPageFieldValue('home_industries_cta_text');
 $industriesCtaLink = $getPageFieldValue('home_industries_cta_link');
 
+$processPrototypeId = (int) $getPageFieldValue('home_process_instance_id');
+if ($processPrototypeId <= 0) {
+	$processPrototypeId = $findPrototypeIdBySlug($getPageFieldValue('home_process_instance_slug'));
+}
+if ($processPrototypeId <= 0) {
+	$processPrototypeId = $findPrototypeIdBySlugs(array('home-process-steps', 'process-steps'));
+}
+
+$processHeading = $getPageFieldValue('home_process_heading');
+$processBody = $getPageFieldValue('home_process_body');
+$processCtaText = $getPageFieldValue('home_process_cta_text');
+$processCtaLink = $getPageFieldValue('home_process_cta_link');
+
+$storiesPrototypeId = (int) $getPageFieldValue('home_stories_instance_id');
+if ($storiesPrototypeId <= 0) {
+	$storiesPrototypeId = $findPrototypeIdBySlug($getPageFieldValue('home_stories_instance_slug'));
+}
+if ($storiesPrototypeId <= 0) {
+	$storiesPrototypeId = $findPrototypeIdBySlugs(array('home-stories', 'success-stories'));
+}
+$storiesLimit = (int) $getPageFieldValue('home_stories_limit');
+if ($storiesLimit <= 0) {
+	$storiesLimit = 2;
+}
+
+$testimonialsPrototypeId = (int) $getPageFieldValue('home_testimonials_instance_id');
+if ($testimonialsPrototypeId <= 0) {
+	$testimonialsPrototypeId = $findPrototypeIdBySlug($getPageFieldValue('home_testimonials_instance_slug'));
+}
+if ($testimonialsPrototypeId <= 0) {
+	$testimonialsPrototypeId = $findPrototypeIdBySlugs(array('home-testimonials', 'testimonials'));
+}
+
+$testimonialsHeading = $getPageFieldValue('home_testimonials_heading');
+$testimonialsBody = $getPageFieldValue('home_testimonials_body');
+$testimonialsCtaText = $getPageFieldValue('home_testimonials_cta_text');
+$testimonialsCtaLink = $getPageFieldValue('home_testimonials_cta_link');
+$testimonialsLimit = (int) $getPageFieldValue('home_testimonials_limit');
+if ($testimonialsLimit <= 0) {
+	$testimonialsLimit = 2;
+}
+
 $midContentBlockId = (int) $getPageFieldValue('home_mid_content_block_id');
 $midContentBlockWrapperClass = $getPageFieldValue('home_mid_content_block_wrapper_class');
 
@@ -102,8 +144,36 @@ echo $this->element('layout/home_masthead', array(
 			'introBody' => $industriesBody,
 			'introCtaText' => $industriesCtaText,
 			'introCtaLink' => $industriesCtaLink,
-			'sectionClasses' => 'section-white section-industries',
+			'sectionClasses' => 'section-soft section-industries',
 			'limit' => 5,
+		)); ?>
+	<?php endif; ?>
+
+	<?php if ($processPrototypeId > 0): ?>
+		<?php echo $this->element('home/process_steps', array(
+			'instanceId' => $processPrototypeId,
+			'introHeading' => $processHeading,
+			'introBody' => $processBody,
+			'introCtaText' => $processCtaText,
+			'introCtaLink' => $processCtaLink,
+		)); ?>
+	<?php endif; ?>
+
+	<?php if ($storiesPrototypeId > 0): ?>
+		<?php echo $this->element('home/story_panels', array(
+			'instanceId' => $storiesPrototypeId,
+			'limit' => $storiesLimit,
+		)); ?>
+	<?php endif; ?>
+
+	<?php if ($testimonialsPrototypeId > 0): ?>
+		<?php echo $this->element('home/why_testimonials', array(
+			'instanceId' => $testimonialsPrototypeId,
+			'introHeading' => $testimonialsHeading,
+			'introBody' => $testimonialsBody,
+			'introCtaText' => $testimonialsCtaText,
+			'introCtaLink' => $testimonialsCtaLink,
+			'limit' => $testimonialsLimit,
 		)); ?>
 	<?php endif; ?>
 
@@ -114,24 +184,16 @@ echo $this->element('layout/home_masthead', array(
 		)); ?>
 	<?php endif; ?>
 
-	<div class="c-container cq-main c-region">
+	<!-- <div class="c-container cq-main c-region">
 
 		<section class="c-stack">
 			<main>
 				<?php
-
-				if ($pageIntro !== '') {
-					echo h($pageIntro);
-				}
-
 				echo $this->Session->flash();
-
-				echo $this->fetch('content');
-
 				?>
 			</main>
 		</section>
-	</div>
+	</div> -->
 
 	<?php if ($bottomCtaBlockId > 0): ?>
 		<?php echo $this->element('home/content_block_by_id', array(

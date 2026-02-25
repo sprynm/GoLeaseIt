@@ -1,62 +1,35 @@
 		<footer>
-			<div class="ftr-container">
+			<div class="c-container c-container--full">
+				<div class="ftr-container">
 				<?php
 					$siteName = trim((string) $this->Settings->show('Site.name'));
-					$siteEmail = trim((string) $this->Settings->show('Site.email'));
 					$footerSocial = trim((string) $this->element('social-media'));
-					$footerDescription = 'Commercial lease financing made straightforward for Canadian businesses.';
-					$phone = !empty($siteContact['phone']) ? trim((string) $siteContact['phone']) : '';
-					$address = !empty($siteContact['address']) ? trim((string) $siteContact['address']) : '';
-					$city = !empty($siteContact['city']) ? trim((string) $siteContact['city']) : '';
-					$province = !empty($siteContact['province_state']) ? trim((string) $siteContact['province_state']) : '';
-					$postal = !empty($siteContact['postal_zip']) ? trim((string) $siteContact['postal_zip']) : '';
-					$cityLine = trim(preg_replace('/\s+/', ' ', $city . ', ' . $province . ' ' . $postal));
+					$footerNav = trim((string) $this->Navigation->show(1));
+					$phone = trim((string) $this->Settings->show('Site.Contact.phone'));
+					if ($phone === '') {
+						$phone = trim((string) $this->Settings->show('Site.Contact.toll_free'));
+					}
+					$phoneHref = preg_replace('/[^0-9\+]/', '', $phone);
 				?>
 
-				<div class="ftr-grid">
-					<div class="ftr-brand">
-						<a class="ftr-logo-link" href="<?php echo $this->Html->url('/'); ?>" aria-label="<?php echo h($siteName !== '' ? $siteName : 'Home'); ?>">
-							<img class="ftr-logo-img" src="/img/logo.svg" alt="<?php echo h($siteName); ?>">
-						</a>
-						<p class="ftr-brand-copy"><?php echo h($footerDescription); ?></p>
-					</div>
-
-					<nav class="ftr-nav" aria-label="Footer services">
-						<h4 class="ftr-heading">Services</h4>
-						<?php
-						$footerServicesMenu = trim((string)$this->Navigation->show(3));
-						if ($footerServicesMenu !== '') {
-							echo $footerServicesMenu;
-						}
-						?>
+				<div class="ftr-top">
+					<nav class="ftr-nav" aria-label="Footer navigation">
+						<?php if ($footerNav !== ''): ?>
+							<?php echo $footerNav; ?>
+						<?php endif; ?>
 					</nav>
 
-					<nav class="ftr-nav" aria-label="Footer company">
-						<h4 class="ftr-heading">Company</h4>
-						<?php
-						$footerCompanyMenu = trim((string)$this->Navigation->show(4));
-						if ($footerCompanyMenu !== '') {
-							echo $footerCompanyMenu;
-						}
-						?>
-					</nav>
-
-					<div class="ftr-contact">
-						<h4 class="ftr-heading">Contact</h4>
-						<?php if ($phone !== ''): ?>
-							<div class="ftr-contact-line"><?php echo $this->Html->link(h($phone), 'tel:' . $phone, array('escape' => false)); ?></div>
-						<?php endif; ?>
-						<?php if ($siteEmail !== ''): ?>
-							<div class="ftr-contact-line"><?php echo $this->Html->link(h($siteEmail), 'mailto:' . $siteEmail, array('escape' => false)); ?></div>
-						<?php endif; ?>
-						<?php if ($address !== ''): ?>
-							<div class="ftr-contact-line"><?php echo h($address); ?></div>
-						<?php endif; ?>
-						<?php if ($cityLine !== '' && $cityLine !== ','): ?>
-							<div class="ftr-contact-line"><?php echo h($cityLine); ?></div>
+					<div class="ftr-utility">
+						<?php if ($phone !== '' && $phoneHref !== ''): ?>
+							<a class="ftr-phone" href="tel:<?php echo h($phoneHref); ?>">
+								<svg viewBox="0 0 20 20" aria-hidden="true">
+									<path d="M2.003 5.884L2 5a2 2 0 012-2h.055A2 2 0 015.96 4.518l.42 1.68a2 2 0 01-.46 1.93l-.516.516a11.064 11.064 0 005.95 5.95l.516-.516a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0117 15.055V15a2 2 0 01-2 2h-.084a17 17 0 01-14.916-14.913z"/>
+								</svg>
+								<?php echo h($phone); ?>
+							</a>
 						<?php endif; ?>
 						<?php if ($footerSocial !== ''): ?>
-							<div class="ftr-contact-social">
+							<div class="ftr-social">
 								<?php echo $footerSocial; ?>
 							</div>
 						<?php endif; ?>
@@ -64,8 +37,8 @@
 				</div>
 
 				<div class="copyright">
-					&copy; 2026 | A website by <?php echo $this->Html->link('Radar Hill Web Design', $this->Settings->show('Site.Footer.portfolio_link'), array('rel' => 'nofollow')); ?><br>
-					The content of this website is the responsibility of the website owner.
+					&copy; 2026 <?php echo h($siteName); ?>. | A Commercial Equipment Financing website by <?php echo $this->Html->link('Radar Hill Web Design', $this->Settings->show('Site.Footer.portfolio_link'), array('rel' => 'nofollow')); ?> The content of this website is the responsibility of the website owner.
+				</div>
 				</div>
 			</div>
 		</footer>

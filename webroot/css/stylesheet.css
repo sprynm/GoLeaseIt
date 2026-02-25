@@ -2634,13 +2634,20 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     gap: 0.5rem;
     line-height: 1;
-    margin-bottom: clamp(0.75rem, 1.8vw, 1.5rem);
+    margin-bottom: clamp(0.35rem, 0.8vw, 0.75rem);
   }
   .home-why.home-why--testimonials .star-rating__star {
+    display: inline-grid;
+    place-items: center;
+    inline-size: 2.125rem;
+    block-size: 2.125rem;
     color: var(--color-brand-accent);
-    font-size: clamp(1.55rem, 0.35vw + 1.35rem, 1.95rem);
+    font-size: 2.125rem;
     line-height: 1;
   }
   .home-why.home-why--testimonials .testimonials-grid {

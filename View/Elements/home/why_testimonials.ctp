@@ -24,7 +24,7 @@ if (!is_array($items) || empty($items)) {
 ?>
 <section class="section-soft">
 	<div class="c-container c-container--full">
-		<div class="home-why home-region">
+		<div class="home-why home-why--testimonials home-region">
 			<div class="home-why__intro">
 				<?php if ($introHeading !== ''): ?>
 					<h2><?php echo h($introHeading); ?></h2>
@@ -65,6 +65,7 @@ if (!is_array($items) || empty($items)) {
 						$rating = (int) $item['rating'];
 					}
 					$rating = max(1, min(5, $rating));
+					$displayByline = ltrim($byline, "- \t\n\r\0\x0B");
 					?>
 					<div class="testimonial-card">
 						<div class="star-rating" aria-label="<?php echo h($rating); ?> out of 5 stars">
@@ -76,7 +77,7 @@ if (!is_array($items) || empty($items)) {
 							<p class="testimonial-card__quote"><?php echo h($quote); ?></p>
 						<?php endif; ?>
 						<?php if ($byline !== ''): ?>
-							<p class="testimonial-card__attr"><?php echo h($byline); ?></p>
+							<p class="testimonial-card__attr">- <?php echo h($displayByline); ?></p>
 						<?php endif; ?>
 					</div>
 				<?php endforeach; ?>

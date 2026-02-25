@@ -2594,29 +2594,76 @@
   .testimonial-name {
     font-weight: var(--font-weight-bold);
   }
-  /* Star rating — 5 gold stars, used above testimonial cards */
-  .star-rating {
+  /* Home testimonials variant (Figma node 8920:117) */
+  .home-why.home-why--testimonials {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+    padding-block: clamp(3.5rem, 8vw, 7.375rem);
+  }
+  .home-why.home-why--testimonials .home-why__intro {
+    max-width: none;
+    -ms-flex-line-pack: start;
+        align-content: start;
+  }
+  .home-why.home-why--testimonials .home-why__intro h2 {
+    margin: 0;
+    color: var(--color-brand-primary);
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 1vw + 1.35rem, 3rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.05;
+  }
+  .home-why.home-why--testimonials .home-why__intro p {
+    margin: 0;
+    color: var(--color-ink-primary);
+    font-family: "Open Sans", var(--font-sans);
+    font-size: var(--step-1);
+    line-height: 1.45;
+    max-width: 30ch;
+  }
+  .home-why.home-why--testimonials .home-why__intro .btn {
+    margin-top: var(--space-xs);
+  }
+  .home-why.home-why--testimonials .star-rating {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    gap: 0.22rem;
+    gap: 0.5rem;
     line-height: 1;
+    margin-bottom: clamp(0.75rem, 1.8vw, 1.5rem);
   }
-  .star-rating__star {
+  .home-why.home-why--testimonials .star-rating__star {
     color: var(--color-brand-accent);
-    font-size: 1.25rem;
+    font-size: clamp(1.55rem, 0.35vw + 1.35rem, 1.95rem);
     line-height: 1;
   }
-  /* Modern testimonial card — stars + quote + attribution */
-  .testimonial-card {
+  .home-why.home-why--testimonials .testimonials-grid {
     display: grid;
-    gap: var(--space-sm);
+    gap: clamp(1.6rem, 3vw, 4.25rem);
+    grid-template-columns: 1fr;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
+  .home-why.home-why--testimonials .testimonial-card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: clamp(0.75rem, 1.8vw, 1.6rem);
     -ms-flex-line-pack: start;
         align-content: start;
-    min-height: 100%;
+    min-height: 18.25rem;
     padding: 0;
     background: transparent;
     border: 0;
@@ -2624,29 +2671,40 @@
     -webkit-box-shadow: none;
             box-shadow: none;
   }
-  .testimonial-card__quote {
+  .home-why.home-why--testimonials .testimonial-card__quote {
     margin: 0;
+    color: var(--color-ink-primary);
+    font-family: "Open Sans", var(--font-sans);
     font-style: italic;
-    color: var(--color-ink-primary);
-    line-height: 1.5;
-    font-size: var(--step-0);
+    font-size: clamp(1.2rem, 0.38vw + 1.02rem, 1.5625rem);
+    font-weight: 500;
+    line-height: 1.4;
+    max-width: 26ch;
   }
-  .testimonial-card__attr {
+  .home-why.home-why--testimonials .testimonial-card__attr {
     margin: 0;
-    font-weight: var(--font-weight-bold);
-    font-size: var(--step-1);
+    margin-top: auto;
     color: var(--color-ink-primary);
+    font-family: "Open Sans", var(--font-sans);
+    font-size: clamp(1.35rem, 0.3vw + 1.2rem, 1.75rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
     text-align: right;
   }
-  /* Grid layout for 2-up testimonial cards */
-  .testimonials-grid {
-    display: grid;
-    gap: var(--space-xl);
-    grid-template-columns: 1fr;
-  }
   @media (width >= 48rem) {
-    .testimonials-grid {
+    .home-why.home-why--testimonials {
+      grid-template-columns: minmax(13rem, 23rem) minmax(0, 1fr);
+      gap: clamp(2rem, 4.1vw, 4.6rem);
+    }
+    .home-why.home-why--testimonials .testimonials-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      -webkit-column-gap: clamp(2rem, 4vw, 6rem);
+         -moz-column-gap: clamp(2rem, 4vw, 6rem);
+              column-gap: clamp(2rem, 4vw, 6rem);
+      row-gap: clamp(1.5rem, 2.5vw, 3rem);
+    }
+    .home-why.home-why--testimonials .testimonial-card {
+      max-width: 28.625rem;
     }
   }
 }
@@ -2894,30 +2952,42 @@
   }
   .story-platter__content {
     display: grid;
-    gap: var(--space-sm);
+    gap: var(--space-xs);
     -ms-flex-line-pack: center;
         align-content: center;
+    padding-block: var(--space-xl);
     padding-inline: var(--frame-gutter);
   }
-  .story-platter__title {
+  .story-platter .section-kicker {
     margin: 0;
     color: var(--color-brand-primary);
     font-family: var(--font-display);
-    font-size: clamp(2rem, 1.1vw + 1.4rem, 2.75rem);
+    font-size: clamp(2rem, 1.1vw + 1.2rem, 2.85rem);
     font-weight: var(--font-weight-bold);
-    line-height: var(--lh-title);
+    letter-spacing: 0;
+    line-height: 1.06;
+    text-transform: none;
+  }
+  .story-platter__title {
+    margin: 0;
+    color: var(--color-brand-punch);
+    font-family: "Open Sans", var(--font-sans);
+    font-size: clamp(1.4rem, 0.75vw + 1.05rem, 1.85rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.22;
   }
   .story-platter__body {
     margin: 0;
     color: var(--color-ink-primary);
-    font-size: var(--step--1);
-    line-height: 1.45;
-    max-width: 60ch;
+    font-family: "Open Sans", var(--font-sans);
+    font-size: var(--step-0);
+    line-height: 1.42;
+    max-width: 56ch;
   }
   .story-platter__media {
     position: relative;
-    overflow: clip;
-    min-height: 22rem;
+    overflow: hidden;
+    min-height: calc(clamp(15rem, 29vw, 20rem) + var(--space-xl) * 2);
   }
   .story-platter__media img {
     position: absolute;
@@ -2930,23 +3000,24 @@
   @media (width >= 48rem) {
     .story-platter--image-first .story-platter__media,
     .story-platter--image-first .story-platter__media img {
-      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      border-radius: 0 1.25rem 1.25rem 0;
     }
     .story-platter--image-first .story-platter__content {
       padding-inline: 0 var(--frame-gutter);
     }
     .story-platter--content-first .story-platter__media,
     .story-platter--content-first .story-platter__media img {
-      border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+      border-radius: 1.25rem 0 0 1.25rem;
     }
     .story-platter--content-first .story-platter__content {
+      justify-self: flex-end;
       padding-inline: var(--frame-gutter) 0;
     }
   }
   @media (width <= 47.99rem) {
     .story-platter__media,
     .story-platter__media img {
-      border-radius: var(--radius-lg);
+      border-radius: 1.25rem;
     }
   }
   /* ─── Why Go Lease It: intro + testimonials ─── */

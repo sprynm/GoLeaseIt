@@ -23,6 +23,7 @@ Use this repo as a clean, reusable implementation baseline while delivering Go L
 ## Design Source
 - Figma: https://www.figma.com/design/lz33juiSBrbQAIR9beOjsH/Go-Lease-It-Slice?node-id=0-1&p=f&t=lU3DWDKtISZVT48K-0
 - Contains: typography, home page, article page, no-banner page, feature page.
+- Figma context cache: `docs/design/figma-context-cache/go-lease-it-slice.cache.json`
 
 ## Working Rules
 - Keep the codebase client-agnostic at the framework/component level.
@@ -35,6 +36,11 @@ Use this repo as a clean, reusable implementation baseline while delivering Go L
   2. migrate to reusable style-guide/system,
   3. generate runtime code in correct publishing surface,
   4. document deployment via `docs/architecture/design-deployment-runbook.md`.
+- Figma MCP context budget rule:
+  1. read `docs/design/figma-context-cache/go-lease-it-slice.cache.json` first,
+  2. avoid broad repeated full-page context pulls,
+  3. request `get_design_context` only for target node(s),
+  4. reseed full-file metadata only when structure has materially changed.
 
 ## Key Paths
 - Runtime templates: `View/Layouts/`, `View/Elements/`

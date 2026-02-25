@@ -262,32 +262,45 @@
 
   .story-platter__content {
     display: grid;
-    gap: var(--space-sm);
+    gap: var(--space-xs);
     align-content: center;
+    padding-block: var(--space-xl);
     padding-inline: var(--frame-gutter);
+  }
+
+  .story-platter .section-kicker {
+    margin: 0;
+    color: var(--color-brand-primary);
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 1.1vw + 1.2rem, 2.85rem);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0;
+    line-height: 1.06;
+    text-transform: none;
   }
 
   .story-platter__title {
     margin: 0;
-    color: var(--color-brand-primary);
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 1.1vw + 1.4rem, 2.75rem);
+    color: var(--color-brand-punch);
+    font-family: "Open Sans", var(--font-sans);
+    font-size: clamp(1.4rem, 0.75vw + 1.05rem, 1.85rem);
     font-weight: var(--font-weight-bold);
-    line-height: var(--lh-title);
+    line-height: 1.22;
   }
 
   .story-platter__body {
     margin: 0;
     color: var(--color-ink-primary);
-    font-size: var(--step--1);
-    line-height: 1.45;
-    max-width: 60ch;
+    font-family: "Open Sans", var(--font-sans);
+    font-size: var(--step-0);
+    line-height: 1.42;
+    max-width: 56ch;
   }
 
   .story-platter__media {
     position: relative;
-    overflow: clip;
-    min-height: 22rem;
+    overflow: hidden;
+    min-height: calc(clamp(15rem, 29vw, 20rem) + (var(--space-xl) * 2));
   }
 
   .story-platter__media img {
@@ -301,7 +314,7 @@
   @include vp-min($vp-md) {
     .story-platter--image-first .story-platter__media,
     .story-platter--image-first .story-platter__media img {
-      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      border-radius: 0 1.25rem 1.25rem 0;
     }
 
     .story-platter--image-first .story-platter__content {
@@ -310,10 +323,11 @@
 
     .story-platter--content-first .story-platter__media,
     .story-platter--content-first .story-platter__media img {
-      border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+      border-radius: 1.25rem 0 0 1.25rem;
     }
 
     .story-platter--content-first .story-platter__content {
+      justify-self: flex-end;
       padding-inline: var(--frame-gutter) 0;
     }
   }
@@ -321,7 +335,7 @@
   @include vp-max($vp-md - 0.01rem) {
     .story-platter__media,
     .story-platter__media img {
-      border-radius: var(--radius-lg);
+      border-radius: 1.25rem;
     }
   }
 

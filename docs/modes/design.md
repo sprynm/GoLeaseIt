@@ -16,6 +16,7 @@ Goal: implement UI with consistent tokens, layers, and composition rules.
 7. `docs/design/prototypes.md`
 8. `docs/design/accessibility.md`
 9. `docs/architecture/design-delivery-workflow.md`
+10. `docs/design/figma-context-cache/README.md`
 
 ## Design System / SCSS Specifics
 1. Entry point: `webroot/css/scss/stylesheet.scss`.
@@ -38,3 +39,8 @@ Goal: implement UI with consistent tokens, layers, and composition rules.
 1. Theme-level token changes: `docs/design/theme.md`
 2. Layout concerns: `docs/architecture/layout-system.md`, `docs/architecture/frontend-structure.md`
 3. Gallery/article behavior: `docs/architecture/galleries.md`
+
+## Figma Context Budget
+1. Start with local cache: `docs/design/figma-context-cache/go-lease-it-slice.cache.json`.
+2. Pull narrow `get_design_context` requests for only the node IDs being implemented.
+3. Reseed full-file metadata only when page/node structure has changed.

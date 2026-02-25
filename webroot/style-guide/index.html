@@ -354,25 +354,36 @@
 
           <article class="sg-card c-stack" data-space="sm">
             <h3>Article Callout (Float Right)</h3>
-            <p class="sg-guide__section-note">Used in case study and interior article pages. Image floats right with a caption; text wraps around it.</p>
-            <div class="article-body">
+            <p class="sg-guide__section-note">Uses the same structure as `preview-article-body.html`.</p>
+            <div class="site-wrapper site-wrapper--default">
+              <div class="c-container c-container--article c-region">
+                <article class="article-body">
+                  <h2>Heading 3</h2>
+                  <p>
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+                    aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                  </p>
 
-              <h2>Another Big Ticket Rental Conversion</h2>
-              <p>Terry had been renting a Barko processor from a dealer in Kamloops to keep his operation moving, but the monthly rental costs were adding up with nothing to show for it long term. We stepped in and worked with one of our lending partners to structure a commercial lease-to-own solution, applying his accumulated rental credits in place of a traditional down payment.</p>
+                  <aside class="article-callout">
+                    <div class="sg-demo-box">
+                      <p><strong>We had the pleasure of working with Aidan Gregoire on the financing for the newest truck in our fleet, and the experience was outstanding from start to finish.</strong></p>
+                      <p class="u-text-right">- ARC Towing</p>
+                    </div>
+                  </aside>
 
-              <div class="article-callout">
-                <figure>
-                  <img src="./assets/customer/yellow-equipment.jpg" alt="Equipment financing example">
-                  <figcaption>Photo Caption</figcaption>
-                </figure>
+                  <p>
+                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
+                    dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor
+                    sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt.
+                  </p>
+
+                  <p>
+                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid
+                    ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil
+                    molestiae consequatur.
+                  </p>
+                </article>
               </div>
-              <p>The result was lower monthly payments than he had been paying to rent, full payout to the dealership, and a clear path to ownership of the machine.</p>
-
-              <p>Terry had been renting a Barko processor from a dealer in Kamloops to keep his operation moving, but the monthly rental costs were adding up with nothing to show for it long term. We stepped in and worked with one of our lending partners to structure a commercial lease-to-own solution, applying his accumulated rental credits in place of a traditional down payment.</p>
-              <p>The result was lower monthly payments than he had been paying to rent, full payout to the dealership, and a clear path to ownership of the machine.</p>
-              <p>Terry had been renting a Barko processor from a dealer in Kamloops to keep his operation moving, but the monthly rental costs were adding up with nothing to show for it long term. We stepped in and worked with one of our lending partners to structure a commercial lease-to-own solution, applying his accumulated rental credits in place of a traditional down payment.</p>
-              <p>The result was lower monthly payments than he had been paying to rent, full payout to the dealership, and a clear path to ownership of the machine.</p>
-
             </div>
           </article>
         </div>
@@ -463,89 +474,72 @@
 
           <article class="sg-card c-stack" data-space="sm">
             <h3>Industries Served Prototype (`industries_served`)</h3>
-            <p>Homepage industry card collection. Rendered as image tiles in the industry grid with heading and CTA link per item.</p>
-            <div class="feature-boxes">
-              <a class="tile tile--linked tile--industry" href="#sg-elements">
-                <span class="tile__media">
-                  <img src="./assets/customer/yellow-equipment.jpg" alt="Transportation and logistics">
-                </span>
-                <span class="tile__overlay"></span>
-                <span class="tile__content">
-                  <span class="tile__heading">Transportation &amp; Logistics</span>
-                </span>
-              </a>
-
-              <a class="tile tile--linked tile--industry" href="#sg-elements">
-                <span class="tile__media">
-                  <img src="./assets/customer/building.jpg" alt="Construction and agriculture">
-                </span>
-                <span class="tile__overlay"></span>
-                <span class="tile__content">
-                  <span class="tile__heading">Construction &amp; Agriculture</span>
-                </span>
-              </a>
-            </div>
+            <p>Exact living structure: `.section-industries` + `.industry-grid` intro panel and industry tiles.</p>
           </article>
 
-          <article class="sg-card c-stack" data-space="sm">
-            <h3>Service Boxes Prototype (`_prototype-feature-boxes.scss`)</h3>
-            <p>Home/services tile collection using the `.feature-boxes` and shared `.tile` pattern.</p>
-            <div class="home-service-boxes">
-              <div class="feature-boxes">
-                <a class="tile tile--linked" href="#sg-elements">
+          <section class="section-soft section-industries sg-iframe-bleed" aria-label="Living industries served demo">
+            <div class="c-container c-container--full">
+              <div class="industry-grid">
+                <div class="industry-grid__intro">
+                  <div class="industry-grid__intro-content">
+                    <h2>Industries We Serve</h2>
+                    <p>From construction sites to medical offices to city fleets, we finance the equipment that keeps businesses moving.</p>
+                    <a href="#sg-elements" class="btn btn-primary">View All Industries</a>
+                  </div>
+                </div>
+
+                <a class="tile tile--linked tile--industry" href="#sg-elements">
                   <span class="tile__media">
-                    <img src="./assets/customer/building.jpg" alt="Equipment leasing solutions">
+                    <img src="./assets/customer/yellow-equipment.jpg" alt="Transportation &amp; Logistics" loading="lazy" decoding="async">
                   </span>
                   <span class="tile__overlay"></span>
                   <span class="tile__content">
-                    <span class="tile__heading">Leasing</span>
-                    <span class="tile__title">Equipment Leasing</span>
-                    <span class="tile__subheading">Straightforward terms</span>
-                    <span class="tile__text">Flexible structures for new and used equipment across industries.</span>
+                    <span class="tile__heading">Transportation &amp; Logistics</span>
                   </span>
                 </a>
 
-                <a class="tile tile--linked" href="#sg-elements">
+                <a class="tile tile--linked tile--industry" href="#sg-elements">
                   <span class="tile__media">
-                    <img src="./assets/customer/yellow-equipment.jpg" alt="Sale-leaseback financing">
+                    <img src="./assets/customer/building.jpg" alt="Construction &amp; Agriculture" loading="lazy" decoding="async">
                   </span>
                   <span class="tile__overlay"></span>
                   <span class="tile__content">
-                    <span class="tile__heading">Equity</span>
-                    <span class="tile__title">Sale-Leaseback</span>
-                    <span class="tile__subheading">Unlock capital</span>
-                    <span class="tile__text">Convert owned equipment into cash while keeping it in service.</span>
+                    <span class="tile__heading">Construction &amp; Agriculture</span>
                   </span>
                 </a>
 
-                <a class="tile tile--linked" href="#sg-elements">
+                <a class="tile tile--linked tile--industry" href="#sg-elements">
                   <span class="tile__media">
-                    <img src="./assets/customer/building.jpg" alt="Auction and private sales financing">
+                    <img src="./assets/customer/building.jpg" alt="City &amp; Municipal Public Works" loading="lazy" decoding="async">
                   </span>
                   <span class="tile__overlay"></span>
                   <span class="tile__content">
-                    <span class="tile__heading">Buying</span>
-                    <span class="tile__title">Auction &amp; Private Sales</span>
-                    <span class="tile__subheading">Fast turnaround</span>
-                    <span class="tile__text">Financing for time-sensitive purchases from any seller.</span>
+                    <span class="tile__heading">City &amp; Municipal Public Works</span>
                   </span>
                 </a>
 
-                <a class="tile tile--linked" href="#sg-elements">
+                <a class="tile tile--linked tile--industry" href="#sg-elements">
                   <span class="tile__media">
-                    <img src="./assets/customer/dental.jpg" alt="Rental conversion financing">
+                    <img src="./assets/customer/yellow-equipment.jpg" alt="Manufacturing &amp; Mining" loading="lazy" decoding="async">
                   </span>
                   <span class="tile__overlay"></span>
                   <span class="tile__content">
-                    <span class="tile__heading">Conversion</span>
-                    <span class="tile__title">Rental Conversions</span>
-                    <span class="tile__subheading">Keep what works</span>
-                    <span class="tile__text">Turn rentals into long-term assets with clean monthly terms.</span>
+                    <span class="tile__heading">Manufacturing &amp; Mining</span>
+                  </span>
+                </a>
+
+                <a class="tile tile--linked tile--industry" href="#sg-elements">
+                  <span class="tile__media">
+                    <img src="./assets/customer/dental.jpg" alt="Dental &amp; Medical" loading="lazy" decoding="async">
+                  </span>
+                  <span class="tile__overlay"></span>
+                  <span class="tile__content">
+                    <span class="tile__heading">Dental &amp; Medical</span>
                   </span>
                 </a>
               </div>
             </div>
-          </article>
+          </section>
 
           <article class="sg-card c-stack" data-space="sm">
             <h3>Living Story Panels (`_prototype-home.scss` + `home/story_panels.ctp`)</h3>
@@ -556,25 +550,25 @@
             <div class="home-stories">
               <article class="story-platter story-platter--image-first">
                 <div class="story-platter__media">
-                  <img src="./assets/customer/building.jpg" alt="Invest in Care, Not Capital Strain" loading="lazy" decoding="async">
+                  <img src="./assets/customer/dental.jpg" alt="Invest in Care, Not Capital Strain" loading="lazy" decoding="async">
                 </div>
                 <div class="story-platter__content">
-                  <p class="section-kicker">Success Story</p>
+                  <p class="section-kicker">Success Stories</p>
                   <h2 class="story-platter__title">Invest in Care, Not Capital Strain</h2>
                   <p class="story-platter__body">BrightSmile Orthodontics upgraded to clinic-grade digital imaging, treatment chairs, and sterilization equipment. Go Lease It flexible financing preserved cash flow, letting the team focus on patients instead of upfront costs.</p>
                   <div>
-                    <a class="btn btn-primary" href="#sg-elements">Read Full Story</a>
+                    <a class="btn btn-primary" href="#sg-elements">More Success Stories -></a>
                   </div>
                 </div>
               </article>
 
               <article class="story-platter story-platter--content-first">
                 <div class="story-platter__content">
-                  <p class="section-kicker">Success Story</p>
+                  <p class="section-kicker">Success Stories</p>
                   <h2 class="story-platter__title">Another Big Ticket Rental Conversion</h2>
                   <p class="story-platter__body">Our client Terry began renting this Barko processor from a dealer in Kamloops before using rental credits toward a bank lease. The machine is now set up on a commercial lease-to-own, giving Terry lower monthly payments and letting him focus on operations instead of upfront costs.</p>
                   <div>
-                    <a class="btn btn-primary" href="#sg-elements">Read Full Story</a>
+                    <a class="btn btn-primary" href="#sg-elements">More Success Stories -></a>
                   </div>
                 </div>
                 <div class="story-platter__media">
@@ -603,7 +597,7 @@
                 <ol class="process-steps">
                   <li class="process-step">
                     <span class="process-step__icon" aria-hidden="true">
-                      <img src="/img/home-process-icons/computer.svg" alt="Apply Online" loading="lazy" decoding="async">
+                      <img src="../img/home-process-icons/computer.svg" alt="Apply Online" loading="lazy" decoding="async">
                     </span>
                     <p class="process-step__title">
                       <span class="process-step__num">1.</span>
@@ -613,7 +607,7 @@
                   </li>
                   <li class="process-step">
                     <span class="process-step__icon" aria-hidden="true">
-                      <img src="/img/home-process-icons/people.svg" alt="We Reach Out" loading="lazy" decoding="async">
+                      <img src="../img/home-process-icons/people.svg" alt="We Reach Out" loading="lazy" decoding="async">
                     </span>
                     <p class="process-step__title">
                       <span class="process-step__num">2.</span>
@@ -623,7 +617,7 @@
                   </li>
                   <li class="process-step">
                     <span class="process-step__icon" aria-hidden="true">
-                      <img src="/img/home-process-icons/notepad.svg" alt="Build The Deal" loading="lazy" decoding="async">
+                      <img src="../img/home-process-icons/notepad.svg" alt="Build The Deal" loading="lazy" decoding="async">
                     </span>
                     <p class="process-step__title">
                       <span class="process-step__num">3.</span>
@@ -633,7 +627,7 @@
                   </li>
                   <li class="process-step">
                     <span class="process-step__icon" aria-hidden="true">
-                      <img src="/img/home-process-icons/money.svg" alt="Lock It In" loading="lazy" decoding="async">
+                      <img src="../img/home-process-icons/money.svg" alt="Lock It In" loading="lazy" decoding="async">
                     </span>
                     <p class="process-step__title">
                       <span class="process-step__num">4.</span>
@@ -643,7 +637,7 @@
                   </li>
                   <li class="process-step">
                     <span class="process-step__icon" aria-hidden="true">
-                      <img src="/img/home-process-icons/handshake.svg" alt="Get To Work" loading="lazy" decoding="async">
+                      <img src="../img/home-process-icons/handshake.svg" alt="Get To Work" loading="lazy" decoding="async">
                     </span>
                     <p class="process-step__title">
                       <span class="process-step__num">5.</span>
@@ -657,33 +651,48 @@
           </section>
 
           <article class="sg-card c-stack" data-space="sm">
-            <h3>Testimonials Prototype (<span class="sg-code">_prototype-testimonials.scss</span>)</h3>
-            <p>Star rating + quote card pattern. Used in homepage success stories and interior pages.</p>
-            <div class="testimonials-grid">
-              <div class="testimonial-card">
-                <div class="star-rating" aria-label="5 stars">
-                  <span class="star-rating__star" aria-hidden="true">★</span>
-                  <span class="star-rating__star" aria-hidden="true">★</span>
-                  <span class="star-rating__star" aria-hidden="true">★</span>
-                  <span class="star-rating__star" aria-hidden="true">★</span>
-                  <span class="star-rating__star" aria-hidden="true">★</span>
+            <h3>Living Why + Testimonials (`_prototype-testimonials.scss` + `home/why_testimonials.ctp`)</h3>
+            <p>Exact living HTML structure and class names used on the homepage testimonials section.</p>
+          </article>
+
+          <section class="section-soft sg-iframe-bleed" aria-label="Living why and testimonials demo">
+            <div class="c-container c-container--full">
+              <div class="home-why home-why--testimonials home-region">
+                <div class="home-why__intro">
+                  <h2>Why Go Lease it?</h2>
+                  <p>We make equipment financing simple, fast, and reliable. Here's what our clients say:</p>
+                  <div>
+                    <a href="#sg-elements" class="btn btn-primary">Apply Today</a>
+                  </div>
                 </div>
-                <p class="testimonial-card__quote">We had the pleasure of working with Atlas Crane on the financing for the newest truck in our fleet, and the experience was outstanding from start to finish.</p>
-                <p class="testimonial-card__attr">— ARC Towing</p>
-              </div>
-              <div class="testimonial-card">
-                <div class="star-rating" aria-label="5 stars">
-                  <span class="star-rating__star" aria-hidden="true">★</span>
-                  <span class="star-rating__star" aria-hidden="true">★</span>
-                  <span class="star-rating__star" aria-hidden="true">★</span>
-                  <span class="star-rating__star" aria-hidden="true">★</span>
-                  <span class="star-rating__star" aria-hidden="true">★</span>
+
+                <div class="testimonials-grid">
+                  <div class="testimonial-card">
+                    <div class="star-rating" aria-label="5 out of 5 stars">
+                      <span class="star-rating__star" aria-hidden="true">★</span>
+                      <span class="star-rating__star" aria-hidden="true">★</span>
+                      <span class="star-rating__star" aria-hidden="true">★</span>
+                      <span class="star-rating__star" aria-hidden="true">★</span>
+                      <span class="star-rating__star" aria-hidden="true">★</span>
+                    </div>
+                    <p class="testimonial-card__quote">We had the pleasure of working with Aidan Gregoire on the financing for the newest truck in our fleet, and the experience was outstanding from start to finish.</p>
+                    <p class="testimonial-card__attr">- ARC Towing</p>
+                  </div>
+                  <div class="testimonial-card">
+                    <div class="star-rating" aria-label="5 out of 5 stars">
+                      <span class="star-rating__star" aria-hidden="true">★</span>
+                      <span class="star-rating__star" aria-hidden="true">★</span>
+                      <span class="star-rating__star" aria-hidden="true">★</span>
+                      <span class="star-rating__star" aria-hidden="true">★</span>
+                      <span class="star-rating__star" aria-hidden="true">★</span>
+                    </div>
+                    <p class="testimonial-card__quote">Kris was great helped me get the machine I needed for my company. Kris made it very easy, effortless and quick. Thank you!</p>
+                    <p class="testimonial-card__attr">- Rick Jaswal</p>
+                  </div>
                 </div>
-                <p class="testimonial-card__quote">Kris was great, helped me get the financing I needed to purchase my company. He made it very easy, effortless and quick. Thank you!</p>
-                <p class="testimonial-card__attr">— Rick Jaswal</p>
               </div>
             </div>
-          </article>
+          </section>
         </div>
       </div>
     </section>

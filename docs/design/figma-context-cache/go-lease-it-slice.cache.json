@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "seeded_at": "2026-02-25",
+  "source": {
+    "file_key": "lz33juiSBrbQAIR9beOjsH",
+    "file_name": "Go-Lease-It-Slice",
+    "figma_url": "https://www.figma.com/design/lz33juiSBrbQAIR9beOjsH/Go-Lease-It-Slice"
+  },
+  "notes": [
+    "Compact cache seeded from a full-file metadata pull on 2026-02-25.",
+    "Use this index first; fetch design context only for the specific node(s) being changed.",
+    "Asset URLs from Figma MCP expire; rely on node IDs and local project assets for long-term stability."
+  ],
+  "pages": [
+    {
+      "id": "8920:7",
+      "name": "Desktop - Home",
+      "x": 4094,
+      "y": 15,
+      "width": 1920,
+      "height": 4601
+    },
+    {
+      "id": "10901:132",
+      "name": "Generic Page",
+      "x": 6198,
+      "y": 15,
+      "width": 1920,
+      "height": 4601
+    },
+    {
+      "id": "10902:330",
+      "name": "Generic Page",
+      "x": 6198,
+      "y": 15,
+      "width": 1920,
+      "height": 4601
+    },
+    {
+      "id": "10902:161",
+      "name": "Generic Page - no banner",
+      "x": 8302,
+      "y": 15,
+      "width": 1920,
+      "height": 1511
+    },
+    {
+      "id": "10902:470",
+      "name": "Feature Page",
+      "x": 10406,
+      "y": 15,
+      "width": 1920,
+      "height": 1936
+    },
+    {
+      "id": "2901:33",
+      "name": "Styles",
+      "x": 2074,
+      "y": 15,
+      "width": 1607,
+      "height": 498.0276
+    }
+  ],
+  "shared_symbols": [
+    {
+      "id": "8908:287",
+      "name": "Button"
+    },
+    {
+      "id": "8920:233",
+      "name": "Header"
+    },
+    {
+      "id": "8931:172",
+      "name": "Footer"
+    }
+  ],
+  "home_bundles": {
+    "banner": [
+      "8920:76",
+      "8920:112"
+    ],
+    "industries": [
+      "8920:392",
+      "8920:390",
+      "8920:385",
+      "8920:386",
+      "8920:387",
+      "8920:388",
+      "8920:389"
+    ],
+    "process_steps": [
+      "8920:450",
+      "8920:444",
+      "8920:442",
+      "8920:441",
+      "8920:440",
+      "8920:438"
+    ],
+    "stories": [
+      "8920:138",
+      "8920:139",
+      "8920:465",
+      "8920:458"
+    ],
+    "testimonials": [
+      "8920:117",
+      "8920:120",
+      "8920:129"
+    ]
+  },
+  "stories_reference": {
+    "left_image": {
+      "node_id": "8920:138",
+      "shape": "outside-right rounded corners",
+      "radius_px": 20
+    },
+    "right_image": {
+      "node_id": "8920:139",
+      "shape": "outside-left rounded corners",
+      "radius_px": 20
+    },
+    "row_1_text": {
+      "node_id": "8920:465",
+      "title_node": "8920:55",
+      "subtitle_node": "8920:463",
+      "body_node": "8920:140",
+      "cta_node": "8920:451"
+    },
+    "row_2_text": {
+      "node_id": "8920:458",
+      "title_node": "8920:466",
+      "subtitle_node": "8920:467",
+      "body_node": "8920:141",
+      "cta_node": "8920:455"
+    },
+    "type_scale": {
+      "title": {
+        "color": "#3D6CAE",
+        "family": "Roboto",
+        "weight": 700,
+        "size_px": 56
+      },
+      "subtitle": {
+        "color": "#00AB4E",
+        "family": "Roboto",
+        "weight": 600,
+        "size_px": 35
+      },
+      "body": {
+        "color": "#0E0F19",
+        "family": "Open Sans",
+        "weight": 400,
+        "size_px": 26,
+        "line_height_px": 36
+      }
+    }
+  },
+  "quick_lookup": {
+    "home": "8920:7",
+    "stories_row_1": "8920:465",
+    "stories_row_2": "8920:458",
+    "styles_board": "2901:33",
+    "feature_page": "10902:470"
+  }
+}

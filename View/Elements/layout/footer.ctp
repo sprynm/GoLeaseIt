@@ -1,3 +1,81 @@
+		<?php
+		$toBool = function ($value, $default) {
+			if ($value === null) {
+				return (bool) $default;
+			}
+
+			if (is_bool($value)) {
+				return $value;
+			}
+
+			$normalized = strtolower(trim((string) $value));
+			if ($normalized === '') {
+				return (bool) $default;
+			}
+
+			if (in_array($normalized, array('1', 'true', 'yes', 'on'), true)) {
+				return true;
+			}
+
+			if (in_array($normalized, array('0', 'false', 'no', 'off'), true)) {
+				return false;
+			}
+
+			return (bool) $default;
+		};
+
+		$ctaPlatterEnabled = true;
+		$ctaPlatterValue = null;
+
+		if (isset($page['Page']) && is_array($page['Page']) && array_key_exists('show_cta_platter', $page['Page'])) {
+			$ctaPlatterValue = $page['Page']['show_cta_platter'];
+		}
+
+		if ($ctaPlatterValue === null && !empty($page['CustomFieldValue']) && is_array($page['CustomFieldValue'])) {
+			foreach ($page['CustomFieldValue'] as $fieldValue) {
+				if (!empty($fieldValue['key']) && $fieldValue['key'] === 'show_cta_platter') {
+					$ctaPlatterValue = isset($fieldValue['val']) ? $fieldValue['val'] : null;
+					break;
+				}
+			}
+		}
+
+		$ctaPlatterEnabled = $toBool($ctaPlatterValue, true);
+
+		$articleCtaHeading = trim((string) $this->Settings->show('Site.article_cta_heading'));
+		if ($articleCtaHeading === '') {
+			$articleCtaHeading = 'Ready to Move Forward?';
+		}
+
+		$articleCtaBody = trim((string) $this->Settings->show('Site.article_cta_body'));
+		if ($articleCtaBody === '') {
+			$articleCtaBody = 'Ready to secure the equipment your business needs? Our team moves quickly with clear terms and practical solutions built around your cash flow.';
+		}
+
+		$articleCtaLink = trim((string) $this->Settings->show('Site.article_cta_link'));
+		if ($articleCtaLink === '') {
+			$articleCtaLink = '/contact';
+		}
+
+		$articleCtaText = trim((string) $this->Settings->show('Site.article_cta_text'));
+		if ($articleCtaText === '') {
+			$articleCtaText = 'APPLY ONLINE →';
+		}
+		?>
+		<?php if ($ctaPlatterEnabled): ?>
+		<section class="cta-band cta-band--article" aria-labelledby="article-cta-heading">
+			<div class="cta-band__inner">
+				<h2 id="article-cta-heading" class="cta-band__heading"><?php echo h($articleCtaHeading); ?></h2>
+				<p class="cta-band__body"><?php echo h($articleCtaBody); ?></p>
+				<?php if ($articleCtaLink !== '' && $articleCtaText !== ''): ?>
+					<div class="cta-band__actions">
+						<?php echo $this->Html->link($articleCtaText, $articleCtaLink, array('class' => 'btn btn--primary u-btn-lg', 'escape' => false)); ?>
+					</div>
+				<?php endif; ?>
+			</div>
+		</section>
+		<?php endif; ?>
+
 		<footer>
 			<div class="c-container c-container--full">
 				<div class="ftr-container">

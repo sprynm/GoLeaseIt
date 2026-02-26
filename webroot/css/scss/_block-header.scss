@@ -111,7 +111,7 @@
 
   .hdr-links { display: none; }
 
-  @media (width <= 59.99rem) {
+  @media (max-width: 59.99rem) {
     #hdr-notice {
       padding-block: 0;
     }

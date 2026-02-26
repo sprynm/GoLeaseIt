@@ -256,7 +256,7 @@
     background: var(--color-surface-soft);
   }
 
-  @media (width <= 59.99rem) {
+  @media (max-width: 59.99rem) {
     .js-nav-ready .site-nav {
       display: none;
     }
@@ -268,4 +268,3 @@
     }
   }
 }
-

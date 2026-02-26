@@ -185,49 +185,31 @@
   }
 
   /* Primary button — solid green, uppercase with arrow */
-  /* .btn--primary is the canonical BEM form; .btn-primary retained during migration */
-  .btn-primary,
-  .btn--primary,
-  .btn--hero {
+  .btn--primary {
     background: var(--color-brand-punch);
-    color: #fff;
+    color: var(--color-ink-on-dark);
     border-color: transparent;
   }
 
-  .btn-primary:visited,
-  .btn--primary:visited,
-  .btn--hero:visited { color: #fff; }
+  .btn--primary:visited { color: var(--color-ink-on-dark); }
 
-  .btn-primary:hover,
-  .btn-primary:focus-visible,
   .btn--primary:hover,
-  .btn--primary:focus-visible,
-  .btn--hero:hover,
-  .btn--hero:focus-visible {
-    background: color-mix(in srgb, var(--color-brand-punch) 82%, #000 18%);
-    color: #fff;
+  .btn--primary:focus-visible {
+    background: color-mix(in srgb, var(--color-brand-punch) 82%, var(--color-ink-absolute) 18%);
+    color: var(--color-ink-on-dark);
   }
 
   /* Secondary button — outlined green */
-  /* .btn--secondary is the canonical BEM form; .btn-secondary retained during migration */
-  .btn-secondary,
-  .btn--secondary,
-  .btn--hero-secondary {
+  .btn--secondary {
     background: transparent;
     color: var(--color-brand-punch);
     border: 2px solid var(--color-brand-punch);
   }
 
-  .btn-secondary:visited,
-  .btn--secondary:visited,
-  .btn--hero-secondary:visited { color: var(--color-brand-punch); }
+  .btn--secondary:visited { color: var(--color-brand-punch); }
 
-  .btn-secondary:hover,
-  .btn-secondary:focus-visible,
   .btn--secondary:hover,
-  .btn--secondary:focus-visible,
-  .btn--hero-secondary:hover,
-  .btn--hero-secondary:focus-visible {
+  .btn--secondary:focus-visible {
     background: color-mix(in srgb, var(--color-brand-punch) 10%, transparent 90%);
     color: var(--color-brand-punch);
   }

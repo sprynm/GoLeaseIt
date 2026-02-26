@@ -2,7 +2,7 @@
 
 @layer compositions {
   .site-wrapper {
-    --wrapper-bg: var(--color-surface-base);
+    --wrapper-bg: var(--surface-bg-base);
     background: var(--wrapper-bg);
     min-height: 50vh;
     min-height: 50dvh;
@@ -12,10 +12,10 @@
     width: 100%;
   }
 
-  .site-wrapper--default { --wrapper-bg: var(--color-surface-base); }
-  .site-wrapper--platter { --wrapper-bg: var(--color-surface-muted); }
+  .site-wrapper--default { --wrapper-bg: var(--surface-bg-base); }
+  .site-wrapper--platter { --wrapper-bg: var(--surface-bg-muted); }
   .site-wrapper--dark {
-    --wrapper-bg: var(--color-surface-inverse);
+    --wrapper-bg: var(--surface-bg-inverse);
     color: var(--color-ink-inverse);
   }
 

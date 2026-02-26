@@ -28,7 +28,11 @@
   }
 
   .page-hero__overlay {
-    background: linear-gradient(120deg, rgba(10, 28, 52, 0.55) 0%, rgba(14, 45, 86, 0.72) 100%);
+    background: linear-gradient(
+      120deg,
+      rgb(var(--color-hero-overlay-start-rgb) / 0.55) 0%,
+      rgb(var(--color-hero-overlay-end-rgb) / 0.72) 100%
+    );
   }
 
   /* Homepage masthead overlay layer (rendered as .page-hero__bg in template). */
@@ -37,9 +41,9 @@
     pointer-events: none;
     background: linear-gradient(
       180deg,
-      rgb(0 0 0 / 0.78) 0%,
-      rgb(0 0 0 / 0.58) 45%,
-      rgb(0 0 0 / 0.80) 100%
+      rgb(var(--color-ink-absolute-rgb) / 0.78) 0%,
+      rgb(var(--color-ink-absolute-rgb) / 0.58) 45%,
+      rgb(var(--color-ink-absolute-rgb) / 0.80) 100%
     );
   }
 
@@ -114,6 +118,46 @@
     isolation: isolate;
   }
 
+  .page-hero--single {
+    min-height: 350px;
+    padding-top: calc(var(--hero-vspace) + var(--nav-offset));
+  }
+
+  .page-hero--single .page-hero__inner {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .page-hero--single .page-hero__content {
+    max-width: min(76rem, 100%);
+    display: grid;
+    gap: var(--space-sm);
+    justify-items: center;
+  }
+
+  .page-hero--single .page-hero__title {
+    font-size: clamp(2.5rem, 1.18rem + 3.55vw, 5rem);
+    line-height: 1.125;
+    font-weight: var(--font-weight-extrabold);
+    letter-spacing: 0;
+    text-shadow: 0 4px 4px rgb(0 0 0 / var(--alpha-25));
+    max-width: min(1216px, 100%);
+    white-space: nowrap;
+  }
+
+  .page-hero--single .page-hero__summary {
+    max-width: 40ch;
+    margin-inline: auto;
+  }
+
+  .page-hero--single .page-hero__actions {
+    justify-content: center;
+  }
+
+  .page-hero--single .page-hero__bg {
+    background: rgb(var(--color-ink-absolute-rgb) / 0.68);
+  }
+
   @include vp-max($vp-md - 0.01rem) {
     .page-hero {
       padding-top: calc(var(--nav-offset) + var(--space-sm));
@@ -123,6 +167,15 @@
 
     .page-hero__title {
       font-size: clamp(1.75rem, 1.4rem + 3vw, 2.4rem);
+    }
+
+    .page-hero--single {
+      min-height: clamp(220px, 38vw, 300px);
+    }
+
+    .page-hero--single .page-hero__title {
+      font-size: clamp(2rem, 7vw, 3rem);
+      white-space: normal;
     }
   }
 }

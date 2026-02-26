@@ -4,28 +4,30 @@ $notice-icon-offset-inline: 0.75rem;
 $notice-icon-offset-block: 0.75rem;
 $notice-icon-size: 1.3125rem;
 $notice-content-padding-block: 0.75rem;
-$notice-content-padding-inline-end: 4.0625rem; // Reserve space for absolute "Close" control + icon.
-$notice-content-padding-inline-start: 2.5rem; // Icon slot + readable text gap.
+$notice-content-padding-inline-end: 4.0625rem;
+$notice-content-padding-inline-start: 2.5rem;
 $notice-close-offset-inline: 0.3125rem;
 $notice-close-offset-block: 0.3125rem;
 $notice-input-padding-block: 0.3125rem;
 $notice-input-padding-inline-end: 0.3125rem;
-$notice-input-padding-inline-start: 2.1875rem; // Inline form notifications use a tighter icon slot.
+$notice-input-padding-inline-start: 2.1875rem;
 $notice-input-icon-offset-inline: 0.75rem;
 $notice-input-icon-offset-block: 0.375rem;
+$notice-input-margin-top: 0.25rem;
+$notice-message-margin-bottom: 0.9375rem;
+$notice-message-padding-block: 0.3125rem;
+$notice-message-padding-inline: 0.9375rem;
 
-@layer tokens {
-  :root {
-    /* Optional component: define its supporting tokens only when imported. */
-    --color-state-warning: #ffcc00;
-    --color-state-success: #22c55e;
-    --color-state-critical: #dc2626;
-    --color-state-notice-error-bg: #ffeded;
-    --color-state-notice-attention-bg: #feefb3;
-    --color-state-notice-info-bg: #bde5f8;
-    --color-state-notice-success-bg: #dff2bf;
-    --color-ink-notice: #404040;
+@mixin notice-variant($bg, $icon, $border-color: null) {
+  background-color: $bg;
+  background-image: url($icon);
+  background-size: $notice-icon-size;
+  @if $border-color {
+    border-color: $border-color;
+  } @else {
+    border-color: color-mix(in srgb, #{$bg} 60%, var(--color-ink-absolute) 40%);
   }
+  color: color-mix(in srgb, #{$bg} 25%, var(--color-ink-absolute) 75%);
 }
 
 @layer blocks {
@@ -51,54 +53,25 @@ $notice-input-icon-offset-block: 0.375rem;
     background-repeat: no-repeat !important;
   }
 
-  /* BEM canonical forms added; class combos retained pending CMS class output audit */
-  .notification.attention,
   .notification--attention {
-    background-color: var(--color-state-notice-attention-bg);
-    background-image: url("../img/icons/exclamation.svg");
-    background-size: $notice-icon-size;
-    border-color: color-mix(
-      in srgb,
-      var(--color-state-notice-attention-bg) 60%,
-      var(--color-ink-absolute) 40%
-    );
-    color: color-mix(in srgb, var(--color-state-notice-attention-bg) 25%, var(--color-ink-absolute) 75%);
+    @include notice-variant(var(--color-state-notice-attention-bg), "../img/icons/exclamation.svg");
   }
 
-  .notification.information,
   .notification--information {
-    background-color: var(--color-state-notice-info-bg);
-    background-image: url("../img/icons/information.svg");
-    background-size: $notice-icon-size;
-    border-color: color-mix(
-      in srgb,
-      var(--color-state-notice-info-bg) 60%,
-      var(--color-ink-absolute) 40%
-    );
-    color: color-mix(in srgb, var(--color-state-notice-info-bg) 25%, var(--color-ink-absolute) 75%);
+    @include notice-variant(var(--color-state-notice-info-bg), "../img/icons/information.svg");
   }
 
-  .notification.success,
   .notification--success {
-    background-color: var(--color-state-notice-success-bg);
-    background-image: url("../img/icons/circle-check.svg");
-    background-size: $notice-icon-size;
-    border-color: color-mix(
-      in srgb,
-      var(--color-state-notice-success-bg) 60%,
-      var(--color-ink-absolute) 40%
-    );
-    color: color-mix(in srgb, var(--color-state-notice-success-bg) 25%, var(--color-ink-absolute) 75%);
+    @include notice-variant(var(--color-state-notice-success-bg), "../img/icons/circle-check.svg");
   }
 
-  .notification.error,
   .notification--error,
   .error-message {
-    background-color: var(--color-state-notice-error-bg);
-    background-image: url("../img/icons/exclamation_circle.svg");
-    background-size: $notice-icon-size;
-    border-color: var(--color-state-critical);
-    color: color-mix(in srgb, var(--color-state-notice-error-bg) 25%, var(--color-ink-absolute) 75%);
+    @include notice-variant(
+      var(--color-state-notice-error-bg),
+      "../img/icons/exclamation_circle.svg",
+      var(--color-state-critical)
+    );
   }
 
   .notification div {
@@ -156,7 +129,7 @@ $notice-input-icon-offset-block: 0.375rem;
     background-size: 1rem;
     background-position: $notice-input-icon-offset-inline $notice-input-icon-offset-block !important;
     margin: 0;
-    margin-top: 0.25rem;
+    margin-top: $notice-input-margin-top;
     font-style: italic;
   }
 
@@ -165,11 +138,15 @@ $notice-input-icon-offset-block: 0.375rem;
     clear: both;
     color: var(--color-ink-on-dark);
     font-weight: var(--font-weight-bold);
-    margin: 0 0 0.9375rem 0;
-    padding: 0.3125rem;
+    margin: 0 0 $notice-message-margin-bottom 0;
+    padding: $notice-message-padding-block;
   }
 
   .message,
+  .message.error,
+  .message.information,
+  .message.attention,
+  .message.success,
   .cake-error,
   .cake-debug,
   .notice,
@@ -178,7 +155,7 @@ $notice-input-icon-offset-block: 0.375rem;
     background: var(--color-state-warning);
     border: 1px solid rgb(var(--color-ink-absolute-rgb) / var(--alpha-25));
     margin-bottom: var(--space-lg);
-    padding: 0.625rem 0.9375rem;
+    padding: $notice-message-padding-block $notice-message-padding-inline;
     color: var(--color-ink-notice);
     border-radius: var(--radius-sm);
   }

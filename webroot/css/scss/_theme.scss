@@ -49,6 +49,7 @@ $heroMax: 75rem;
 @layer tokens {
   :root {
     --font-sans: #{$fontSans};
+    --font-sans-alt: "Open Sans", var(--font-sans);
     --font-display: #{$fontDisplay};
     --font-serif: #{$fontSerif};
 
@@ -60,6 +61,9 @@ $heroMax: 75rem;
     --color-surface-dark: #{$colorSurfaceDark};
     --color-surface-hero: var(--color-surface-dark);
     --color-surface-footer: var(--color-surface-dark);
+    --surface-bg-base: var(--color-surface-base);
+    --surface-bg-muted: var(--color-surface-muted);
+    --surface-bg-inverse: var(--color-surface-inverse);
 
     --color-ink-absolute: #{$colorInkAbsolute};
     --color-ink-absolute-rgb: #{$colorInkAbsoluteRgb};
@@ -81,6 +85,7 @@ $heroMax: 75rem;
     --alpha-25: 0.25;
     --alpha-16: 0.16;
     --alpha-10: 0.1;
+    --alpha-08: 0.08;
     --alpha-04: 0.04;
     --alpha-02: 0.02;
 
@@ -145,6 +150,57 @@ $heroMax: 75rem;
     --type-nav-line: 1;
     --type-label-size: calc(var(--fluid-base) * 0.833);
     --type-label-line: 1.2;
+    --article-divider-size: 2px;
+    --article-divider-opacity: var(--alpha-75);
+    --article-copy-max: 40.8125rem;
+    --article-quote-max: 34.8125rem;
+    --article-gallery-item-size: 17.5rem;
+    --article-gallery-gap: clamp(0.65rem, 2vw, 3.4375rem);
+    --article-media-width: 35.0625rem;
+    --article-media-aspect: 561 / 288;
+    --lightbox-z-index: 1200;
+    --lightbox-pad: clamp(0.75rem, 2vw, 1.5rem);
+    --lightbox-backdrop-alpha: 0.9;
+    --lightbox-dialog-max: 80rem;
+    --lightbox-image-inline-offset: 7rem;
+    --lightbox-image-inline-offset-mobile: 1.25rem;
+    --lightbox-image-block-offset: 8rem;
+    --lightbox-image-block-offset-mobile: 6.75rem;
+    --lightbox-nav-hitzone-width: 33.3333%;
+    --lightbox-nav-hitzone-min: 5rem;
+    --lightbox-nav-hitzone-min-mobile: 4rem;
+    --lightbox-chevron-size: clamp(2rem, 2.5vw, 2.75rem);
+    --lightbox-chevron-size-mobile: 1.9rem;
+    --lightbox-chevron-shift: 3px;
+    --lightbox-motion-duration: 220ms;
+    --lightbox-close-size: 3rem;
+    --lightbox-close-size-mobile: 2.4rem;
+    --lightbox-close-mobile-offset: 0.35rem;
+    --lightbox-count-font-mobile: 0.85rem;
+    --btn-hero-min-height: 3.125rem;
+    --btn-hero-min-width: 16.375rem;
+    --btn-hero-pad-inline: 2rem;
+    --btn-hero-radius: var(--radius-sm);
+    --btn-hero-font-size: 1.375rem;
+    --btn-hero-letter-spacing: 0.01em;
+    --btn-hero-font-size-mobile: 1rem;
+    --btn-hero-pad-inline-mobile: 1.25rem;
+    --home-hero-min-height: clamp(36rem, 48vw, 57.5625rem);
+    --home-hero-title-size: clamp(2.6rem, 3.7vw, 5rem);
+    --home-hero-summary-size: clamp(1.125rem, 1.1vw + 0.75rem, 2.125rem);
+    --home-hero-min-height-mobile: clamp(25rem, 72vh, 36rem);
+    --home-hero-title-size-mobile: clamp(1.9rem, 7.4vw, 3rem);
+    --home-hero-summary-size-mobile: clamp(1rem, 3.5vw, 1.35rem);
+    --home-industry-row-size: clamp(14rem, 20vw, 24rem);
+    --home-story-media-min-height: clamp(15rem, 29vw, 20rem);
+    --color-state-warning: #ffcc00;
+    --color-state-success: #22c55e;
+    --color-state-critical: #dc2626;
+    --color-state-notice-error-bg: #ffeded;
+    --color-state-notice-attention-bg: #feefb3;
+    --color-state-notice-info-bg: #bde5f8;
+    --color-state-notice-success-bg: #dff2bf;
+    --color-ink-notice: #404040;
 
     --h1-color: var(--color-brand-primary);
     --h2-color: var(--color-brand-primary);
@@ -185,6 +241,20 @@ $heroMax: 75rem;
     --hero-vspace: 0;
     --hdr-notice-height: 20px;
     --form-space-tight: var(--space-2xs);
+
+    /* Icon sizing */
+    --icon-size-sm: 1rem;
+    --icon-size-md: 1.35rem;
+    --icon-size-lg: 1.55rem;
+    --icon-btn-size: 2.2rem;
+
+    /* Text shadow */
+    --text-shadow-dark: 0 4px 4px rgb(var(--color-ink-absolute-rgb) / var(--alpha-25));
+
+    /* Footer component geometry */
+    --ftr-nav-gap: clamp(1.15rem, 1.3vw, 2rem);
+    --ftr-nav-font-size: clamp(1rem, 0.4vw + 0.72rem, 1.5rem);
+    --ftr-phone-font-size: clamp(1rem, 0.36vw + 0.78rem, 1.5rem);
   }
 
   @include vp-min($vp-xl) {

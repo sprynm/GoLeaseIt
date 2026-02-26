@@ -85,7 +85,24 @@
 !/webroot/css
 /webroot/css/*
 !/webroot/css/scss/
-webroot/style-guide/
+!/webroot/style-guide/
+webroot/style-guide/*
+!webroot/style-guide/index.html
+!webroot/style-guide/screenshots.html
+!webroot/style-guide/preview-article-body.html
+!webroot/style-guide/preview-article-full.html
+!webroot/style-guide/preview-generic-no-banner.html
+!webroot/style-guide/partials/
+webroot/style-guide/partials/*
+!webroot/style-guide/partials/preview-header.html
+!webroot/style-guide/partials/preview-footer.html
+!webroot/style-guide/assets/
+webroot/style-guide/assets/*
+!webroot/style-guide/assets/preview-includes.js
+!webroot/style-guide/assets/article/
+webroot/style-guide/assets/article/*
+!webroot/style-guide/assets/article/hero-construction.jpg
+!webroot/style-guide/assets/article/truck-road.jpg
 !/webroot/fonts
 /webroot/fonts/*
 !/webroot/fonts/Roboto-vf.woff2
@@ -117,3 +134,4 @@ webroot/index.php
 # Environment-specific config (never commit live credentials)
 Config/pyramid.php
 Config/database.php
+docs/visual-regression/current/desktop-full.png

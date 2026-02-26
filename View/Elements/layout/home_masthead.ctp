@@ -167,13 +167,13 @@ if ($heroFallbackCtaLink === '') {
 					<?php
 					if ($primaryCta) {
 						echo $this->Html->link($pageData['Page']['banner_cta'], $pageData['Page']['banner_cta_link'], array(
-							'class' => 'btn btn-primary page-hero__cta',
+							'class' => 'btn btn--primary page-hero__cta',
 							'escape' => false,
 						));
 					}
 					if ($secondaryCta) {
 						echo $this->Html->link($pageData['Page']['banner_cta_secondary'], $pageData['Page']['banner_cta_secondary_link'], array(
-							'class' => 'btn btn-primary btn-secondary page-hero__cta page-hero__cta--secondary',
+							'class' => 'btn btn--primary btn--secondary page-hero__cta page-hero__cta--secondary',
 							'escape' => false,
 						));
 					}
@@ -182,7 +182,7 @@ if ($heroFallbackCtaLink === '') {
 			<?php elseif ($heroFallbackCtaText !== '' && $heroFallbackCtaLink !== ''): ?>
 				<div class="page-hero__actions">
 					<?php echo $this->Html->link($heroFallbackCtaText, $heroFallbackCtaLink, array(
-						'class' => 'btn btn-primary page-hero__cta',
+						'class' => 'btn btn--primary page-hero__cta',
 						'escape' => false,
 					)); ?>
 				</div>
@@ -190,3 +190,4 @@ if ($heroFallbackCtaLink === '') {
 		</div>
 	</div>
 </section>
+

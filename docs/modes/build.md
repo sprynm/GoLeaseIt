@@ -13,8 +13,7 @@ Goal: implement code changes in the correct runtime layers and file ownership bo
 2. `docs/architecture/layout-system.md`
 3. `docs/architecture/system-overview.md`
 4. `docs/architecture/pyramid-cms.md`
-5. `docs/architecture/script-loading-map.md`
-6. `docs/architecture/admin-javascript.md`
+5. `docs/javascript/index.md`
 
 ## Key Layout Entry Points
 1. Layouts: `View/Layouts/` (`default.ctp`, `home.ctp`, `contact.ctp`, `offline.ctp`).

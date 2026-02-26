@@ -4,7 +4,11 @@
       "Bash(wc:*)",
       "Bash(npm run css:build:*)",
       "Bash(start \"\" \"C:\\\\_radarhill\\\\GoLeastIt\\\\webroot\\\\style-guide\\\\full-page-preview.html\")",
-      "Bash(cd \"C:/_radarhill/GoLeastIt\" && git rm --cached .claude/settings.local.json Config/database.php Config/pyramid.php \"webroot/css/stylesheet.css\" \"webroot/css/stylesheet-opt.css\" \"webroot/css/style-guide.css\" \"webroot/css/stylesheet - Copy.css\" \"webroot/style-guide/index.html\" \"webroot/style-guide/header-nav-masthead-preview.html\" \"docs/visual-regression/current/desktop-full.png\" 2>&1)"
+      "Bash(cd \"C:/_radarhill/GoLeastIt\" && git rm --cached .claude/settings.local.json Config/database.php Config/pyramid.php \"webroot/css/stylesheet.css\" \"webroot/css/stylesheet-opt.css\" \"webroot/css/style-guide.css\" \"webroot/css/stylesheet - Copy.css\" \"webroot/style-guide/index.html\" \"webroot/style-guide/header-nav-masthead-preview.html\" \"docs/visual-regression/current/desktop-full.png\" 2>&1)",
+      "Bash(node:*)",
+      "Bash(grep:*)",
+      "Bash(cp:*)",
+      "Bash(tail:*)"
     ]
   },
   "enabledPlugins": {

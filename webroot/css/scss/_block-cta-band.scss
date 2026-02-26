@@ -37,6 +37,30 @@
     gap: var(--space-sm);
   }
 
+  /* Article-page variant aligned to Figma generic-page CTA block. */
+  .cta-band--article {
+    background: var(--color-surface-muted);
+    padding-block: clamp(2.5rem, 4vw, 3.875rem);
+  }
+
+  .cta-band--article .cta-band__inner {
+    gap: var(--space-sm);
+    max-width: min(62rem, calc(100% - (var(--frame-gutter) * 2)));
+  }
+
+  .cta-band--article .cta-band__heading {
+    color: var(--color-brand-primary);
+    font-size: var(--type-h2-size);
+    line-height: var(--type-h2-line);
+  }
+
+  .cta-band--article .cta-band__body {
+    max-width: 44ch;
+    color: var(--color-ink-primary);
+    font-size: var(--step-1);
+    line-height: calc(var(--step-1) * var(--lh-body));
+  }
+
   /* Dark navy variant */
   .cta-band--navy {
     background: var(--color-brand-secondary);
@@ -44,4 +68,14 @@
 
   .cta-band--navy .cta-band__heading { color: var(--color-ink-on-dark); }
   .cta-band--navy .cta-band__body    { color: rgb(var(--white-rgb) / var(--alpha-75)); }
+
+  @media (max-width: 63.99rem) {
+    .cta-band--article .cta-band__heading {
+      line-height: 1.08;
+    }
+
+    .cta-band--article .cta-band__body {
+      line-height: var(--lh-body);
+    }
+  }
 }

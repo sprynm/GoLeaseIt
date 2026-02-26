@@ -4,7 +4,7 @@ $introHeading = isset($introHeading) ? trim((string) $introHeading) : '';
 $introBody = isset($introBody) ? trim((string) $introBody) : '';
 $introCtaText = isset($introCtaText) ? trim((string) $introCtaText) : '';
 $introCtaLink = isset($introCtaLink) ? trim((string) $introCtaLink) : '';
-$sectionClasses = isset($sectionClasses) ? trim((string) $sectionClasses) : 'section-white section-industries';
+$sectionClasses = isset($sectionClasses) ? trim((string) $sectionClasses) : 'u-surface-base section-industries';
 $limit = isset($limit) ? (int) $limit : 6;
 
 $items = array();
@@ -239,7 +239,7 @@ $hasIntroContent = ($introHeading !== '' || $introBody !== '' || ($introCtaText 
 							<p><?php echo h($introBody); ?></p>
 						<?php endif; ?>
 						<?php if ($introCtaText !== '' && $introCtaLink !== ''): ?>
-							<?php echo $this->Html->link($introCtaText, $introCtaLink, array('class' => 'btn btn-primary')); ?>
+							<?php echo $this->Html->link($introCtaText, $introCtaLink, array('class' => 'btn btn--primary')); ?>
 						<?php endif; ?>
 					</div>
 				<?php endif; ?>
@@ -310,3 +310,5 @@ $hasIntroContent = ($introHeading !== '' || $introBody !== '' || ($introCtaText 
 		</div>
 	</div>
 </section>
+
+

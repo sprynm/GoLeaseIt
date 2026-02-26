@@ -27,7 +27,8 @@
 @use "block-notifications" as *;
 // @use "block-breadcrumbs" as *;
 // @use "block-pagination" as *;
-// @use "block-gallery" as *;
+@use "block-gallery" as *;
+@use "block-lightbox" as *;
 // @use "block-tables" as *;
 // @use "block-subnav" as *;
 @use "exceptions" as *;
@@ -35,5 +36,3 @@
 @layer overrides {
   /* Add mock-only overrides here when preview experiments diverge from runtime styles. */
 }
-
-

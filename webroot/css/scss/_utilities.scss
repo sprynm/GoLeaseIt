@@ -115,7 +115,21 @@
   .u-max-w-narrow { max-width: 70ch; }
   .u-max-w-normal { max-width: 75rem; }
   .u-max-w-full { max-width: 90rem; }
-  .u-bg-muted { background: var(--color-surface-muted); }
+  .u-surface-base,
+  .section-white {
+    background: var(--surface-bg-base);
+  }
+  .u-surface-muted,
+  .u-bg-muted,
+  .section-soft {
+    background: var(--surface-bg-muted);
+  }
+  .u-btn-lg {
+    min-height: var(--btn-hero-min-height);
+    min-width: var(--btn-hero-min-width);
+    padding-inline: var(--btn-hero-pad-inline);
+    border-radius: var(--btn-hero-radius);
+  }
 
   .u-flex { display: flex; }
   .u-inline-flex { display: inline-flex; }
@@ -206,4 +220,3 @@
 
   .avoid-break { white-space: nowrap; }
 }
-

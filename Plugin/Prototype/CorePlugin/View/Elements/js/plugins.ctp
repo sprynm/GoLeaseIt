@@ -24,7 +24,7 @@ $(function() {
 		$("#PrototypeInstanceName").on("blur change keyup",function(e){
 			if($.inArray($("#PrototypeInstanceName").val().trim(), plugins) !== -1){
 				if($("#dupe_warning").length === 0) {
-					$("#PrototypeInstanceName").before("<div id=\'dupe_warning\' class=\'notification error png_bg\'>There is a plugin with this name or alias. Please choose something else.</div>");
+					$("#PrototypeInstanceName").before("<div id=\'dupe_warning\' class=\'notification notification--error png_bg\'>There is a plugin with this name or alias. Please choose something else.</div>");
 				}
 				$("input[type=\'submit\']").prop("disabled", true);
 			} else {

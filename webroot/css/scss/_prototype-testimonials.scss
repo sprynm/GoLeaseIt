@@ -60,7 +60,7 @@
     margin: 0;
     color: var(--color-brand-primary);
     font-family: var(--font-display);
-    font-size: clamp(2rem, 1vw + 1.35rem, 3rem);
+    font-size: var(--step-4);
     font-weight: var(--font-weight-bold);
     line-height: 1.05;
   }
@@ -68,7 +68,7 @@
   .home-why.home-why--testimonials .home-why__intro p {
     margin: 0;
     color: var(--color-ink-primary);
-    font-family: "Open Sans", var(--font-sans);
+    font-family: var(--font-sans-alt);
     font-size: var(--step-1);
     line-height: 1.45;
     max-width: 30ch;
@@ -120,9 +120,9 @@
   .home-why.home-why--testimonials .testimonial-card__quote {
     margin: 0;
     color: var(--color-ink-primary);
-    font-family: "Open Sans", var(--font-sans);
+    font-family: var(--font-sans-alt);
     font-style: italic;
-    font-size: clamp(1.2rem, 0.38vw + 1.02rem, 1.5625rem);
+    font-size: var(--step-0);
     font-weight: 500;
     line-height: 1.4;
     max-width: 26ch;
@@ -132,8 +132,8 @@
     margin: 0;
     margin-top: auto;
     color: var(--color-ink-primary);
-    font-family: "Open Sans", var(--font-sans);
-    font-size: clamp(1.35rem, 0.3vw + 1.2rem, 1.75rem);
+    font-family: var(--font-sans-alt);
+    font-size: var(--step-1);
     font-weight: var(--font-weight-bold);
     line-height: 1.2;
     text-align: right;

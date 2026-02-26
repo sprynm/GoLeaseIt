@@ -1,28 +1,20 @@
 
-/* Varibles to keep the font name space in sync */
-/* Scss Document */
 @layer base {
-@font-face {
-  font-family: "Roboto";
-  src: url("../fonts/Roboto-vf.woff2") format("woff2-variations");
-  font-weight: 100 900;
-  font-stretch: 75% 100%;
-  font-style: normal;
-  font-display: swap; }
+  @font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto-vf.woff2") format("woff2-variations");
+    font-weight: 100 900;
+    font-stretch: 75% 100%;
+    font-style: normal;
+    font-display: swap;
+  }
 
-@font-face {
-  font-family: "Open Sans";
-  src: url("../fonts/Roboto-vf.woff2") format("woff2-variations");
-  font-weight: 100 900;
-  font-stretch: 75% 100%;
-  font-style: normal;
-  font-display: swap; }
-
-@font-face {
-  font-family: "Barlow";
-  src: url("../fonts/Roboto-vf.woff2") format("woff2-variations");
-  font-weight: 100 900;
-  font-stretch: 75% 100%;
-  font-style: normal;
-  font-display: swap; }
+  @font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/open-sans-vf.woff2") format("woff2-variations");
+    font-weight: 100 900;
+    font-stretch: 75% 100%;
+    font-style: normal;
+    font-display: swap;
+  }
 }

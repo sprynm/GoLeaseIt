@@ -144,7 +144,7 @@ echo $this->element('layout/home_masthead', array(
 			'introBody' => $industriesBody,
 			'introCtaText' => $industriesCtaText,
 			'introCtaLink' => $industriesCtaLink,
-			'sectionClasses' => 'section-soft section-industries',
+			'sectionClasses' => 'u-surface-muted section-industries',
 			'limit' => 5,
 		)); ?>
 	<?php endif; ?>

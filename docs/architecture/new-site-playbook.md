@@ -68,7 +68,7 @@ This is a platform-level checklist for standing up a new site on the Pyramid CMS
    - `forms.js` loaded conditionally
 2. Treat jQuery as legacy except for legacy layouts/plugins still depending on it.
 3. See script map before removals:
-   - `docs/architecture/script-loading-map.md`
+   - `docs/javascript/index.md`
 
 ## 9. Accessibility Baseline
 1. Preserve visible focus states.
@@ -86,6 +86,5 @@ This is a platform-level checklist for standing up a new site on the Pyramid CMS
 ## Related
 - `docs/architecture/pyramid-cms.md`
 - `docs/architecture/frontend-structure.md`
-- `docs/architecture/admin-javascript.md`
-- `docs/architecture/script-loading-map.md`
+- `docs/javascript/index.md`
 - `docs/design/style-system.md`

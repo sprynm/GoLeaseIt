@@ -86,7 +86,7 @@ $resolveIconPath = function ($value) {
 	return '';
 };
 ?>
-<section class="section-white">
+<section class="u-surface-base">
 	<div class="c-container c-container--full">
 		<div class="home-region">
 			<div class="process-intro">
@@ -95,7 +95,7 @@ $resolveIconPath = function ($value) {
 						<h2><?php echo h($introHeading); ?></h2>
 					<?php endif; ?>
 					<?php if ($introCtaText !== '' && $introCtaLink !== ''): ?>
-						<?php echo $this->Html->link($introCtaText, $introCtaLink, array('class' => 'btn btn-primary', 'escape' => false)); ?>
+						<?php echo $this->Html->link($introCtaText, $introCtaLink, array('class' => 'btn btn--primary', 'escape' => false)); ?>
 					<?php endif; ?>
 				</div>
 				<?php if ($introBody !== ''): ?>
@@ -153,3 +153,5 @@ $resolveIconPath = function ($value) {
 		</div>
 	</div>
 </section>
+
+

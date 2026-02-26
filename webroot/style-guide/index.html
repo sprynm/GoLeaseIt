@@ -28,6 +28,8 @@
             <li><a href="./preview-home-full.html">Preview: Home Full</a></li>
             <li><a href="./preview-header-nav-masthead.html">Preview: Header/Nav/Masthead</a></li>
             <li><a href="./preview-article-body.html">Preview: Article Body</a></li>
+            <li><a href="./preview-article-full.html">Preview: Article Full</a></li>
+            <li><a href="./preview-generic-no-banner.html">Preview: Generic No Banner</a></li>
             <li><a href="./screenshots.html">Screenshots &amp; Sources</a></li>
             <li><a href="./font-tools.html">Font Tools</a></li>
           </ul>
@@ -267,14 +269,14 @@
               <a class="btn" href="#sg-css-components">Large Anchor Button</a>
               <button class="btn" type="button">Large Button Element</button>
             </div>
-            <p style="margin:0; font-size: var(--step--1); color: var(--color-ink-muted);">Nav CTA uses the compact variant: <span class="sg-code">.btn btn-primary btn-sm</span>.</p>
+            <p style="margin:0; font-size: var(--step--1); color: var(--color-ink-muted);">Nav CTA uses the compact variant: <span class="sg-code">.btn btn--primary btn-sm</span>.</p>
             <div class="sg-component-row">
-              <a class="btn btn-primary btn-sm" href="#sg-css-components">Learn More</a>
+              <a class="btn btn--primary btn-sm" href="#sg-css-components">Learn More</a>
             </div>
-            <p style="margin:0; font-size: var(--step--1); color: var(--color-ink-muted);">Hero CTA variants — green, uppercase, primary conversion actions:</p>
+            <p style="margin:0; font-size: var(--step--1); color: var(--color-ink-muted);">Large CTA variants use semantic button modifiers plus the size utility: <span class="sg-code">.u-btn-lg</span>.</p>
             <div class="sg-component-row">
-              <a class="btn btn--hero" href="#sg-css-components">APPLY ONLINE →</a>
-              <a class="btn btn--hero-secondary" href="#sg-css-components">VIEW ALL INDUSTRIES →</a>
+              <a class="btn btn--primary u-btn-lg" href="#sg-css-components">APPLY ONLINE →</a>
+              <a class="btn btn--secondary u-btn-lg" href="#sg-css-components">VIEW ALL INDUSTRIES →</a>
             </div>
           </article>
 
@@ -284,7 +286,7 @@
               <div class="sg-component-row">
                 <button class="site-nav-drawer__close" type="button" aria-label="Close menu">Close</button>
               </div>
-              <div class="notification attention">
+              <div class="notification notification--attention">
                 <div>
                   Notification with close action.
                   <a class="close" href="#sg-css-components" aria-label="Dismiss notification">
@@ -309,6 +311,28 @@
               </a>
             </article>
           </div>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Lightbox (Declarative)</h3>
+            <p class="sg-guide__section-note">
+              Apply <span class="sg-code">data-lightbox</span> to any image link using a single config string.
+              Standard contract:
+              <span class="sg-code">type:image;group:sg-lightbox;caption:"Descriptive caption"</span>.
+            </p>
+            <div class="c-gallery">
+              <div class="gallery">
+                <a href="./assets/article/truck-road.jpg" data-lightbox='type:image;group:sg-lightbox;caption:"Commercial truck on a mountain roadway"' aria-label="Open style guide lightbox image 1">
+                  <img src="./assets/article/truck-road.jpg" alt="Commercial truck on a mountain roadway" loading="lazy" decoding="async">
+                </a>
+                <a href="./assets/customer/yellow-equipment.jpg" data-lightbox='type:image;group:sg-lightbox;caption:"Yellow construction equipment in operation"' aria-label="Open style guide lightbox image 2">
+                  <img src="./assets/customer/yellow-equipment.jpg" alt="Yellow construction equipment in operation" loading="lazy" decoding="async">
+                </a>
+                <a href="./assets/customer/building.jpg" data-lightbox='type:image;group:sg-lightbox;caption:"Commercial building and equipment site"' aria-label="Open style guide lightbox image 3">
+                  <img src="./assets/customer/building.jpg" alt="Commercial building and equipment site" loading="lazy" decoding="async">
+                </a>
+              </div>
+            </div>
+          </article>
 
           <article class="sg-card c-stack" data-space="sm">
             <h3>Form Primitives</h3>
@@ -340,51 +364,107 @@
 
           <article class="sg-card c-stack sg-iframe-bleed" data-space="sm">
             <h3>CTA Band</h3>
-            <p class="sg-guide__section-note">Appears at the bottom of every interior page. Muted gray background, navy heading, body text, green CTA.</p>
-            <div class="cta-band">
+            <p class="sg-guide__section-note">Article-page variant (`.cta-band--article`) aligned to the Generic Page Figma section.</p>
+            <div class="cta-band cta-band--article">
               <div class="cta-band__inner">
                 <h2 class="cta-band__heading">Ready to Move Forward?</h2>
                 <p class="cta-band__body">Ready to secure the equipment your business needs? Our team moves quickly with clear terms and practical solutions built around your cash flow.</p>
                 <div class="cta-band__actions">
-                  <a class="btn btn--hero" href="#sg-css-components">APPLY ONLINE →</a>
+                  <a class="btn btn--primary u-btn-lg" href="#sg-css-components">APPLY ONLINE →</a>
                 </div>
               </div>
             </div>
           </article>
 
           <article class="sg-card c-stack" data-space="sm">
-            <h3>Article Callout (Float Right)</h3>
-            <p class="sg-guide__section-note">Uses the same structure as `preview-article-body.html`.</p>
+            <h3>Article Layout Core Blocks</h3>
+            <p class="sg-guide__section-note">Matches `preview-article-full.html` section contracts and runtime default layout output.</p>
             <div class="site-wrapper site-wrapper--default">
               <div class="c-container c-container--article c-region">
-                <article class="article-body">
-                  <h2>Heading 3</h2>
+                <article class="article-body article-layout__body">
+                  <h2>Heading 2</h2>
                   <p>
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
                     aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
                   </p>
 
-                  <aside class="article-callout">
-                    <div class="sg-demo-box">
-                      <p><strong>We had the pleasure of working with Aidan Gregoire on the financing for the newest truck in our fleet, and the experience was outstanding from start to finish.</strong></p>
-                      <p class="u-text-right">- ARC Towing</p>
-                    </div>
-                  </aside>
-
+                  <h3>Heading 3</h3>
                   <p>
-                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
-                    dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor
-                    sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt.
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+                    aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.
                   </p>
 
+                  <h4>Heading 4</h4>
+                  <ul>
+                    <li>Sed ut perspiciatis unde omnis iste natus</li>
+                    <li>error sit voluptatem accusantium doloremque</li>
+                    <li>laudantium, totam rem aperiam, eaque ipsa</li>
+                    <li>quae ab illo inventore veritatis et quasi architecto beatae vitae</li>
+                  </ul>
+
+                  <hr>
+
+                  <section class="article-split article-split--quote">
+                    <h3>Heading 3</h3>
+
+                    <aside class="article-callout article-callout--quote">
+                      <blockquote class="article-quote">
+                        <div class="article-quote__rating" aria-label="5 out of 5 stars">
+                          <span aria-hidden="true">★</span>
+                          <span aria-hidden="true">★</span>
+                          <span aria-hidden="true">★</span>
+                          <span aria-hidden="true">★</span>
+                          <span aria-hidden="true">★</span>
+                        </div>
+                        <p class="article-quote__text">We had the pleasure of working with Aidan Gregoire on the financing for the newest truck in our fleet, and the experience was outstanding from start to finish.</p>
+                        <p class="article-quote__attr">- ARC Towing</p>
+                      </blockquote>
+                    </aside>
+                    <p>
+                      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+                      rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.
+                    </p>
+                  </section>
+                </article>
+              </div>
+            </div>
+          </article>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Generic Page No Banner Core Blocks</h3>
+            <p class="sg-guide__section-note">Canonical no-banner variant for Figma node `10902:161` using `.article-layout--no-banner`.</p>
+            <div class="site-wrapper site-wrapper--default article-layout article-layout--no-banner">
+              <div class="c-container c-container--article c-region">
+                <article class="article-body article-layout__body">
+                  <h1>Success Stories</h1>
+                  <h2>Heading 2</h2>
                   <p>
-                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid
-                    ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil
-                    molestiae consequatur.
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+                    aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                  </p>
+                  <h3>Heading 3</h3>
+                  <p>
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+                    aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.
                   </p>
                 </article>
               </div>
             </div>
+          </article>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Article Content Assembly Map</h3>
+            <p class="sg-guide__section-note">Publishing contract for article/generic pages: content blocks + optional galleries + optional prototypes.</p>
+            <ul>
+              <li><strong>Hero:</strong> Optional. Use `layout/body_masthead.ctp` (`.page-hero--single`) when page banner media is present.</li>
+              <li><strong>No banner variant:</strong> Use `.article-layout--no-banner` and place page title in body as `.article-body h1`.</li>
+              <li><strong>Body copy:</strong> WYSIWYG content in default page body (`.article-body`).</li>
+              <li><strong>Gallery strip:</strong> Optional. Insert token in body content only when needed: <span class="sg-code">{{block type="Gallery" id="&lt;id&gt;"}}</span>.</li>
+              <li><strong>Quote callout:</strong> Content block or inline HTML wrapper using <span class="sg-code">.article-split .article-callout--quote</span>.</li>
+              <li><strong>Image callout:</strong> Inline image wrapper using <span class="sg-code">.article-callout--media .article-media-card</span>.</li>
+              <li><strong>Bottom CTA:</strong> Runtime CTA band in `View/Layouts/default.ctp` with Site settings fallbacks.</li>
+              <li><strong>Prototype requirement:</strong> none for base article/no-banner layouts; optional `news` prototype for related items module below article body.</li>
+            </ul>
           </article>
         </div>
       </div>
@@ -409,10 +489,10 @@
           <div class="c-grid" data-cols-c2="2">
             <article class="sg-card c-stack" data-space="sm">
               <h3>Notification States</h3>
-              <div class="notification attention"><div>Attention notification message.</div></div>
-              <div class="notification information"><div>Information notification message.</div></div>
-              <div class="notification success"><div>Success notification message.</div></div>
-              <div class="notification error"><div>Error notification message.</div></div>
+              <div class="notification notification--attention"><div>Attention notification message.</div></div>
+              <div class="notification notification--information"><div>Information notification message.</div></div>
+              <div class="notification notification--success"><div>Success notification message.</div></div>
+              <div class="notification notification--error"><div>Error notification message.</div></div>
             </article>
 
             <article class="sg-card c-stack" data-space="sm">
@@ -477,14 +557,14 @@
             <p>Exact living structure: `.section-industries` + `.industry-grid` intro panel and industry tiles.</p>
           </article>
 
-          <section class="section-soft section-industries sg-iframe-bleed" aria-label="Living industries served demo">
+          <section class="u-surface-muted section-industries sg-iframe-bleed" aria-label="Living industries served demo">
             <div class="c-container c-container--full">
               <div class="industry-grid">
                 <div class="industry-grid__intro">
                   <div class="industry-grid__intro-content">
                     <h2>Industries We Serve</h2>
                     <p>From construction sites to medical offices to city fleets, we finance the equipment that keeps businesses moving.</p>
-                    <a href="#sg-elements" class="btn btn-primary">View All Industries</a>
+                    <a href="#sg-elements" class="btn btn--primary">View All Industries</a>
                   </div>
                 </div>
 
@@ -546,7 +626,7 @@
             <p>Exact living HTML structure and class names used on the homepage story panel rows.</p>
           </article>
 
-          <section class="section-white sg-iframe-bleed" aria-label="Living story panels demo">
+          <section class="u-surface-base sg-iframe-bleed" aria-label="Living story panels demo">
             <div class="home-stories">
               <article class="story-platter story-platter--image-first">
                 <div class="story-platter__media">
@@ -557,7 +637,7 @@
                   <h2 class="story-platter__title">Invest in Care, Not Capital Strain</h2>
                   <p class="story-platter__body">BrightSmile Orthodontics upgraded to clinic-grade digital imaging, treatment chairs, and sterilization equipment. Go Lease It flexible financing preserved cash flow, letting the team focus on patients instead of upfront costs.</p>
                   <div>
-                    <a class="btn btn-primary" href="#sg-elements">More Success Stories -></a>
+                    <a class="btn btn--primary" href="#sg-elements">More Success Stories -></a>
                   </div>
                 </div>
               </article>
@@ -568,7 +648,7 @@
                   <h2 class="story-platter__title">Another Big Ticket Rental Conversion</h2>
                   <p class="story-platter__body">Our client Terry began renting this Barko processor from a dealer in Kamloops before using rental credits toward a bank lease. The machine is now set up on a commercial lease-to-own, giving Terry lower monthly payments and letting him focus on operations instead of upfront costs.</p>
                   <div>
-                    <a class="btn btn-primary" href="#sg-elements">More Success Stories -></a>
+                    <a class="btn btn--primary" href="#sg-elements">More Success Stories -></a>
                   </div>
                 </div>
                 <div class="story-platter__media">
@@ -583,13 +663,13 @@
             <p>Exact living HTML structure and class names used on the homepage process section.</p>
           </article>
 
-          <section class="section-white sg-iframe-bleed" aria-label="Living process steps demo">
+          <section class="u-surface-base sg-iframe-bleed" aria-label="Living process steps demo">
             <div class="c-container c-container--full">
               <div class="home-region">
                 <div class="process-intro">
                   <div class="process-intro__heading">
                     <h2>Our Easy Process</h2>
-                    <a href="#sg-elements" class="btn btn-primary">Apply Online</a>
+                    <a href="#sg-elements" class="btn btn--primary">Apply Online</a>
                   </div>
                   <div class="process-intro__body rte"><p>We believe equipment financing should be clear, accessible, and built around your business. Our process is designed to move quickly, remove friction, and help you secure the equipment you need when you need it.</p></div>
                 </div>
@@ -655,14 +735,14 @@
             <p>Exact living HTML structure and class names used on the homepage testimonials section.</p>
           </article>
 
-          <section class="section-soft sg-iframe-bleed" aria-label="Living why and testimonials demo">
+          <section class="u-surface-muted sg-iframe-bleed" aria-label="Living why and testimonials demo">
             <div class="c-container c-container--full">
               <div class="home-why home-why--testimonials home-region">
                 <div class="home-why__intro">
                   <h2>Why Go Lease it?</h2>
                   <p>We make equipment financing simple, fast, and reliable. Here's what our clients say:</p>
                   <div>
-                    <a href="#sg-elements" class="btn btn-primary">Apply Today</a>
+                    <a href="#sg-elements" class="btn btn--primary">Apply Today</a>
                   </div>
                 </div>
 
@@ -706,6 +786,7 @@
       <p>Use this page for consistent visual regression snapshots after every CSS change set.</p>
     </div>
   </footer>
+  <script src="../js/media-lightbox.js" defer></script>
   </body>
 </html>
 

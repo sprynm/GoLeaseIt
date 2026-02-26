@@ -40,7 +40,17 @@ export async function buildCSS(options = {}) {
 
       let css = sassResult.css;
       const postcssResult = await postcss([
-        autoprefixer({ overrideBrowserslist: ['last 2 versions'] })
+        autoprefixer({
+          overrideBrowserslist: [
+            'last 2 Chrome versions',
+            'last 2 Edge versions',
+            'last 2 Firefox versions',
+            'last 2 Safari versions',
+            'last 2 iOS versions',
+            'not dead',
+            'not IE 11'
+          ]
+        })
       ]).process(css, { from: undefined });
 
       css = postcssResult.css;

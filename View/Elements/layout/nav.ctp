@@ -42,7 +42,7 @@ if ($headerCtaText === '') {
 			<?php endif; ?>
 
 			<?php if ($headerCtaLink !== '' && $headerCtaText !== ''): ?>
-				<?php echo $this->Html->link($headerCtaText, $headerCtaLink, array('class' => 'btn btn-primary btn-sm', 'escape' => false)); ?>
+				<?php echo $this->Html->link($headerCtaText, $headerCtaLink, array('class' => 'btn btn--primary btn-sm', 'escape' => false)); ?>
 			<?php endif; ?>
 		</div>
 
@@ -69,3 +69,4 @@ if ($headerCtaText === '') {
 	</div>
 	<div class="site-nav-drawer__body" data-nav-drawer-body></div>
 </dialog>
+

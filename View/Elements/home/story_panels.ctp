@@ -26,7 +26,7 @@ $itemValue = function ($item, $keys) {
 	return '';
 };
 ?>
-<section class="section-white">
+<section class="u-surface-base">
 	<div class="home-stories">
 			<?php foreach ($items as $index => $entry): ?>
 				<?php
@@ -59,7 +59,7 @@ $itemValue = function ($item, $keys) {
 						<?php endif; ?>
 						<?php if ($ctaText !== '' && $ctaLink !== ''): ?>
 							<div>
-								<?php echo $this->Html->link($ctaText, $ctaLink, array('class' => 'btn btn-primary', 'escape' => false)); ?>
+								<?php echo $this->Html->link($ctaText, $ctaLink, array('class' => 'btn btn--primary', 'escape' => false)); ?>
 							</div>
 						<?php endif; ?>
 					</div>
@@ -73,3 +73,5 @@ $itemValue = function ($item, $keys) {
 			<?php endforeach; ?>
 	</div>
 </section>
+
+

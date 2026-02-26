@@ -53,9 +53,9 @@
 		?>
 		<?php 
 		// add 'youtube' if you will be embedding youtube videos (http://labnol.org/?p=27941)
-		// add 'jquery.fancybox' and 'fancybox-init' if using fancybox, add _jquery.fancybox into stylesheet.scss
+		// image links with data-lightbox config are handled by media-lightbox.js
 		// add 'jquery.cookie' if easy jQuery cookie use is needed
-		$scriptArray = array('library', 'navigation-modern', 'observers', 'legal-notice');
+		$scriptArray = array('library', 'navigation-modern', 'observers', 'media-lightbox', 'legal-notice');
 		
 		echo $this->fetch('pluginScriptBottom');
 		// Un-remark this if the site needs the VrebListings plugin.

@@ -293,28 +293,28 @@
 			  background-repeat: no-repeat !important;
 			}
 
-			.notification.attention {
+			.notification.notification--attention {
 			  background-color: #fffbcc;
 			  background-image: url('/img/icons/exclamation.png');
 			  border-color: #e6db55;
 			  color: #666452;
 			}
 
-			.notification.information {
+			.notification.notification--information {
 			  background-color: #dbe3ff;
 			  background-image:url('/img/icons/information.png');
 			  border-color: #a2b4ee;
 			  color: #585b66;
 			}
 
-			.notification.success {
+			.notification.notification--success {
 			  background-color: #d5ffce;
 			  background-image:url('/img/icons/tick_circle.png');
 			  border-color: #9adf8f;
 			  color: #556652;
 			}
 
-			.notification.error, 
+			.notification.notification--error, 
 			.error-message {
 			  background-color: #ffcece;
 			  background-image:url('/img/icons/exclamation_circle.png');

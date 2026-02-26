@@ -22,7 +22,7 @@ if (!is_array($items) || empty($items)) {
 	return;
 }
 ?>
-<section class="section-soft">
+<section class="u-surface-muted">
 	<div class="c-container c-container--full">
 		<div class="home-why home-why--testimonials home-region">
 			<div class="home-why__intro">
@@ -34,7 +34,7 @@ if (!is_array($items) || empty($items)) {
 				<?php endif; ?>
 				<?php if ($introCtaText !== '' && $introCtaLink !== ''): ?>
 					<div>
-						<?php echo $this->Html->link($introCtaText, $introCtaLink, array('class' => 'btn btn-primary', 'escape' => false)); ?>
+						<?php echo $this->Html->link($introCtaText, $introCtaLink, array('class' => 'btn btn--primary', 'escape' => false)); ?>
 					</div>
 				<?php endif; ?>
 			</div>
@@ -85,3 +85,5 @@ if (!is_array($items) || empty($items)) {
 		</div>
 	</div>
 </section>
+
+

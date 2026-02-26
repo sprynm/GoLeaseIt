@@ -1,6 +1,6 @@
 # Frontend JavaScript Guide
 
-Last reviewed: 2026-02-18
+Last reviewed: 2026-02-25
 
 This guide documents what frontend JavaScript is loaded now, what each script does, and what still remains in legacy paths.
 
@@ -10,11 +10,17 @@ Use this file for behavior/policy.
 Use `docs/architecture/script-loading-map.md` as the canonical source for exact load locations and layout-specific script lists.
 
 Primary frontend policy:
-- Keep `navigation-modern.js` and `observers.js` as baseline scripts.
+- Keep `library.js`, `navigation-modern.js`, `observers.js`, and `media-lightbox.js` as baseline scripts.
 - Load `forms.js` only when form selectors are present.
 - Treat jQuery as legacy (debug and legacy-layout compatibility only).
 
 ## Script Inventory
+
+### `webroot/js/library.js`
+- Responsibility:
+  - Shared lightweight behavior used across pages (for example generic close-trigger handling).
+- Status: modern vanilla JS.
+- Keep globally loaded in primary frontend layout.
 
 ### `webroot/js/navigation-modern.js`
 - Responsibility:
@@ -53,6 +59,15 @@ Primary frontend policy:
 - Loading policy:
   - Loaded only when form markers are present in DOM.
 
+### `webroot/js/media-lightbox.js`
+- Responsibility:
+  - Declarative lightbox behavior for image links using `data-lightbox="<config>"`.
+  - Grouping and navigation support (`group`, previous/next, keyboard controls).
+  - Reusable auto-detection fallback for image-link anchors that contain `<img>`.
+- Status: modern vanilla JS.
+- Loading policy:
+  - Keep globally loaded in primary frontend layout to support gallery blocks and reusable image-link lightbox triggers.
+
 ## Legacy Inventory (Repo Presence)
 
 These files exist in the repo and should be treated as legacy unless explicitly used by mapped load paths.
@@ -81,6 +96,7 @@ These files exist in the repo and should be treated as legacy unless explicitly 
 3. Email forms still show/hide validation and recipient-specific fields correctly.
 4. `.observe` content is visible with JS disabled.
 5. Reduced-motion users are not forced into animated transitions.
+6. `data-lightbox` image links open, close, and navigate correctly with mouse and keyboard.
 
 ## Related
 - `docs/architecture/script-loading-map.md`

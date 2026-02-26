@@ -5,11 +5,6 @@ These are short, durable rules for styling and layout consistency.
 ## Spacing
 - Spacing comes from `--space-*` tokens, not raw values.
 
-## Surfaces
-- Use `u-surface-base` and `u-surface-muted` for section backgrounds.
-- `site-wrapper` variants (`site-wrapper--default`, `site-wrapper--platter`, `site-wrapper--dark`) map to the same surface token family (`--surface-bg-*`).
-- `section-white` and `section-soft` are legacy aliases; do not introduce them in new markup.
-
 ## Typography
 - Typography uses one scale only: `--step-*` (core scale) and `--type-*` (semantic aliases mapped to the step scale).
 - Do not introduce parallel page/prototype type scales (`--article-*`, bespoke heading tokens, ad hoc clamp ladders).

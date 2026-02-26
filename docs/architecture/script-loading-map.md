@@ -1,6 +1,6 @@
 # Script Loading Map
 
-Last reviewed: 2026-02-18
+Last reviewed: 2026-02-25
 
 This map shows where frontend scripts are loaded, so migration work can be scoped safely.
 It is the canonical source for load locations; behavior details live in `docs/architecture/admin-javascript.md`.
@@ -11,8 +11,11 @@ It is the canonical source for load locations; behavior details live in `docs/ar
 - Debug-only:
   - jQuery CDN (`ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js`)
 - Always loaded via `$scriptArray`:
+  - `library`
   - `navigation-modern`
   - `observers`
+  - `media-lightbox`
+  - `legal-notice`
 - Conditionally lazy-loaded:
   - `forms.js` (loaded by inline bootstrap when form selectors are present)
 - Extension point:

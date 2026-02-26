@@ -6,7 +6,9 @@ Use this runbook after design approval to deploy safely and repeatably.
 
 1. Confirm approved preview implementation exists in:
    1. `webroot/style-guide/preview-home-full.html`
-   2. Relevant SCSS source files.
+   2. `webroot/style-guide/preview-article-full.html` (for Generic Page/article work)
+   3. `webroot/style-guide/preview-generic-no-banner.html` (for Generic Page no-banner work)
+   4. Relevant SCSS source files.
 2. Build assets:
    1. `npm run css:build`
 3. Run required checks:
@@ -41,6 +43,7 @@ For each new/changed section, define:
 Record this in:
 1. Section-specific docs (for example homepage docs),
 2. Or `docs/architecture/prototype.md` / `content-blocks.md` / `galleries.md` updates.
+3. Article/generic-page layout work must also update `docs/architecture/article-page-layout-runbook.md`.
 
 ## 4. Deployment Sequence
 

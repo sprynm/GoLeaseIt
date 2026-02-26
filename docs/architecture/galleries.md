@@ -1,6 +1,6 @@
 # Galleries Runbook
 
-Last reviewed: 2026-02-24
+Last reviewed: 2026-02-25
 
 This document defines how Gallery blocks are inserted, rendered, styled, and debugged in this CMS.
 
@@ -11,7 +11,7 @@ A Gallery is a managed media collection (`Galleries.Gallery`) that editors inser
 Use Galleries when:
 1. Editors need to manage image sets from admin.
 2. The frontend should render a consistent gallery pattern.
-3. Lightbox behavior is required (fancybox integration).
+3. Lightbox behavior is required using the declarative `data-lightbox` contract.
 
 Do not use Galleries when:
 1. The section is a structured repeatable card/list with non-image data (use Prototypes).
@@ -60,6 +60,7 @@ Current gallery element contract (`Media.basic_gallery`) outputs:
 
 Key rule:
 1. Layout-critical behavior (for example full-bleed interruptor patterns) must target `.c-gallery`, not editor wrappers.
+2. Interactive image anchors use `data-lightbox="<config>"` where `<config>` is a JSON string (or key/value string) parsed by `webroot/js/media-lightbox.js`.
 
 ## 5. Override Resolution
 
@@ -81,15 +82,16 @@ Article full-bleed interruptor behavior:
 1. `webroot/css/scss/_block-article.scss` styles `.article-body .c-gallery`.
 
 Lightbox behavior:
-1. `basic_gallery.ctp` includes `fancybox` element.
-2. Runtime scripts/styles include `jquery.fancybox` + `fancybox-init` per layout/script loading rules.
+1. `basic_gallery.ctp` renders each gallery anchor with `data-lightbox` configuration and optional grouped navigation metadata.
+2. Runtime behavior is handled by `webroot/js/media-lightbox.js` loaded from `View/Elements/layout/footer.ctp`.
+3. The lightbox module supports explicit declarative triggers and auto-detects image-link anchors containing `<img>` for reusable behavior.
 
 ## 7. Idiosyncrasies (Important)
 
 1. TinyMCE wrapper classes are not a stable frontend contract.
 2. Gallery HTML class names come from element templates, not from the token text itself.
 3. Cache can hide changes in element/template output until cache refresh.
-4. Fancybox dependencies are runtime/layout-dependent; missing includes can make gallery appear uninteractive.
+4. Interactivity depends on valid `data-lightbox` config (or auto-detection eligibility) and the `media-lightbox.js` script being loaded.
 
 ## 8. Way Of Working
 
@@ -103,7 +105,7 @@ Lightbox behavior:
 1. Token renders to gallery HTML (no raw token text on frontend).
 2. Gallery images and links resolve to expected thumb/large versions.
 3. `.c-gallery` is present where layout behavior depends on it.
-4. Fancybox opens and cycles images.
+4. Lightbox opens, supports keyboard (`Escape`, arrows), and cycles grouped images.
 5. Full-bleed/article patterns do not introduce horizontal scroll.
 
 ## 10. Troubleshooting
@@ -118,3 +120,5 @@ Lightbox behavior:
    - ensure CSS targets rendered `.c-gallery`/`.gallery`, not editor wrapper classes.
 5. Changes not visible:
    - check `block` cache entries (`gallery_<id>`).
+6. Image click does not open lightbox:
+   - confirm anchor has `data-lightbox` config or is auto-detectable (`<a href="*.jpg|png|webp...">` with nested `<img>`), and confirm `media-lightbox.js` is in the active script load path.

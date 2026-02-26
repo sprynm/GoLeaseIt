@@ -4,10 +4,13 @@ This document maps the block‑level SCSS files to the components/sections they 
 
 ## Block Files
 - `_block-breadcrumbs.scss` — breadcrumb UI.
+- `_block-article.scss` — interior/article layout typography, no-banner page variant (`.article-layout--no-banner`), split-callout/media blocks, and gallery strip behavior.
 - `_block-content.scss` — CMS content styling (typography inside `main`, rich text elements).
+- `_block-cta-band.scss` — shared bottom CTA section (`.cta-band`, `.cta-band--article`).
 - `_block-footer.scss` — site footer.
 - `_block-forms.scss` — form controls, labels, and validation states.
 - `_block-gallery.scss` — gallery display patterns.
+- `_block-lightbox.scss` — reusable declarative image lightbox shell, navigation zones, and caption/counter chrome.
 - `_block-header.scss` — header + topbar + structural header elements.
 - `_block-hero.scss` — `.page-hero` and interior hero system.
 - `_block-nav.scss` — primary navigation styling.

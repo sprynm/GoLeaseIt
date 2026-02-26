@@ -10,7 +10,9 @@ Ship UI with high visual fidelity while keeping implementation reusable, testabl
 
 Primary working surface:
 1. `webroot/style-guide/preview-home-full.html`
-2. `webroot/css/scss/stylesheet-mock.scss`
+2. `webroot/style-guide/preview-article-full.html`
+3. `webroot/style-guide/preview-generic-no-banner.html`
+4. `webroot/css/scss/stylesheet-mock.scss`
 
 Rules:
 1. Prototype concepts in preview/mock first, not in runtime templates.

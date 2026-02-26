@@ -16,18 +16,17 @@ Use it for runtime behavior, system organization, and platform-specific rules.
 5. `docs/design/atomic-reuse.md`
 6. `docs/architecture/agent-first.md`
 7. `docs/architecture/optional-components.md`
-8. `docs/architecture/admin-javascript.md`
-9. `docs/architecture/script-loading-map.md`
-10. `docs/architecture/publishing-contract-matrix.md`
-11. `docs/architecture/prototype.md`
-12. `docs/architecture/content-blocks.md`
-13. `docs/architecture/galleries.md`
-14. `docs/architecture/plugins.md`
-15. `docs/architecture/prototype-catalog.md`
-16. `docs/architecture/new-site-playbook.md`
-17. `docs/architecture/design-delivery-workflow.md`
-18. `docs/architecture/design-deployment-runbook.md`
-19. `docs/architecture/article-page-layout-runbook.md`
+8. `docs/javascript/index.md`
+9. `docs/architecture/publishing-contract-matrix.md`
+10. `docs/architecture/prototype.md`
+11. `docs/architecture/content-blocks.md`
+12. `docs/architecture/galleries.md`
+13. `docs/architecture/plugins.md`
+14. `docs/architecture/prototype-catalog.md`
+15. `docs/architecture/new-site-playbook.md`
+16. `docs/architecture/design-delivery-workflow.md`
+17. `docs/architecture/design-deployment-runbook.md`
+18. `docs/architecture/article-page-layout-runbook.md`
 
 ## Scope (What belongs here)
 - CakePHP stack overview and CMS behavior.

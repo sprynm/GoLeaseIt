@@ -62,10 +62,10 @@ if ($headerCtaText === '') {
 		</div>
 	</div>
 </header>
-<dialog id="site-nav-drawer" class="site-nav-drawer" aria-label="Mobile navigation">
+<dialog id="site-nav-drawer" class="site-nav-drawer" aria-label="Mobile navigation" aria-labelledby="site-nav-drawer-title">
 	<div class="site-nav-drawer__head">
-		<strong>Menu</strong>
-		<button class="site-nav-drawer__close" type="button" aria-label="Close menu">x</button>
+		<strong id="site-nav-drawer-title">Menu</strong>
+		<button class="site-nav-drawer__close" type="button" aria-label="Close menu">✕ <span>Close</span></button>
 	</div>
 	<div class="site-nav-drawer__body" data-nav-drawer-body></div>
 </dialog>

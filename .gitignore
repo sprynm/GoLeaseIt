@@ -136,3 +136,5 @@ webroot/index.php
 Config/pyramid.php
 Config/database.php
 docs/visual-regression/current/desktop-full.png
+webroot/css/style-guide.css
+webroot/css/stylesheet.css

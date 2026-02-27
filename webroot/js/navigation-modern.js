@@ -42,27 +42,34 @@
     activePopover = null;
   }
 
+  // Behavior change: position panel flush below trigger with no vertical gap.
   function positionPopover(trigger, menu) {
-    var rect = trigger.getBoundingClientRect();
-    var top = rect.bottom + 8;
+    var anchor = trigger.closest("li") || trigger;
+    var rect = anchor.getBoundingClientRect();
+    var top = rect.bottom;
     var left = Math.max(8, rect.left);
     var maxLeft = window.innerWidth - menu.offsetWidth - 8;
     menu.style.top = top + "px";
     menu.style.left = Math.min(left, maxLeft) + "px";
   }
 
+  function getFocusableMenuItems(menu) {
+    return Array.prototype.slice.call(menu.querySelectorAll("a[href], button:not([disabled])"));
+  }
+
   function focusFirstLink(menu) {
-    var link = menu.querySelector("a, button");
-    if (link) {
-      link.focus();
+    var items = getFocusableMenuItems(menu);
+    if (items.length) {
+      items[0].focus();
     }
   }
 
   function cycleMenuFocus(event, menu) {
-    var items = Array.prototype.slice.call(menu.querySelectorAll("a, button"));
+    var items = getFocusableMenuItems(menu);
     if (!items.length) {
       return;
     }
+
     var current = items.indexOf(document.activeElement);
     if (event.key === "ArrowDown") {
       event.preventDefault();
@@ -72,14 +79,38 @@
       event.preventDefault();
       var prev = current <= 0 ? items.length - 1 : current - 1;
       items[prev].focus();
+    } else if (event.key === "Home") {
+      event.preventDefault();
+      items[0].focus();
+    } else if (event.key === "End") {
+      event.preventDefault();
+      items[items.length - 1].focus();
     }
   }
 
+  function openPopover(trigger, submenu, focusItems) {
+    closeAllPopovers();
+    submenu.showPopover();
+    positionPopover(trigger, submenu);
+    trigger.setAttribute("aria-expanded", "true");
+    activePopover = { trigger: trigger, menu: submenu };
+    if (focusItems) {
+      focusFirstLink(submenu);
+    }
+  }
+
+  function closePopoverAndReturnFocus(trigger) {
+    closeAllPopovers();
+    trigger.focus();
+  }
+
+  // Behavior change: single trigger element (label + chevron) with ARIA state.
   function buildDesktopPopovers() {
     var topItems = nav.querySelectorAll(":scope > ul > li");
     topItems.forEach(function (item, index) {
       var submenu = item.querySelector(":scope > ul");
-      if (!submenu) {
+      var trigger = item.querySelector(":scope > a");
+      if (!submenu || !trigger) {
         return;
       }
 
@@ -87,35 +118,34 @@
       submenu.classList.add("site-nav__submenu");
       submenu.id = submenu.id || "site-nav-submenu-" + index;
       submenu.setAttribute("popover", "manual");
+      submenu.setAttribute("role", "menu");
 
-      var labelSource = item.querySelector(":scope > a");
-      var labelText = labelSource ? labelSource.textContent.trim() : "submenu";
-
-      var trigger = document.createElement("button");
-      trigger.type = "button";
-      trigger.className = "site-nav__submenu-trigger";
+      trigger.classList.add("site-nav__menu-trigger");
       trigger.setAttribute("aria-controls", submenu.id);
       trigger.setAttribute("aria-expanded", "false");
-      trigger.setAttribute("aria-haspopup", "menu");
-      trigger.setAttribute("aria-label", "Toggle " + labelText + " submenu");
+      trigger.setAttribute("aria-haspopup", "true");
 
-      item.insertBefore(trigger, submenu);
+      // Accessibility fix: role=menuitem belongs on interactive descendants, not <li>.
+      submenu.querySelectorAll(":scope > li").forEach(function (li) {
+        li.setAttribute("role", "none");
+        var link = li.querySelector(":scope > a");
+        if (link) {
+          link.setAttribute("role", "menuitem");
+        }
+      });
 
       trigger.addEventListener("click", function (event) {
-        event.preventDefault();
         if (!mqDesktop.matches) {
           return;
         }
 
+        event.preventDefault();
         var isOpen = trigger.getAttribute("aria-expanded") === "true";
-        closeAllPopovers();
-
-        if (!isOpen) {
-          submenu.showPopover();
-          positionPopover(trigger, submenu);
-          trigger.setAttribute("aria-expanded", "true");
-          activePopover = { trigger: trigger, menu: submenu };
+        if (isOpen) {
+          closeAllPopovers();
+          return;
         }
+        openPopover(trigger, submenu, false);
       });
 
       trigger.addEventListener("keydown", function (event) {
@@ -124,19 +154,17 @@
         }
         if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
           event.preventDefault();
-          closeAllPopovers();
-          submenu.showPopover();
-          positionPopover(trigger, submenu);
-          trigger.setAttribute("aria-expanded", "true");
-          activePopover = { trigger: trigger, menu: submenu };
-          focusFirstLink(submenu);
+          openPopover(trigger, submenu, true);
+        } else if (event.key === "Escape") {
+          event.preventDefault();
+          closePopoverAndReturnFocus(trigger);
         }
       });
 
       submenu.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
-          closeAllPopovers();
-          trigger.focus();
+          event.preventDefault();
+          closePopoverAndReturnFocus(trigger);
           return;
         }
         cycleMenuFocus(event, submenu);
@@ -164,16 +192,12 @@
 
       var details = document.createElement("details");
       details.className = "site-nav-drawer__details";
+
       var summary = document.createElement("summary");
       summary.textContent = link.textContent.trim();
       details.appendChild(summary);
 
       var subList = submenu.cloneNode(true);
-      var overviewItem = document.createElement("li");
-      var overviewLink = link.cloneNode(true);
-      overviewLink.textContent = "Overview";
-      overviewItem.appendChild(overviewLink);
-      subList.insertBefore(overviewItem, subList.firstChild);
       details.appendChild(subList);
 
       link.remove();
@@ -186,6 +210,7 @@
         if (!details.open) {
           return;
         }
+
         var parent = details.parentElement;
         parent.querySelectorAll(":scope > li > details[open], :scope > details[open]").forEach(function (sibling) {
           if (sibling !== details) {
@@ -216,7 +241,9 @@
       }
     });
 
-    drawerClose.addEventListener("click", closeDrawer);
+    if (drawerClose) {
+      drawerClose.addEventListener("click", closeDrawer);
+    }
 
     drawer.addEventListener("click", function (event) {
       if (event.target === drawer) {
@@ -235,16 +262,18 @@
       }
     });
 
+    // Required: close desktop dropdown on outside click.
     document.addEventListener("click", function (event) {
       if (!mqDesktop.matches || !activePopover) {
         return;
       }
-      if (event.target.closest(".site-nav__submenu") || event.target.closest(".site-nav__submenu-trigger")) {
+      if (event.target.closest(".site-nav__submenu") || event.target.closest(".site-nav__menu-trigger")) {
         return;
       }
       closeAllPopovers();
     });
 
+    // Required: Escape closes dropdown/drawer and restores focus where applicable.
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape") {
         closeDrawer();

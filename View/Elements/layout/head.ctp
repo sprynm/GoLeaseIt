@@ -10,6 +10,8 @@
     <title><?php echo $titleTag; ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="/fonts/open-sans-vf.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Roboto-vf.woff2" as="font" type="font/woff2" crossorigin>
 		<script>
 			(function () {
 				try {

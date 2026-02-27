@@ -60,7 +60,7 @@
     padding-inline: calc(clamp(0.45rem, 0.7vw, 0.9rem) + var(--space-2xs));
     border-radius: var(--radius-sm) var(--radius-sm) 0 0;
     border-bottom: 4px solid transparent; /* keeps row rhythm; state line uses text underline */
-    color: var(--color-ink-primary);
+    color: var(--color-brand-secondary);
     text-decoration: none;
     font-family: var(--font-display);
     font-size: clamp(1rem, 0.4vw + 0.75rem, 1.3rem);
@@ -75,7 +75,7 @@
   .site-nav > ul > li > a:hover,
   .site-nav > ul > li > a:focus-visible {
     background: transparent;
-    color: var(--color-ink-primary);
+    color: var(--color-brand-secondary);
     border-bottom-color: transparent;
     text-decoration-line: underline;
     text-decoration-color: var(--color-brand-primary); /* blue for hover/focus */
@@ -93,7 +93,7 @@
     text-decoration-thickness: 4px;
     text-underline-offset: 6px;
     text-decoration-skip-ink: none;
-    color: var(--color-ink-primary);
+    color: var(--color-brand-secondary);
     background: transparent;
   }
 

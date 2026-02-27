@@ -273,15 +273,15 @@
 
   /* Style-guide-only display helpers for button parity demos. */
   .sg-btn-parity-navy {
-    background: #172b61;
-    border-color: #172b61;
+    background: var(--color-brand-secondary);
+    border-color: var(--color-brand-secondary);
     color: var(--color-ink-on-dark);
   }
 
   .sg-btn-parity-navy:hover,
   .sg-btn-parity-navy:focus-visible {
-    background: color-mix(in srgb, #172b61 88%, var(--color-ink-absolute) 12%);
-    border-color: color-mix(in srgb, #172b61 88%, var(--color-ink-absolute) 12%);
+    background: color-mix(in srgb, var(--color-brand-secondary) 88%, var(--color-ink-absolute) 12%);
+    border-color: color-mix(in srgb, var(--color-brand-secondary) 88%, var(--color-ink-absolute) 12%);
     color: var(--color-ink-on-dark);
   }
 

@@ -37,7 +37,7 @@
     text-decoration: none;
     font-size: var(--ftr-nav-font-size);
     font-weight: var(--font-weight-semibold);
-    line-height: 1;
+    line-height: 1.6;
     white-space: nowrap;
     padding: var(--space-2xs) 0;
   }
@@ -56,7 +56,7 @@
 
   .ftr-utility {
     display: inline-flex;
-    align-items: center;
+    align-items: flex-end;
     gap: var(--space-sm);
     justify-content: flex-end;
     min-width: 18rem;
@@ -70,25 +70,28 @@
     text-decoration: none;
     font-size: var(--ftr-phone-font-size);
     font-weight: var(--font-weight-semibold);
-    line-height: 1.1;
+    line-height: 1;
     white-space: nowrap;
   }
 
   .ftr-phone svg {
-    width: 1.05em;
-    height: 1.05em;
+    width: 1.1em;
+    height: 1.1em;
     fill: currentColor;
     flex-shrink: 0;
-    transform: translateY(0.02em);
+    transform: translateY(0.04em);
   }
 
   .ftr-social .social-media {
     display: inline-flex;
-    align-items: center;
+    align-items: flex-end;
     gap: var(--space-xs);
   }
 
   .ftr-social .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     inline-size: var(--icon-size-lg);
     block-size: var(--icon-size-lg);
     border: 0;
@@ -96,12 +99,14 @@
     background: transparent;
     color: rgb(var(--white-rgb) / var(--alpha-95));
     padding: 0;
+    line-height: 1;
   }
 
   .ftr-social .social-icon svg {
     inline-size: var(--icon-size-md);
     block-size: var(--icon-size-md);
     fill: currentColor;
+    transform: translateY(0.04em);
   }
 
   .ftr-social .social-icon svg * {

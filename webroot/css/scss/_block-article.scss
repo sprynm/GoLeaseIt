@@ -177,6 +177,25 @@
     clear: both;
   }
 
+  /* Fallback for legacy/simple quote sections that do not include .article-callout markup. */
+  .article-split--quote:not(:has(.article-callout)) {
+    margin-block: var(--space-md);
+    padding: clamp(0.95rem, 2vw, 1.35rem);
+    border: 1px solid rgb(var(--color-brand-primary-rgb) / var(--alpha-20));
+    border-left: 4px solid var(--color-brand-accent);
+    border-radius: var(--radius-md);
+    background: rgb(var(--color-brand-primary-rgb) / 0.04);
+  }
+
+  .article-split--quote:not(:has(.article-callout)) > :last-child {
+    margin-bottom: 0;
+  }
+
+  .article-split--quote:not(:has(.article-callout)) ul,
+  .article-split--quote:not(:has(.article-callout)) ol {
+    margin-bottom: 0;
+  }
+
   .article-callout {
     --article-callout-width: var(--article-quote-max);
     float: right;

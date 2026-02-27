@@ -42,6 +42,15 @@ Use this repo as a clean, reusable implementation baseline while delivering Go L
   3. request `get_design_context` only for target node(s),
   4. reseed full-file metadata only when structure has materially changed.
 
+## Validation Gate For Admin/Editor Workflow Changes
+- When the user specifies an implementation mechanism (for example "add RTE button that injects scaffold HTML"), do not substitute a different mechanism (for example dropdown/token picker) without explicit user approval.
+- If multiple valid approaches exist, confirm the selected approach in one sentence before coding.
+- For CMS admin/editor UX changes, include validation evidence before claiming completion:
+  1. exact file(s) and hook/event used,
+  2. syntax check/build result,
+  3. one concrete usage example editors will follow.
+- If a requested mechanism cannot be implemented cleanly in current architecture, stop and ask for direction before implementing an alternative.
+
 ## Key Paths
 - Runtime templates: `View/Layouts/`, `View/Elements/`
 - SCSS source: `webroot/css/scss/`

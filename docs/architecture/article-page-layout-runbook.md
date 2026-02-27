@@ -38,7 +38,7 @@ Code surfaces used for these layouts:
 | Gallery strip | Gallery block token | no | image captions | Use only when needed for article variant |
 | Testimonial callout | Content block or inline HTML | no | quote body + attribution | `.article-split--quote` + `.article-callout--quote` |
 | Text + image callout | Inline body HTML + image | no | image + alt + extra copy | `.article-split--media` + `.article-callout--media` |
-| Bottom CTA band | Layout-level CTA | yes | Site settings overrides | Rendered in `View/Layouts/default.ctp` |
+| Bottom CTA band | Footer-level CTA | yes | Site settings overrides + page toggle | Rendered in `View/Elements/layout/footer.ctp` |
 
 ## 4. Block/Token/Prototype Decisions
 
@@ -130,7 +130,7 @@ Runtime:
 
 ## 6. Site Settings Used By Layout CTA
 
-`View/Layouts/default.ctp` checks these Site settings first, then falls back:
+`View/Elements/layout/footer.ctp` checks these Site settings first, then falls back:
 1. `Site.article_cta_heading`
 2. `Site.article_cta_body`
 3. `Site.article_cta_link`
@@ -141,6 +141,11 @@ Fallback output:
 2. Body: equipment-financing support copy
 3. Link: `/contact`
 4. Button text: `APPLY ONLINE ->`
+
+Page-level inclusion toggle (default ON):
+1. `show_cta_platter`
+2. Value may be in `Page.show_cta_platter` or custom-field key `show_cta_platter`
+3. Truthy: `1`, `true`, `yes`, `on`; falsy: `0`, `false`, `no`, `off`
 
 ## 7. Preview and QA Surfaces
 

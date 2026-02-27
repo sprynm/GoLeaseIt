@@ -131,6 +131,10 @@
     border-radius: var(--btn-hero-radius);
   }
 
+  .u-btn-no-icon::after {
+    content: none !important;
+  }
+
   .u-flex { display: flex; }
   .u-inline-flex { display: inline-flex; }
   .u-flex-center {

@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go Lease It Screenshots and Design Sources</title>
+  <link rel="stylesheet" href="../css/style-guide.css">
+</head>
+<body class="sg-guide">
+  <header class="sg-guide__masthead">
+    <div class="c-container c-container--full c-region">
+      <div class="c-stack" data-space="lg">
+        <div class="c-stack" data-space="sm">
+          <p class="sg-guide__kicker">Go Lease It</p>
+          <h1 class="sg-guide__title">Screenshots and Design Sources</h1>
+          <p class="sg-guide__lede">
+            Visual reference and breakpoint QA surface for final sign-off.
+          </p>
+        </div>
+        <nav aria-label="Style guide pages">
+          <ul class="sg-guide__index">
+            <li><a href="./index.html">Style Guide</a></li>
+            <li><a href="./screenshots.html">Screenshots &amp; Sources</a></li>
+            <li><a href="./font-tools.html">Font Tools</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="sg-guide__section">
+      <div class="c-container c-container--full c-region">
+        <div class="c-stack" data-space="lg">
+          <article class="sg-card c-stack" data-space="sm">
+            <h2 class="sg-guide__section-head">Design Slice References</h2>
+            <p class="sg-guide__section-note">Use these exported slices as visual parity references.</p>
+            <div class="sg-slice-grid">
+              <figure class="sg-slice">
+                <img src="./assets/design-slice/page-01.png" alt="Design slice page 1">
+                <figcaption>Home page slice</figcaption>
+              </figure>
+              <figure class="sg-slice">
+                <img src="./assets/design-slice/page-02.png" alt="Design slice page 2">
+                <figcaption>Interior layout (top)</figcaption>
+              </figure>
+              <figure class="sg-slice">
+                <img src="./assets/design-slice/page-03.png" alt="Design slice page 3">
+                <figcaption>Interior layout (mid)</figcaption>
+              </figure>
+              <figure class="sg-slice">
+                <img src="./assets/design-slice/page-04.png" alt="Design slice page 4">
+                <figcaption>Success stories + CTA + footer</figcaption>
+              </figure>
+              <figure class="sg-slice">
+                <img src="./assets/design-slice/page-05.png" alt="Design slice page 5">
+                <figcaption>Case study layout</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="sg-card c-stack sg-iframe-bleed" data-space="sm">
+            <h3>Header + Nav + Masthead (Iframe Demo)</h3>
+            <p class="sg-guide__section-note">Isolated behavior preview. Use Full Page Preview below for final layout sign-off.</p>
+            <div class="sg-iframe-toolbar">
+              <label for="sg-iframe-breakpoint">Viewport</label>
+              <select id="sg-iframe-breakpoint" class="sg-iframe-breakpoint">
+                <option value="100%">Full Width</option>
+                <option value="1920px">Desktop XL (1920px)</option>
+                <option value="1600px">Desktop L (1600px)</option>
+                <option value="2400px">Desktop XXL (2400px)</option>
+                <option value="1280px">Desktop (1280px)</option>
+                <option value="1024px">Laptop (1024px)</option>
+                <option value="834px">Tablet (834px)</option>
+                <option value="768px">Tablet Narrow (768px)</option>
+                <option value="390px">Mobile (390px)</option>
+              </select>
+              <p id="sg-iframe-current" class="sg-iframe-current" aria-live="polite"></p>
+            </div>
+            <div class="sg-scroll-scope">
+              <div id="sg-layout-preview-frame" class="sg-iframe-stage">
+                <iframe
+                  title="Header, navigation, and masthead preview"
+                  src="./preview-header-nav-masthead.html"
+                  loading="eager"
+                  referrerpolicy="no-referrer"
+                ></iframe>
+              </div>
+            </div>
+          </article>
+
+          <article class="sg-card c-stack sg-iframe-bleed" data-space="sm">
+            <h3>Article Body + Callout (Iframe Demo)</h3>
+            <p class="sg-guide__section-note">Isolated article typography and split-callout behavior. Use full-page preview for final parity checks.</p>
+            <div class="sg-iframe-toolbar">
+              <label for="sg-article-breakpoint">Viewport</label>
+              <select id="sg-article-breakpoint" class="sg-iframe-breakpoint">
+                <option value="100%">Full Width</option>
+                <option value="1920px">Desktop XL (1920px)</option>
+                <option value="1600px">Desktop L (1600px)</option>
+                <option value="2400px">Desktop XXL (2400px)</option>
+                <option value="1280px">Desktop (1280px)</option>
+                <option value="1024px">Laptop (1024px)</option>
+                <option value="834px">Tablet (834px)</option>
+                <option value="768px">Tablet Narrow (768px)</option>
+                <option value="390px">Mobile (390px)</option>
+              </select>
+              <p id="sg-article-current" class="sg-iframe-current" aria-live="polite"></p>
+            </div>
+            <div class="sg-scroll-scope">
+              <div id="sg-article-preview-frame" class="sg-iframe-stage">
+                <iframe
+                  title="Article body preview"
+                  src="./preview-article-body.html"
+                  loading="eager"
+                  referrerpolicy="no-referrer"
+                ></iframe>
+              </div>
+            </div>
+          </article>
+
+          <article class="sg-card c-stack sg-iframe-bleed" data-space="sm">
+            <h3>Full Page Preview - Home (Iframe Demo)</h3>
+            <p class="sg-guide__section-note">Homepage QA baseline.</p>
+            <div class="sg-iframe-toolbar">
+              <label for="sg-full-breakpoint">Viewport</label>
+              <select id="sg-full-breakpoint" class="sg-iframe-breakpoint">
+                <option value="100%">Full Width</option>
+                <option value="1920px">Desktop XL (1920px)</option>
+                <option value="1600px">Desktop L (1600px)</option>
+                <option value="2400px">Desktop XXL (2400px)</option>
+                <option value="1280px">Desktop (1280px)</option>
+                <option value="1024px">Laptop (1024px)</option>
+                <option value="834px">Tablet (834px)</option>
+                <option value="768px">Tablet Narrow (768px)</option>
+                <option value="390px">Mobile (390px)</option>
+              </select>
+              <p id="sg-full-current" class="sg-iframe-current" aria-live="polite"></p>
+            </div>
+            <div class="sg-scroll-scope">
+              <div id="sg-full-preview-frame" class="sg-iframe-stage sg-iframe-stage--tall">
+                <iframe
+                  title="Full page preview"
+                  src="./preview-home-full.html"
+                  loading="eager"
+                  referrerpolicy="no-referrer"
+                ></iframe>
+              </div>
+            </div>
+            <ul role="list" class="sg-chip-row">
+              <li class="sg-chip">QA: 2400</li>
+              <li class="sg-chip">QA: 1920</li>
+              <li class="sg-chip">QA: 1600</li>
+              <li class="sg-chip">QA: 1280</li>
+              <li class="sg-chip">QA: 1024</li>
+              <li class="sg-chip">QA: 834</li>
+              <li class="sg-chip">QA: 768</li>
+              <li class="sg-chip">QA: 390</li>
+            </ul>
+          </article>
+
+          <article class="sg-card c-stack sg-iframe-bleed" data-space="sm">
+            <h3>Full Page Preview - Article (Iframe Demo)</h3>
+            <p class="sg-guide__section-note">Canonical article-page QA surface for Figma node `10902:330`.</p>
+            <div class="sg-iframe-toolbar">
+              <label for="sg-article-full-breakpoint">Viewport</label>
+              <select id="sg-article-full-breakpoint" class="sg-iframe-breakpoint">
+                <option value="100%">Full Width</option>
+                <option value="1920px">Desktop XL (1920px)</option>
+                <option value="1600px">Desktop L (1600px)</option>
+                <option value="2400px">Desktop XXL (2400px)</option>
+                <option value="1280px">Desktop (1280px)</option>
+                <option value="1024px">Laptop (1024px)</option>
+                <option value="834px">Tablet (834px)</option>
+                <option value="768px">Tablet Narrow (768px)</option>
+                <option value="390px">Mobile (390px)</option>
+              </select>
+              <p id="sg-article-full-current" class="sg-iframe-current" aria-live="polite"></p>
+            </div>
+            <div class="sg-scroll-scope">
+              <div id="sg-article-full-preview-frame" class="sg-iframe-stage sg-iframe-stage--tall">
+                <iframe
+                  title="Article full page preview"
+                  src="./preview-article-full.html"
+                  loading="eager"
+                  referrerpolicy="no-referrer"
+                ></iframe>
+              </div>
+            </div>
+            <ul role="list" class="sg-chip-row">
+              <li class="sg-chip">QA: 2400</li>
+              <li class="sg-chip">QA: 1920</li>
+              <li class="sg-chip">QA: 1600</li>
+              <li class="sg-chip">QA: 1280</li>
+              <li class="sg-chip">QA: 1024</li>
+              <li class="sg-chip">QA: 834</li>
+              <li class="sg-chip">QA: 768</li>
+              <li class="sg-chip">QA: 390</li>
+            </ul>
+          </article>
+
+          <article class="sg-card c-stack sg-iframe-bleed" data-space="sm">
+            <h3>Full Page Preview - Generic No Banner (Iframe Demo)</h3>
+            <p class="sg-guide__section-note">Canonical no-banner QA surface for Figma node `10902:161`.</p>
+            <div class="sg-iframe-toolbar">
+              <label for="sg-generic-no-banner-breakpoint">Viewport</label>
+              <select id="sg-generic-no-banner-breakpoint" class="sg-iframe-breakpoint">
+                <option value="100%">Full Width</option>
+                <option value="1920px">Desktop XL (1920px)</option>
+                <option value="1600px">Desktop L (1600px)</option>
+                <option value="2400px">Desktop XXL (2400px)</option>
+                <option value="1280px">Desktop (1280px)</option>
+                <option value="1024px">Laptop (1024px)</option>
+                <option value="834px">Tablet (834px)</option>
+                <option value="768px">Tablet Narrow (768px)</option>
+                <option value="390px">Mobile (390px)</option>
+              </select>
+              <p id="sg-generic-no-banner-current" class="sg-iframe-current" aria-live="polite"></p>
+            </div>
+            <div class="sg-scroll-scope">
+              <div id="sg-generic-no-banner-preview-frame" class="sg-iframe-stage sg-iframe-stage--tall">
+                <iframe
+                  title="Generic no banner full page preview"
+                  src="./preview-generic-no-banner.html"
+                  loading="eager"
+                  referrerpolicy="no-referrer"
+                ></iframe>
+              </div>
+            </div>
+            <ul role="list" class="sg-chip-row">
+              <li class="sg-chip">QA: 2400</li>
+              <li class="sg-chip">QA: 1920</li>
+              <li class="sg-chip">QA: 1600</li>
+              <li class="sg-chip">QA: 1280</li>
+              <li class="sg-chip">QA: 1024</li>
+              <li class="sg-chip">QA: 834</li>
+              <li class="sg-chip">QA: 768</li>
+              <li class="sg-chip">QA: 390</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="sg-footer">
+    <div class="c-container c-container--full c-region">
+      <p>Use this page for visual source checks and breakpoint QA validation.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const selector = document.getElementById("sg-iframe-breakpoint");
+      const frameStage = document.getElementById("sg-layout-preview-frame");
+      const current = document.getElementById("sg-iframe-current");
+      if (!selector || !frameStage) return;
+      const applyViewport = () => {
+        const value = selector.value || "100%";
+        frameStage.style.setProperty("--sg-preview-width", value);
+        if (current) current.textContent = value === "100%" ? "Current: Full Width" : `Current: ${value}`;
+      };
+      selector.addEventListener("change", applyViewport);
+      applyViewport();
+    })();
+  </script>
+  <script>
+    (function () {
+      const selector = document.getElementById("sg-article-breakpoint");
+      const frameStage = document.getElementById("sg-article-preview-frame");
+      const current = document.getElementById("sg-article-current");
+      if (!selector || !frameStage) return;
+      const applyViewport = () => {
+        const value = selector.value || "100%";
+        frameStage.style.setProperty("--sg-preview-width", value);
+        if (current) current.textContent = value === "100%" ? "Current: Full Width" : `Current: ${value}`;
+      };
+      selector.addEventListener("change", applyViewport);
+      applyViewport();
+    })();
+  </script>
+  <script>
+    (function () {
+      const selector = document.getElementById("sg-full-breakpoint");
+      const frameStage = document.getElementById("sg-full-preview-frame");
+      const current = document.getElementById("sg-full-current");
+      if (!selector || !frameStage) return;
+      const applyViewport = () => {
+        const value = selector.value || "100%";
+        frameStage.style.setProperty("--sg-preview-width", value);
+        if (current) current.textContent = value === "100%" ? "Current: Full Width" : `Current: ${value}`;
+      };
+      selector.addEventListener("change", applyViewport);
+      applyViewport();
+    })();
+  </script>
+  <script>
+    (function () {
+      const selector = document.getElementById("sg-article-full-breakpoint");
+      const frameStage = document.getElementById("sg-article-full-preview-frame");
+      const current = document.getElementById("sg-article-full-current");
+      if (!selector || !frameStage) return;
+      const applyViewport = () => {
+        const value = selector.value || "100%";
+        frameStage.style.setProperty("--sg-preview-width", value);
+        if (current) current.textContent = value === "100%" ? "Current: Full Width" : `Current: ${value}`;
+      };
+      selector.addEventListener("change", applyViewport);
+      applyViewport();
+    })();
+  </script>
+  <script>
+    (function () {
+      const selector = document.getElementById("sg-generic-no-banner-breakpoint");
+      const frameStage = document.getElementById("sg-generic-no-banner-preview-frame");
+      const current = document.getElementById("sg-generic-no-banner-current");
+      if (!selector || !frameStage) return;
+      const applyViewport = () => {
+        const value = selector.value || "100%";
+        frameStage.style.setProperty("--sg-preview-width", value);
+        if (current) current.textContent = value === "100%" ? "Current: Full Width" : `Current: ${value}`;
+      };
+      selector.addEventListener("change", applyViewport);
+      applyViewport();
+    })();
+  </script>
+</body>
+</html>

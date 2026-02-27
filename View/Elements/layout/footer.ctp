@@ -42,6 +42,40 @@
 
 		$ctaPlatterEnabled = $toBool($ctaPlatterValue, true);
 
+		$ctaPlatterBlockId = 0;
+		if (isset($page['Page']) && is_array($page['Page']) && array_key_exists('cta_platter_content_block_id', $page['Page'])) {
+			$ctaPlatterBlockId = (int) $page['Page']['cta_platter_content_block_id'];
+		}
+		if ($ctaPlatterBlockId <= 0 && !empty($page['CustomFieldValue']) && is_array($page['CustomFieldValue'])) {
+			foreach ($page['CustomFieldValue'] as $fieldValue) {
+				if (!empty($fieldValue['key']) && $fieldValue['key'] === 'cta_platter_content_block_id') {
+					$ctaPlatterBlockId = (int) (isset($fieldValue['val']) ? $fieldValue['val'] : 0);
+					break;
+				}
+			}
+		}
+		if ($ctaPlatterBlockId <= 0) {
+			$ctaPlatterBlockId = (int) $this->Settings->show('Site.article_cta_content_block_id');
+		}
+
+		$ctaPlatterContent = '';
+		if ($ctaPlatterBlockId > 0) {
+			$ContentBlock = ClassRegistry::init('ContentBlocks.ContentBlock');
+			$ctaBlock = $ContentBlock->find('first', array(
+				'conditions' => array(
+					'ContentBlock.id' => $ctaPlatterBlockId,
+					'ContentBlock.deleted' => 0
+				),
+				'fields' => array('ContentBlock.id', 'ContentBlock.content'),
+				'published' => true,
+				'recursive' => -1,
+				'cache' => true
+			));
+			if (!empty($ctaBlock['ContentBlock']['content'])) {
+				$ctaPlatterContent = (string) $ctaBlock['ContentBlock']['content'];
+			}
+		}
+
 		$articleCtaHeading = trim((string) $this->Settings->show('Site.article_cta_heading'));
 		if ($articleCtaHeading === '') {
 			$articleCtaHeading = 'Ready to Move Forward?';
@@ -59,21 +93,25 @@
 
 		$articleCtaText = trim((string) $this->Settings->show('Site.article_cta_text'));
 		if ($articleCtaText === '') {
-			$articleCtaText = 'APPLY ONLINE →';
+			$articleCtaText = 'APPLY ONLINE';
 		}
 		?>
 		<?php if ($ctaPlatterEnabled): ?>
-		<section class="cta-band cta-band--article" aria-labelledby="article-cta-heading">
-			<div class="cta-band__inner">
-				<h2 id="article-cta-heading" class="cta-band__heading"><?php echo h($articleCtaHeading); ?></h2>
-				<p class="cta-band__body"><?php echo h($articleCtaBody); ?></p>
-				<?php if ($articleCtaLink !== '' && $articleCtaText !== ''): ?>
-					<div class="cta-band__actions">
-						<?php echo $this->Html->link($articleCtaText, $articleCtaLink, array('class' => 'btn btn--primary u-btn-lg', 'escape' => false)); ?>
+			<?php if ($ctaPlatterContent !== ''): ?>
+				<?php echo $ctaPlatterContent; ?>
+			<?php else: ?>
+				<section class="cta-band cta-band--article" aria-labelledby="article-cta-heading">
+					<div class="cta-band__inner">
+						<h2 id="article-cta-heading" class="cta-band__heading"><?php echo h($articleCtaHeading); ?></h2>
+						<p class="cta-band__body"><?php echo h($articleCtaBody); ?></p>
+						<?php if ($articleCtaLink !== '' && $articleCtaText !== ''): ?>
+							<div class="cta-band__actions">
+								<?php echo $this->Html->link($articleCtaText, $articleCtaLink, array('class' => 'btn btn--primary u-btn-lg', 'escape' => false)); ?>
+							</div>
+						<?php endif; ?>
 					</div>
-				<?php endif; ?>
-			</div>
-		</section>
+				</section>
+			<?php endif; ?>
 		<?php endif; ?>
 
 		<footer>

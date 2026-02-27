@@ -3,13 +3,16 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "css:build": "node tools/build-css.mjs",
+    "css:build": "node tools/build-css.mjs --mode=prod",
+    "css:build:dev": "node tools/build-css.mjs --mode=dev",
     "css:build:prod": "node tools/build-css.mjs --mode=prod",
     "css:watch": "node tools/watch-css.mjs",
     "font:contact-server": "node tools/font-contact-sheet-server.mjs",
+    "SG:serve": "node tools/serve-style-guide.mjs",
     "sftp:check": "node tools/check-sftp.mjs",
     "preview:check": "node tools/check-preview-discipline.mjs",
     "cube:check": "node tools/check-cube-discipline.mjs",
+    "css:arch:check": "node tools/check-css-architecture.mjs",
     "contracts:check": "node tools/check-publishing-contract.mjs",
     "visual:capture": "node tools/capture-style-guide.mjs",
     "visual:compare": "node tools/compare-style-guide.mjs"

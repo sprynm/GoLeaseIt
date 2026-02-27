@@ -17,20 +17,31 @@
             Visual testing ground for direct style updates. Use preview pages for large full-page redesigns, then migrate approved patterns back here for regression checks.
           </p>
         </div>
-        <nav aria-label="Style guide sections">
-          <ul class="sg-guide__index">
-            <li><a href="#sg-base-typography">Base (Typography)</a></li>
-            <li><a href="#sg-layout-page">Layout</a></li>
-            <li><a href="#sg-utilities">Utilities</a></li>
-            <li><a href="#sg-css-components">CSS Components</a></li>
-            <li><a href="#sg-cms-components">CMS Components</a></li>
-            <li><a href="#sg-elements">Elements</a></li>
-            <li><a href="./preview-home-full.html">Preview: Home Full</a></li>
-            <li><a href="./preview-header-nav-masthead.html">Preview: Header/Nav/Masthead</a></li>
-            <li><a href="./preview-article-body.html">Preview: Article Body</a></li>
-            <li><a href="./screenshots.html">Screenshots &amp; Sources</a></li>
-            <li><a href="./font-tools.html">Font Tools</a></li>
-          </ul>
+        <nav class="sg-guide__nav" aria-label="Style guide sections">
+          <div class="sg-guide__nav-group">
+            <p class="sg-guide__nav-label">Guide Sections</p>
+            <ul class="sg-guide__index">
+              <li><a href="#sg-base-typography">Base (Typography)</a></li>
+              <li><a href="#sg-layout-page">Layout</a></li>
+              <li><a href="#sg-utilities">Utilities</a></li>
+              <li><a href="#sg-css-components">CSS Components</a></li>
+              <li><a href="#sg-cms-components">CMS Components</a></li>
+              <li><a href="#sg-content-modules">CMS Content Modules</a></li>
+              <li><a href="#sg-site-platter">Website Context Platter</a></li>
+            </ul>
+          </div>
+          <div class="sg-guide__nav-group">
+            <p class="sg-guide__nav-label">Previews and Tools</p>
+            <ul class="sg-guide__index sg-guide__index--tools">
+              <li><a href="./preview-home-full.html">Preview: Home Full</a></li>
+              <li><a href="./preview-header-nav-masthead.html">Preview: Header/Nav/Masthead</a></li>
+              <li><a href="./preview-article-body.html">Preview: Article Body</a></li>
+              <li><a href="./preview-article-full.html">Preview: Article Full</a></li>
+              <li><a href="./preview-generic-no-banner.html">Preview: Generic No Banner</a></li>
+              <li><a href="./screenshots.html">Screenshots and Sources</a></li>
+              <li><a href="./font-tools.html">Font Tools</a></li>
+            </ul>
+          </div>
         </nav>
       </div>
     </div>
@@ -43,51 +54,52 @@
           <div class="c-stack" data-space="sm">
             <h2 class="sg-guide__section-head">Base (Typography)</h2>
             <p class="sg-guide__section-note">
-              Baseline type scale, paragraph rhythm, and heading hierarchy for global style validation.
+              Directly mapped from Pencil node <span class="sg-code">Cfcfq</span> (`Styles`) with a white contact-sheet surface in a production container.
             </p>
           </div>
 
-          <article class="sg-card c-stack" data-space="sm">
-            <h3>Type Spec Snapshot</h3>
-            <div class="sg-type-spec">
-              <div class="sg-type-spec__left">
-                <p class="sg-type-spec__label sg-type-spec__label--h1">Heading 1</p>
-                <div class="sg-type-spec__split">
-                  <div class="c-stack" data-space="sm">
-                    <p class="sg-type-spec__label sg-type-spec__label--h2">Heading 2</p>
-                    <p class="sg-type-spec__label sg-type-spec__label--h3">Heading 3</p>
-                    <p class="sg-type-spec__label sg-type-spec__label--h4">Heading 4</p>
-                  </div>
-                  <div class="c-stack" data-space="sm">
-                    <p class="sg-type-spec__label sg-type-spec__label--feature-h2">Feature h2</p>
-                    <p class="sg-type-spec__label sg-type-spec__label--feature-h3">Feature H3</p>
-                    <p class="sg-type-spec__label sg-type-spec__label--nav">Main Navigation</p>
-                  </div>
-                </div>
+          <article class="sg-card c-stack" data-space="md">
+            <h3>Go Lease It — Design Style Guide (Pencil Layout)</h3>
+            <p class="sg-guide__section-note">Information mirrors Pencil; element rendering uses existing site styles.</p>
+
+            <h4>Color Palette</h4>
+            <div class="sg-swatch-grid">
+              <div class="sg-swatch"><div class="sg-swatch__paint" style="background:#172B61;"></div><div class="sg-swatch__meta">Navy · #172B61</div></div>
+              <div class="sg-swatch"><div class="sg-swatch__paint" style="background:#3D6CAE;"></div><div class="sg-swatch__meta">Blue · #3D6CAE</div></div>
+              <div class="sg-swatch"><div class="sg-swatch__paint" style="background:#00AB4E;"></div><div class="sg-swatch__meta">Green · #00AB4E</div></div>
+              <div class="sg-swatch"><div class="sg-swatch__paint" style="background:#0E0F19;"></div><div class="sg-swatch__meta">Dark · #0E0F19</div></div>
+              <div class="sg-swatch"><div class="sg-swatch__paint" style="background:#F7F6F8;"></div><div class="sg-swatch__meta">Light BG · #F7F6F8</div></div>
+              <div class="sg-swatch"><div class="sg-swatch__paint" style="background:#253C78;"></div><div class="sg-swatch__meta">Nav Blue · #253C78</div></div>
+            </div>
+
+            <h4>Typography</h4>
+            <div class="c-grid" data-cols-c2="2">
+              <div class="c-stack" data-space="sm">
+                <h1>Heading 1</h1>
+                <h2>Heading 2</h2>
+                <h3>Heading 3</h3>
+                <h4>Heading 4</h4>
               </div>
-              <div class="sg-type-spec__right">
-                <p class="sg-type-spec__title">Paragraph</p>
-                <p class="sg-type-spec__text">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
-                </p>
-                <p class="sg-type-spec__title">Feature Text</p>
-                <p class="sg-type-spec__text">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.
-                </p>
+              <div class="c-stack" data-space="sm">
+                <p class="u-type-feature-h2">Feature h2</p>
+                <p class="u-type-feature-h3">Feature h3</p>
+                <p class="u-type-nav">Main Navigation</p>
+                <p>Our process is designed to move quickly, remove friction, and help you secure the equipment you need when you need it.</p>
+              </div>
+            </div>
+
+            <h4>Typefaces</h4>
+            <div class="c-grid" data-cols-c2="2">
+              <div>
+                <p class="u-type-feature-h2" style="margin-bottom:0;">Roboto</p>
+                <p class="sg-guide__section-note">Used for all headings and display type.</p>
+              </div>
+              <div>
+                <p class="u-type-feature-h2" style="margin-bottom:0; font-family:'Open Sans', var(--font-sans);">Open Sans</p>
+                <p class="sg-guide__section-note">Used for body copy, nav, and UI labels.</p>
               </div>
             </div>
           </article>
-
-          <div class="c-grid" data-cols-c2="2">
-            <article class="sg-card c-stack" data-space="sm">
-              <h1>Heading Level 1</h1>
-              <h2>Heading Level 2</h2>
-              <h3>Heading Level 3</h3>
-              <h4>Heading Level 4</h4>
-              <h5>Heading Level 5</h5>
-              <h6>Heading Level 6</h6>
-            </article>
-          </div>
         </div>
       </div>
     </section>
@@ -256,133 +268,57 @@
           <div class="c-stack" data-space="sm">
             <h2 class="sg-guide__section-head">CSS Components</h2>
             <p class="sg-guide__section-note">
-              Reusable component-level selectors from block styles, including buttons, close controls, form primitives, and tiles.
+              Directly mapped from Pencil node <span class="sg-code">EuIVh</span> (`Button Contact Sheet`) on a white sheet inside the site container.
+            </p>
+            <p class="sg-guide__section-note">
+              Pencil source: <span class="sg-code">pencil-new.pen</span> → node <span class="sg-code">EuIVh</span>. This section demonstrates button variants/layout only and keeps runtime `.btn` styles unchanged.
             </p>
           </div>
 
-          <article class="sg-card c-stack" data-space="sm">
-            <h3>Buttons</h3>
-            <p style="margin:0; font-size: var(--step--1); color: var(--color-ink-muted);">Default `.btn` is the large button treatment used for primary actions.</p>
+          <article class="sg-card c-stack" data-space="md">
+            <h3>Go Lease It — Button System (Pencil Layout)</h3>
+            <p class="sg-guide__section-note">Layout and labels mirror Pencil. Runtime site button CSS stays unchanged; this style guide uses display-only parity helpers.</p>
+            <ul>
+              <li><strong>Contract in production:</strong> base `.btn` (default/large) and `.btn-sm` only.</li>
+              <li><strong>Link icon behavior:</strong> anchor buttons (`a.btn`) render a default trailing arrow icon. Use <span class="sg-code">u-btn-no-icon</span> to suppress it when needed.</li>
+              <li><strong>Parity target from Pencil:</strong> color + size + state.</li>
+              <li><strong>Not in current contract:</strong> outlined and on-dark groups are intentionally excluded.</li>
+              <li><strong>Gap note:</strong> navy/blue color variants are not first-class runtime modifiers yet; shown below as guide-only parity examples.</li>
+            </ul>
+
+            <h4>BLOCK: `.btn` — MODIFIER: `--color`</h4>
+            <p class="sg-guide__section-note">Parity display: green (runtime), navy (guide-only), blue (guide-only).</p>
             <div class="sg-component-row">
-              <a class="btn" href="#sg-css-components">Large Anchor Button</a>
-              <button class="btn" type="button">Large Button Element</button>
+              <a class="btn btn--primary" href="#sg-css-components">Apply Online</a>
+              <a class="btn btn--primary sg-btn-parity-navy" href="#sg-css-components">Apply Online</a>
+              <a class="btn btn--primary sg-btn-parity-blue" href="#sg-css-components">Apply Online</a>
             </div>
-            <p style="margin:0; font-size: var(--step--1); color: var(--color-ink-muted);">Nav CTA uses the compact variant: <span class="sg-code">.btn btn-primary btn-sm</span>.</p>
+
+            <h4>MODIFIER: `--size`</h4>
+            <p class="sg-guide__section-note">Production sizing contract: `.btn` (default/large) and `.btn-sm` only.</p>
             <div class="sg-component-row">
-              <a class="btn btn-primary btn-sm" href="#sg-css-components">Learn More</a>
+              <a class="btn btn--primary" href="#sg-css-components">Apply Online</a>
+              <a class="btn btn--primary btn-sm" href="#sg-css-components">Apply Online</a>
             </div>
-            <p style="margin:0; font-size: var(--step--1); color: var(--color-ink-muted);">Hero CTA variants — green, uppercase, primary conversion actions:</p>
-            <div class="sg-component-row">
-              <a class="btn btn--hero" href="#sg-css-components">APPLY ONLINE →</a>
-              <a class="btn btn--hero-secondary" href="#sg-css-components">VIEW ALL INDUSTRIES →</a>
-            </div>
-          </article>
 
-          <div class="c-grid" data-cols-c2="2">
-            <article class="sg-card c-stack" data-space="sm">
-              <h3>Close Controls</h3>
-              <div class="sg-component-row">
-                <button class="site-nav-drawer__close" type="button" aria-label="Close menu">Close</button>
+            <h4>MODIFIER: `--state`</h4>
+            <p class="sg-guide__section-note">State labels mirror Pencil notes for quick visual QA.</p>
+            <div class="sg-btn-state-grid">
+              <div class="sg-btn-state-item">
+                <a class="btn btn--primary" href="#sg-css-components">Apply Online</a>
+                <p class="sg-btn-state-item__note">:default</p>
               </div>
-              <div class="notification attention">
-                <div>
-                  Notification with close action.
-                  <a class="close" href="#sg-css-components" aria-label="Dismiss notification">
-                    <img src="../img/icons/cross.png" alt="">
-                    Close
-                  </a>
-                </div>
+              <div class="sg-btn-state-item">
+                <a class="btn btn--primary sg-btn-state-hover" href="#sg-css-components" aria-label="Apply Online (hover state demo)">Apply Online</a>
+                <p class="sg-btn-state-item__note">:hover</p>
               </div>
-            </article>
-
-            <article class="sg-card c-stack" data-space="sm">
-              <h3>Tile Component</h3>
-              <a class="tile tile--linked" href="#sg-css-components">
-                <span class="tile__media">
-                  <img src="./assets/customer/yellow-equipment.jpg" alt="Construction equipment financing tile">
-                </span>
-                <span class="tile__overlay"></span>
-                <span class="tile__content">
-                  <span class="tile__heading">Fast Approvals</span>
-                  <span class="tile__text">Tokenized card overlay, typography, and hover lift behavior.</span>
-                </span>
-              </a>
-            </article>
-          </div>
-
-          <article class="sg-card c-stack" data-space="sm">
-            <h3>Form Primitives</h3>
-            <form action="#" method="get">
-              <div class="sg-form-grid">
-                <div class="input text required">
-                  <label for="sg-name">Name <span class="required">*</span></label>
-                  <input id="sg-name" name="name" type="text" required placeholder="Jane Doe">
-                </div>
-
-                <div class="input email">
-                  <label for="sg-email">Email</label>
-                  <input id="sg-email" name="email" type="email" placeholder="name@example.com">
-                </div>
+              <div class="sg-btn-state-item">
+                <a class="btn btn--primary sg-btn-state-active" href="#sg-css-components" aria-label="Apply Online (active state demo)">Apply Online</a>
+                <p class="sg-btn-state-item__note">:active</p>
               </div>
-
-              <div class="input textarea">
-                <label for="sg-message">Message</label>
-                <textarea id="sg-message" name="message" placeholder="Sample text area"></textarea>
-                <span class="input-desc">Input description text sample.</span>
-              </div>
-
-              <div class="sg-component-row">
-                <input class="btn" type="submit" value="Submit">
-                <input class="btn" type="reset" value="Reset">
-              </div>
-            </form>
-          </article>
-
-          <article class="sg-card c-stack sg-iframe-bleed" data-space="sm">
-            <h3>CTA Band</h3>
-            <p class="sg-guide__section-note">Appears at the bottom of every interior page. Muted gray background, navy heading, body text, green CTA.</p>
-            <div class="cta-band">
-              <div class="cta-band__inner">
-                <h2 class="cta-band__heading">Ready to Move Forward?</h2>
-                <p class="cta-band__body">Ready to secure the equipment your business needs? Our team moves quickly with clear terms and practical solutions built around your cash flow.</p>
-                <div class="cta-band__actions">
-                  <a class="btn btn--hero" href="#sg-css-components">APPLY ONLINE →</a>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="sg-card c-stack" data-space="sm">
-            <h3>Article Callout (Float Right)</h3>
-            <p class="sg-guide__section-note">Uses the same structure as `preview-article-body.html`.</p>
-            <div class="site-wrapper site-wrapper--default">
-              <div class="c-container c-container--article c-region">
-                <article class="article-body">
-                  <h2>Heading 3</h2>
-                  <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-                    aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                  </p>
-
-                  <aside class="article-callout">
-                    <div class="sg-demo-box">
-                      <p><strong>We had the pleasure of working with Aidan Gregoire on the financing for the newest truck in our fleet, and the experience was outstanding from start to finish.</strong></p>
-                      <p class="u-text-right">- ARC Towing</p>
-                    </div>
-                  </aside>
-
-                  <p>
-                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
-                    dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor
-                    sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt.
-                  </p>
-
-                  <p>
-                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid
-                    ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil
-                    molestiae consequatur.
-                  </p>
-                </article>
+              <div class="sg-btn-state-item">
+                <button class="btn btn--primary" type="button" disabled>Apply Online</button>
+                <p class="sg-btn-state-item__note">:disabled</p>
               </div>
             </div>
           </article>
@@ -404,15 +340,53 @@
             <h3>Content Block by ID (Homepage CTA platter)</h3>
             <p>Homepage bottom CTA platter is rendered by Content Block ID in CTP. Example shortcode for RTE contexts:</p>
             <p><span class="sg-code">{{block type="ContentBlock" id="123"}}</span></p>
+            <ul>
+              <li><strong>Layout binding keys:</strong> <span class="sg-code">home_bottom_cta_block_id</span> (fallback <span class="sg-code">home_cta_block_id</span>) and optional <span class="sg-code">home_bottom_cta_wrapper_class</span>.</li>
+              <li><strong>Separate from footer CTA band:</strong> this content block does not use <span class="sg-code">show_cta_platter</span>; that toggle controls the global footer CTA band.</li>
+            </ul>
+          </article>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>"Ready to Move Forward?" Footer CTA Band (Create + Enable)</h3>
+            <p>This section is rendered in <span class="sg-code">View/Elements/layout/footer.ctp</span> and is primarily managed as a Content Block by ID.</p>
+            <p class="sg-guide__section-note">Admin note: site-wide page settings are managed under <span class="sg-code">Manage Default Page Fields</span>.</p>
+
+            <h4>Create / Update CTA Content (global)</h4>
+            <ol>
+              <li>Create/update a Content Block containing full CTA HTML (recommended wrapper: <span class="sg-code">&lt;section class="cta-band cta-band--article"&gt;...&lt;/section&gt;</span>).</li>
+              <li>Set <span class="sg-code">Site.article_cta_content_block_id</span> to that block ID for site-wide default.</li>
+              <li>Optional page override: set <span class="sg-code">cta_platter_content_block_id</span> on a page to use a different CTA block there.</li>
+            </ol>
+
+            <h4>Enable / Disable Per Page</h4>
+            <ol>
+              <li>In the target page, set field key <span class="sg-code">show_cta_platter</span>.</li>
+              <li>Enabled values: <span class="sg-code">1</span>, <span class="sg-code">true</span>, <span class="sg-code">yes</span>, <span class="sg-code">on</span>.</li>
+              <li>Disabled values: <span class="sg-code">0</span>, <span class="sg-code">false</span>, <span class="sg-code">no</span>, <span class="sg-code">off</span>.</li>
+              <li>If key is missing or blank, default is enabled.</li>
+            </ol>
+            <p class="sg-guide__section-note">Fallback: if no CTA content block is configured/published, footer uses legacy <span class="sg-code">Site.article_cta_*</span> text/link settings.</p>
+          </article>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>RTE Control: Callouts</h3>
+            <p>Admin editor includes a toolbar control labeled <strong>Callouts</strong> with action <strong>Insert Quote Callout</strong> to inject the required callout scaffold.</p>
+            <ol>
+              <li>Place cursor where callout should start.</li>
+              <li>Open <strong>Callouts</strong> and choose <strong>Insert Quote Callout</strong>.</li>
+              <li>Replace placeholder heading, quote, attribution, and body copy.</li>
+              <li>Keep wrapper classes unchanged: <span class="sg-code">article-split article-split--quote</span>, <span class="sg-code">article-callout article-callout--quote</span>, <span class="sg-code">article-quote</span>.</li>
+            </ol>
+            <p class="sg-guide__section-note">Purpose: prevent fragile hand-authored structure in RTE while preserving the exact frontend contract.</p>
           </article>
 
           <div class="c-grid" data-cols-c2="2">
             <article class="sg-card c-stack" data-space="sm">
               <h3>Notification States</h3>
-              <div class="notification attention"><div>Attention notification message.</div></div>
-              <div class="notification information"><div>Information notification message.</div></div>
-              <div class="notification success"><div>Success notification message.</div></div>
-              <div class="notification error"><div>Error notification message.</div></div>
+              <div class="notification notification--attention"><div>Attention notification message.</div></div>
+              <div class="notification notification--information"><div>Information notification message.</div></div>
+              <div class="notification notification--success"><div>Success notification message.</div></div>
+              <div class="notification notification--error"><div>Error notification message.</div></div>
             </article>
 
             <article class="sg-card c-stack" data-space="sm">
@@ -452,43 +426,76 @@
       </div>
     </section>
 
-    <section id="sg-elements" class="sg-guide__section">
+    <section id="sg-content-modules" class="sg-guide__section">
       <div class="c-container c-container--full c-region">
         <div class="c-stack" data-space="lg">
           <div class="c-stack" data-space="sm">
-            <h2 class="sg-guide__section-head">Elements</h2>
+            <h2 class="sg-guide__section-head">CMS Content Modules</h2>
             <p class="sg-guide__section-note">
               Renderable element patterns used in templates:
               <span class="sg-code">industries_served</span>,
-              <span class="sg-code">feature-boxes</span>,
+              <span class="sg-code">home-process-steps</span>,
               <span class="sg-code">home-stories</span>,
-              <span class="sg-code">process-steps</span>,
-              <span class="sg-code">testimonials</span>.
-              Not yet active (uncomment in <span class="sg-code">stylesheet.scss</span> when needed):
-              <span class="sg-code">faq</span>,
-              <span class="sg-code">news</span>,
-              <span class="sg-code">projects</span>,
-              <span class="sg-code">staff</span>.
+              <span class="sg-code">home-testimonials</span>,
+              <span class="sg-code">cta-band</span> (footer-managed).
             </p>
           </div>
 
           <article class="sg-card c-stack" data-space="sm">
-            <h3>Industries Served Prototype (`industries_served`)</h3>
-            <p>Exact living structure: `.section-industries` + `.industry-grid` intro panel and industry tiles.</p>
+            <h3>Install + Bind Checklist (Active CMS Modules)</h3>
+            <ol>
+              <li>Install the prototype instance in admin (Prototype Instances).</li>
+              <li>Populate/publish ranked items and required fields.</li>
+              <li>Bind the instance to page fields in the target layout.</li>
+            </ol>
+            <ul>
+              <li><strong>Active starters used in this project:</strong> <span class="sg-code">Home Process Steps</span>, <span class="sg-code">Home Stories</span>, <span class="sg-code">Home Testimonials</span>.</li>
+              <li><strong>Industries Served:</strong> use an industries instance (accepted slugs in layout fallback include <span class="sg-code">industries-we-serve</span> and <span class="sg-code">industries_served</span>), then set <span class="sg-code">home_industries_instance_id</span> or <span class="sg-code">home_industries_instance_slug</span>.</li>
+              <li><strong>Home Process Steps (starter):</strong> install <span class="sg-code">Home Process Steps</span> (`home-process-steps`), then set <span class="sg-code">home_process_instance_id</span> or <span class="sg-code">home_process_instance_slug</span>.</li>
+              <li><strong>Home Stories (starter):</strong> install <span class="sg-code">Home Stories</span> (`home-stories`), then set <span class="sg-code">home_stories_instance_id</span> or <span class="sg-code">home_stories_instance_slug</span>.</li>
+              <li><strong>Home Testimonials (starter):</strong> install <span class="sg-code">Home Testimonials</span> (`home-testimonials`), then set <span class="sg-code">home_testimonials_instance_id</span> or <span class="sg-code">home_testimonials_instance_slug</span>.</li>
+            </ul>
           </article>
 
-          <section class="section-soft section-industries sg-iframe-bleed" aria-label="Living industries served demo">
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Footer CTA Band (`cta-band`) Contract</h3>
+            <p>Primitive: <strong>Content Block + Page field toggle</strong> (not a prototype).</p>
+            <p class="sg-guide__section-note">Admin note: site-wide page settings are under <span class="sg-code">Manage Default Page Fields</span>.</p>
+            <ul>
+              <li><strong>Render path:</strong> <span class="sg-code">View/Elements/layout/footer.ctp</span>.</li>
+              <li><strong>Enable key (per page):</strong> <span class="sg-code">show_cta_platter</span> (default is on when missing).</li>
+              <li><strong>Primary content source:</strong> <span class="sg-code">Site.article_cta_content_block_id</span> (site default Content Block ID).</li>
+              <li><strong>Optional page override:</strong> <span class="sg-code">cta_platter_content_block_id</span>.</li>
+              <li><strong>Enabled values:</strong> <span class="sg-code">1</span>, <span class="sg-code">true</span>, <span class="sg-code">yes</span>, <span class="sg-code">on</span>.</li>
+              <li><strong>Disabled values:</strong> <span class="sg-code">0</span>, <span class="sg-code">false</span>, <span class="sg-code">no</span>, <span class="sg-code">off</span>.</li>
+              <li><strong>Legacy fallback:</strong> if no block is configured/published, uses <span class="sg-code">Site.article_cta_heading</span>, <span class="sg-code">Site.article_cta_body</span>, <span class="sg-code">Site.article_cta_link</span>, <span class="sg-code">Site.article_cta_text</span>.</li>
+            </ul>
+            <ol>
+              <li>Create and publish CTA Content Block, then set <span class="sg-code">Site.article_cta_content_block_id</span>.</li>
+              <li>Optional: set page-level <span class="sg-code">cta_platter_content_block_id</span> override.</li>
+              <li>Set <span class="sg-code">show_cta_platter</span> on each page where you want explicit on/off control.</li>
+              <li>Leave <span class="sg-code">show_cta_platter</span> blank/missing to use default-on behavior.</li>
+            </ol>
+          </article>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Industries Served Prototype (`industries_served`)</h3>
+            <p>Exact living structure: `.section-industries` + `.industry-grid` intro panel and industry tiles.</p>
+            <p>Admin usage: bind this section using <span class="sg-code">home_industries_instance_id</span> or <span class="sg-code">home_industries_instance_slug</span>; keep item links in <span class="sg-code">cta_link</span> so tiles are clickable.</p>
+          </article>
+
+          <section class="u-surface-muted section-industries sg-iframe-bleed" aria-label="Living industries served demo">
             <div class="c-container c-container--full">
               <div class="industry-grid">
                 <div class="industry-grid__intro">
                   <div class="industry-grid__intro-content">
                     <h2>Industries We Serve</h2>
                     <p>From construction sites to medical offices to city fleets, we finance the equipment that keeps businesses moving.</p>
-                    <a href="#sg-elements" class="btn btn-primary">View All Industries</a>
+                    <a href="#sg-content-modules" class="btn btn--primary">View All Industries</a>
                   </div>
                 </div>
 
-                <a class="tile tile--linked tile--industry" href="#sg-elements">
+                <a class="tile tile--linked tile--industry" href="#sg-content-modules">
                   <span class="tile__media">
                     <img src="./assets/customer/yellow-equipment.jpg" alt="Transportation &amp; Logistics" loading="lazy" decoding="async">
                   </span>
@@ -498,7 +505,7 @@
                   </span>
                 </a>
 
-                <a class="tile tile--linked tile--industry" href="#sg-elements">
+                <a class="tile tile--linked tile--industry" href="#sg-content-modules">
                   <span class="tile__media">
                     <img src="./assets/customer/building.jpg" alt="Construction &amp; Agriculture" loading="lazy" decoding="async">
                   </span>
@@ -508,7 +515,7 @@
                   </span>
                 </a>
 
-                <a class="tile tile--linked tile--industry" href="#sg-elements">
+                <a class="tile tile--linked tile--industry" href="#sg-content-modules">
                   <span class="tile__media">
                     <img src="./assets/customer/building.jpg" alt="City &amp; Municipal Public Works" loading="lazy" decoding="async">
                   </span>
@@ -518,7 +525,7 @@
                   </span>
                 </a>
 
-                <a class="tile tile--linked tile--industry" href="#sg-elements">
+                <a class="tile tile--linked tile--industry" href="#sg-content-modules">
                   <span class="tile__media">
                     <img src="./assets/customer/yellow-equipment.jpg" alt="Manufacturing &amp; Mining" loading="lazy" decoding="async">
                   </span>
@@ -528,7 +535,7 @@
                   </span>
                 </a>
 
-                <a class="tile tile--linked tile--industry" href="#sg-elements">
+                <a class="tile tile--linked tile--industry" href="#sg-content-modules">
                   <span class="tile__media">
                     <img src="./assets/customer/dental.jpg" alt="Dental &amp; Medical" loading="lazy" decoding="async">
                   </span>
@@ -544,9 +551,10 @@
           <article class="sg-card c-stack" data-space="sm">
             <h3>Living Story Panels (`_prototype-home.scss` + `home/story_panels.ctp`)</h3>
             <p>Exact living HTML structure and class names used on the homepage story panel rows.</p>
+            <p>Install/use: install starter <span class="sg-code">Home Stories</span>, publish ranked items with <span class="sg-code">name</span>, <span class="sg-code">description</span>, <span class="sg-code">cta_link</span>, <span class="sg-code">cta_text</span>, and item image; bind with <span class="sg-code">home_stories_instance_id</span> or <span class="sg-code">home_stories_instance_slug</span>.</p>
           </article>
 
-          <section class="section-white sg-iframe-bleed" aria-label="Living story panels demo">
+          <section class="u-surface-base sg-iframe-bleed" aria-label="Living story panels demo">
             <div class="home-stories">
               <article class="story-platter story-platter--image-first">
                 <div class="story-platter__media">
@@ -557,7 +565,7 @@
                   <h2 class="story-platter__title">Invest in Care, Not Capital Strain</h2>
                   <p class="story-platter__body">BrightSmile Orthodontics upgraded to clinic-grade digital imaging, treatment chairs, and sterilization equipment. Go Lease It flexible financing preserved cash flow, letting the team focus on patients instead of upfront costs.</p>
                   <div>
-                    <a class="btn btn-primary" href="#sg-elements">More Success Stories -></a>
+                    <a class="btn btn--primary" href="#sg-content-modules">More Success Stories</a>
                   </div>
                 </div>
               </article>
@@ -568,7 +576,7 @@
                   <h2 class="story-platter__title">Another Big Ticket Rental Conversion</h2>
                   <p class="story-platter__body">Our client Terry began renting this Barko processor from a dealer in Kamloops before using rental credits toward a bank lease. The machine is now set up on a commercial lease-to-own, giving Terry lower monthly payments and letting him focus on operations instead of upfront costs.</p>
                   <div>
-                    <a class="btn btn-primary" href="#sg-elements">More Success Stories -></a>
+                    <a class="btn btn--primary" href="#sg-content-modules">More Success Stories</a>
                   </div>
                 </div>
                 <div class="story-platter__media">
@@ -581,15 +589,16 @@
           <article class="sg-card c-stack" data-space="sm">
             <h3>Living Process Steps (`_prototype-process-steps.scss` + `home/process_steps.ctp`)</h3>
             <p>Exact living HTML structure and class names used on the homepage process section.</p>
+            <p>Install/use: install starter <span class="sg-code">Home Process Steps</span>, publish ranked items with <span class="sg-code">name</span>, <span class="sg-code">description</span>, and recommended <span class="sg-code">icon_file</span> values from <span class="sg-code">/webroot/img/home-process-icons/</span>; bind with <span class="sg-code">home_process_instance_id</span> or <span class="sg-code">home_process_instance_slug</span>.</p>
           </article>
 
-          <section class="section-white sg-iframe-bleed" aria-label="Living process steps demo">
+          <section class="u-surface-base sg-iframe-bleed" aria-label="Living process steps demo">
             <div class="c-container c-container--full">
               <div class="home-region">
                 <div class="process-intro">
                   <div class="process-intro__heading">
                     <h2>Our Easy Process</h2>
-                    <a href="#sg-elements" class="btn btn-primary">Apply Online</a>
+                    <a href="#sg-content-modules" class="btn btn--primary">Apply Online</a>
                   </div>
                   <div class="process-intro__body rte"><p>We believe equipment financing should be clear, accessible, and built around your business. Our process is designed to move quickly, remove friction, and help you secure the equipment you need when you need it.</p></div>
                 </div>
@@ -653,16 +662,17 @@
           <article class="sg-card c-stack" data-space="sm">
             <h3>Living Why + Testimonials (`_prototype-testimonials.scss` + `home/why_testimonials.ctp`)</h3>
             <p>Exact living HTML structure and class names used on the homepage testimonials section.</p>
+            <p>Install/use: install starter <span class="sg-code">Home Testimonials</span>, publish ranked items with required <span class="sg-code">testimonial</span> and optional <span class="sg-code">byline</span>/<span class="sg-code">rating</span>; bind with <span class="sg-code">home_testimonials_instance_id</span> or <span class="sg-code">home_testimonials_instance_slug</span>.</p>
           </article>
 
-          <section class="section-soft sg-iframe-bleed" aria-label="Living why and testimonials demo">
+          <section class="u-surface-muted sg-iframe-bleed" aria-label="Living why and testimonials demo">
             <div class="c-container c-container--full">
               <div class="home-why home-why--testimonials home-region">
                 <div class="home-why__intro">
                   <h2>Why Go Lease it?</h2>
                   <p>We make equipment financing simple, fast, and reliable. Here's what our clients say:</p>
                   <div>
-                    <a href="#sg-elements" class="btn btn-primary">Apply Today</a>
+                    <a href="#sg-content-modules" class="btn btn--primary">Apply Today</a>
                   </div>
                 </div>
 
@@ -697,7 +707,81 @@
       </div>
     </section>
 
-    
+    <section id="sg-site-platter" class="sg-guide__section sg-site-platter">
+      <div class="c-container c-container--full c-region">
+        <div class="c-stack" data-space="sm">
+          <h2 class="sg-guide__section-head">Website Context Platter</h2>
+          <p class="sg-guide__section-note">
+            This platter recreates real page context with production wrappers and layout classes.
+            Use it to judge spacing, typography, and component behavior without style-guide card chrome.
+          </p>
+        </div>
+      </div>
+
+      <div class="site-wrapper site-wrapper--default article-layout">
+        <div class="c-container c-container--article c-region">
+          <div class="c-sidebar">
+            <div class="default layout-default article-body article-layout__body" role="region" aria-label="Article body context demo">
+              <h2>Equipment Financing That Moves At Job-Site Speed</h2>
+              <p>Applications are reviewed quickly, terms are clear, and your team gets a direct point of contact from quote to funding.</p>
+              <h3>Built For Working Operators</h3>
+              <p>Use this section to validate body rhythm, heading hierarchy, and sidebar behavior in the same structure used by production layouts.</p>
+            </div>
+            <nav class="subnav subnav--list subnav--sticky" aria-label="Section navigation context demo">
+              <ul>
+                <li class="current"><a href="#sg-site-platter">Overview</a></li>
+                <li><a href="#sg-content-modules">CMS Content Modules</a></li>
+                <li><a href="#sg-css-components">Styles</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <section class="cta-band cta-band--article" aria-labelledby="site-context-cta-heading">
+          <div class="cta-band__inner">
+            <h2 id="site-context-cta-heading" class="cta-band__heading">Ready to Move Forward?</h2>
+            <p class="cta-band__body">Footer-level CTA context preview with production button and spacing treatment.</p>
+            <div class="cta-band__actions">
+              <a class="btn btn--primary" href="#sg-site-platter">Apply Online</a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="site-wrapper site-wrapper--platter">
+        <div class="c-container c-container--full c-region">
+          <section class="u-surface-muted section-industries" aria-label="Industries context demo">
+            <div class="industry-grid">
+              <div class="industry-grid__intro">
+                <div class="industry-grid__intro-content">
+                  <h2>Industries We Serve</h2>
+                  <p>Tile and intro context shown without style-guide cards so production component weight is easier to judge.</p>
+                  <a href="#sg-site-platter" class="btn btn--primary">View All Industries</a>
+                </div>
+              </div>
+              <a class="tile tile--linked tile--industry" href="#sg-site-platter">
+                <span class="tile__media">
+                  <img src="./assets/customer/yellow-equipment.jpg" alt="Transportation and logistics" loading="lazy" decoding="async">
+                </span>
+                <span class="tile__overlay"></span>
+                <span class="tile__content">
+                  <span class="tile__heading">Transportation &amp; Logistics</span>
+                </span>
+              </a>
+              <a class="tile tile--linked tile--industry" href="#sg-site-platter">
+                <span class="tile__media">
+                  <img src="./assets/customer/dental.jpg" alt="Dental and medical" loading="lazy" decoding="async">
+                </span>
+                <span class="tile__overlay"></span>
+                <span class="tile__content">
+                  <span class="tile__heading">Dental &amp; Medical</span>
+                </span>
+              </a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
 
   </main>
 
@@ -706,6 +790,7 @@
       <p>Use this page for consistent visual regression snapshots after every CSS change set.</p>
     </div>
   </footer>
+  <script src="../js/media-lightbox.js" defer></script>
   </body>
 </html>
 

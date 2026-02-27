@@ -7,7 +7,14 @@
       <nav class="site-nav" role="navigation" aria-label="Main navigation" data-site-nav>
         <ul class="menu_level_">
           <li class="first current menu_1"><a href="/">Home</a></li>
-          <li class="menu_2"><a href="/finance-solutions">Financing Solutions</a></li>
+          <li class="menu_2">
+            <a href="/finance-solutions">Financing Solutions</a>
+            <ul>
+              <li><a href="/finance-solutions/equipment-leasing">Equipment Leasing</a></li>
+              <li><a href="/finance-solutions/working-capital">Working Capital</a></li>
+              <li><a href="/finance-solutions/asset-based-lending">Asset-Based Lending</a></li>
+            </ul>
+          </li>
           <li class="menu_3"><a href="/industries-served">Industries We Serve</a></li>
           <li class="menu_4"><a href="/how-it-works">How It Works</a></li>
           <li class="menu_5"><a href="/about">About</a></li>
@@ -38,10 +45,10 @@
   </div>
 </header>
 
-<dialog id="site-nav-drawer" class="site-nav-drawer" aria-label="Mobile navigation">
+<dialog id="site-nav-drawer" class="site-nav-drawer" aria-label="Mobile navigation" aria-labelledby="site-nav-drawer-title">
   <div class="site-nav-drawer__head">
-    <strong>Menu</strong>
-    <button class="site-nav-drawer__close" type="button" aria-label="Close menu">x</button>
+    <strong id="site-nav-drawer-title">Menu</strong>
+    <button class="site-nav-drawer__close" type="button" aria-label="Close menu">✕ <span>Close</span></button>
   </div>
   <div class="site-nav-drawer__body" data-nav-drawer-body></div>
 </dialog>

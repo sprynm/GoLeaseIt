@@ -101,6 +101,13 @@
     padding-top: 10px;
   }
 
+  /* Keep header CTA arrow optically balanced at small button size. */
+  .header-cta a.btn.btn-sm::after {
+    inline-size: 0.98em;
+    block-size: 0.78em;
+    margin-inline-start: 0.28em;
+  }
+
   .site-nav {
     grid-area: nav;
     justify-self: end;
@@ -177,9 +184,15 @@
     color: var(--color-ink-primary);
     text-decoration: none;
     font-size: 1rem;
-    line-height: 1;
+    line-height: 1.1;
   }
 
-  .util-phone svg { width: 1em; height: 1em; fill: currentColor; flex-shrink: 0; }
+  .util-phone svg {
+    width: 1.05em;
+    height: 1.05em;
+    fill: currentColor;
+    flex-shrink: 0;
+    transform: translateY(0.02em);
+  }
 
 }

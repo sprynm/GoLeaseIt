@@ -22,7 +22,7 @@
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    gap: clamp(0.5rem, 1vw, 1.25rem);
+    gap: clamp(0.4rem, 0.9vw, 1rem);
     justify-content: flex-end;
   }
 
@@ -30,83 +30,168 @@
     position: relative;
     display: flex;
     align-items: center;
-    gap: 0.2rem;
   }
 
-  .site-nav a {
+  /* No-JS fallback: keep child menus out of the top row and show on hover/focus. */
+  html:not(.js-nav-ready) .site-nav > ul > li > ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 1200;
+    min-inline-size: 14rem;
+    padding: 0.4rem;
+    background: var(--color-surface-base);
+    border: 1px solid rgb(var(--color-ink-absolute-rgb) / 0.16);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+  }
+
+  html:not(.js-nav-ready) .site-nav > ul > li:hover > ul,
+  html:not(.js-nav-ready) .site-nav > ul > li:focus-within > ul {
+    display: block;
+  }
+
+  .site-nav > ul > li > a {
     display: inline-flex;
     align-items: center;
-    min-height: 2.6rem;
-    padding-inline: clamp(0.3rem, 0.45vw, 0.75rem);
-    border-radius: var(--radius-sm);
+    position: relative;
+    z-index: 0;
+    min-height: 44px; /* Accessibility: 44px minimum tap target. */
+    padding-inline: calc(clamp(0.45rem, 0.7vw, 0.9rem) + var(--space-2xs));
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    border-bottom: 4px solid transparent; /* keeps row rhythm; state line uses text underline */
     color: var(--color-ink-primary);
     text-decoration: none;
     font-family: var(--font-display);
-    font-size: clamp(1rem, 0.55vw + 0.6rem, 1.5rem);
+    font-size: clamp(1rem, 0.4vw + 0.75rem, 1.3rem);
     line-height: 1.1;
-    font-weight: var(--font-weight-semibold);
+    font-weight: 600; /* Normalized nav weight. */
     letter-spacing: 0;
     white-space: nowrap;
+    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
   }
 
-  .site-nav a:hover,
-  .site-nav a:focus-visible,
-  .site-nav .current > a {
+  /* Distinct non-current interaction styling. */
+  .site-nav > ul > li > a:hover,
+  .site-nav > ul > li > a:focus-visible {
     background: transparent;
-    color: var(--color-brand-primary);
-  }
-
-  .site-nav__submenu-trigger {
-    inline-size: 2.2rem;
-    block-size: 2.2rem;
-    border-radius: var(--radius-max);
-    border: 1px solid transparent;
     color: var(--color-ink-primary);
-    display: inline-grid;
-    place-items: center;
+    border-bottom-color: transparent;
+    text-decoration-line: underline;
+    text-decoration-color: var(--color-brand-primary); /* blue for hover/focus */
+    text-decoration-thickness: 4px;
+    text-underline-offset: 6px;
+    text-decoration-skip-ink: none;
   }
 
-  .site-nav__submenu-trigger::before {
+  /* Current page is indicated by underline/border only, not color change. */
+  .site-nav > ul > li.current > a,
+  .site-nav > ul > li > a[aria-current="page"] {
+    border-bottom-color: transparent;
+    text-decoration-line: underline;
+    text-decoration-color: var(--color-brand-punch); /* green for current */
+    text-decoration-thickness: 4px;
+    text-underline-offset: 6px;
+    text-decoration-skip-ink: none;
+    color: var(--color-ink-primary);
+    background: transparent;
+  }
+
+  /* Behavior change: submenu parent uses one trigger element (label + chevron). */
+  .site-nav > ul > li.has-submenu > a.site-nav__menu-trigger {
+    position: relative;
+    padding-inline-end: 2rem;
+  }
+
+  .site-nav > ul > li.has-submenu > a.site-nav__menu-trigger::after {
     content: "";
-    inline-size: 0.6rem;
-    block-size: 0.6rem;
+    position: absolute;
+    inset-inline-end: 0.75rem;
+    inset-block-start: 50%;
+    inline-size: 0.55rem;
+    block-size: 0.55rem;
     border-inline-end: 2px solid currentColor;
     border-block-end: 2px solid currentColor;
-    transform: rotate(45deg) translateY(-1px);
+    transform: translateY(-62%) rotate(45deg);
+    transition: transform 180ms ease;
+    pointer-events: none;
   }
 
-  .site-nav__submenu-trigger[aria-expanded="true"]::before {
-    transform: rotate(-135deg) translateY(-1px);
+  /* Open state is distinct from current state (background highlight, not underline). */
+  .site-nav > ul > li.has-submenu > a.site-nav__menu-trigger[aria-expanded="true"] {
+    background: transparent;
+    color: var(--color-brand-primary);
+    border-bottom-color: transparent; /* Open state is not current-page state. */
+    text-decoration: none;
+  }
+
+  .site-nav > ul > li.current > a.site-nav__menu-trigger[aria-expanded="true"],
+  .site-nav > ul > li > a.site-nav__menu-trigger[aria-current="page"][aria-expanded="true"] {
+    border-bottom-color: var(--color-brand-punch);
+  }
+
+  .site-nav > ul > li.has-submenu > a.site-nav__menu-trigger[aria-expanded="true"]::after {
+    transform: translateY(-40%) rotate(-135deg);
   }
 
   .site-nav__submenu {
-    border: 1px solid rgb(var(--color-ink-absolute-rgb) / var(--alpha-10));
-    border-radius: var(--radius-md);
+    z-index: 1300;
+    min-inline-size: 0;
+    width: max-content;
+    max-inline-size: min(18rem, calc(100vw - 16px));
+    padding: 0.45rem;
+    border: 1px solid rgb(var(--color-ink-absolute-rgb) / 0.16);
+    border-top: 3px solid var(--color-brand-primary); /* Visual anchor to trigger. */
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
     background: var(--color-surface-base);
-    min-inline-size: 12.5rem;
-    box-shadow: var(--shadow-md);
-    padding: 0.35rem;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.1); /* Required dropdown shadow. */
     position: fixed;
     inset: auto auto auto auto;
+    overflow: clip;
   }
 
   .site-nav__submenu li + li {
-    margin-top: 0.15rem;
+    margin-top: 0.1rem;
   }
 
   .site-nav__submenu a {
     display: flex;
-    width: 100%;
-    font-weight: var(--font-weight-medium);
+    align-items: center;
+    width: auto;
+    margin-inline: 6px;
+    min-height: 0;
+    padding: 10px 12px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    color: var(--color-ink-primary);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.15;
+    font-weight: 400;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .site-nav__submenu a:visited {
+    color: var(--color-ink-primary);
+    font-weight: 400;
+  }
+
+  .site-nav__submenu a:hover,
+  .site-nav__submenu a:focus-visible {
+    background: rgb(var(--color-brand-primary-rgb) / 0.1);
+    border-color: rgb(var(--color-brand-primary-rgb) / 0.22);
+    color: var(--color-brand-primary);
+    font-weight: 400;
   }
 
   .site-nav__toggle {
     display: none;
-    min-height: 2.75rem;
-    padding-inline: 0.85rem;
+    min-height: 44px;
+    padding-inline: 0.9rem;
     border-radius: var(--radius-sm);
     border: 1px solid rgb(var(--color-ink-absolute-rgb) / var(--alpha-16));
-    font-weight: var(--font-weight-bold);
+    font-weight: 600;
     color: var(--color-brand-primary);
     background: var(--color-surface-base);
   }
@@ -121,7 +206,7 @@
   .site-nav-drawer {
     border: 0;
     margin: 0;
-    inline-size: min(80vw, 320px);
+    inline-size: min(82vw, 360px);
     max-inline-size: 100%;
     height: 100%;
     max-height: 100%;
@@ -157,30 +242,26 @@
   }
 
   .site-nav-drawer__close {
-    inline-size: 2.2rem;
-    block-size: 2.2rem;
-    border-radius: var(--radius-max);
-    border: 1px solid rgb(var(--color-ink-absolute-rgb) / var(--alpha-16));
+    min-inline-size: 44px;
+    min-block-size: 44px;
+    padding-inline: 0.75rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgb(var(--color-ink-absolute-rgb) / var(--alpha-22));
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.35rem;
     background: var(--color-surface-base);
     color: var(--color-brand-primary);
     cursor: pointer;
-    font-size: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
     line-height: 1;
     user-select: none;
     -webkit-user-select: none;
     appearance: none;
     -webkit-appearance: none;
     transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease, transform 140ms ease;
-  }
-
-  .site-nav-drawer__close::before {
-    content: "×";
-    font-size: 1.35rem;
-    font-weight: var(--font-weight-semibold);
-    line-height: 1;
   }
 
   .site-nav-drawer__close:hover,
@@ -204,16 +285,23 @@
   }
 
   .site-nav-drawer__body > ul > li + li {
-    margin-top: 0.25rem;
+    margin-top: 0.2rem;
   }
 
   .site-nav-drawer__body a {
-    display: block;
-    padding: 0.75rem var(--space-sm);
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.7rem var(--space-sm);
     border-radius: var(--radius-sm);
+    border: 1px solid transparent;
     text-decoration: none;
     color: var(--color-ink-primary);
-    font-weight: var(--font-weight-semibold);
+    font-weight: 600;
+  }
+
+  .site-nav-drawer__body > ul > li.current > a {
+    border-bottom: 2px solid var(--color-brand-primary);
   }
 
   .site-nav-drawer__body details > summary {
@@ -222,9 +310,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.75rem var(--space-sm);
+    min-height: 44px;
+    padding: 0.7rem var(--space-sm);
     border-radius: var(--radius-sm);
-    font-weight: var(--font-weight-bold);
+    font-weight: 600;
     color: var(--color-ink-strong);
   }
 
@@ -234,8 +323,9 @@
 
   .site-nav-drawer__body details > summary::after {
     content: "+";
-    font-weight: var(--font-weight-regular);
-    font-size: 1.2rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--color-brand-primary);
   }
 
   .site-nav-drawer__body details[open] > summary::after {
@@ -243,7 +333,7 @@
   }
 
   .site-nav-drawer__body details ul {
-    margin-top: 0.1rem;
+    margin-top: 0.08rem;
     margin-inline-start: var(--space-sm);
     border-inline-start: 2px solid rgb(var(--color-brand-primary-rgb) / 0.22);
     padding-inline-start: var(--space-xs);
@@ -254,6 +344,7 @@
   .site-nav-drawer__body details > summary:hover,
   .site-nav-drawer__body details > summary:focus-visible {
     background: var(--color-surface-soft);
+    border-color: rgb(var(--color-brand-primary-rgb) / 0.18);
   }
 
   @media (max-width: 59.99rem) {

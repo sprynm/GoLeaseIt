@@ -70,15 +70,16 @@
     text-decoration: none;
     font-size: var(--ftr-phone-font-size);
     font-weight: var(--font-weight-semibold);
-    line-height: 1;
+    line-height: 1.1;
     white-space: nowrap;
   }
 
   .ftr-phone svg {
-    width: var(--icon-size-sm);
-    height: var(--icon-size-sm);
+    width: 1.05em;
+    height: 1.05em;
     fill: currentColor;
     flex-shrink: 0;
+    transform: translateY(0.02em);
   }
 
   .ftr-social .social-media {

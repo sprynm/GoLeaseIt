@@ -1,0 +1,270 @@
+@use "sass:color";
+@use "queries" as *;
+
+/* SCSS theme primitives (single source of truth). */
+$fontSans: "Roboto", "Segoe UI", Helvetica, Arial, sans-serif;
+$fontDisplay: "Roboto", "Segoe UI", Helvetica, Arial, sans-serif;
+$fontSerif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+
+$colorSurfaceBase: #ffffff;
+$colorSurfaceMuted: #f6f8fb;
+$colorSurfaceSoft: #eef3f8;
+$colorSurfaceInverse: #111a2d;
+$colorSurfaceInverseRgb: 17 26 45;
+$colorSurfaceDark: #0b2446;
+
+$colorInkAbsolute: #000000;
+$colorInkAbsoluteRgb: 0 0 0;
+$colorInkPrimary: #0e0f19;
+$colorInkStrong: #0e0f19;
+$colorInkMuted: #5b6675;
+$colorInkMeta: #707a89;
+$colorInkOnDark: #f8fbff;
+$colorInkInverse: #e8eef8;
+$colorInkOnAccent: #1b1b1b;
+
+$colorBorderMuted: #cfd8e3;
+$colorBrandPrimary: #3d6cae;
+$colorBrandPrimaryRgb: 61 108 174;
+$colorBrandPrimaryBright: #4a7bbd;
+$colorBrandPrimaryHover: #2f5f97;
+$colorBrandPrimaryVisited: #5d658f;
+$colorBrandSecondary: #172b61;
+$colorBrandPunch: #00ab4e;
+$colorBrandAccentRgb: 255 209 0;
+$colorBrandAccentHover: #e6bc00;
+$colorBrandNoticeRgb: 255 209 0;
+$colorFocusRing: #f59f00;
+
+$radiusXs: 2px;
+$radiusSm: 6px;
+$radiusMd: 12px;
+$radiusLg: 18px;
+$radiusMax: 999px;
+
+$frameMax: 75rem;
+$navOffset: 6rem;
+$heroMax: 75rem;
+
+@layer tokens {
+  :root {
+    --font-sans: #{$fontSans};
+    --font-sans-alt: "Open Sans", var(--font-sans);
+    --font-display: #{$fontDisplay};
+    --font-serif: #{$fontSerif};
+
+    --color-surface-base: #{$colorSurfaceBase};
+    --color-surface-muted: #{$colorSurfaceMuted};
+    --color-surface-soft: #{$colorSurfaceSoft};
+    --color-surface-inverse: #{$colorSurfaceInverse};
+    --color-surface-inverse-rgb: #{$colorSurfaceInverseRgb};
+    --color-surface-dark: #{$colorSurfaceDark};
+    --color-surface-hero: var(--color-surface-dark);
+    --color-surface-footer: var(--color-surface-dark);
+
+    --color-ink-absolute: #{$colorInkAbsolute};
+    --color-ink-absolute-rgb: #{$colorInkAbsoluteRgb};
+    --color-ink-primary: #{$colorInkPrimary};
+    --color-ink-strong: #{$colorInkStrong};
+    --color-ink-muted: #{$colorInkMuted};
+    --color-ink-meta: #{$colorInkMeta};
+    --color-ink-on-dark: #{$colorInkOnDark};
+    --color-ink-inverse: #{$colorInkInverse};
+    --color-ink-on-accent: #{$colorInkOnAccent};
+
+    --white-rgb: 255 255 255;
+    --alpha-95: 0.95;
+    --alpha-85: 0.85;
+    --alpha-75: 0.75;
+    --alpha-60: 0.6;
+    --alpha-42: 0.42;
+    --alpha-35: 0.35;
+    --alpha-25: 0.25;
+    --alpha-16: 0.16;
+    --alpha-10: 0.1;
+    --alpha-08: 0.08;
+    --alpha-04: 0.04;
+    --alpha-02: 0.02;
+
+    --color-border-muted: #{$colorBorderMuted};
+    --color-brand-primary: #{$colorBrandPrimary};
+    --color-brand-primary-rgb: #{$colorBrandPrimaryRgb};
+    --color-brand-primary-bright: #{$colorBrandPrimaryBright};
+    --color-brand-primary-hover: #{$colorBrandPrimaryHover};
+    --color-brand-primary-visited: #{$colorBrandPrimaryVisited};
+    --color-brand-secondary: #{$colorBrandSecondary};
+    --color-brand-punch: #{$colorBrandPunch};
+    --color-brand-accent-rgb: #{$colorBrandAccentRgb};
+    --color-brand-accent: rgb(var(--color-brand-accent-rgb));
+    --color-brand-accent-hover: #{$colorBrandAccentHover};
+    --color-brand-notice-rgb: #{$colorBrandNoticeRgb};
+    --color-brand-notice: rgb(var(--color-brand-notice-rgb));
+    --color-focus-ring: #{$colorFocusRing};
+
+    --color-nav-backdrop-rgb: 7 12 24;
+    --color-hero-overlay-start-rgb: 13 36 64;
+    --color-hero-overlay-end-rgb: 37 80 131;
+    --color-footer-muted-rgb: 223 232 244;
+    --color-footer-soft-rgb: 230 239 248;
+    --color-footer-meta-rgb: 200 211 226;
+
+    --fluid-base: clamp(18px, calc(16.287px + 0.476vw), 24px);
+    --fluid-body: var(--fluid-base);
+    --font-weight-thin: 100;
+    --font-weight-extralight: 200;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-strong: 700;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    --font-weight-black: 900;
+    --step--1: calc(var(--fluid-base) * 0.83);
+    --step-0: var(--fluid-base);
+    --step-1: calc(var(--fluid-base) * 1.2);
+    --step-2: calc(var(--fluid-base) * 1.44);
+    --step-3: calc(var(--fluid-base) * 1.73);
+    --step-4: calc(var(--fluid-base) * 2.07);
+    --step-5: calc(var(--fluid-base) * 2.49);
+    --lh-body: 1.38;
+    --lh-title: 1.15;
+    --type-body-size: var(--fluid-base);
+    --type-body-line: calc(var(--fluid-base) * 1.38);
+    --type-h1-size: calc(var(--fluid-base) * 3.333);
+    --type-h1-line: 1.1;
+    --type-h2-size: calc(var(--fluid-base) * 2.333);
+    --type-h2-line: 1.1;
+    --type-h3-size: calc(var(--fluid-base) * 1.667);
+    --type-h3-line: 1.2;
+    --type-h4-size: calc(var(--fluid-base) * 1.333);
+    --type-h4-line: 1.25;
+    --type-feature-h2-size: calc(var(--fluid-base) * 2);
+    --type-feature-h2-line: 1.1;
+    --type-feature-h3-size: calc(var(--fluid-base) * 1.458);
+    --type-feature-h3-line: 1.2;
+    --type-nav-size: calc(var(--fluid-base) * 1);
+    --type-nav-line: 1;
+    --type-label-size: calc(var(--fluid-base) * 0.833);
+    --type-label-line: 1.2;
+    --article-h1-size: 5rem;
+    --article-h1-line: 1.125;
+    --article-h2-size: 3.5rem;
+    --article-h2-line: 1;
+    --article-h3-size: 2.5rem;
+    --article-h3-line: 1.25;
+    --article-h4-size: 2rem;
+    --article-h4-line: 1.5625;
+    --article-body-size: 1.625rem;
+    --article-body-line: 2.25rem;
+    --article-list-size: 1.75rem;
+    --article-list-line: 2.875rem;
+    --article-quote-size: 1.5625rem;
+    --article-quote-line: 1.4;
+    --article-quote-author-size: 1.75rem;
+    --article-star-size: 1.875rem;
+    --article-divider-size: 2px;
+    --article-divider-opacity: var(--alpha-75);
+    --article-copy-max: 40.8125rem;
+    --article-quote-max: 34.8125rem;
+    --article-gallery-item-size: 17.5rem;
+    --article-gallery-gap: clamp(0.65rem, 2vw, 3.4375rem);
+    --article-media-width: 35.0625rem;
+    --article-media-aspect: 561 / 288;
+    --lightbox-z-index: 1200;
+    --lightbox-pad: clamp(0.75rem, 2vw, 1.5rem);
+    --lightbox-backdrop-alpha: 0.9;
+    --lightbox-dialog-max: 80rem;
+    --lightbox-image-inline-offset: 7rem;
+    --lightbox-image-inline-offset-mobile: 1.25rem;
+    --lightbox-image-block-offset: 8rem;
+    --lightbox-image-block-offset-mobile: 6.75rem;
+    --lightbox-nav-hitzone-width: 33.3333%;
+    --lightbox-nav-hitzone-min: 5rem;
+    --lightbox-nav-hitzone-min-mobile: 4rem;
+    --lightbox-chevron-size: clamp(2rem, 2.5vw, 2.75rem);
+    --lightbox-chevron-size-mobile: 1.9rem;
+    --lightbox-chevron-shift: 3px;
+    --lightbox-motion-duration: 220ms;
+    --lightbox-close-size: 3rem;
+    --lightbox-close-size-mobile: 2.4rem;
+    --lightbox-close-mobile-offset: 0.35rem;
+    --lightbox-count-font-mobile: 0.85rem;
+    --btn-hero-min-height: 3.125rem;
+    --btn-hero-min-width: 16.375rem;
+    --btn-hero-pad-inline: 2rem;
+    --btn-hero-radius: var(--radius-sm);
+    --btn-hero-font-size: 1.375rem;
+    --btn-hero-letter-spacing: 0.01em;
+    --btn-hero-font-size-mobile: 1rem;
+    --btn-hero-pad-inline-mobile: 1.25rem;
+    --home-hero-min-height: clamp(36rem, 48vw, 57.5625rem);
+    --home-hero-title-size: clamp(2.6rem, 3.7vw, 5rem);
+    --home-hero-summary-size: clamp(1.125rem, 1.1vw + 0.75rem, 2.125rem);
+    --home-hero-min-height-mobile: clamp(25rem, 72vh, 36rem);
+    --home-hero-title-size-mobile: clamp(1.9rem, 7.4vw, 3rem);
+    --home-hero-summary-size-mobile: clamp(1rem, 3.5vw, 1.35rem);
+    --home-industry-row-size: clamp(14rem, 20vw, 24rem);
+    --home-story-kicker-size: clamp(2rem, 1.1vw + 1.2rem, 2.85rem);
+    --home-story-title-size: clamp(1.4rem, 0.75vw + 1.05rem, 1.85rem);
+    --home-story-media-min-height: clamp(15rem, 29vw, 20rem);
+    --home-testimonial-heading-size: clamp(2rem, 1vw + 1.35rem, 3rem);
+    --home-testimonial-quote-size: clamp(1.2rem, 0.38vw + 1.02rem, 1.5625rem);
+    --home-testimonial-author-size: clamp(1.35rem, 0.3vw + 1.2rem, 1.75rem);
+    --color-state-warning: #ffcc00;
+    --color-state-success: #22c55e;
+    --color-state-critical: #dc2626;
+    --color-state-notice-error-bg: #ffeded;
+    --color-state-notice-attention-bg: #feefb3;
+    --color-state-notice-info-bg: #bde5f8;
+    --color-state-notice-success-bg: #dff2bf;
+    --color-ink-notice: #404040;
+
+    --h1-color: var(--color-brand-primary);
+    --h2-color: var(--color-brand-primary);
+    --h3-color: var(--color-brand-punch);
+    --h4-color: var(--color-ink-primary);
+
+    --space-2xs: clamp(0.35rem, 0.31rem + 0.2vw, 0.5rem);
+    --space-xs: clamp(0.5rem, 0.45rem + 0.25vw, 0.7rem);
+    --space-sm: clamp(0.75rem, 0.66rem + 0.5vw, 1rem);
+    --space-md: clamp(1rem, 0.88rem + 0.75vw, 1.5rem);
+    --space-lg: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+    --space-xl: clamp(2rem, 1.55rem + 2vw, 3.25rem);
+    --space-2xl: clamp(3rem, 2.3rem + 3vw, 4.75rem);
+
+    --radius-xs: #{$radiusXs};
+    --radius-sm: #{$radiusSm};
+    --radius-md: #{$radiusMd};
+    --radius-lg: #{$radiusLg};
+    --radius-max: #{$radiusMax};
+
+    --shadow-sm: 0 4px 16px rgb(var(--color-surface-inverse-rgb) / 0.1);
+    --shadow-md: 0 14px 36px rgb(var(--color-surface-inverse-rgb) / 0.18);
+
+    --surface-gradient-dark: linear-gradient(
+      180deg,
+      rgb(var(--color-ink-absolute-rgb) / 0.08) 0%,
+      rgb(var(--color-ink-absolute-rgb) / 0.28) 100%
+    );
+
+    --frame-max: #{$frameMax};
+    --frame-gutter: clamp(1rem, 1.3vw + 0.7rem, 2rem);
+    --region-space: var(--space-xl);
+    --breakpoint-wide: 1622px;
+    --nav-offset: #{$navOffset};
+    --sidebar-col: clamp(14rem, 25vw, 20rem);
+    --hero-max: #{$heroMax};
+    --hero-inline: clamp(1rem, 3vw, 3rem);
+    --hero-vspace: 0;
+    --hdr-notice-height: 20px;
+    --form-space-tight: var(--space-2xs);
+  }
+
+  @include vp-min($vp-xl) {
+    :root {
+      --frame-max: 100rem;
+      --hero-max: 100rem;
+    }
+  }
+}

@@ -24,6 +24,9 @@
 		<?php
 		echo $this->Html->canonical();
 		echo $this->Html->meta('icon');
+		echo '<link rel="icon" type="image/svg+xml" href="/favicon.svg">';
+		echo '<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">';
+		echo '<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">';
 		echo $this->fetch('meta');
 		// Additional metas should the site be employing the Blog plugin.
 		echo $this->element('metas');

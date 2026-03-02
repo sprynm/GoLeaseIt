@@ -15,7 +15,9 @@
     "css:arch:check": "node tools/check-css-architecture.mjs",
     "contracts:check": "node tools/check-publishing-contract.mjs",
     "visual:capture": "node tools/capture-style-guide.mjs",
-    "visual:compare": "node tools/compare-style-guide.mjs"
+    "visual:compare": "node tools/compare-style-guide.mjs",
+    "figma:pull": "node tools/figma-pull-controller.mjs pull-node",
+    "figma:status": "node tools/figma-pull-controller.mjs status"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.19",

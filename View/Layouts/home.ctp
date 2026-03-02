@@ -84,6 +84,7 @@ $processHeading = $getPageFieldValue('home_process_heading');
 $processBody = $getPageFieldValue('home_process_body');
 $processCtaText = $getPageFieldValue('home_process_cta_text');
 $processCtaLink = $getPageFieldValue('home_process_cta_link');
+$processLayoutVariant = $getPageFieldValue('home_process_layout');
 
 $storiesPrototypeId = (int) $getPageFieldValue('home_stories_instance_id');
 if ($storiesPrototypeId <= 0) {
@@ -156,6 +157,7 @@ echo $this->element('layout/home_masthead', array(
 			'introBody' => $processBody,
 			'introCtaText' => $processCtaText,
 			'introCtaLink' => $processCtaLink,
+			'layoutVariant' => $processLayoutVariant,
 		)); ?>
 	<?php endif; ?>
 

@@ -4,6 +4,7 @@ $introHeading = isset($introHeading) ? trim((string) $introHeading) : '';
 $introBody = isset($introBody) ? trim((string) $introBody) : '';
 $introCtaText = isset($introCtaText) ? trim((string) $introCtaText) : '';
 $introCtaLink = isset($introCtaLink) ? trim((string) $introCtaLink) : '';
+$layoutVariant = isset($layoutVariant) ? strtolower(trim((string) $layoutVariant)) : 'grid';
 
 if ($instanceId <= 0) {
 	return;
@@ -85,6 +86,15 @@ $resolveIconPath = function ($value) {
 
 	return '';
 };
+
+if (!in_array($layoutVariant, array('grid', 'rows', 'horizontal', 'horizontal-stacks', 'stacked-horizontal'), true)) {
+	$layoutVariant = 'grid';
+}
+
+$stepListClasses = array('process-steps');
+if (in_array($layoutVariant, array('rows', 'horizontal', 'horizontal-stacks', 'stacked-horizontal'), true)) {
+	$stepListClasses[] = 'process-steps--rows';
+}
 ?>
 <section class="u-surface-base">
 	<div class="c-container c-container--full">
@@ -103,7 +113,7 @@ $resolveIconPath = function ($value) {
 				<?php endif; ?>
 			</div>
 
-			<ol class="process-steps">
+			<ol class="<?php echo h(implode(' ', $stepListClasses)); ?>">
 				<?php foreach ($items as $index => $entry): ?>
 					<?php
 					$item = isset($entry['PrototypeItem']) ? $entry['PrototypeItem'] : array();

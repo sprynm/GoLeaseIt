@@ -17,6 +17,9 @@ _snapshots/
 /docs/customer images/*
 /docs/visual-regression/*
 /docs/design/go-lease-it-slice/*
+/docs/design/figma-context-cache/raw/
+/docs/design/figma-context-cache/summaries/
+/docs/design/figma-context-cache/pull-journal.jsonl
 
 !/tools/
 

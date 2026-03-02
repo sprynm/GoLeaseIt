@@ -38,9 +38,10 @@ Use this repo as a clean, reusable implementation baseline while delivering Go L
   4. document deployment via `docs/architecture/design-deployment-runbook.md`.
 - Figma MCP context budget rule:
   1. read `docs/design/figma-context-cache/go-lease-it-slice.cache.json` first,
-  2. avoid broad repeated full-page context pulls,
-  3. request `get_design_context` only for target node(s),
-  4. reseed full-file metadata only when structure has materially changed.
+  2. run `npm run figma:status` and targeted `npm run figma:pull -- --file-key <key> --node-id <id>` before MCP calls,
+  3. avoid broad repeated full-page context pulls,
+  4. request `get_design_context` only for target node(s),
+  5. reseed full-file metadata only when structure has materially changed.
 
 ## Validation Gate For Admin/Editor Workflow Changes
 - When the user specifies an implementation mechanism (for example "add RTE button that injects scaffold HTML"), do not substitute a different mechanism (for example dropdown/token picker) without explicit user approval.

@@ -37,6 +37,7 @@ $itemValue = function ($item, $keys) {
 				$body = $itemValue($item, array('description', 'text', 'summary'));
 				$ctaText = $itemValue($item, array('cta_text', 'cta_link_text'));
 				$ctaLink = $itemValue($item, array('cta_link', 'link', 'url'));
+				$hasCta = ($ctaLink !== '');
 				$imageAlt = ($image && !empty($image['alternative'])) ? trim((string) $image['alternative']) : $title;
 				$imageFirst = ($index % 2 === 0);
 				?>
@@ -57,7 +58,7 @@ $itemValue = function ($item, $keys) {
 						<?php if ($body !== ''): ?>
 							<p class="story-platter__body"><?php echo h($body); ?></p>
 						<?php endif; ?>
-						<?php if ($ctaText !== '' && $ctaLink !== ''): ?>
+						<?php if ($hasCta): ?>
 							<div>
 								<?php echo $this->Html->link($ctaText, $ctaLink, array('class' => 'btn btn--primary', 'escape' => false)); ?>
 							</div>

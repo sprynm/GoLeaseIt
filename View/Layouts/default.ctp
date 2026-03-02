@@ -18,6 +18,7 @@ $curTop = $this->Navigation->topCurrentItem();
 $subNav = null;
 $hasSubNav = false;
 $showSectionNav = false;
+$PrototypeInstance = ClassRegistry::init('Prototype.PrototypeInstance');
 
 $toBool = function ($value, $default) {
 	if ($value === null) {
@@ -44,6 +45,45 @@ $toBool = function ($value, $default) {
 	return (bool)$default;
 };
 
+$getPageFieldValue = function ($key) use ($page) {
+	if (isset($page['Page']) && is_array($page['Page']) && !empty($page['Page'][$key])) {
+		return trim((string) $page['Page'][$key]);
+	}
+
+	if (!empty($page['CustomFieldValue']) && is_array($page['CustomFieldValue'])) {
+		foreach ($page['CustomFieldValue'] as $fieldValue) {
+			if (!empty($fieldValue['key']) && $fieldValue['key'] === $key) {
+				return trim((string) (isset($fieldValue['val']) ? $fieldValue['val'] : ''));
+			}
+		}
+	}
+
+	return '';
+};
+
+$findPrototypeIdBySlug = function ($slug) use ($PrototypeInstance) {
+	$slug = trim((string) $slug);
+	if ($slug === '') {
+		return 0;
+	}
+
+	$instance = $PrototypeInstance->find('first', array(
+		'conditions' => array(
+			'PrototypeInstance.slug' => $slug,
+			'PrototypeInstance.deleted' => 0,
+		),
+		'fields' => array('PrototypeInstance.id'),
+		'recursive' => -1,
+		'cache' => true,
+	));
+
+	if (!empty($instance['PrototypeInstance']['id'])) {
+		return (int) $instance['PrototypeInstance']['id'];
+	}
+
+	return 0;
+};
+
 $sectionNavFieldValue = null;
 if (isset($page['Page']) && is_array($page['Page']) && array_key_exists('show_section_nav', $page['Page'])) {
 	$sectionNavFieldValue = $page['Page']['show_section_nav'];
@@ -68,6 +108,16 @@ if ($showSectionNav && isset($curTop['NavigationMenuItem']['id'])) {
 }
 
 $layoutClass = $hasSubNav ? 'c-sidebar' : 'c-stack';
+$interiorProcessPrototypeId = (int) $getPageFieldValue('process_steps_instance_id');
+if ($interiorProcessPrototypeId <= 0) {
+	$interiorProcessPrototypeId = $findPrototypeIdBySlug($getPageFieldValue('process_steps_instance_slug'));
+}
+
+$interiorProcessHeading = $getPageFieldValue('process_steps_heading');
+$interiorProcessBody = $getPageFieldValue('process_steps_body');
+$interiorProcessCtaText = $getPageFieldValue('process_steps_cta_text');
+$interiorProcessCtaLink = $getPageFieldValue('process_steps_cta_link');
+$interiorProcessLayout = $getPageFieldValue('process_steps_layout');
 
 ?>
 <div id="content" class="site-wrapper site-wrapper--default article-layout<?php echo !$hasBannerImage ? ' article-layout--no-banner' : ''; ?>">
@@ -85,6 +135,17 @@ $layoutClass = $hasSubNav ? 'c-sidebar' : 'c-stack';
 
 				echo $this->Session->flash();
 				echo $this->fetch('content');
+
+				if ($interiorProcessPrototypeId > 0) {
+					echo $this->element('home/process_steps', array(
+						'instanceId' => $interiorProcessPrototypeId,
+						'introHeading' => $interiorProcessHeading,
+						'introBody' => $interiorProcessBody,
+						'introCtaText' => $interiorProcessCtaText,
+						'introCtaLink' => $interiorProcessCtaLink,
+						'layoutVariant' => $interiorProcessLayout,
+					));
+				}
 				?>
 			</main>
 

@@ -6,12 +6,23 @@ echo $this->element('layout/body_masthead', array(
 	'page' => isset($page) ? $page : array(),
 	'pageHeading' => isset($pageHeading) ? $pageHeading : '',
 ));
+
+$bannerData = isset($banner) ? $banner : array();
+$hasBannerImage = isset($bannerData['Image'][0]) && !empty($bannerData['Image'][0]);
+$heroHeading = isset($pageHeading) ? trim((string)$pageHeading) : '';
+if ($heroHeading === '' && isset($page['Page']['name'])) {
+	$heroHeading = trim((string)$page['Page']['name']);
+}
 ?>
-<div id="content" class="site-wrapper site-wrapper--default">
-	<div class="c-container cq-main c-region">
+<div id="content" class="site-wrapper site-wrapper--default article-layout<?php echo !$hasBannerImage ? ' article-layout--no-banner' : ''; ?>">
+	<div class="c-container c-container--article cq-main c-region">
 		<div class="c-stack">
-			<main class="contact layout-main">
+			<main class="contact layout-main layout-default article-body article-layout__body">
 				<?php
+				if (!$hasBannerImage && $heroHeading !== '') {
+					echo '<h1>' . h($heroHeading) . '</h1>';
+				}
+
 				if (!empty($pageIntro)) {
 					echo $this->Html->div('layout-rail', $pageIntro);
 				}

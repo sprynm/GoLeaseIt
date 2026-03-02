@@ -116,8 +116,7 @@
   .section-industries .industry-grid {
     display: grid;
     gap: var(--space-lg);
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, var(--home-industry-row-size));
+    grid-template-columns: 1fr;
   }
 
   /* Text tile */
@@ -129,6 +128,32 @@
     align-content: start;
     gap: var(--space-sm);
     padding: var(--space-md) var(--space-lg);
+  }
+
+  .section-industries .industry-grid__intro,
+  .section-industries .tile--industry {
+    min-block-size: clamp(16rem, 32vw, 22rem);
+  }
+
+  @include vp-min($vp-sm) {
+    .section-industries .industry-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .section-industries .industry-grid__intro {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @include vp-min($vp-lg) {
+    .section-industries .industry-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(var(--home-industry-row-size), auto));
+    }
+
+    .section-industries .industry-grid__intro {
+      grid-column: auto;
+    }
   }
 
   @include vp-max($vp-md - 0.01rem) {
@@ -159,9 +184,15 @@
   .section-industries .industry-grid__intro-content {
     position: relative;
     z-index: 2;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: var(--space-sm);
-    align-content: start;
+    min-block-size: 100%;
+    align-items: flex-start;
+  }
+
+  .section-industries .industry-grid__intro-content .btn {
+    margin-top: auto;
   }
 
   .section-industries .industry-grid__intro-media,
@@ -188,24 +219,6 @@
     );
   }
 
-  .section-industries .industry-grid__intro h2 {
-    font-family: var(--font-display);
-    font-size: var(--type-h2-size);
-    color: var(--color-brand-primary);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--type-h2-line);
-  }
-
-  .section-industries .industry-grid__intro p {
-    font-size: var(--step--1);
-    line-height: 1.5;
-  }
-
-  .section-industries .industry-grid__intro--with-bg h2,
-  .section-industries .industry-grid__intro--with-bg p {
-    color: var(--color-ink-on-dark);
-  }
-
   /* Industry tile modifier */
   .tile--industry {
     box-shadow: none;
@@ -229,11 +242,30 @@
 
   .tile--industry .tile__heading {
     font-family: var(--font-display);
-    font-size: var(--type-h3-size);
+    font-size: clamp(1.5rem, 0.9rem + 1.7vw, var(--type-h3-size));
     font-weight: var(--font-weight-bold);
     letter-spacing: 0.01em;
     line-height: var(--type-h3-line);
     text-transform: none;
+  }
+
+  @include vp-max($vp-sm - 0.01rem) {
+    .section-industries .industry-grid {
+      gap: var(--space-md);
+    }
+
+    .section-industries .industry-grid__intro,
+    .section-industries .tile--industry {
+      min-block-size: 14rem;
+    }
+
+    .tile--industry .tile__content {
+      padding: var(--space-sm);
+    }
+
+    .tile--industry .tile__heading {
+      font-size: clamp(1.35rem, 3.4vw + 0.8rem, 2rem);
+    }
   }
 
   /* ─── Stories platters: alternating content/media layout ─── */

@@ -23,7 +23,7 @@ if (!is_array($items) || empty($items)) {
 }
 ?>
 <section class="u-surface-muted">
-	<div class="c-container c-container--full">
+	<div class="c-container">
 		<div class="home-why home-why--testimonials home-region">
 			<div class="home-why__intro">
 				<?php if ($introHeading !== ''): ?>

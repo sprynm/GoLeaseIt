@@ -41,7 +41,7 @@
   }
 
   .c-container > * {
-    grid-column: content;
+    grid-column: content-start / content-end;
     min-width: 0;
   }
 

@@ -15,7 +15,7 @@ if ($heroHeading === '' && isset($page['Page']['name'])) {
 }
 ?>
 <div id="content" class="site-wrapper site-wrapper--default article-layout<?php echo !$hasBannerImage ? ' article-layout--no-banner' : ''; ?>">
-	<div class="c-container c-container--article cq-main c-region">
+	<div class="c-container c-container--full cq-main c-region">
 		<div class="c-stack">
 			<main class="contact layout-main layout-default article-body article-layout__body">
 				<?php

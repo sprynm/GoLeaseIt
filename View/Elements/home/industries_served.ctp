@@ -214,7 +214,7 @@ if ($introBody === '' && !empty($instanceRecord['PrototypeInstance']['descriptio
 $hasIntroContent = ($introHeading !== '' || $introBody !== '' || ($introCtaText !== '' && $introCtaLink !== ''));
 ?>
 <section class="<?php echo h($sectionClasses); ?>">
-	<div class="c-container c-container--full">
+	<div class="c-container">
 		<div class="industry-grid">
 			<div class="industry-grid__intro<?php echo $introBackgroundImage ? ' industry-grid__intro--with-bg' : ''; ?>">
 				<?php if ($introBackgroundImage): ?>

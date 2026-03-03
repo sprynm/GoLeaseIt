@@ -20,7 +20,6 @@
     }
   }
 
-  .process-intro > * { margin: 0; }
   .process-intro__heading {
     display: grid;
     gap: var(--space-sm);
@@ -28,19 +27,15 @@
     max-width: 22rem;
   }
 
-  .process-intro__heading h2 {
+  .process-intro__title {
     margin: 0;
-    color: var(--color-brand-primary);
     font-size: clamp(2rem, 1.1vw + 1.45rem, 3rem);
     line-height: 1.06;
-    font-weight: var(--font-weight-bold);
-    font-family: var(--font-display);
   }
 
   .process-intro__body {
     margin: 0;
     max-width: 52ch;
-    font-size: var(--step-1);
     line-height: 1.45;
   }
 

@@ -5,6 +5,8 @@ $introBody = isset($introBody) ? trim((string) $introBody) : '';
 $introCtaText = isset($introCtaText) ? trim((string) $introCtaText) : '';
 $introCtaLink = isset($introCtaLink) ? trim((string) $introCtaLink) : '';
 $layoutVariant = isset($layoutVariant) ? strtolower(trim((string) $layoutVariant)) : 'grid';
+$hasIntroHeading = ($introHeading !== '' || ($introCtaText !== '' && $introCtaLink !== ''));
+$hasIntro = ($hasIntroHeading || $introBody !== '');
 
 if ($instanceId <= 0) {
 	return;
@@ -97,21 +99,25 @@ if (in_array($layoutVariant, array('rows', 'horizontal', 'horizontal-stacks', 's
 }
 ?>
 <section class="u-surface-base">
-	<div class="c-container c-container--full">
+	<div class="c-container">
 		<div class="home-region">
-			<div class="process-intro">
-				<div class="process-intro__heading">
-					<?php if ($introHeading !== ''): ?>
-						<h2><?php echo h($introHeading); ?></h2>
+			<?php if ($hasIntro): ?>
+				<div class="process-intro">
+					<?php if ($hasIntroHeading): ?>
+						<div class="process-intro__heading">
+							<?php if ($introHeading !== ''): ?>
+								<h2 class="process-intro__title u-font-display u-text-brand-primary"><?php echo h($introHeading); ?></h2>
+							<?php endif; ?>
+							<?php if ($introCtaText !== '' && $introCtaLink !== ''): ?>
+								<?php echo $this->Html->link($introCtaText, $introCtaLink, array('class' => 'btn btn--primary', 'escape' => false)); ?>
+							<?php endif; ?>
+						</div>
 					<?php endif; ?>
-					<?php if ($introCtaText !== '' && $introCtaLink !== ''): ?>
-						<?php echo $this->Html->link($introCtaText, $introCtaLink, array('class' => 'btn btn--primary', 'escape' => false)); ?>
+					<?php if ($introBody !== ''): ?>
+						<div class="process-intro__body rte u-step-1"><?php echo $introBody; ?></div>
 					<?php endif; ?>
 				</div>
-				<?php if ($introBody !== ''): ?>
-					<div class="process-intro__body rte"><?php echo $introBody; ?></div>
-				<?php endif; ?>
-			</div>
+			<?php endif; ?>
 
 			<ol class="<?php echo h(implode(' ', $stepListClasses)); ?>">
 				<?php foreach ($items as $index => $entry): ?>

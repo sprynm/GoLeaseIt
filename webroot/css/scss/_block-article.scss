@@ -205,6 +205,10 @@
     max-inline-size: 100%;
     margin: 0 0 var(--space-lg) var(--space-lg);
     margin-right: 0;
+    padding: clamp(0.85rem, 1.4vw, 1.15rem);
+    border: 1px solid rgb(var(--color-brand-primary-rgb) / var(--alpha-16));
+    border-radius: var(--radius-lg);
+    background: rgb(var(--color-brand-primary-rgb) / 0.03);
   }
 
   .article-callout > * {

@@ -101,11 +101,9 @@ Prototype requirement for both base variants:
 <section class="article-split article-split--media">
   <h2>Heading 2</h2>
   <aside class="article-callout article-callout--media">
-    <figure class="article-media-card">
-      <a href="/media/filter/large/img/example.jpg" data-lightbox='type:image;group:article-callout;caption:"Descriptive caption"'>
-        <img class="article-inline-image" src="/media/filter/large/img/example.jpg" alt="Descriptive alt text">
-      </a>
-    </figure>
+    <a href="/media/filter/large/img/example.jpg" data-lightbox='type:image;group:article-callout;caption:"Descriptive caption"'>
+      <img class="article-inline-image" src="/media/filter/large/img/example.jpg" alt="Descriptive alt text">
+    </a>
   </aside>
   <p>Body copy that wraps around the image callout...</p>
 </section>

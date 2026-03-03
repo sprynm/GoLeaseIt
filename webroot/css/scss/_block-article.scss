@@ -217,7 +217,16 @@
 
   .article-callout--media {
     --article-callout-width: var(--article-media-width);
+    width: fit-content;
+    max-width: min(var(--article-callout-width), 100%);
     margin-bottom: var(--space-md);
+  }
+
+  .article-callout--media > a,
+  .article-callout--media > img {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
   }
 
   .article-quote {
@@ -278,17 +287,10 @@
     font-weight: var(--font-weight-strong);
   }
 
-  .article-media-card {
-    margin: 0;
-    width: 100%;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    overflow: clip;
-  }
-
-  .article-media-card img {
+  .article-callout--media img {
     display: block;
-    inline-size: 100%;
+    inline-size: auto;
+    max-inline-size: 100%;
     block-size: auto;
     aspect-ratio: var(--article-media-aspect);
     object-fit: cover;
@@ -339,7 +341,9 @@
       max-inline-size: none;
     }
 
-    .article-media-card {
+    .article-callout--media,
+    .article-callout--media > a,
+    .article-callout--media > img {
       margin-inline: 0 auto;
       max-inline-size: 100%;
     }

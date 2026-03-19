@@ -1,0 +1,12 @@
+{
+	"Plugins": 
+	{
+		"Blog": 
+		{
+			"name": "Blog",
+			"description": "Provides an easy to set up blog.",
+			"since": "1.0",
+			"schemaVersion": 4
+		}
+	}
+}

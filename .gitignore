@@ -37,6 +37,29 @@ _snapshots/
 /Plugin/Prototype/CorePlugin/View/PrototypeItems/*
 !/Plugin/Prototype/CorePlugin/View/PrototypeItems/admin_edit.ctp
 
+# expose select Blog plugin files for Success Stories work
+!/Plugin/Blog/
+/Plugin/Blog/*
+!/Plugin/Blog/CorePlugin/
+/Plugin/Blog/CorePlugin/*
+!/Plugin/Blog/CorePlugin/Config/
+/Plugin/Blog/CorePlugin/Config/*
+!/Plugin/Blog/CorePlugin/Config/plugin.json
+!/Plugin/Blog/CorePlugin/Controller/
+/Plugin/Blog/CorePlugin/Controller/*
+!/Plugin/Blog/CorePlugin/Controller/CmsBlogPostsController.php
+!/Plugin/Blog/CorePlugin/Lib/
+/Plugin/Blog/CorePlugin/Lib/*
+!/Plugin/Blog/CorePlugin/Lib/BlogActivation.php
+!/Plugin/Blog/CorePlugin/Model/
+/Plugin/Blog/CorePlugin/Model/*
+!/Plugin/Blog/CorePlugin/Model/CmsBlogTag.php
+!/Plugin/Blog/CorePlugin/View/
+/Plugin/Blog/CorePlugin/View/*
+!/Plugin/Blog/CorePlugin/View/BlogPosts/
+/Plugin/Blog/CorePlugin/View/BlogPosts/*
+!/Plugin/Blog/CorePlugin/View/BlogPosts/view.ctp
+
 # expose select ReCaptcha callback files
 !/Plugin/ReCaptcha
 /Plugin/ReCaptcha/*

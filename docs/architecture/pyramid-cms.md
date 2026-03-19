@@ -221,6 +221,30 @@ Practical meaning:
 
 This is used to create “pages” that actually run a controller action (e.g., a custom page type) instead of the default WYSIWYG page.
 
+### Plugin-Backed Page Shell Pattern
+Use this pattern when a plugin owns the public route, but editors still need normal Page-managed presentation fields such as:
+- banner image
+- head title
+- meta description
+- layout selection
+
+How it works:
+1. Create a Page record for the section.
+2. In the Page's **Super Admin** tab, map the page to the plugin action:
+   - `Plugin`
+   - `Controller`
+   - `Action`
+   - optional `Extra`
+3. Attach the banner image and any other Page-managed metadata to that Page.
+4. Let the plugin controller render the content while `CmsPageSettingsComponent` supplies `_page` and `banner` context to the layout.
+
+Important distinction:
+- placing a normal tree page at the same URL is not enough when the plugin route claims that path first
+- the Page must be action-mapped if it is meant to act as the metadata/layout shell for the plugin output
+
+Observed use case:
+- `Blog -> blog_posts/index` can use a mapped Page record to supply the `Success Stories` landing-page masthead while the Blog plugin still renders the listing content
+
 ### Internal Name (Observed)
 UI note in the admin view indicates that **Internal Name is shown in the admin page index**.  
 It is useful for human‑friendly labels that don’t affect the public URL.

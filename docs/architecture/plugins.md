@@ -99,6 +99,28 @@ Practical interpretation:
 2. Admin-only edits can be acceptable for project-specific overrides, but they should not silently replace the documented canonical model for a core plugin.
 3. If a plugin has accumulated stale attachment versions, seed data, or settings, prefer a deliberate reset/refresh plan over layering another exception onto the old set.
 
+## 6b. Plugin Route With Page-Managed Chrome
+
+Some sections are plugin-rendered on the frontend but still need Page-managed presentation controls.
+
+Preferred pattern:
+1. Keep the plugin route/controller responsible for the content.
+2. Create a mapped Page record for the same controller/action.
+3. Use that Page for:
+   - banner image
+   - layout
+   - title/meta shell
+4. Let `CmsPageSettingsComponent` bridge the Page data into the plugin request.
+
+Use this when:
+1. editors need banner control in normal Pages UI
+2. the route is already owned by a plugin
+3. replacing the plugin with a normal Page would be the wrong abstraction
+
+Example:
+1. `Blog / blog_posts / index` rendered at `/success-stories/`
+2. a mapped Page record provides the landing-page hero/banner and metadata
+
 ## 7. Recommended Working Method
 
 1. Start with the smallest viable tool:

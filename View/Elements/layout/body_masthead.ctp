@@ -2,6 +2,9 @@
 $bannerData = isset($banner) ? $banner : array();
 $pageData = isset($page) ? $page : array();
 $pageHeading = isset($pageHeading) ? trim($pageHeading) : '';
+$heroImageVersion = isset($heroImageVersion) && $heroImageVersion !== '' ? $heroImageVersion : 'banner-fhdl';
+$heroImageWidth = isset($heroImageWidth) ? (int)$heroImageWidth : 1980;
+$heroImageHeight = isset($heroImageHeight) ? (int)$heroImageHeight : 300;
 
 $hasBannerImage = isset($bannerData['Image'][0]) && !empty($bannerData['Image'][0]);
 $bannerImage = $hasBannerImage ? $bannerData['Image'][0] : array();
@@ -35,11 +38,11 @@ if ($shouldRenderHero):
 	<?php if ($hasBannerImage): ?>
 		<div class="page-hero__image-bg">
 			<picture>
-				<source srcset="<?php echo $this->Media->getImage($bannerImage, array('version' => 'banner-fhdl')); ?>" media="(min-width: 1441px)">
+				<source srcset="<?php echo $this->Media->getImage($bannerImage, array('version' => $heroImageVersion)); ?>" media="(min-width: 1441px)">
 				<source srcset="<?php echo $this->Media->getImage($bannerImage, array('version' => 'banner-med')); ?>" media="(min-width: 801px)">
 				<source srcset="<?php echo $this->Media->getImage($bannerImage, array('version' => 'banner-sm')); ?>" media="(min-width: 641px)">
 				<source srcset="<?php echo $this->Media->getImage($bannerImage, array('version' => 'banner-xsm')); ?>">
-				<img src="<?php echo $this->Media->getImage($bannerImage, array('version' => 'banner-fhdl')); ?>" width="1980" height="300" alt="<?php echo h($heroAlt); ?>" loading="lazy" decoding="async">
+				<img src="<?php echo $this->Media->getImage($bannerImage, array('version' => $heroImageVersion)); ?>" width="<?php echo $heroImageWidth; ?>" height="<?php echo $heroImageHeight; ?>" alt="<?php echo h($heroAlt); ?>" loading="lazy" decoding="async">
 			</picture>
 		</div>
 	<?php endif; ?>

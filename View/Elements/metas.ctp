@@ -34,9 +34,10 @@ else :
 // (isset($category['PrototypeCategory']) && !empty($category['PrototypeCategory']))
 endif;
 //
+$ogImageVersion = isset($ogImageVersion) && $ogImageVersion !== '' ? $ogImageVersion : 'banner-lrg';
 if (!empty($banner['Image'][0])) :
 ?>
-	<meta property="og:image" content="<?php echo rtrim(Router::url('/', true), '/'). $this->Media->path($banner['Image'][0], 'banner-lrg'); ?>">
+	<meta property="og:image" content="<?php echo rtrim(Router::url('/', true), '/'). $this->Media->path($banner['Image'][0], $ogImageVersion); ?>">
 <?php //
 // (!empty($banner['Image'][0]))
 else :

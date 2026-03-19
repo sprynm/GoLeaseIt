@@ -77,6 +77,28 @@ Before using a custom plugin for live publishing:
 7. Document data contract and admin workflow.
 8. Add QA checks for publish states, access control, and cache behavior.
 
+## 6a. Core Plugin Data Model Refresh Strategy
+
+When changing a core plugin's editorial data model, do not let activation data drift through one-off additions forever.
+
+Preferred strategy:
+1. Decide whether the change is minor or structural.
+2. For structural changes, write down the full desired activation state first:
+   - attachment versions
+   - default settings
+   - seed/default records
+   - permissions
+   - required custom fields
+3. Treat that list as the new canonical plugin activation payload.
+4. Update the plugin activation class to reflect the fresh target state, not just the latest incremental patch.
+5. Use schema-version update handlers only for migration steps needed by already-installed sites.
+6. Keep runtime bootstraps and ad hoc template logic out of long-term data-model provisioning when activation/update flow is the real source of truth.
+
+Practical interpretation:
+1. `Config/plugin.json` + `Lib/<Plugin>Activation.php` define the intended install/update contract.
+2. Admin-only edits can be acceptable for project-specific overrides, but they should not silently replace the documented canonical model for a core plugin.
+3. If a plugin has accumulated stale attachment versions, seed data, or settings, prefer a deliberate reset/refresh plan over layering another exception onto the old set.
+
 ## 7. Recommended Working Method
 
 1. Start with the smallest viable tool:

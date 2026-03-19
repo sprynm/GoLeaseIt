@@ -141,3 +141,9 @@ Config/database.php
 docs/visual-regression/current/desktop-full.png
 webroot/css/style-guide.css
 webroot/css/stylesheet.css
+
+*PrototypeCategories*
+*PrototypeItems*
+Plugin/Prototype/View/home-process-steps/PrototypeInstances/view.ctp
+Plugin/Prototype/View/home-stories/PrototypeInstances/view.ctp
+Plugin/Prototype/View/home-testimonials/PrototypeInstances/view.ctp

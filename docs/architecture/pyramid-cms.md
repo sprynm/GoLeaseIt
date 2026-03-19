@@ -100,6 +100,17 @@ Key routing fields:
   - Pages: `Page hasMany Image` with `group = 'Image'` and `model = 'Page'`.
   - Settings: `CmsSettingsHelper` displays existing `Image` or `Document` attachments.
 
+### Core Plugin Activation Strategy
+- Core plugin activation classes are the canonical place for install-time and schema-update provisioning:
+  - attachment versions
+  - settings defaults
+  - permissions
+  - seed records
+- For major changes to a core plugin data model, prefer defining a fresh target activation state and then migrating installed sites toward it.
+- Avoid relying on scattered runtime bootstraps or template-only assumptions as the long-term source of truth for plugin data model changes.
+- Use schema-version bumps for upgrade steps on already-installed sites; do not assume editing an activation class alone changes a live site.
+- For media-heavy plugins such as Blog, attachment version changes should be treated as part of that activation/update contract, followed by version regeneration for existing assets.
+
 ## Prototype System (Observed)
 - Core prototype templates live in `Plugin/Prototype/CorePlugin/View/...`.
 - Site-level overrides live in `Plugin/Prototype/View/<slug>/...` and are created when a prototype is installed.

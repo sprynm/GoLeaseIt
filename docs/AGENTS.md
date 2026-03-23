@@ -30,7 +30,14 @@ Use this repo as a clean, reusable implementation baseline while delivering Go L
 - Keep client-specific business direction in `client-information.md` and page content.
 - Prefer small, reversible edits and validate with local build/lint checks.
 - Do not edit compiled or build artifacts directly (for example `webroot/css/stylesheet.css`).
-- Preserve design-system consistency across all changes; avoid ad hoc visual patterns.
+- CSS style-guide-first rule: read `_theme.scss`, `_utilities.scss`, and `_base.scss` before writing any CSS. Reuse tokens and utilities; only add new declarations for what genuinely doesn't exist. Never hardcode values that are available as design tokens. This is a gate, not a guideline.
+- Frontend implementation preflight is mandatory before adding CSS or changing templates with visual impact:
+  1. identify the existing style-guide/component pattern being reused,
+  2. list the utilities/tokens/containers already covering the need,
+  3. justify every new selector that is not layout glue or state glue,
+  4. do not introduce bespoke type scales unless explicitly approved.
+- Frontend reset rule: if a visual task requires more than two corrective styling passes, stop, re-audit the style guide and architecture docs, and simplify before making more changes.
+- Frontend review gate: if new CSS introduces bespoke font-size, line-height, color, or spacing treatment where an existing token, utility, or block pattern already exists, treat that as a defect to remove before calling the task complete.
 - Use the design delivery workflow in `docs/architecture/design-delivery-workflow.md`:
   1. iterate in full-page preview,
   2. migrate to reusable style-guide/system,

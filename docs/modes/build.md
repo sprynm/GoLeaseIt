@@ -14,6 +14,8 @@ Goal: implement code changes in the correct runtime layers and file ownership bo
 3. `docs/architecture/system-overview.md`
 4. `docs/architecture/pyramid-cms.md`
 5. `docs/javascript/index.md`
+6. CSS gate: `docs/architecture/frontend-structure.md` line 58 — compositions/utilities before new block classes. Non-negotiable.
+7. Frontend guardrail: follow the mandatory preflight and reset rules in `docs/AGENTS.md` before visual implementation work. Reuse existing patterns first; bespoke visual styling without explicit approval is a defect, not a shortcut.
 
 ## Key Layout Entry Points
 1. Layouts: `View/Layouts/` (`default.ctp`, `home.ctp`, `contact.ctp`, `offline.ctp`).

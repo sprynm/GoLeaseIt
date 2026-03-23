@@ -34,7 +34,7 @@ $estimated_time	= $this->BlogPost->estimatedReadTime($blogPost);
 		<?php endif; ?>
 		<div class="blog-footer-buttons">
 			<?php echo $this->SocialMedia->socialMediaButtons('blog'); ?>
-			<a href="javascript:if(window.print)window.print()" class="print">Print</a>
+			<a href="javascript:if(window.print)window.print()" class="btn btn--secondary btn-sm u-btn-no-icon">Print</a>
 		</div>
 		<?php 
 		if ( !empty($blogPost['BlogCategory']) || !empty($blogPost['BlogTag']) ): 
@@ -44,10 +44,9 @@ $estimated_time	= $this->BlogPost->estimatedReadTime($blogPost);
 				<div class="categories">
 					<strong>Categories:</strong> 
 					<?php 
-					foreach ($blogPost['BlogCategory'] as $i => $blogCategory):
-						$class = $this->BlogPost->getCategoryClass(array("BlogCategory"=>$blogCategory ));
+					foreach ($blogPost['BlogCategory'] as $blogCategory):
 						?>
-						<a class="button <?php echo $class; ?>" href="<?php echo $blogCategory['url']; ?>" itemprop="keywords"><?php echo $blogCategory['name']; ?></a>
+						<a class="btn btn--secondary btn-sm u-btn-no-icon" href="<?php echo $blogCategory['url']; ?>" itemprop="keywords"><?php echo $blogCategory['name']; ?></a>
 						<?php 
 					endforeach;
 					?>
@@ -58,9 +57,9 @@ $estimated_time	= $this->BlogPost->estimatedReadTime($blogPost);
 				<div class="tags">
 					<strong>Tags:</strong> 
 					<?php 
-					foreach ($blogPost['BlogTag'] as $i => $blogTag):
+					foreach ($blogPost['BlogTag'] as $blogTag):
 					?>
-						<a class="button" href="<?php echo $blogTag['url']; ?>" itemprop="keywords"><?php echo $blogTag['name']; ?></a><?php echo ($i != count($blogPost['BlogTag']) - 1 ? ', ' : ''); ?>
+						<a class="btn btn--secondary btn-sm u-btn-no-icon" href="<?php echo $blogTag['url']; ?>" itemprop="keywords"><?php echo $blogTag['name']; ?></a>
 					<?php 
 					endforeach;
 					?>

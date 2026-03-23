@@ -4,7 +4,8 @@ This document maps the block‑level SCSS files to the components/sections they 
 
 ## Block Files
 - `_block-breadcrumbs.scss` — breadcrumb UI.
-- `_block-article.scss` — interior/article layout typography, no-banner page variant (`.article-layout--no-banner`), split-callout/media blocks, and gallery strip behavior.
+- `_block-article-layout.scss` — shared interior/article page shell: article layout spacing, long-form typography rhythm, no-banner variant (`.article-layout--no-banner`), split-callout/media blocks, gallery strip behavior, and page lead-in spacing.
+- `_block-article.scss` — incremental Success Stories/blog styles: featured/listing story layouts plus blog-detail footer/comment wrappers that sit inside the shared article shell.
 - `_block-content.scss` — CMS content styling (typography inside `main`, rich text elements).
 - `_block-cta-band.scss` — shared bottom CTA section (`.cta-band`, `.cta-band--article`).
 - `_block-footer.scss` — site footer.

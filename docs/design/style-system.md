@@ -67,3 +67,20 @@ These are short, durable rules for styling and layout consistency.
 - Do not reintroduce broad global component selectors where block roots exist.
 - Avoid one-off values in components when an equivalent token exists.
 - Keep exception styles narrowly scoped and easy to remove.
+
+## Lessons Learned
+- Classify before styling. For any new section, first separate:
+  - shared page shell
+  - shared component paint
+  - section-specific composition
+  Only the last category should live in the section block.
+- Do not let a feature block own a page type. If a section renders inside the same shell as plain content pages, put shell rules in a shared article/content partial and keep the feature block incremental.
+- Shared primitives must live in shared layers. If something is reused outside its original surface, move it:
+  - kickers/eyebrows into utilities or a shared component layer
+  - card paint into a shared utility/component
+  - article/page rhythm into a shared article/content layer
+- Prefer composition overrides over local paint. Feature blocks should describe layout, ordering, and spacing before introducing new backgrounds, shadows, radii, or colors.
+- Hardcoded values are a design-system smell. If a color, radius, or spacing value feels “special,” create or reuse a semantic token instead of freezing it in a block.
+- Reuse global components in templates early. It is cheaper to render `.btn`, shared kickers, or shared cards directly in markup than to recreate their appearance later in SCSS.
+- Keep responsive intent explicit. Similar-looking breakpoint blocks are not duplicates unless their ranges actually overlap. Verify token values before collapsing them.
+- Do not hide shared behavior inside prototype-only stylesheets. If a pattern is useful beyond one prototype or page family, move it out immediately to avoid accidental dependencies.

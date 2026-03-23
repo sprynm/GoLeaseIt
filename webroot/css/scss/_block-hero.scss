@@ -74,19 +74,6 @@
     color: rgb(var(--white-rgb) / var(--alpha-85));
   }
 
-  .page-hero__summary {
-    max-width: 62ch;
-    color: rgb(var(--white-rgb) / var(--alpha-95));
-  }
-
-  .page-hero__summary > :first-child {
-    margin-top: 0;
-  }
-
-  .page-hero__summary > :last-child {
-    margin-bottom: 0;
-  }
-
   .page-hero__actions {
     display: flex;
     flex-wrap: wrap;
@@ -142,11 +129,6 @@
     letter-spacing: 0;
     text-shadow: 0 4px 4px rgb(0 0 0 / var(--alpha-25));
     max-width: min(1216px, 100%);
-  }
-
-  .page-hero--single .page-hero__summary {
-    max-width: 40ch;
-    margin-inline: auto;
   }
 
   .page-hero--single .page-hero__actions {

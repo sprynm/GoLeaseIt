@@ -14,6 +14,13 @@ class CmsBlogPostsController extends BlogAppController {
 	public $helpers = array('Text');
 
 /**
+ * Cached custom field values for the mapped shell page.
+ *
+ * @var array|null
+ */
+	protected $_pageCustomFieldValues = null;
+
+/**
  * beforeRender
  *
  * @return void
@@ -57,6 +64,83 @@ class CmsBlogPostsController extends BlogAppController {
 				, $this->viewVars['_page']['Page']['title'] . ' ' . $title_separator . ' ' . $name . ' ' . $title_separator . ' ' . $common_head_title
 			);
 		}
+	}
+
+/**
+ * Return mapped page custom fields keyed by field name.
+ *
+ * @return array
+ */
+	protected function _getPageCustomFieldValues() {
+		if ($this->_pageCustomFieldValues !== null) {
+			return $this->_pageCustomFieldValues;
+		}
+
+		$this->_pageCustomFieldValues = array();
+
+		$pageId = (int)Hash::get($this->viewVars, '_page.Page.id', 0);
+		if ($pageId <= 0) {
+			return $this->_pageCustomFieldValues;
+		}
+
+		$CustomFieldValue = ClassRegistry::init('CustomFields.CustomFieldValue');
+		$fieldValues = $CustomFieldValue->find('all', array(
+			'conditions' => array(
+				'CustomFieldValue.model' => 'Page',
+				'CustomFieldValue.foreign_key' => $pageId,
+			),
+			'fields' => array('CustomFieldValue.key', 'CustomFieldValue.val'),
+			'recursive' => -1,
+		));
+
+		foreach ((array)$fieldValues as $fieldValue) {
+			$key = trim((string)Hash::get($fieldValue, 'CustomFieldValue.key', ''));
+			if ($key === '') {
+				continue;
+			}
+
+			$this->_pageCustomFieldValues[$key] = trim((string)Hash::get($fieldValue, 'CustomFieldValue.val', ''));
+		}
+
+		return $this->_pageCustomFieldValues;
+	}
+
+/**
+ * Read a single mapped page custom field value.
+ *
+ * @param string $key Custom field key.
+ * @return string
+ */
+	protected function _getPageCustomFieldValue($key) {
+		$values = $this->_getPageCustomFieldValues();
+		return isset($values[$key]) ? $values[$key] : '';
+	}
+
+/**
+ * Build plain-text and limited-HTML variants of a blog heading template.
+ *
+ * @param string $pageFieldKey Shell page custom field key.
+ * @param string $settingKey Global setting fallback key.
+ * @param string $default Default template.
+ * @param array $replacements Placeholder replacements.
+ * @return array
+ */
+	protected function _buildHeaderTemplateVariants($pageFieldKey, $settingKey, $default, $replacements) {
+		$template = trim((string)$this->_getPageCustomFieldValue($pageFieldKey));
+		if ($template === '') {
+			$template = trim((string)Configure::read($settingKey));
+		}
+		if ($template === '') {
+			$template = $default;
+		}
+
+		$template = html_entity_decode($template, ENT_QUOTES, 'UTF-8');
+		$html = strtr($template, $replacements);
+		$html = trim(preg_replace('/^\s*<p>(.*?)<\/p>\s*$/is', '$1', $html));
+		$html = strip_tags($html, '<span><i><em><strong><br>');
+		$plain = trim(preg_replace('/\s+/', ' ', strip_tags($html)));
+
+		return array($plain, $html);
 	}
 
 /**
@@ -271,6 +355,8 @@ class CmsBlogPostsController extends BlogAppController {
 		if (!empty($this->viewVars['_page']['Page']['title'])) {
 			$title = $this->viewVars['_page']['Page']['title'];
 		}
+
+		$titleHtml = $title;
 		
 		//add in conditions for a specific category
 		if (!empty($this->params->named['category'])){
@@ -284,13 +370,15 @@ class CmsBlogPostsController extends BlogAppController {
 			//merge in the joins properly
 			$options['joins'] = am($joins, $categoryOptions['joins']);
 			
-			$categorizedText = "Categorized Under %BLOG_CATEGORY%";
-			
-			if (Configure::read('Settings.Blog.category_header_template')){
-				$categorizedText = Configure::read('Settings.Blog.category_header_template');
-			}
-			
-			$title .= Configure::read('Settings.Site.title_separator') . ' ' . str_replace("%BLOG_CATEGORY%", $this->category['BlogCategory']['name'], $categorizedText);
+			list($categorizedText, $categorizedTextHtml) = $this->_buildHeaderTemplateVariants(
+				'blog_category_header_template',
+				'Settings.Blog.category_header_template',
+				'Categorized Under %BLOG_CATEGORY%',
+				array('%BLOG_CATEGORY%' => $this->category['BlogCategory']['name'])
+			);
+
+			$title .= Configure::read('Settings.Site.title_separator') . ' ' . $categorizedText;
+			$titleHtml .= Configure::read('Settings.Site.title_separator') . ' ' . $categorizedTextHtml;
 		}
 		
 		//add in conditions for tagged posts
@@ -307,25 +395,22 @@ class CmsBlogPostsController extends BlogAppController {
 			//merge in the joins properly
 			$options['joins'] = am($joins, $tagOptions['joins']);
 
-			$taggedText = "Tagged %BLOG_TAG%";
-			
-			if (Configure::read('Settings.Blog.tag_header_template')){
-				$taggedText = Configure::read('Settings.Blog.tag_header_template');
-			}
-			
-			$title .= Configure::read('Settings.Site.title_separator') . ' ' . str_replace("%BLOG_TAG%", $this->tag['BlogTag']['name'], $taggedText);
+			list($taggedText, $taggedTextHtml) = $this->_buildHeaderTemplateVariants(
+				'blog_tag_header_template',
+				'Settings.Blog.tag_header_template',
+				'Tagged %BLOG_TAG%',
+				array('%BLOG_TAG%' => $this->tag['BlogTag']['name'])
+			);
+
+			$title .= Configure::read('Settings.Site.title_separator') . ' ' . $taggedText;
+			$titleHtml .= Configure::read('Settings.Site.title_separator') . ' ' . $taggedTextHtml;
 		}
 		
 		//add in conditions for archived posts
 		if (!empty($this->params->named['year'])) {
 			
-			$publishedText = "Published %DATE_PUBLISHED%";
 			$publishedFormat = "F Y";
 			$publishedFormatNoMonth = "Y";
-			
-			if (Configure::read('Settings.Blog.date_published_header_template')){
-				$publishedText = Configure::read('Settings.Blog.date_published_header_template');
-			}
 			
 			if (!empty($this->params->named['month'])){
 				//make sure that the month is represented in two digits
@@ -335,11 +420,21 @@ class CmsBlogPostsController extends BlogAppController {
 				}
 				
 				$options['conditions'][]["DATE_FORMAT(PublishingInformation.start, '%Y%m')"] = $this->params->named['year'] . $month;
-				$title .= Configure::read('Settings.Site.title_separator') . ' ' . str_replace("%DATE_PUBLISHED%", date($publishedFormat, strtotime($this->params['year'] . '-' . $month . '-01')) , $publishedText);
+				$datePublished = date($publishedFormat, strtotime($this->params['year'] . '-' . $month . '-01'));
 			} else {
 				$options['conditions'][]["DATE_FORMAT(PublishingInformation.start, '%Y')"] = $this->params->named['year'];
-				$title .= Configure::read('Settings.Site.title_separator') . ' ' . str_replace("%DATE_PUBLISHED%", date($publishedFormatNoMonth, strtotime($this->params['year'] . '-01-01')) , $publishedText);
+				$datePublished = date($publishedFormatNoMonth, strtotime($this->params['year'] . '-01-01'));
 			}
+
+			list($publishedText, $publishedTextHtml) = $this->_buildHeaderTemplateVariants(
+				'blog_date_published_header_template',
+				'Settings.Blog.date_published_header_template',
+				'Published %DATE_PUBLISHED%',
+				array('%DATE_PUBLISHED%' => $datePublished)
+			);
+
+			$title .= Configure::read('Settings.Site.title_separator') . ' ' . $publishedText;
+			$titleHtml .= Configure::read('Settings.Site.title_separator') . ' ' . $publishedTextHtml;
 		}
 		//set the return limit as per the blog settings
 		$options['limit'] = Configure::read('Settings.Blog.posts_per_page') ? Configure::read('Settings.Blog.posts_per_page') : 10;
@@ -347,6 +442,9 @@ class CmsBlogPostsController extends BlogAppController {
 		//set the page title with allowing the loaded Page to override it with its title
 		$this->PageSettings->pageTitle($title);
 		$this->set('pageHeading', $title);
+		if ($titleHtml !== $title) {
+			$this->set('pageHeadingHtml', $titleHtml);
+		}
 		
 		//exclude deleted and unpublished posts
 		$options['published'] = true;

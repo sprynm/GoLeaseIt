@@ -2,6 +2,7 @@
 $bannerData = isset($banner) ? $banner : array();
 $pageData = isset($page) ? $page : array();
 $pageHeading = isset($pageHeading) ? trim($pageHeading) : '';
+$pageHeadingHtml = isset($pageHeadingHtml) ? trim((string)$pageHeadingHtml) : '';
 $heroImageVersion = isset($heroImageVersion) && $heroImageVersion !== '' ? $heroImageVersion : 'banner-fhdl';
 $heroImageWidth = isset($heroImageWidth) ? (int)$heroImageWidth : 1980;
 $heroImageHeight = isset($heroImageHeight) ? (int)$heroImageHeight : 300;
@@ -12,6 +13,12 @@ $bannerImage = $hasBannerImage ? $bannerData['Image'][0] : array();
 $heroHeading = $pageHeading;
 if ($heroHeading === '' && !empty($pageData['Page']['name'])) {
 	$heroHeading = trim($pageData['Page']['name']);
+}
+$heroHeadingHtml = '';
+if ($pageHeadingHtml !== '') {
+	$heroHeadingHtml = html_entity_decode($pageHeadingHtml, ENT_QUOTES, 'UTF-8');
+	$heroHeadingHtml = trim(preg_replace('/^\s*<p>(.*?)<\/p>\s*$/is', '$1', $heroHeadingHtml));
+	$heroHeadingHtml = strip_tags($heroHeadingHtml, '<span><i><em><strong><br>');
 }
 
 $heroAlt = '';
@@ -54,11 +61,7 @@ if ($shouldRenderHero):
 			<?php endif; ?>
 
 			<?php if ($showHeroHeading): ?>
-				<h1 class="page-hero__title"><?php echo h($heroHeading); ?></h1>
-			<?php endif; ?>
-
-			<?php if (!empty($pageData['Page']['banner_summary'])): ?>
-				<p class="page-hero__summary"><?php echo h($pageData['Page']['banner_summary']); ?></p>
+				<h1 class="page-hero__title"><?php echo $heroHeadingHtml !== '' ? $heroHeadingHtml : h($heroHeading); ?></h1>
 			<?php endif; ?>
 
 			<?php

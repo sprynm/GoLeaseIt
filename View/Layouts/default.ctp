@@ -9,9 +9,20 @@ echo $this->element('layout/body_masthead', array(
 
 $bannerData = isset($banner) ? $banner : array();
 $hasBannerImage = isset($bannerData['Image'][0]) && !empty($bannerData['Image'][0]);
+$leadInCopy = '';
+$leadInSource = '';
+$leadInClass = 'page-lead-in u-type-feature-text';
 $heroHeading = isset($pageHeading) ? trim((string)$pageHeading) : '';
 if ($heroHeading === '' && isset($page['Page']['name'])) {
 	$heroHeading = trim((string)$page['Page']['name']);
+}
+
+if (!empty($page['Page']['banner_summary'])) {
+	$leadInSource = trim((string)$page['Page']['banner_summary']);
+}
+
+if ($leadInSource !== '') {
+	$leadInCopy = '<div class="' . h($leadInClass) . '"><p>' . h($leadInSource) . '</p></div>';
 }
 
 $curTop = $this->Navigation->topCurrentItem();
@@ -127,6 +138,10 @@ $interiorProcessLayout = $getPageFieldValue('process_steps_layout');
 				<?php
 				if (!$hasBannerImage && $heroHeading !== '') {
 					echo '<h1>' . h($heroHeading) . '</h1>';
+				}
+
+				if ($leadInCopy !== '') {
+					echo $leadInCopy;
 				}
 
 				if (!empty($pageIntro)) {

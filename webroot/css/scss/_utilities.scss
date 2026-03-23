@@ -91,6 +91,16 @@
     font-weight: var(--font-weight-bold);
   }
 
+  .section-kicker {
+    display: block;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    font-size: var(--step--1);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-brand-punch);
+  }
+
   .u-pad-block-sm { padding-block: var(--space-sm); }
   .u-pad-block-md { padding-block: var(--space-md); }
   .u-pad-block-lg { padding-block: var(--space-lg); }
@@ -124,6 +134,12 @@
   .u-bg-muted,
   .section-soft {
     background: var(--surface-bg-muted);
+  }
+  .u-card {
+    border-radius: var(--radius-lg);
+    overflow: clip;
+    background: var(--color-surface-base);
+    box-shadow: var(--shadow-sm);
   }
   .u-btn-lg {
     min-height: var(--btn-hero-min-height);

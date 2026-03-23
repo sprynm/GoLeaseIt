@@ -201,6 +201,7 @@ $preconfigured = array(
     'FAQ' => array(
         'PrototypeInstance' => array(
             'use_categories' => 0,
+            'layout' => 'faq',
             'allow_item_views' => 0,
             'item_summary_pagination' => 0,
             'name_field_label' => 'Question',

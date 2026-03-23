@@ -1,6 +1,6 @@
 # Prototype System Runbook
 
-Last reviewed: 2026-02-24
+Last reviewed: 2026-03-23
 
 This document is the implementation runbook for creating, administering, and using Prototypes for design-driven sections.
 
@@ -196,6 +196,12 @@ Example implementation:
 - `View/Layouts/home.ctp`
 - `View/Elements/home/industries_served.ctp`
 
+FAQ-specific note:
+1. FAQ is now intended to render through its own Prototype instance page using layout `faq`.
+2. Do not rely on `{{block type="FAQ" id="..."}}` in standard page body WYSIWYG; the default page body path does not parse Prototype block tokens.
+3. For a dedicated FAQ page, set the Prototype Instance layout to `faq` and link to the instance summary URL.
+4. If frontend output does not match the CorePlugin FAQ template, check for a site-level override first at `Plugin/Prototype/View/faq/PrototypeInstances/view.ctp`.
+
 ## 11. QA Checklist Before Publishing
 
 1. Instance and items are published.
@@ -297,3 +303,11 @@ FTP sync is an environment reality for this project. After syncing, reconcile ex
 2. A starter existing in files is not enough; it must be registered in `preconfigured.php` to appear in admin install UI.
 3. Installed instances can diverge from code expectations if slug, extra fields, or publish state changes in admin after deployment.
 4. FTP-sync workflows can create local/remote drift; always reconcile slug, field keys, and published state before debugging template code.
+
+## 16. Lessons Learned: Efficient Prototype Additions
+
+1. Start with runtime path precedence, not just the CorePlugin template. For any prototype change, confirm whether `Plugin/Prototype/View/<slug>/...` is overriding `Plugin/Prototype/CorePlugin/View/<slug>/...` before assuming the core template is active.
+2. Add a dedicated layout only when the prototype owns the whole page. A layout change will not make Prototype block tokens render inside normal page body content.
+3. Prefer native HTML behavior before introducing JS. The FAQ migration was simpler and more durable once it used `<details>/<summary>` instead of jQuery accordion behavior.
+4. Treat transferred site overrides as part of the real implementation surface. If a file is edited remotely and synced back later, reconcile it explicitly with the local CorePlugin version before debugging cache or routing.
+5. Document the deployment path with the code change. For prototype work, the docs need to capture both the intended rendering path and the override precedence, otherwise the next pass wastes time debugging the wrong template.

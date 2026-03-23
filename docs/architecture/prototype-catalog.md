@@ -1,6 +1,6 @@
 # Prototype Catalog And Migration Status
 
-Last reviewed: 2026-02-17
+Last reviewed: 2026-03-23
 
 This document maps core prototype types to their purpose and migration status (template override + modern CSS/JS).
 
@@ -24,9 +24,10 @@ Status keys:
 - Function:
   - FAQ question/answer lists (accordion-style behavior in core template).
 - Status:
-  - Core only.
-  - Modern CSS partial exists (`_prototype-faq.scss`) but not currently enabled in `stylesheet.scss`.
-  - Modern JS: core template behavior should be reviewed before migration declaration.
+  - Override: yes (`Plugin/Prototype/View/faq/PrototypeInstances/view.ctp`).
+  - Modern CSS: yes (`_prototype-faq.scss` is active in `stylesheet.scss`).
+  - Modern JS: yes for frontend accordion behavior via native `<details>/<summary>`.
+  - Dedicated layout: `faq` for instance summary pages.
 
 ### `feature_boxes`
 - Function:
@@ -101,3 +102,4 @@ Status keys:
    - styling is token-driven and in active modern SCSS path,
    - no jQuery dependency exists in its active render path.
 2. For dormant prototypes, keep status `Core only` until activated and verified.
+3. For active prototypes, verify the deployed override path before debugging stale frontend markup. `CorePlugin` changes alone will not affect output when a site-level override exists.

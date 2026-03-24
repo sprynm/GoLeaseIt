@@ -10,5 +10,6 @@ Bootstrap website build for Go Lease It on the Radarhill Pyramid/CakePHP stack.
 
 ## Build Commands
 - `npm install`
-- `npm run css:build`
+- `npm run css:build` - production CSS build
+- `npm run css:build:dev` - non-minified CSS build
 - `npm run css:watch`

@@ -5,7 +5,6 @@
   "scripts": {
     "css:build": "node tools/build-css.mjs --mode=prod",
     "css:build:dev": "node tools/build-css.mjs --mode=dev",
-    "css:build:prod": "node tools/build-css.mjs --mode=prod",
     "css:watch": "node tools/watch-css.mjs",
     "font:contact-server": "node tools/font-contact-sheet-server.mjs",
     "SG:serve": "node tools/serve-style-guide.mjs",

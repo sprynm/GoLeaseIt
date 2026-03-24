@@ -151,10 +151,93 @@
         "color": "#0E0F19",
         "family": "Open Sans",
         "weight": 400,
-        "size_px": 26,
-        "line_height_px": 36
+      "size_px": 26,
+      "line_height_px": 36
       }
     }
+  },
+  "typography_spec": {
+    "node_id": "2901:33",
+    "name": "Styles",
+    "source": "figma_mcp_get_design_context",
+    "captured_at": "2026-03-24",
+    "styles": {
+      "paragraph": {
+        "family": "Open Sans",
+        "weight": 400,
+        "size_px": 26,
+        "line_height_px": 36,
+        "color": "#0E0F19"
+      },
+      "feature_text": {
+        "family": "Open Sans",
+        "weight": 400,
+        "size_px": 26,
+        "line_height_px": 36,
+        "color": "#0E0F19"
+      },
+      "heading_1": {
+        "family": "Roboto",
+        "weight": 800,
+        "size_px": 80,
+        "line_height_px": 90,
+        "color": "#3D6CAE"
+      },
+      "heading_2": {
+        "family": "Roboto",
+        "weight": 700,
+        "size_px": 56,
+        "line_height_px": 100,
+        "color": "#3D6CAE"
+      },
+      "feature_h2": {
+        "family": "Roboto",
+        "weight": 700,
+        "size_px": 48,
+        "line_height_px": 100,
+        "color": "#3D6CAE"
+      },
+      "heading_3": {
+        "family": "Roboto",
+        "weight": 400,
+        "size_px": 40,
+        "line_height_px": 50,
+        "color": "#00AB4E"
+      },
+      "feature_h3": {
+        "family": "Roboto",
+        "weight": 600,
+        "size_px": 35,
+        "line_height_px": 100,
+        "color": "#0E0F19"
+      },
+      "heading_4": {
+        "family": "Open Sans",
+        "weight": 600,
+        "size_px": 32,
+        "line_height_px": 50,
+        "color": "#0E0F19"
+      },
+      "main_navigation": {
+        "family": "Roboto",
+        "weight": 600,
+        "size_px": 24,
+        "line_height_px": 100,
+        "color": "#172B61"
+      },
+      "label": {
+        "family": "Open Sans",
+        "weight": 700,
+        "size_px": 20,
+        "line_height_px": 50,
+        "color": "#172B61"
+      }
+    },
+    "findings": [
+      "Figma does not use a clean modular-ratio ladder for all shared text roles.",
+      "The extracted system sizes are 20, 24, 26, 32, 35, 40, 48, 56, and 80 px.",
+      "Any unified --font-size-* ladder should be treated as either a simplification of the Figma spec or rebuilt directly from these values."
+    ]
   },
   "quick_lookup": {
     "home": "8920:7",

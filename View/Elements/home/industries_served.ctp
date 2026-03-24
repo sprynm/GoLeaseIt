@@ -212,10 +212,11 @@ if ($introBody === '' && !empty($instanceRecord['PrototypeInstance']['descriptio
 }
 
 $hasIntroContent = ($introHeading !== '' || $introBody !== '' || ($introCtaText !== '' && $introCtaLink !== ''));
+$gridModeClass = (count($items) % 2 === 0) ? ' industry-grid--intro-top' : '';
 ?>
 <section class="<?php echo h($sectionClasses); ?>">
 	<div class="c-container">
-		<div class="industry-grid">
+		<div class="industry-grid<?php echo $gridModeClass; ?>">
 			<div class="industry-grid__intro<?php echo $introBackgroundImage ? ' industry-grid__intro--with-bg' : ''; ?>">
 				<?php if ($introBackgroundImage): ?>
 					<span class="industry-grid__intro-media" aria-hidden="true">

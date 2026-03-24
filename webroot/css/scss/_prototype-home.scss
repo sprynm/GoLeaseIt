@@ -101,15 +101,18 @@
     );
   }
 
-  /* ─── Industries grid: 3×2, cell 1 = text, cells 2–6 = image tiles ─── */
-  /* Scoped under .section-industries for specificity over generic tile/grid rules */
+  /* ─── Industries grid ───────────────────────────────────────────────────
+     Two modes, auto-selected by item count in industries_served.ctp:
+     • Odd count  — intro is the first grid cell (default)
+     • Even count — .industry-grid--intro-top: intro spans full width above tiles
+  ── */
   .section-industries .industry-grid {
     display: grid;
     gap: var(--space-lg);
     grid-template-columns: 1fr;
   }
 
-  /* Text tile */
+  /* Intro card */
   .section-industries .industry-grid__intro {
     position: relative;
     overflow: clip;
@@ -141,8 +144,57 @@
       grid-template-rows: repeat(2, minmax(var(--home-industry-row-size), auto));
     }
 
+    /* Inline (odd) mode: intro returns to a single cell */
     .section-industries .industry-grid__intro {
       grid-column: auto;
+    }
+
+    /* Top-banner (even) mode: intro keeps full-width span; rows = intro + 2 tile rows */
+    .section-industries .industry-grid--intro-top {
+      grid-template-rows: auto repeat(2, minmax(var(--home-industry-row-size), auto));
+    }
+  }
+
+  /* Top-banner mode: intro spans all columns at every breakpoint */
+  .section-industries .industry-grid--intro-top .industry-grid__intro {
+    grid-column: 1 / -1;
+  }
+
+  /* Text-only even intros can collapse to content height; image-backed intros keep card presence */
+  .section-industries .industry-grid--intro-top .industry-grid__intro:not(.industry-grid__intro--with-bg) {
+    min-block-size: 0;
+  }
+
+  /* Top-banner intro content: two-column layout (text | CTA) at tablet and up */
+  @include vp-min($vp-md) {
+    .section-industries .industry-grid--intro-top .industry-grid__intro-content {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "heading action"
+        "body    action";
+      align-items: center;
+      column-gap: var(--space-xl);
+      row-gap: var(--space-xs);
+      min-block-size: 0;
+    }
+
+    .section-industries .industry-grid--intro-top .industry-grid__intro-content > h2 {
+      grid-area: heading;
+      margin: 0;
+    }
+
+    .section-industries .industry-grid--intro-top .industry-grid__intro-content > p {
+      grid-area: body;
+      max-width: 65ch;
+      margin: 0;
+    }
+
+    .section-industries .industry-grid--intro-top .industry-grid__intro-content > .btn {
+      grid-area: action;
+      margin-top: 0;
+      align-self: center;
+      white-space: nowrap;
     }
   }
 
@@ -183,6 +235,12 @@
 
   .section-industries .industry-grid__intro-content .btn {
     margin-top: auto;
+  }
+
+  @include vp-min($vp-md) {
+    .section-industries .industry-grid--intro-top .industry-grid__intro-content {
+      display: grid;
+    }
   }
 
   .section-industries .industry-grid__intro-media,

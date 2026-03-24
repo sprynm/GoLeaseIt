@@ -480,8 +480,12 @@
 
           <article class="sg-card c-stack" data-space="sm">
             <h3>Industries Served Prototype (`industries_served`)</h3>
-            <p>Exact living structure: `.section-industries` + `.industry-grid` intro panel and industry tiles.</p>
-            <p>Admin usage: bind this section using <span class="sg-code">home_industries_instance_id</span> or <span class="sg-code">home_industries_instance_slug</span>; keep item links in <span class="sg-code">cta_link</span> so tiles are clickable.</p>
+            <p>Outer wrapper: <span class="sg-code">.section-industries</span> → <span class="sg-code">.industry-grid</span>. Two layout modes driven by item count:</p>
+            <ul>
+              <li><strong>Odd count</strong> — intro flows as the first card alongside tiles (default, no modifier class).</li>
+              <li><strong>Even count</strong> — <span class="sg-code">.industry-grid--intro-top</span> is added automatically; intro spans full width above the tile rows, with a two-column content layout (heading + paragraph left, CTA right). Paragraph is capped at 65ch.</li>
+            </ul>
+            <p>Admin usage: bind using <span class="sg-code">home_industries_instance_id</span> or <span class="sg-code">home_industries_instance_slug</span>; set item links via <span class="sg-code">cta_link</span> to make tiles clickable.</p>
           </article>
 
           <section class="u-surface-muted section-industries sg-iframe-bleed" aria-label="Living industries served demo">
@@ -542,6 +546,85 @@
                   <span class="tile__overlay"></span>
                   <span class="tile__content">
                     <span class="tile__heading">Dental &amp; Medical</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <article class="sg-card c-stack" data-space="sm">
+            <h3>Industries Served — Even-tile top-banner mode</h3>
+            <p>Six tiles (even count): intro spans full width above two rows of three tiles. Class <span class="sg-code">industry-grid--intro-top</span> is added automatically when item count is even.</p>
+          </article>
+
+          <section class="u-surface-muted section-industries sg-iframe-bleed" aria-label="Even-tile top-banner demo">
+            <div class="c-container c-container--full">
+              <div class="industry-grid industry-grid--intro-top">
+                <div class="industry-grid__intro">
+                  <div class="industry-grid__intro-content">
+                    <h2>Industries We Serve</h2>
+                    <p>From construction sites to medical offices to city fleets, we finance the equipment that keeps businesses moving.</p>
+                    <a href="#sg-content-modules" class="btn btn--primary">View All Industries</a>
+                  </div>
+                </div>
+
+                <a class="tile tile--linked tile--industry" href="#sg-content-modules">
+                  <span class="tile__media">
+                    <img src="./assets/customer/yellow-equipment.jpg" alt="Transportation &amp; Logistics" loading="lazy" decoding="async">
+                  </span>
+                  <span class="tile__overlay"></span>
+                  <span class="tile__content">
+                    <span class="tile__heading">Transportation &amp; Logistics</span>
+                  </span>
+                </a>
+
+                <a class="tile tile--linked tile--industry" href="#sg-content-modules">
+                  <span class="tile__media">
+                    <img src="./assets/customer/building.jpg" alt="Construction &amp; Agriculture" loading="lazy" decoding="async">
+                  </span>
+                  <span class="tile__overlay"></span>
+                  <span class="tile__content">
+                    <span class="tile__heading">Construction &amp; Agriculture</span>
+                  </span>
+                </a>
+
+                <a class="tile tile--linked tile--industry" href="#sg-content-modules">
+                  <span class="tile__media">
+                    <img src="./assets/customer/building.jpg" alt="City &amp; Municipal Public Works" loading="lazy" decoding="async">
+                  </span>
+                  <span class="tile__overlay"></span>
+                  <span class="tile__content">
+                    <span class="tile__heading">City &amp; Municipal Public Works</span>
+                  </span>
+                </a>
+
+                <a class="tile tile--linked tile--industry" href="#sg-content-modules">
+                  <span class="tile__media">
+                    <img src="./assets/customer/yellow-equipment.jpg" alt="Manufacturing &amp; Mining" loading="lazy" decoding="async">
+                  </span>
+                  <span class="tile__overlay"></span>
+                  <span class="tile__content">
+                    <span class="tile__heading">Manufacturing &amp; Mining</span>
+                  </span>
+                </a>
+
+                <a class="tile tile--linked tile--industry" href="#sg-content-modules">
+                  <span class="tile__media">
+                    <img src="./assets/customer/dental.jpg" alt="Dental &amp; Medical" loading="lazy" decoding="async">
+                  </span>
+                  <span class="tile__overlay"></span>
+                  <span class="tile__content">
+                    <span class="tile__heading">Dental &amp; Medical</span>
+                  </span>
+                </a>
+
+                <a class="tile tile--linked tile--industry" href="#sg-content-modules">
+                  <span class="tile__media">
+                    <img src="./assets/customer/yellow-equipment.jpg" alt="Fleet &amp; Vehicle Services" loading="lazy" decoding="async">
+                  </span>
+                  <span class="tile__overlay"></span>
+                  <span class="tile__content">
+                    <span class="tile__heading">Fleet &amp; Vehicle Services</span>
                   </span>
                 </a>
               </div>
@@ -742,40 +825,6 @@
             </div>
           </div>
         </section>
-      </div>
-
-      <div class="site-wrapper site-wrapper--platter">
-        <div class="c-container c-container--full c-region">
-          <section class="u-surface-muted section-industries" aria-label="Industries context demo">
-            <div class="industry-grid">
-              <div class="industry-grid__intro">
-                <div class="industry-grid__intro-content">
-                  <h2>Industries We Serve</h2>
-                  <p>Tile and intro context shown without style-guide cards so production component weight is easier to judge.</p>
-                  <a href="#sg-site-platter" class="btn btn--primary">View All Industries</a>
-                </div>
-              </div>
-              <a class="tile tile--linked tile--industry" href="#sg-site-platter">
-                <span class="tile__media">
-                  <img src="./assets/customer/yellow-equipment.jpg" alt="Transportation and logistics" loading="lazy" decoding="async">
-                </span>
-                <span class="tile__overlay"></span>
-                <span class="tile__content">
-                  <span class="tile__heading">Transportation &amp; Logistics</span>
-                </span>
-              </a>
-              <a class="tile tile--linked tile--industry" href="#sg-site-platter">
-                <span class="tile__media">
-                  <img src="./assets/customer/dental.jpg" alt="Dental and medical" loading="lazy" decoding="async">
-                </span>
-                <span class="tile__overlay"></span>
-                <span class="tile__content">
-                  <span class="tile__heading">Dental &amp; Medical</span>
-                </span>
-              </a>
-            </div>
-          </section>
-        </div>
       </div>
     </section>
 

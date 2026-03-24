@@ -34,6 +34,29 @@ If the pattern is reusable across pages/prototypes, add to shared block/composit
   - scope selectors to prototype root,
   - respect reduced-motion and keyboard requirements.
 
+## Component Notes
+
+### `industries_served` — Industries We Serve grid
+
+File: `View/Elements/home/industries_served.ctp` / `_prototype-home.scss`
+
+Two layout modes, auto-selected from item count:
+
+| Mode | Trigger | Intro position |
+|---|---|---|
+| **Inline** | Odd item count | First cell in the grid, same width as tiles |
+| **Top-banner** | Even item count | Full-width row above tiles (`industry-grid--intro-top`) |
+
+**Top-banner intro content layout** (at `$vp-md`+): two-column grid — heading and paragraph (max 65ch) on the left, CTA button on the right. Collapses to stacked at mobile.
+
+**Tile grid**: CSS grid, `repeat(3, 1fr)` at `$vp-lg`, `repeat(2, 1fr)` at `$vp-sm`. Top-banner mode overrides `grid-template-rows` at desktop to `auto repeat(2, minmax(...))` so the intro row is auto-height and the two tile rows keep their defined minimum.
+
+**Homepage runtime rule**: `View/Layouts/home.ctp` lets the industries section expand automatically and caps the request at `20` items as a safety limit. The odd/even layout mode is derived from the rendered item count, not an admin toggle.
+
+No JS. No PHP parameter needed for mode selection — count drives it.
+
+---
+
 ## Migration Checklist For Existing Core Prototypes
 1. Create site override in `Plugin/Prototype/View/<slug>/`.
 2. Move visual rules to `_prototype-<slug>.scss`.

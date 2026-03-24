@@ -146,7 +146,7 @@ echo $this->element('layout/home_masthead', array(
 			'introCtaText' => $industriesCtaText,
 			'introCtaLink' => $industriesCtaLink,
 			'sectionClasses' => 'u-surface-muted section-industries',
-			'limit' => 5,
+			'limit' => 20,
 		)); ?>
 	<?php endif; ?>
 

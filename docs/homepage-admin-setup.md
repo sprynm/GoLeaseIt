@@ -95,6 +95,12 @@ You already created this prototype. Confirm:
    - image,
    - `cta_link` (recommended so card is clickable).
 
+Homepage behavior:
+- The home layout requests up to `20` industries items as a safety cap.
+- The frontend layout mode is automatic:
+  - odd item count = intro inline as the first grid cell
+  - even item count = intro spans full width above the tile rows
+
 ## 5. Content Block: Bottom CTA Platter
 You already created this content block. Confirm:
 

@@ -276,7 +276,7 @@ $hasIntroContent = ($introHeading !== '' || $introBody !== '' || ($introCtaText 
 								<picture>
 									<source srcset="<?php echo $this->Media->getImage($image, array('version' => 'large')); ?>" media="(min-width: 1241px)">
 									<source srcset="<?php echo $this->Media->getImage($image, array('version' => 'medium')); ?>" media="(min-width: 481px)">
-									<img src="<?php echo $this->Media->getImage($image, array('version' => 'thumb')); ?>" alt="<?php echo h($imageAlt); ?>" loading="lazy" decoding="async">
+									<img src="<?php echo $this->Media->getImage($image, array('version' => 'medium')); ?>" alt="<?php echo h($imageAlt); ?>" loading="lazy" decoding="async">
 								</picture>
 							</span>
 						<?php endif; ?>
@@ -294,7 +294,7 @@ $hasIntroContent = ($introHeading !== '' || $introBody !== '' || ($introCtaText 
 								<picture>
 									<source srcset="<?php echo $this->Media->getImage($image, array('version' => 'large')); ?>" media="(min-width: 1241px)">
 									<source srcset="<?php echo $this->Media->getImage($image, array('version' => 'medium')); ?>" media="(min-width: 481px)">
-									<img src="<?php echo $this->Media->getImage($image, array('version' => 'thumb')); ?>" alt="<?php echo h($imageAlt); ?>" loading="lazy" decoding="async">
+									<img src="<?php echo $this->Media->getImage($image, array('version' => 'medium')); ?>" alt="<?php echo h($imageAlt); ?>" loading="lazy" decoding="async">
 								</picture>
 							</span>
 						<?php endif; ?>

@@ -18,7 +18,7 @@ $imageCaption = $image && !empty($image['caption']) ? $image['caption'] : '';
 			<picture>
 				<source srcset="<?php echo $this->Media->getImage($image, array('version' => 'large')); ?>" media="(min-width: 1241px)">
 				<source srcset="<?php echo $this->Media->getImage($image, array('version' => 'medium')); ?>" media="(min-width: 481px)">
-				<img src="<?php echo $this->Media->getImage($image, array('version' => 'thumb')); ?>" width="800" height="600" alt="<?php echo h($imageAlt); ?>" loading="lazy" decoding="async">
+				<img src="<?php echo $this->Media->getImage($image, array('version' => 'medium')); ?>" width="800" height="600" alt="<?php echo h($imageAlt); ?>" loading="lazy" decoding="async">
 			</picture>
 			<?php if ($imageCaption !== ''): ?>
 				<figcaption class="tile__caption"><?php echo h($imageCaption); ?></figcaption>

@@ -111,8 +111,6 @@ $heroMax: 75rem;
     --color-footer-soft-rgb: 230 239 248;
     --color-footer-meta-rgb: 200 211 226;
 
-    --fluid-base: clamp(18px, calc(16.287px + 0.476vw), 24px);
-    --fluid-body: var(--fluid-base);
     --font-weight-thin: 100;
     --font-weight-extralight: 200;
     --font-weight-light: 300;
@@ -123,32 +121,23 @@ $heroMax: 75rem;
     --font-weight-bold: 700;
     --font-weight-extrabold: 800;
     --font-weight-black: 900;
-    --step--1: calc(var(--fluid-base) * 0.83);
-    --step-0: var(--fluid-base);
-    --step-1: calc(var(--fluid-base) * 1.2);
-    --step-2: calc(var(--fluid-base) * 1.44);
-    --step-3: calc(var(--fluid-base) * 1.73);
-    --step-4: calc(var(--fluid-base) * 2.07);
-    --step-5: calc(var(--fluid-base) * 2.49);
+    --font-size--1: clamp(14px, calc(11px + 0.4167vw), 16px);
+    --font-size-0: clamp(16px, calc(13px + 0.4167vw), 18px);
+    --font-size-1: clamp(18px, calc(15px + 0.4167vw), 20px);
+    --font-size-2: clamp(22px, calc(16px + 0.8333vw), 26px);
+    --font-size-3: clamp(28px, calc(19px + 1.25vw), 34px);
+    --font-size-4: clamp(32px, calc(17px + 2.0833vw), 42px);
+    --font-size-5: clamp(36px, calc(15px + 2.9167vw), 50px);
+    --font-size-6: clamp(40px, calc(-11px + 7.0833vw), 74px);
     --lh-body: 1.38;
     --lh-title: 1.15;
-    --type-body-size: var(--fluid-base);
-    --type-body-line: calc(var(--fluid-base) * 1.38);
-    --type-h1-size: calc(var(--fluid-base) * 3.333);
     --type-h1-line: 1.1;
-    --type-h2-size: calc(var(--fluid-base) * 2.333);
     --type-h2-line: 1.1;
-    --type-h3-size: calc(var(--fluid-base) * 1.667);
     --type-h3-line: 1.2;
-    --type-h4-size: calc(var(--fluid-base) * 1.333);
     --type-h4-line: 1.25;
-    --type-feature-h2-size: calc(var(--fluid-base) * 2);
     --type-feature-h2-line: 1.1;
-    --type-feature-h3-size: calc(var(--fluid-base) * 1.458);
     --type-feature-h3-line: 1.2;
-    --type-nav-size: calc(var(--fluid-base) * 1);
     --type-nav-line: 1;
-    --type-label-size: calc(var(--fluid-base) * 0.833);
     --type-label-line: 1.2;
     --article-divider-size: 2px;
     --article-divider-opacity: var(--alpha-75);
@@ -261,6 +250,19 @@ $heroMax: 75rem;
     :root {
       --frame-max: 100rem;
       --hero-max: 100rem;
+    }
+  }
+
+  @include vp-min($frameMax) {
+    :root {
+      --font-size--1: clamp(16px, calc(-4px + 1.6667vw), 20px);
+      --font-size-0: clamp(18px, calc(-12px + 2.5vw), 24px);
+      --font-size-1: clamp(20px, calc(-10px + 2.5vw), 26px);
+      --font-size-2: clamp(26px, calc(-4px + 2.5vw), 32px);
+      --font-size-3: clamp(34px, calc(4px + 2.5vw), 40px);
+      --font-size-4: clamp(42px, calc(12px + 2.5vw), 48px);
+      --font-size-5: clamp(50px, calc(20px + 2.5vw), 56px);
+      --font-size-6: clamp(74px, calc(44px + 2.5vw), 80px);
     }
   }
 }

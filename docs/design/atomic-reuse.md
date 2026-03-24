@@ -10,7 +10,7 @@ Goal: improve cohesion and reduce drift across prototypes and pages without aban
 
 ## Examples
 - Prefer extending `.btn` with a modifier or context wrapper instead of creating a hero-only button.
-- Prefer utility spacing/token usage (`--space-*`, `--step-*`) over custom per-block values.
+- Prefer utility spacing/token usage (`--space-*`, `--font-size-*`) over custom per-block values.
 
 ## When to Create a New Block
 - The element has unique behavior or structure that cannot be expressed via utilities + modifiers.

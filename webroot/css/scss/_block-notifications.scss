@@ -33,13 +33,13 @@ $notice-message-padding-inline: 0.9375rem;
 @layer blocks {
   .notification {
     border-radius: var(--radius-sm);
-    font-size: var(--step-0);
+    font-size: var(--font-size-0);
 
     ul,
     ol {
       margin-top: var(--space-xs);
       margin-bottom: 0;
-      font-size: var(--step-0);
+      font-size: var(--font-size-0);
       line-height: 1.5;
     }
   }
@@ -89,7 +89,7 @@ $notice-message-padding-inline: 0.9375rem;
 
   .notification .close {
     color: color-mix(in srgb, var(--color-state-critical) 80%, var(--color-ink-absolute) 20%);
-    font-size: var(--step-0);
+    font-size: var(--font-size-0);
     font-weight: var(--font-weight-bold);
     text-transform: uppercase;
     position: absolute;
@@ -116,7 +116,7 @@ $notice-message-padding-inline: 0.9375rem;
       $notice-input-padding-block
       $notice-input-padding-inline-start;
     border: 0;
-    font-size: var(--step-0);
+    font-size: var(--font-size-0);
   }
 
   .input-error {
@@ -213,7 +213,7 @@ $notice-message-padding-inline: 0.9375rem;
 
   .legal-notice__text {
     color: var(--color-ink-primary);
-    font-size: var(--step-0);
+    font-size: var(--font-size-0);
     line-height: 1.5;
   }
 

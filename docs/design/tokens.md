@@ -16,8 +16,7 @@ Tokens follow a `--[category]-[subcategory]-[variant]` pattern:
 | `--color-brand-*` | Brand palette |
 | `--color-state-*` | UI feedback states (error, success, warning) |
 | `--space-*` | Spacing scale (2xs → 2xl) |
-| `--step-*` | Fluid type scale (-1 → 5) |
-| `--type-*` | Named type roles (body, h1–h4, nav, label) |
+| `--font-size-*` | Shared responsive type scale (--1 → 6) |
 | `--radius-*` | Border radius (xs → max) |
 | `--shadow-*` | Box shadow levels |
 | `--font-*` | Font stacks |
@@ -47,8 +46,8 @@ Prefer `rgb(var(--white-rgb) / var(--alpha-85))` over `rgba(255, 255, 255, 0.85)
 **6. For hover/active color shifts, use `color-mix()` with a token — not a hardcoded hex.**
 `color-mix(in srgb, var(--color-brand-punch) 82%, var(--color-ink-absolute) 18%)` — not `#000`.
 
-**7. The type scale has one entry point: `--step-*` and `--type-*`.**
-Do not define parallel type scales in block or prototype files. If a named role is missing (e.g. a new feature heading), add a `--type-*` token in `_theme.scss`.
+**7. The type scale has one entry point: `--font-size-*`.**
+Do not define semantic size alias layers or parallel type scales in block or prototype files. If a display exception is needed, document why it cannot use the shared scale instead of adding a new shared size role.
 
 ---
 

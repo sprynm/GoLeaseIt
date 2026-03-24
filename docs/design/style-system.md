@@ -11,8 +11,10 @@ These are short, durable rules for styling and layout consistency.
 - `section-white` and `section-soft` are legacy aliases; do not introduce them in new markup.
 
 ## Typography
-- Typography uses one scale only: `--step-*` (core scale) and `--type-*` (semantic aliases mapped to the step scale).
-- Do not introduce parallel page/prototype type scales (`--article-*`, bespoke heading tokens, ad hoc clamp ladders).
+- Typography uses one public scale only: `--font-size-*`.
+- Normal document typography must consume `--font-size-*` directly.
+- Do not introduce semantic size alias layers, parallel page/prototype type scales, or ad hoc clamp ladders for normal typography.
+- The shared `--font-size-*` tokens may be redefined at the project query boundary, but the public token names must remain stable.
 
 ## Layout
 - Container widths come from theme primitives (e.g., `$frameMax` / `--frame-max`) or `.c-container` modifiers.
@@ -33,7 +35,7 @@ These are short, durable rules for styling and layout consistency.
 - Keep template logic in a single PHP block per section to avoid tag-juggling bugs.
 
 ## Token-Driven Components
-- Use spacing and typography tokens (`--space-*`, `--step-*`, `--lh-*`) instead of raw values.
+- Use spacing and typography tokens (`--space-*`, `--font-size-*`, `--lh-*`) instead of raw values.
 - Prefer color tokens from theme (`--color-*`, `--shadow-*`, `--radius-*`).
 - For transparent colors, use RGB + alpha tokens:
   - `rgb(var(--white-rgb) / var(--alpha-85))`
@@ -81,6 +83,7 @@ These are short, durable rules for styling and layout consistency.
   - article/page rhythm into a shared article/content layer
 - Prefer composition overrides over local paint. Feature blocks should describe layout, ordering, and spacing before introducing new backgrounds, shadows, radii, or colors.
 - Hardcoded values are a design-system smell. If a color, radius, or spacing value feels “special,” create or reuse a semantic token instead of freezing it in a block.
+- Typography exceptions must be defended. If a bespoke display size cannot use the shared `--font-size-*` scale, document why it is exception-only rather than adding a new shared role.
 - Reuse global components in templates early. It is cheaper to render `.btn`, shared kickers, or shared cards directly in markup than to recreate their appearance later in SCSS.
 - Keep responsive intent explicit. Similar-looking breakpoint blocks are not duplicates unless their ranges actually overlap. Verify token values before collapsing them.
 - Do not hide shared behavior inside prototype-only stylesheets. If a pattern is useful beyond one prototype or page family, move it out immediately to avoid accidental dependencies.

@@ -16,16 +16,20 @@ This document lists the current utility classes defined in `webroot/css/scss/_ut
 - `.u-font-sans` — force sans stack (`--font-sans`).
 - `.u-font-display` — force display stack (`--font-display`).
 - `.u-font-serif` — force serif stack (`--font-serif`).
-- `.u-step-0` — font-size `--step-0`.
-- `.u-step-1` — font-size `--step-1`.
-- `.u-step-2` — font-size `--step-2`.
+- Size utility names:
+  - `.u-font-size-0` — font-size `--font-size-0`
+  - `.u-font-size-1` — font-size `--font-size-1`
+  - `.u-font-size-2` — font-size `--font-size-2`
 
 ### Type Scale Utilities (`.u-type-*`)
-Bundle the related typographic properties for a named role: `font-family`, `font-size`, `line-height`, `font-weight`.
+Semantic size utility aliases are not part of the runtime system.
+Utilities may still bundle non-size typography semantics, but normal size application should come from direct `--font-size-*` consumption.
 
-**Rule:** Type scale utilities must NOT set `color`. Color is component context — it belongs in a block or applied directly. Adding color to a utility pushes it into component styling territory and breaks reuse across contexts.
+**Rule:** Typography utilities must NOT set `color`. Color is component context — it belongs in a block or applied directly. Adding color to a utility pushes it into component styling territory and breaks reuse across contexts.
 
-Available: `.u-type-h1`, `.u-type-h2`, `.u-type-h3`, `.u-type-h4`, `.u-type-feature-h2`, `.u-type-feature-h3`, `.u-type-nav`, `.u-type-paragraph`, `.u-type-feature-text`, `.u-type-label`.
+Target direction:
+- remove `.u-type-*` size aliases
+- keep only utilities that add non-size typography semantics where they remain genuinely useful
 
 ## Spacing Helpers
 - `.u-pad-block-sm` — apply `padding-block: var(--space-sm)`.
@@ -106,4 +110,3 @@ Use utilities only after you have ruled out composition or block changes.
 ### Examples
 - Good utility: add `u-mt-md` to add a small top margin.  
 - Bad utility: using multiple utilities to recreate a complex component layout.
-

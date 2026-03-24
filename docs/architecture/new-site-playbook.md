@@ -43,7 +43,7 @@ This is a platform-level checklist for standing up a new site on the Pyramid CMS
 
 ## 6. Design System Adoption
 1. SCSS source of truth is `webroot/css/scss/`.
-2. Use token-driven values (`--space-*`, `--step-*`, `--color-*`) over raw values.
+2. Use token-driven values (`--space-*`, `--font-size-*`, `--color-*`) over raw values.
 3. Reuse composition/utilities/atoms before creating new block classes.
 4. Keep exceptions minimal and documented.
 

@@ -19,7 +19,7 @@
     margin: 0;
     color: var(--color-brand-secondary);
     font-family: var(--font-display);
-    font-size: var(--type-h2-size);
+    font-size: var(--font-size-4);
     line-height: var(--type-h2-line);
     font-weight: var(--font-weight-bold);
   }
@@ -50,15 +50,15 @@
 
   .cta-band--article .cta-band__heading {
     color: var(--color-brand-primary);
-    font-size: var(--type-h2-size);
+    font-size: var(--font-size-4);
     line-height: var(--type-h2-line);
   }
 
   .cta-band--article .cta-band__body {
     max-width: 44ch;
     color: var(--color-ink-primary);
-    font-size: var(--step-1);
-    line-height: calc(var(--step-1) * var(--lh-body));
+    font-size: var(--font-size-1);
+    line-height: calc(var(--font-size-1) * var(--lh-body));
   }
 
   /* Dark navy variant */

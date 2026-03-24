@@ -114,7 +114,7 @@ if (in_array($layoutVariant, array('rows', 'horizontal', 'horizontal-stacks', 's
 						</div>
 					<?php endif; ?>
 					<?php if ($introBody !== ''): ?>
-						<div class="process-intro__body rte u-step-1"><?php echo $introBody; ?></div>
+						<div class="process-intro__body rte u-font-size-1"><?php echo $introBody; ?></div>
 					<?php endif; ?>
 				</div>
 			<?php endif; ?>

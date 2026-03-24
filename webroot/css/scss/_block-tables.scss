@@ -44,7 +44,7 @@
     background: var(--color-brand-primary);
     color: var(--color-ink-on-dark);
     padding: 0.5rem 0.75rem;
-    font-size: var(--step--1);
+    font-size: var(--font-size--1);
     text-align: left;
   }
 
@@ -75,7 +75,7 @@
   td {
     border-bottom: 1px solid var(--color-border-muted);
     padding: 0.5rem 0.75rem;
-    font-size: var(--step--1);
+    font-size: var(--font-size--1);
   }
 
   tr:last-child td {

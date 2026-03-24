@@ -5,6 +5,9 @@ Purpose: reduce repeat broad Figma pulls and preserve stable node targeting betw
 Primary cache file:
 - `docs/design/figma-context-cache/go-lease-it-slice.cache.json`
 
+Typography reference:
+- `typography_spec` in `go-lease-it-slice.cache.json` captures the Figma `Styles` frame (`2901:33`) and should be used before proposing changes to the shared font-size scale.
+
 ## Workflow
 1. Read cache file first for page and node IDs.
 2. Run targeted pull script for the exact node(s) being changed.

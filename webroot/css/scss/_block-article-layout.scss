@@ -25,7 +25,7 @@
   .article-body h1 {
     margin-block: 0 var(--space-md);
     color: var(--color-brand-primary);
-    font-size: var(--type-h1-size);
+    font-size: var(--font-size-5);
     line-height: var(--type-h1-line);
     font-weight: var(--font-weight-extrabold);
     text-wrap: pretty;
@@ -34,7 +34,7 @@
   .article-body h2 {
     margin-block: 0 var(--space-sm);
     color: var(--color-brand-primary);
-    font-size: var(--type-h2-size);
+    font-size: var(--font-size-4);
     line-height: var(--type-h2-line);
     font-weight: var(--font-weight-bold);
     text-wrap: pretty;
@@ -43,7 +43,7 @@
   .article-body h3 {
     margin-block: 0 var(--space-xs);
     color: var(--color-brand-punch);
-    font-size: var(--type-h3-size);
+    font-size: var(--font-size-3);
     line-height: var(--type-h3-line);
     font-weight: var(--font-weight-regular);
     text-wrap: pretty;
@@ -52,7 +52,7 @@
   .article-body h4 {
     margin-block: 0 var(--space-2xs);
     color: var(--color-ink-primary);
-    font-size: var(--type-h4-size);
+    font-size: var(--font-size-2);
     line-height: var(--type-h4-line);
     font-weight: var(--font-weight-semibold);
     text-wrap: pretty;
@@ -72,7 +72,7 @@
 
   .article-body li {
     margin: 0;
-    line-height: calc(var(--step-1) * 1.6);
+    line-height: calc(var(--font-size-1) * 1.6);
     color: var(--color-ink-primary);
   }
 
@@ -272,7 +272,7 @@
     align-items: center;
     gap: 0.3em;
     color: var(--color-brand-accent);
-    font-size: var(--step-1);
+    font-size: var(--font-size-1);
     line-height: 1;
     margin-bottom: 0.65rem;
   }
@@ -281,7 +281,7 @@
     margin: 0 0 0.55rem;
     color: var(--color-ink-primary);
     font-family: var(--font-sans-alt);
-    font-size: var(--step-1);
+    font-size: var(--font-size-1);
     line-height: 1.4;
     font-style: italic;
     font-weight: var(--font-weight-semibold);
@@ -290,7 +290,7 @@
   .article-quote__attr {
     margin: 0;
     color: var(--color-ink-primary);
-    font-size: var(--step-1);
+    font-size: var(--font-size-1);
     line-height: 1.1;
     text-align: right;
     font-weight: var(--font-weight-strong);

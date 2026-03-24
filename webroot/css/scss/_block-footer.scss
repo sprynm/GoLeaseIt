@@ -120,7 +120,7 @@
     padding-top: var(--space-sm);
     text-align: center;
     color: rgb(var(--white-rgb) / var(--alpha-75));
-    font-size: var(--step--1);
+    font-size: var(--font-size--1);
     line-height: 1.25;
     white-space: nowrap;
   }
@@ -152,7 +152,7 @@
 
     .copyright {
       white-space: normal;
-      font-size: var(--step--1);
+      font-size: var(--font-size--1);
       text-align: left;
     }
   }

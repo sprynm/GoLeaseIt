@@ -201,6 +201,8 @@ FAQ-specific note:
 2. Do not rely on `{{block type="FAQ" id="..."}}` in standard page body WYSIWYG; the default page body path does not parse Prototype block tokens.
 3. For a dedicated FAQ page, set the Prototype Instance layout to `faq` and link to the instance summary URL.
 4. If frontend output does not match the CorePlugin FAQ template, check for a site-level override first at `Plugin/Prototype/View/faq/PrototypeInstances/view.ctp`.
+5. The supported FAQ interaction pattern is native `<details>/<summary>` with CSS-only styling and state changes.
+6. The FAQ component is also mirrored in `webroot/style-guide/index.html` so design and spacing changes can be reviewed outside the live instance route.
 
 ## 11. QA Checklist Before Publishing
 
@@ -311,3 +313,4 @@ FTP sync is an environment reality for this project. After syncing, reconcile ex
 3. Prefer native HTML behavior before introducing JS. The FAQ migration was simpler and more durable once it used `<details>/<summary>` instead of jQuery accordion behavior.
 4. Treat transferred site overrides as part of the real implementation surface. If a file is edited remotely and synced back later, reconcile it explicitly with the local CorePlugin version before debugging cache or routing.
 5. Document the deployment path with the code change. For prototype work, the docs need to capture both the intended rendering path and the override precedence, otherwise the next pass wastes time debugging the wrong template.
+6. Add prototype-facing components to the style guide when they have meaningful visual behavior. FAQ styling became easier to refine once the runtime markup was mirrored into the guide as a contact-sheet surface.

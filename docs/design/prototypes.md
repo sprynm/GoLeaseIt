@@ -36,6 +36,25 @@ If the pattern is reusable across pages/prototypes, add to shared block/composit
 
 ## Component Notes
 
+### `faq` — FAQ disclosure list
+
+File: `Plugin/Prototype/View/faq/PrototypeInstances/view.ctp` / `_prototype-faq.scss`
+
+Use native `<details>/<summary>` for disclosure behavior. Do not add JS accordion behavior for the default FAQ pattern.
+
+Design decisions:
+- Question rows are UI controls, not section headings. Keep them on the shared type scale at `var(--font-size-1)`.
+- Use a light bordered surface with no drop shadow.
+- The disclosure icon is a single circular control rendered from one pseudo-element so the chevron cannot drift outside the circle.
+- The icon rotates on open/close state only, not on hover.
+- Vertical rhythm should stay compact and readable: moderate gaps between items, restrained answer padding, and shared article-body text rhythm inside answers.
+
+Regression surface:
+- FAQ is represented in `webroot/style-guide/index.html` using production FAQ markup inside the article-body shell.
+- Keep the style-guide example aligned with the live FAQ template so typography, spacing, and disclosure behavior are covered by visual review.
+
+---
+
 ### `industries_served` — Industries We Serve grid
 
 File: `View/Elements/home/industries_served.ctp` / `_prototype-home.scss`

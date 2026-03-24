@@ -139,6 +139,18 @@
     margin-bottom: 0;
   }
 
+  .sg-card--faq {
+    padding: clamp(1.2rem, 2.2vw, 1.9rem);
+  }
+
+  .sg-card--faq .article-body {
+    max-width: 52rem;
+  }
+
+  .sg-card--faq .article-body > h1 {
+    margin-bottom: clamp(0.9rem, 1.6vw, 1.25rem);
+  }
+
   .sg-chip-row {
     display: flex;
     flex-wrap: wrap;
